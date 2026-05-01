@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Geist } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
 import { ThemeProvider } from "../components/theme-provider"
 import {
@@ -18,13 +19,19 @@ import {
 import { QueryProvider } from "../providers/QueryProvider"
 import "./globals.css"
 
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-PE" suppressHydrationWarning>
+    <html
+      lang="es-PE"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       <body
         suppressHydrationWarning
         className={cn(
