@@ -1,0 +1,5 @@
+export { carroceriaService } from "./carroceria.service"
+export { marcaService } from "./marca.service"
+export { portadaService } from "./portada.service"
+export { sedeService } from "./sede.service"
+export { vehiculoService } from "./vehiculo.service"

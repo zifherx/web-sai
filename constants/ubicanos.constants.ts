@@ -1,0 +1,3 @@
+export const DEFAULT_UBICATION_CENTER: [number, number] = [
+  -12.11249985070803, -77.01393015682699,
+]
