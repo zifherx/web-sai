@@ -1,45 +1,65 @@
-import { ReactNode } from "react";
-import type { Metadata } from "next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import NextTopLoader from "nextjs-toploader";
-
-import { hyundaiHeadbold, hyundaiHeadLight, hyundaiHeadMedium, hyundaiHeadRegular, hyundaiTextBold, hyundaiTextItalicBold, hyundaiTextItalicMedium, hyundaiTextItalicRegular, hyundaiTextMedium, hyundaiTextRegular } from "@/fonts";
-import "./globals.css";
-
-import { cn } from "@/lib/utils";
-import { METADATA } from "@/lib/Metadata";
-
-
-
-export const metadata: Metadata = METADATA;
+import { cn } from "@/lib/utils"
+import NextTopLoader from "nextjs-toploader"
+import { ThemeProvider } from "../components/theme-provider"
+import {
+  dmSans,
+  fontMono,
+  hyundaiSansHeadBold,
+  hyundaiSansHeadLight,
+  hyundaiSansHeadMedium,
+  hyundaiSansHeadRegular,
+  hyundaiSansTextbold,
+  hyundaiSansTextBoldItalic,
+  hyundaiSansTextMedium,
+  hyundaiSansTextMediumItalic,
+  hyundaiSansTextRegular,
+  hyundaiSansTextRegularItalic,
+} from "../fonts"
+import { QueryProvider } from "../providers/QueryProvider"
+import "./globals.css"
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es-PE" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={cn(
-          `${hyundaiTextRegular.variable} ${hyundaiTextMedium.variable} ${hyundaiTextBold.variable}`, 
-          `${hyundaiTextItalicRegular.variable} ${hyundaiTextItalicMedium.variable} ${hyundaiTextItalicBold.variable}`, 
-          `${hyundaiHeadLight.variable} ${hyundaiHeadRegular.variable} ${hyundaiHeadMedium.variable} ${hyundaiHeadbold.variable}`, "antialiased")}
+          "antialiased",
+          fontMono.variable,
+          "font-sans",
+          dmSans.variable,
+          hyundaiSansHeadBold.variable,
+          hyundaiSansHeadMedium.variable,
+          hyundaiSansHeadRegular.variable,
+          hyundaiSansHeadLight.variable,
+          hyundaiSansTextbold.variable,
+          hyundaiSansTextMedium.variable,
+          hyundaiSansTextRegular.variable,
+          hyundaiSansTextBoldItalic.variable,
+          hyundaiSansTextMediumItalic.variable,
+          hyundaiSansTextRegularItalic.variable
+        )}
       >
         <NextTopLoader
-            color="#1B5094"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={3}
-            crawl={true}
-            showSpinner={true}
-            easing="ease"
-            speed={200}
-            shadow="0 0 10px #1B5094,0 0 5px #1B5094"
-          />
-        {children}
-        <SpeedInsights />
+          color="#3b6fd4"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #3b6fd4, 0 0 5px #3b6fd4"
+          zIndex={9999}
+        />
+        <QueryProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
-  );
+  )
 }
