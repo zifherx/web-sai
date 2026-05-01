@@ -17,6 +17,10 @@ import {
 } from "../fonts"
 import { QueryProvider } from "../providers/QueryProvider"
 import "./globals.css"
+import { Geist } from "next/font/google";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 export default function RootLayout({
   children,
@@ -24,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-PE" suppressHydrationWarning>
+    <html lang="es-PE" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
       <body
         suppressHydrationWarning
         className={cn(

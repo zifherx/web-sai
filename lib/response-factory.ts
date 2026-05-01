@@ -1,12 +1,5 @@
 import { NextResponse } from "next/server"
 
-interface APIResponse<T = unknown> {
-  success: boolean
-  message: string
-  data?: T
-  error?: string
-}
-
 export class ResponseFactory {
   static success<T>(data: T, message = "OK"): NextResponse {
     return NextResponse.json({ success: true, message, data }, { status: 200 })

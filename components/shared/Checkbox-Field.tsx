@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef } from "react"
 
 export const CheckboxField = forwardRef<
   HTMLInputElement,
-  { label: React.ReactNode; error?: string; [key: string]: unknown }
+  { label: React.ReactNode; error?: string; [key: string]: any }
 >(({ label, error, ...props }, ref) => (
   <div className="flex flex-col gap-1">
     <label className="flex cursor-pointer items-start gap-2">
