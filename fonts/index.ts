@@ -1,71 +1,79 @@
-import localFont from "next/font/local";
+import { DM_Sans, Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
 
-export const hyundaiHeadLight = localFont({
-  src: "./headOffice/HyundaiSansHeadOffice-Light.woff2",
-  variable: "--font-hyundai-head-light",
+export const hyundaiSansHeadLight = localFont({
+  src: "./headOffice.font/HyundaiSansHeadOffice-Light.woff2",
+  variable: "--font-hyundai-sans-head-light",
   weight: "300",
   style: "normal",
-});
+})
 
-export const hyundaiHeadRegular = localFont({
-  src: "./headOffice/HyundaiSansHeadOffice-Regular.woff2",
-  variable: "--font-hyundai-head-regular",
-  weight: "400",
-  style: "normal",
-});
-
-export const hyundaiHeadMedium = localFont({
-  src: "./headOffice/HyundaiSansHeadOffice-Medium.woff2",
-  variable: "--font-hyundai-head-medium",
+export const hyundaiSansHeadRegular = localFont({
+  src: "./headOffice.font/HyundaiSansHeadOffice-Regular.woff2",
+  variable: "--font-hyundai-sans-head-regular",
   weight: "500",
   style: "normal",
-});
+})
 
-export const hyundaiHeadbold = localFont({
-  src: "./headOffice/HyundaiSansHeadOffice-Bold.woff2",
-  variable: "--font-hyundai-head-bold",
-});
-
-// Text Office Normal
-export const hyundaiTextRegular = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-Regular.woff2",
-  variable: "--font-hyundai-text-regular",
-  weight: "400",
-  style: "normal",
-});
-
-export const hyundaiTextMedium = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-Medium.woff2",
-  variable: "--font-hyundai-text-medium",
-  weight: "500",
-  style: "normal",
-});
-
-export const hyundaiTextBold = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-Bold.woff2",
-  variable: "--font-hyundai-text-bold",
+export const hyundaiSansHeadMedium = localFont({
+  src: "./headOffice.font/HyundaiSansHeadOffice-Medium.woff2",
+  variable: "--font-hyundai-sans-head-medium",
   weight: "700",
   style: "normal",
-});
+})
 
-// Text Office Italic
-export const hyundaiTextItalicRegular = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-Italic.woff2",
-  variable: "--font-hyundai-text-italic-regular",
-  weight: "400",
-  style: "italic",
-});
+export const hyundaiSansHeadBold = localFont({
+  src: "./headOffice.font/HyundaiSansHeadOffice-Bold.woff2",
+  variable: "--font-hyundai-sans-head-bold",
+  weight: "900",
+  style: "normal",
+})
 
-export const hyundaiTextItalicMedium = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-MediumItalic.woff2",
-  variable: "--font-hyundai-text-italic-medium",
+export const hyundaiSansTextRegular = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-Regular.woff2",
+  variable: "--font-hyundai-sans-text-regular",
+  weight: "500",
+  style: "normal",
+})
+
+export const hyundaiSansTextMedium = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-Medium.woff2",
+  variable: "--font-hyundai-sans-text-medium",
+  weight: "700",
+  style: "normal",
+})
+
+export const hyundaiSansTextbold = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-Bold.woff2",
+  variable: "--font-hyundai-sans-text-bold",
+  weight: "900",
+  style: "normal",
+})
+
+export const hyundaiSansTextRegularItalic = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-Italic.woff2",
+  variable: "--font-hyundai-sans-text-regular-italic",
   weight: "500",
   style: "italic",
-});
+})
 
-export const hyundaiTextItalicBold = localFont({
-  src: "./textOffice/HyundaiSansTextOffice-BoldItalic.woff2",
-  variable: "--font-hyundai-text-italic-bold",
+export const hyundaiSansTextMediumItalic = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-MediumItalic.woff2",
+  variable: "--font-hyundai-sans-text-medium-italic",
   weight: "700",
   style: "italic",
-});
+})
+
+export const hyundaiSansTextBoldItalic = localFont({
+  src: "./textOffice.font/HyundaiSansTextOffice-BoldItalic.woff2",
+  variable: "--font-hyundai-sans-text-bold-italic",
+  weight: "900",
+  style: "italic",
+})
+
+export const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" })
+
+export const fontMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+})
