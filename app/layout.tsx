@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Geist } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
 import { ThemeProvider } from "../components/theme-provider"
 import {
@@ -17,10 +18,8 @@ import {
 } from "../fonts"
 import { QueryProvider } from "../providers/QueryProvider"
 import "./globals.css"
-import { Geist } from "next/font/google";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
 export default function RootLayout({
   children,
@@ -28,7 +27,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-PE" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html
+      lang="es-PE"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       <body
         suppressHydrationWarning
         className={cn(
