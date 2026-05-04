@@ -1,9 +1,10 @@
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 import { QueryProvider } from "@/providers/QueryProvider"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import NextTopLoader from "nextjs-toploader"
 import {
   dmSans,
@@ -196,6 +197,7 @@ export default function RootLayout({
           }}
         />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
