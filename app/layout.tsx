@@ -1,7 +1,9 @@
+import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
+import { QueryProvider } from "@/providers/QueryProvider"
+import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import NextTopLoader from "nextjs-toploader"
-import { ThemeProvider } from "../components/theme-provider"
 import {
   dmSans,
   fontMono,
@@ -16,10 +18,124 @@ import {
   hyundaiSansTextRegular,
   hyundaiSansTextRegularItalic,
 } from "../fonts"
-import { QueryProvider } from "../providers/QueryProvider"
 import "./globals.css"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s — Automotores Inka",
+    default: "Automotores Inka | Concesionario Multimarca Perú",
+  },
+  description:
+    "Concesionario multimarca autorizado con presencia en Lima, Trujillo, Chimbote y Chiclayo. Venta de vehículos nuevos: Changan, Hyundai, Mazda, Subaru, Renault, Suzuki, JAC, HAVAL, DFSK, JMC y más. Más de 12 años en el rubro automotriz peruano.",
+
+  // ─── Autoría y aplicación ─────────────────────────────────
+
+  creator: "Ziphonex Tech",
+  generator: "Next.js",
+  applicationName: "Automotores Inka",
+  referrer: "origin-when-cross-origin",
+
+  // ─── Keywords ─────────────────────────────────────────────
+
+  keywords: [
+    "comprar auto nuevo Peru",
+    "concesionario multimarca Peru",
+    "Automotores Inka",
+    "Changan Peru",
+    "Hyundai Peru",
+    "Mazda Peru",
+    "Subaru Peru",
+    "Renault Peru",
+    "JAC Peru",
+    "JMC Peru",
+    "autos nuevos Trujillo",
+    "autos nuevos Lima",
+    "autos nuevos Chiclayo",
+    "autos nuevos Chimbote",
+    "camionetas 4x4 Peru",
+    "autos GLP Peru",
+    "financiamiento automotriz Peru",
+    "taller autorizado Hyundai",
+    "taller autorizado Changan",
+    "vehículos comerciales Peru",
+  ],
+
+  // ─── Open Graph ───────────────────────────────────────────
+
+  openGraph: {
+    type: "website",
+    locale: "es_PE",
+    url: "https://www.automotoresinka.pe",
+    siteName: "Automotores Inka",
+    title: "Automotores Inka | Concesionario Multimarca Perú",
+    description:
+      "Venta de vehículos nuevos en Lima, Trujillo, Chimbote y Chiclayo. Marcas: Changan, Hyundai, Mazda, Subaru, Renault, JAC, JMC y más.",
+    images: [
+      {
+        url: "https://www.automotoresinka.pe/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Automotores Inka — Concesionario Multimarca Perú",
+      },
+    ],
+  },
+
+  // ─── Twitter / X ──────────────────────────────────────────
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Automotores Inka | Concesionario Multimarca Perú",
+    description:
+      "Venta de vehículos nuevos en Lima, Trujillo, Chimbote y Chiclayo.",
+    images: ["https://www.automotoresinka.pe/og-image.jpg"],
+  },
+
+  // ─── Robots ───────────────────────────────────────────────
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // ─── Canonical ────────────────────────────────────────────
+
+  alternates: {
+    canonical: "https://www.automotoresinka.pe",
+    languages: { "es-PE": "https://www.automotoresinka.pe/es-PE" },
+  },
+
+  // ─── Verificaciones ───────────────────────────────────────
+
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION ?? "",
+  },
+
+  // ─── Formato ──────────────────────────────────────────────
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+
+  // ─── Favicon / Iconos ─────────────────────────────────────
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+}
 
 export default function RootLayout({
   children,
@@ -52,7 +168,7 @@ export default function RootLayout({
         )}
       >
         <NextTopLoader
-          color="#3b6fd4"
+          color="#0ea5e9"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -60,12 +176,24 @@ export default function RootLayout({
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 10px #3b6fd4, 0 0 5px #3b6fd4"
+          shadow="0 0 10px #0ea5e9, 0 0 5px #0ea5e9"
           zIndex={9999}
         />
-        <QueryProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
+
+        <Toaster
+          position="bottom-right"
+          richColors
+          closeButton
+          toastOptions={{
+            duration: 4000,
+            classNames: {
+              toast: "font-textOffice-regular",
+              title: "font-textOffice-medium",
+              description: "font-textOffice-regular text-xs",
+            },
+          }}
+        />
       </body>
     </html>
   )

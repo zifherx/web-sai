@@ -1,9 +1,65 @@
-import { cn } from "@/lib/utils"
-import { CORPORATIVO_BENEFICIOS_PROPS } from "@/types/corporativo.types"
+import { cn } from "@/lib"
+import {
+  BarChart3,
+  GraduationCap,
+  Handshake,
+  Settings,
+  ShoppingCart,
+  Users,
+} from "lucide-react"
 
-export function CorporativoBeneficios({
-  beneficios,
-}: CORPORATIVO_BENEFICIOS_PROPS) {
+export const CORPORATIVO_BENEFICIOS = [
+  {
+    id: "equipo-profesional",
+    icon: Users,
+    title: "Equipo profesional",
+    description:
+      "Contamos con asesores especializados en flotas corporativas que te brindan atención personalizada y profesional en todos nuestros procesos.",
+    variant: "light",
+  },
+  {
+    id: "generacion-reportes",
+    icon: BarChart3,
+    title: "Generación de reportes",
+    description:
+      "Accede a reportes detallados de tu flota: mantenimientos, seguimiento de unidades y cumplimiento de indicadores operativos.",
+    variant: "dark",
+  },
+  {
+    id: "capacitaciones",
+    icon: GraduationCap,
+    title: "Capacitaciones",
+    description:
+      "Ofrecemos programas de capacitación para conductores y gestores de flota, potenciando el uso eficiente y seguro de los vehículos.",
+    variant: "light",
+  },
+  {
+    id: "convenios",
+    icon: Handshake,
+    title: "Convenios",
+    description:
+      "Establecemos convenios corporativos en precios, mantenimientos y repuestos exclusivos pensados para maximizar la rentabilidad de tu empresa.",
+    variant: "dark",
+  },
+  {
+    id: "gestion",
+    icon: Settings,
+    title: "Gestión",
+    description:
+      "Te acompañamos con una plataforma de gestión que integra y administra los procesos técnicos y logísticos de toda tu flota.",
+    variant: "light",
+  },
+  {
+    id: "compras",
+    icon: ShoppingCart,
+    title: "Compras",
+    description:
+      "Simplificamos ventas, renovaciones y adquisiciones corporativas, facilitando los trámites administrativos y la toma de decisiones.",
+    variant: "dark",
+  },
+]
+
+export function CorporativoBeneficios() {
   return (
     <section className="w-full py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -12,7 +68,7 @@ export function CorporativoBeneficios({
         </h2>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {beneficios.map((beneficio) => {
+          {CORPORATIVO_BENEFICIOS.map((beneficio) => {
             const Icon = beneficio.icon
             const isDark = beneficio.variant === "dark"
             return (

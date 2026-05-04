@@ -1,7 +1,4 @@
-type YOUTUBE_VIDEO_FRAME_PROPS = {
-  title: string
-  videoSource: string
-}
+import { YOUTUBE_VIDEO_FRAME_PROPS } from "@/types"
 
 export function YoutubeVideoFrame({
   title,

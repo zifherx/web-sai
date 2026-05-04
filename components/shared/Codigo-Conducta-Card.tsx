@@ -1,6 +1,5 @@
-import { parseBoldText } from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { CODIGO_CONDUCTA_CARD_PROPS } from "@/types/nosotros.types"
+import { cn, parseBoldText } from "@/lib"
+import { CODIGO_CONDUCTA_CARD_PROPS } from "@/types"
 
 export function CodigoConductaCard({ codigo }: CODIGO_CONDUCTA_CARD_PROPS) {
   const { text } = codigo

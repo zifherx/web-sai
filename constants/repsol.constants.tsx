@@ -1,12 +1,10 @@
 import {
-  IRepsolBeneficio,
   IRepsolCTA,
   IRepsolHero,
   IRepsolInfo,
   IRepsolVentaja,
   IRepsolVideo,
-} from "@/types/repsol.types"
-import { BadgeCheck } from "lucide-react"
+} from "@/types"
 
 export const REPSOL_HERO: IRepsolHero = {
   eyebrow: "Con Automotores Inka",
@@ -20,26 +18,6 @@ export const REPSOL_INFO: IRepsolInfo = {
   headingAccent: "nuestros beneficios",
   description:
     "Ahorra más en cada carga de combustible con nuestros descuentos exclusivos, además de acceder a beneficios adicionales pensados para ti, que hacen cada recarga más conveniente y rentable.",
-}
-
-export const REPSOL_BENEFICIOS: IRepsolBeneficio = {
-  imageSrc: "/images/repsol/gas-station.jpg",
-  imageAlt: "Pistola de combustible en grifo Repsol",
-  descuentos: [
-    { tipo: "Premier y Regular", monto: "S/ 2.50" },
-    { tipo: "Diesel", monto: "S/ 0.50" },
-    { tipo: "GLP", monto: "S/ 0.20" },
-  ],
-  cobertura: [
-    { ciudad: "Lima" },
-    { ciudad: "Chimbote" },
-    { ciudad: "Trujillo" },
-    { ciudad: "Chiclayo" },
-  ],
-  beneficiosAdicionales: {
-    label: "Beneficios Adicionales",
-    icon: BadgeCheck,
-  },
 }
 
 export const REPSOL_VENTAJAS: IRepsolVentaja = {

@@ -1,12 +1,15 @@
-/* eslint-disable react-hooks/refs */
 "use client"
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useActiveMarcas } from "@/hooks"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useRef } from "react"
-import { useActiveMarcas } from "../../../hooks/queries/use-marca"
-import { Carousel, CarouselContent, CarouselItem } from "../../ui/carousel"
-import { Skeleton } from "../../ui/skeleton"
 
 export function BrandCarousel() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }))

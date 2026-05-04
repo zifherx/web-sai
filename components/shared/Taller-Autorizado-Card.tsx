@@ -1,18 +1,18 @@
+import { cn } from "@/lib"
+import { SedeType } from "@/types"
 import { Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { cn } from "../../lib/utils"
-import { SedeType } from "../../types/api.types"
 
 type TALLER_AUTORIZADO_CARD_PROPS = {
   sede: SedeType
 }
 
 export function TallerAutorizadoCard({ sede }: TALLER_AUTORIZADO_CARD_PROPS) {
-  const { imageUrl, slug, scheduleExtended, scheduleRegular, name, address } =
+  const { imageUrl, scheduleExtended, scheduleRegular, name, address, ciudad } =
     sede
 
-  const href = `/sede/${slug}`
+  const href = `/posventa/separa-tu-cita/?ciudad=${encodeURIComponent(ciudad.toLowerCase())}`
 
   const scheduleLines = [scheduleRegular, scheduleExtended].filter(Boolean)
 

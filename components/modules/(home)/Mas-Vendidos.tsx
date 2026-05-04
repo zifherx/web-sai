@@ -1,16 +1,18 @@
-/* eslint-disable react-hooks/refs */
 "use client"
 
+import { VehicleHomeCard } from "@/components/shared/Vehicle-Home-Card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useActiveMarcas, useActiveVehiculos } from "@/hooks"
+import { cn } from "@/lib"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useRef } from "react"
-import { useActiveMarcas } from "../../../hooks/queries/use-marca"
-import { useActiveVehiculos } from "../../../hooks/queries/use-vehiculo"
-import { cn } from "../../../lib/utils"
-import { VehicleHomeCard } from "../../shared/Vehicle-Home-Card"
-import { Carousel, CarouselContent, CarouselItem } from "../../ui/carousel"
-import { Skeleton } from "../../ui/skeleton"
 
 export function MasVendidos() {
   const plugin = useRef(
@@ -23,7 +25,12 @@ export function MasVendidos() {
 
   const { data: marcas } = useActiveMarcas()
 
-  const marcaMap = Object.fromEntries((marcas ?? []).map((m) => [m.id, m.name]))
+  const marcaNameMap = Object.fromEntries(
+    (marcas ?? []).map((m) => [m.id, m.name])
+  )
+  const marcaSlugMap = Object.fromEntries(
+    (marcas ?? []).map((m) => [m.id, m.slug])
+  )
 
   const skeletonItems = Array(4).fill(null)
 
@@ -96,7 +103,8 @@ export function MasVendidos() {
                 >
                   <VehicleHomeCard
                     vehiculo={vehiculo}
-                    marcaNombre={marcaMap[vehiculo.marcaId]}
+                    marcaNombre={marcaNameMap[vehiculo.marcaId]}
+                    marcaSlug={marcaSlugMap[vehiculo.marcaId]}
                   />
                 </CarouselItem>
               ))}

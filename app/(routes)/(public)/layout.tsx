@@ -1,6 +1,6 @@
 import { Footer } from "@/components/layout/Footer"
 import { Navbar } from "@/components/layout/Navbar"
-import { FOOTER_CONSTANTS } from "@/constants/footer.constants"
+import { FOOTER_CONSTANTS } from "@/constants"
 import { ReactNode } from "react"
 
 export default function PublicLayout({

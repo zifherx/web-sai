@@ -1,6 +1,6 @@
-import { connectDB } from "@/interfaces/infrastructure/database/connection"
-import { carroceriaFactory } from "@/interfaces/infrastructure/di/carroceria.factory"
-import { ResponseFactory } from "@/lib/response-factory"
+import { connectDB } from "@/interfaces/infrastructure/database"
+import { carroceriaFactory } from "@/interfaces/infrastructure/di"
+import { ResponseFactory } from "@/lib"
 import { type NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {

@@ -218,3 +218,19 @@
     @apply font-sans;
   }
 }
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(450%);
+  }
+}
+
+.loading-bar {
+  animation: loading-bar 1.4s ease-in-out infinite;
+}

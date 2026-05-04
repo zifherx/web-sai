@@ -1,12 +1,12 @@
 "use client"
 
+import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks/queries/use-marca"
+import { cn } from "@/lib/"
 import { ChevronDown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { cn } from "../../lib/utils"
-import { Skeleton } from "../ui/skeleton"
 
 export function VehiculosDropdown() {
   const [open, setOpen] = useState(false)
