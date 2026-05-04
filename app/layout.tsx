@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { QueryProvider } from "@/providers/QueryProvider"
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import NextTopLoader from "nextjs-toploader"
 import {
   dmSans,
@@ -194,6 +195,7 @@ export default function RootLayout({
             },
           }}
         />
+        <Analytics />
       </body>
     </html>
   )
