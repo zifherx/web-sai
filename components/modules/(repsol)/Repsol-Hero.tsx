@@ -1,4 +1,4 @@
-import { REPSOL_HERO_PROPS } from "@/types/repsol.types"
+import { REPSOL_HERO_PROPS } from "@/types"
 import Image from "next/image"
 
 export function RepsolHero({ hero }: REPSOL_HERO_PROPS) {

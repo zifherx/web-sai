@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { COLOR_PICKER_PROPS } from "@/types/marcamodelo.types"
+import { cn } from "@/lib"
+import { COLOR_PICKER_PROPS } from "@/types"
 
 export function ColorPicker({
   colorActivo,

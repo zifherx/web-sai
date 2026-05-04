@@ -1,6 +1,6 @@
 "use client"
 
-import { REPSOL_VIDEO_PROPS } from "@/types/repsol.types"
+import { REPSOL_VIDEO_PROPS } from "@/types"
 
 export function RepsolVideo({ video }: REPSOL_VIDEO_PROPS) {
   const { headingAccent, headingNeutral, videoYoutube } = video

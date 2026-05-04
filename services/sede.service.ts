@@ -1,5 +1,5 @@
-import { httpClient } from "../lib/http/axios.client"
-import type { APIResponse, ISedeFilters, SedeType } from "../types/api.types"
+import { httpClient } from "@/lib/http/axios.client"
+import type { APIResponse, ISedeFilters, SedeType } from "@/types"
 
 export const sedeService = {
   getAll: async (filters?: ISedeFilters): Promise<SedeType[]> => {

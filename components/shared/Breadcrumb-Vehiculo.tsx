@@ -1,4 +1,4 @@
-import { BREADCRUMB_VEHICULO_PROPS } from "@/types/marcamodelo.types"
+import { BREADCRUMB_VEHICULO_PROPS } from "@/types"
 import { Home } from "lucide-react"
 import Link from "next/link"
 

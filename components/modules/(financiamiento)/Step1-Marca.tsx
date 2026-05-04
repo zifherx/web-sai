@@ -1,7 +1,9 @@
+"use client"
+
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActiveMarcas } from "@/hooks/queries/use-marca"
+import { useActiveMarcas } from "@/hooks"
 import { cn } from "@/lib/utils"
-import { IMarcaSelect, STEP1_MARCA_PROPS } from "@/types/financiamiento.types"
+import { IMarcaSelect, STEP1_MARCA_PROPS } from "@/types"
 import Image from "next/image"
 
 export function Step1Marca({ initialData, onNext }: STEP1_MARCA_PROPS) {
@@ -12,6 +14,7 @@ export function Step1Marca({ initialData, onNext }: STEP1_MARCA_PROPS) {
       marcaId: marca.id,
       marcaNombre: marca.name,
       marcaSlug: marca.slug,
+      marcaIdNovaly: marca.idNovaly,
     })
   }
 

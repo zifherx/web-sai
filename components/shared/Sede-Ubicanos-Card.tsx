@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { SEDE_UBICANOS_CARD_PROPS } from "@/types/ubicanos.types"
+import { cn } from "@/lib"
+import { SEDE_UBICANOS_CARD_PROPS } from "@/types"
 import { Car, Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -8,13 +8,14 @@ export function SedeUbicanosCard({
   sede,
   marcasVentas = [],
 }: SEDE_UBICANOS_CARD_PROPS) {
-  const { address, imageUrl, name, slug, scheduleExtended, scheduleRegular } =
+  const { address, imageUrl, name, scheduleExtended, scheduleRegular, ciudad } =
     sede
-  const href = `/ubicanos/${slug}`
   const scheduleLines = [
     `Lunes a Viernes de ${scheduleRegular}`,
     `Sábado de ${scheduleExtended}`,
   ].filter(Boolean)
+
+  const separaCitaHref = `/posventa/separa-tu-cita?ciudad=${encodeURIComponent(ciudad.toLowerCase())}`
 
   return (
     <article
@@ -109,7 +110,7 @@ export function SedeUbicanosCard({
         )}
 
         <Link
-          href={href}
+          href={separaCitaHref}
           className={cn(
             "mt-auto block w-full rounded-xl",
             "bg-sky-custom-500 px-4 py-4",

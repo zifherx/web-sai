@@ -5,7 +5,6 @@ import { RepsolInfo } from "@/components/modules/(repsol)/Repsol-Info"
 import { RepsolVentajas } from "@/components/modules/(repsol)/Repsol-Ventajas"
 import { RepsolVideo } from "@/components/modules/(repsol)/Repsol-Video"
 import {
-  REPSOL_BENEFICIOS,
   REPSOL_CTA,
   REPSOL_HERO,
   REPSOL_INFO,
@@ -18,7 +17,7 @@ export function BenficiosRepsolView() {
     <main>
       <RepsolHero hero={REPSOL_HERO} />
       <RepsolInfo info={REPSOL_INFO} />
-      <RepsolBeneficios beneficios={REPSOL_BENEFICIOS} />
+      <RepsolBeneficios />
       <RepsolVentajas ventajas={REPSOL_VENTAJAS} />
       <RepsolCTA callToAction={REPSOL_CTA} />
       <RepsolVideo video={REPSOL_VIDEO} />

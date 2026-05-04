@@ -1,6 +1,6 @@
-import { WIZARD_STEPS_FORM } from "@/constants/financiamiento.constant"
-import { cn } from "@/lib/utils"
-import { WIZARD_SIDEBAR_PROPS } from "@/types/financiamiento.types"
+import { WIZARD_STEPS_FORM } from "@/constants"
+import { cn } from "@/lib"
+import { WIZARD_SIDEBAR_PROPS } from "@/types"
 
 export function WizardSidebar({
   currentStep,

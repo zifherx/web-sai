@@ -1,5 +1,5 @@
-import { cn } from "../../lib/utils"
-import { SEARCH_SELECT_PROPS } from "../../types/searchSelect.types"
+import { cn } from "@/lib"
+import { SEARCH_SELECT_PROPS } from "@/types"
 import {
   Select,
   SelectContent,

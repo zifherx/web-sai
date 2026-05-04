@@ -1,33 +1,20 @@
-import {
-  IBottomBar,
-  IBrand,
-  ICarouselCorporativoSlide,
-  IContentFooter,
-} from "../interfaces"
-
-export type CircleProgressProps = {
-  value: number
-  className?: string
-}
-
-export type FOOTER_PROPS = IContentFooter & {
-  brand: IBrand
-  bottomBar: IBottomBar
-}
-
-export type LOGO_FOOTER_PROPS = {
-  brand: IBrand
-}
-
-export type CONTENT_FOOTER_PROPS = {
-  content: IContentFooter
-}
-
-export type BOTTOM_BAR_PROPS = {
-  bottom: IBottomBar
-}
-
-export type SLIDE_CARD_PROPS = {
-  slide: ICarouselCorporativoSlide
-  isActive?: boolean
-}
+export * from "./api.types"
+export * from "./catalogo.types"
+export * from "./cita.types"
+export * from "./corporativo.types"
+export * from "./cotizacion.types"
+export * from "./financiamiento.types"
+export * from "./footer.types"
+export * from "./lead-corporativo.types"
+export * from "./legal.types"
+export * from "./marcamodelo.types"
+export * from "./navbar.types"
+export * from "./nosotros.types"
+export * from "./reclamo.types"
+export * from "./repsol.types"
+export * from "./searchSelect.types"
+export * from "./separa.cita.types"
+export * from "./shared.types"
+export * from "./showcase.types"
+export * from "./ubicanos.types"
+export * from "./vehicle.types"

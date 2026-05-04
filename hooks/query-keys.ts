@@ -47,3 +47,26 @@ export const vehiculoKeys = {
   slug: (slug: string) => ["vehiculo", "slug", slug] as const,
   byMarca: (marcaId: string) => ["vehiculo", "marca", marcaId] as const,
 }
+
+export const reclamoKeys = {
+  all: () => ["reclamo"] as const,
+  list: () => ["reclamo", "list"] as const,
+  detail: (id: string) => ["reclamo", "detail", id] as const,
+}
+
+export const cotizacionKeys = {
+  all: () => ["cotizacion"] as const,
+  list: () => ["cotizacion", "list"] as const,
+  detail: (id: string) => ["cotizacion", "detail", id] as const,
+  byFecha: (from: string, to: string) =>
+    ["cotizacion", "list", { from, to }] as const,
+  bySede: (sedeId: string) => ["cotizacion", "sede", sedeId] as const,
+}
+
+export const citaKeys = {
+  all: () => ["cita"] as const,
+  list: () => ["cita", "list"] as const,
+  detail: (id: string) => ["cita", "detail", id] as const,
+  bySede: (sedeId: string) => ["cita", "sede", sedeId] as const,
+  byServicio: (tipo: string) => ["cita", "servicio", tipo] as const,
+}

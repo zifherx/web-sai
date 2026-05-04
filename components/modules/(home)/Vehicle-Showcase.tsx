@@ -1,9 +1,9 @@
+import { FeatureShowcaseCard } from "@/components/shared/Feature-Showcase-Card"
+import { cn } from "@/lib"
+import { VEHICLE_SHOWCASE_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { cn } from "../../../lib/utils"
-import { VEHICLE_SHOWCASE_PROPS } from "../../../types/showcase.types"
-import { FeatureShowcaseCard } from "../../shared/Feature-Showcase-Card"
 
 export function VehicleShowcase({ showcase }: VEHICLE_SHOWCASE_PROPS) {
   const { ctaHref, ctaLabel, features, headingAccent, headingMain, mainImage } =

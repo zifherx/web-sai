@@ -1,9 +1,9 @@
 "use client"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActiveSedes } from "@/hooks/queries/use-sede"
-import { cn } from "@/lib/utils"
-import { ISedeParam, STEP3_SEDE_PROPS } from "@/types/financiamiento.types"
+import { useActiveSedes } from "@/hooks"
+import { cn } from "@/lib"
+import { ISedeParam, STEP3_SEDE_PROPS } from "@/types"
 import { ChevronLeft, Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useMemo, useState } from "react"
@@ -33,7 +33,12 @@ export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
   }, [sedes, ciudadFiltro])
 
   const handleSelect = (sede: ISedeParam) => {
-    onNext({ sedeId: sede.id, sedeNombre: sede.name })
+    onNext({
+      sedeId: sede.id,
+      sedeNombre: sede.name,
+      sedeCiudad: sede.ciudad,
+      sedeIdTiendaNovaly: sede.idTiendaNovaly,
+    })
   }
   return (
     <div className="p-4 md:p-8">

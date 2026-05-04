@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { VALORES_CARD_PROPS } from "@/types/nosotros.types"
+import { VALORES_CARD_PROPS } from "@/types"
 
 export function ValoresCard({ valor }: VALORES_CARD_PROPS) {
   const { description, icon: Icon, title, variant } = valor

@@ -1,6 +1,6 @@
+import { cn } from "@/lib/"
+import { FEATURE_SHOWCASE_CARD_PROPS } from "@/types"
 import Image from "next/image"
-import { cn } from "../../lib/utils"
-import { FEATURE_SHOWCASE_CARD_PROPS } from "../../types/showcase.types"
 
 export function FeatureShowcaseCard({ feature }: FEATURE_SHOWCASE_CARD_PROPS) {
   const { description, imageAlt, imageSrc, title } = feature

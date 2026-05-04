@@ -1,4 +1,4 @@
-import { FooterSection } from "@/interfaces"
+import { FooterSection } from "@/types"
 import { FooterNavLink } from "./Footer-NavLink"
 
 export function FooterNavSection({ heading, links }: FooterSection) {

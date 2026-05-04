@@ -1,7 +1,7 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { UBICANOS_MARKER_PROPS } from "@/types/ubicanos.types"
+import { cn } from "@/lib"
+import { UBICANOS_MARKER_PROPS } from "@/types"
 import { icon } from "leaflet"
 import { Clock, MapPin } from "lucide-react"
 import Image from "next/image"

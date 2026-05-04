@@ -1,5 +1,5 @@
 import { httpClient } from "@/lib/http/axios.client"
-import type { APIResponse, PortadaType } from "@/types/api.types"
+import type { APIResponse, PortadaType } from "@/types"
 
 export const portadaService = {
   getAll: async (): Promise<PortadaType[]> => {

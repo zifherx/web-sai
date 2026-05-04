@@ -1,8 +1,11 @@
-import { ICarroceriaRepository } from "@/interfaces/domain/carroceria/carroceria.repository.port"
-import { IMarcaRepository } from "@/interfaces/domain/marca/marca.repository.port"
+import type { ICarroceriaRepository } from "@/interfaces/domain/carroceria/carroceria.repository.port"
+import type { IClienteRepository } from "@/interfaces/domain/cliente/cliente.repository.port"
+import type { ICotizacionRepository } from "@/interfaces/domain/cotizacion/cotizacion.repository.port"
+import type { IMarcaRepository } from "@/interfaces/domain/marca/marca.repository.port"
 import type { IPortadaRepository } from "@/interfaces/domain/portada/portada.repository.port"
-import { ISedeRepository } from "@/interfaces/domain/sede/sede.repository.port"
-import { IVehiculoRepository } from "@/interfaces/domain/vehiculo/vehiculo.repository.port"
+import type { IReclamoRepository } from "@/interfaces/domain/reclamo/reclamo.repository.port"
+import type { ISedeRepository } from "@/interfaces/domain/sede/sede.repository.port"
+import type { IVehiculoRepository } from "@/interfaces/domain/vehiculo/vehiculo.repository.port"
 
 interface ServiceRegistry {
   IPortadaRepository: IPortadaRepository
@@ -10,6 +13,9 @@ interface ServiceRegistry {
   ICarroceriaRepository: ICarroceriaRepository
   IVehiculoRepository: IVehiculoRepository
   ISedeRepository: ISedeRepository
+  IReclamoRepository: IReclamoRepository
+  ICotizacionRepository: ICotizacionRepository
+  IClienteRepository: IClienteRepository
   // Se agregan nuevos
 }
 

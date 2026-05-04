@@ -1,4 +1,4 @@
-import { FORM_FIELD_CONTACTO } from "@/types/financiamiento.types"
+import { FORM_FIELD_CONTACTO } from "@/types"
 
 export function FormField({
   children,

@@ -1,12 +1,6 @@
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTiktok,
-} from "react-icons/fa"
-import { FooterConstants } from "../interfaces"
+import { IFooter } from "@/types"
 
-export const FOOTER_CONSTANTS: FooterConstants = {
+export const FOOTER_CONSTANTS: IFooter = {
   brand: {
     logoSrc: "/assets/logos/logo-blanco.png",
     logoAlt: "Automotores Inka",
@@ -27,13 +21,13 @@ export const FOOTER_CONSTANTS: FooterConstants = {
     {
       heading: "Servicios",
       links: [
-        { label: "Financiamiento", href: "/servicios/financiamiento" },
+        { label: "Financiamiento", href: "/comercial/financiamiento" },
         {
           label: "Flota corporativa",
           href: "/comercial/soluciones-corporativas",
         },
-        // { label: "Asesoría personalizada", href: "/servicios/asesoria" },
-        { label: "Talleres / Mantenimiento", href: "/servicios/talleres" },
+        { label: "Agenda una cita", href: "/posventa/separa-tu-cita" },
+        { label: "Talleres / Mantenimiento", href: "/posventa/talleres" },
       ],
     },
     {
@@ -42,7 +36,10 @@ export const FOOTER_CONSTANTS: FooterConstants = {
         { label: "Accesibilidad", href: "/legal/accesibilidad" },
         { label: "Copyright", href: "/legal/copyright" },
         { label: "Promociones", href: "/legal/promociones" },
-        { label: "Términos y condiciones", href: "/legal/terminos" },
+        {
+          label: "Términos y condiciones",
+          href: "/legal/terminos-condiciones",
+        },
       ],
     },
   ],
@@ -50,22 +47,18 @@ export const FOOTER_CONSTANTS: FooterConstants = {
     {
       name: "Facebook",
       href: "https://www.facebook.com/dealer.automotoresinka",
-      icon: FaFacebookF,
     },
     {
       name: "Instagram",
       href: "https://instagram.com/automotoresinka",
-      icon: FaInstagram,
     },
     {
       name: "LinkedIn",
       href: "https://linkedin.com/company/automotoresinka",
-      icon: FaLinkedinIn,
     },
     {
       name: "TikTok",
       href: "https://tiktok.com/@automotoresinka",
-      icon: FaTiktok,
     },
   ],
   complaints: {

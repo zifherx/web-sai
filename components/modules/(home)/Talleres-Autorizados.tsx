@@ -1,15 +1,18 @@
-/* eslint-disable react-hooks/refs */
 "use client"
 
-import { useTalleres } from "@/hooks/queries/use-sede"
+import { TallerAutorizadoCard } from "@/components/shared/Taller-Autorizado-Card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
+import { useTalleres } from "@/hooks"
+import { cn } from "@/lib"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { useRef } from "react"
-import { cn } from "../../../lib/utils"
-import { TallerAutorizadoCard } from "../../shared/Taller-Autorizado-Card"
-import { Carousel, CarouselContent, CarouselItem } from "../../ui/carousel"
-import { Skeleton } from "../../ui/skeleton"
 
 export function TalleresAutorizados() {
   const plugin = useRef(
@@ -34,7 +37,7 @@ export function TalleresAutorizados() {
           </div>
 
           <Link
-            href={`/servicios/talleres`}
+            href={`/posventa/talleres`}
             className={cn(
               "inline-flex shrink-0 items-center gap-2 rounded-lg sm:rounded-xl",
               "border-2 border-white px-3 py-1.5 sm:px-6 sm:py-3",
