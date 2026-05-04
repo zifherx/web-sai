@@ -2,16 +2,13 @@
 
 import { BreadcrumbVehiculo } from "@/components/shared/Breadcrumb-Vehiculo"
 import { ColorPicker } from "@/components/shared/Color-Picker"
-import {
-  precioFormateadoPEN,
-  precioFormateadoUSD,
-} from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { VEHICULO_HERO_PROPS } from "@/types/marcamodelo.types"
+import { RUTA_TEST_DRIVE, TIPO_CAMBIO } from "@/constants"
+
+import { cn, precioFormateadoPEN, precioFormateadoUSD } from "@/lib"
+import { VEHICULO_HERO_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { TIPO_CAMBIO } from "../../../constants/catalogo.constants"
 
 export function VehiculoHero({
   colorActivo,
@@ -27,6 +24,18 @@ export function VehiculoHero({
     vehiculo.precioBase * Number(TIPO_CAMBIO)
   )
   const marcaNombre = marca?.name ?? marcaSlug.toUpperCase()
+  const cotizarParams = new URLSearchParams({
+    marcaId: marca?.id ?? "",
+    marcaSlug: marcaSlug,
+    marcaIdNovaly: marca?.idNovaly.toString() ?? "",
+    marcaNombre: marcaNombre,
+    vehiculoId: vehiculo.id,
+    vehiculoSlug: vehiculo.slug,
+    vehiculoNombre: vehiculo.name,
+    precioBase: String(vehiculo.precioBase),
+  })
+
+  const cotizarHref = `/comercial/financiamiento?${cotizarParams.toString()}`
 
   return (
     <section className="w-full bg-sky-custom-50 py-10">
@@ -68,7 +77,7 @@ export function VehiculoHero({
             {/* CTAs */}
             <div className="xs:flex-row flex flex-col gap-3">
               <Link
-                href={`/cotizacion?modelo=${vehiculo.slug}`}
+                href={cotizarHref}
                 className={cn(
                   "flex max-w-60 items-center justify-center gap-2 rounded-xl",
                   "bg-sky-custom-500 px-8 py-4",
@@ -82,7 +91,8 @@ export function VehiculoHero({
               </Link>
 
               <Link
-                href={`/drive-test?modelo=${vehiculo.slug}`}
+                href={RUTA_TEST_DRIVE}
+                target="_blank"
                 className={cn(
                   "flex max-w-60 items-center justify-center gap-2 rounded-xl",
                   "border-2 border-sky-custom-500 px-8 py-4",

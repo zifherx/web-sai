@@ -1,11 +1,29 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SedeEntity } from "@/interfaces/domain/sede/sede.entity"
 import {
+  ICreateSedeData,
   ISedeRepository,
+  IUpdateSedeData,
   SedeFilters,
 } from "@/interfaces/domain/sede/sede.repository.port"
-import { Model } from "mongoose"
+import { parseMarca } from "@/lib"
+import { Model, Types } from "mongoose"
 import { SedeDocument } from "./sede.schema"
+
+const POPULATE_MARCAS_TALLER = {
+  path: "marcasDisponiblesTaller",
+  select: "name slug imageUrl",
+}
+
+const POPULATE_MARCAS_VENTAS = {
+  path: "marcasDisponiblesVentas",
+  select: "name slug imageUrl",
+}
+
+function idsToObjectIds(ids: string[]): Types.ObjectId[] {
+  return ids
+    .filter((id) => Types.ObjectId.isValid(id))
+    .map((id) => new Types.ObjectId(id))
+}
 
 export class MongooseSedeRepository implements ISedeRepository {
   constructor(private readonly model: Model<SedeDocument>) {}
@@ -24,11 +42,11 @@ export class MongooseSedeRepository implements ISedeRepository {
       scheduleExtended: doc.scheduleExtended,
       linkHowArrived: doc.linkHowArrived,
       // ObjectId[] → string[]
-      marcasDisponiblesVentas: (doc.marcasDisponiblesVentas ?? []).map((id) =>
-        id.toString()
+      marcasDisponiblesVentas: (doc.marcasDisponiblesVentas ?? []).map(
+        parseMarca
       ),
-      marcasDisponiblesTaller: (doc.marcasDisponiblesTaller ?? []).map((id) =>
-        id.toString()
+      marcasDisponiblesTaller: (doc.marcasDisponiblesTaller ?? []).map(
+        parseMarca
       ),
       coordenadasMapa: {
         latitud: doc.coordenadasMapa?.latitud ?? "",
@@ -69,21 +87,27 @@ export class MongooseSedeRepository implements ISedeRepository {
   async findAll(filters?: SedeFilters): Promise<SedeEntity[]> {
     const docs = await this.model
       .find(this.buildQuery(filters))
-      // .populate({
-      //   path: "marcasDisponiblesVentas",
-      //   select: "name slug imageUrl",
-      // })
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
       .lean()
     return (docs as SedeDocument[]).map(this.toEntity.bind(this))
   }
 
   async findById(id: string): Promise<SedeEntity | null> {
-    const doc = await this.model.findById(id).lean()
+    const doc = await this.model
+      .findById(id)
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
+      .lean()
     return doc ? this.toEntity(doc as SedeDocument) : null
   }
 
   async findBySlug(slug: string): Promise<SedeEntity | null> {
-    const doc = await this.model.findOne({ slug }).lean()
+    const doc = await this.model
+      .findOne({ slug })
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
+      .lean()
     return doc ? this.toEntity(doc as SedeDocument) : null
   }
 
@@ -91,13 +115,19 @@ export class MongooseSedeRepository implements ISedeRepository {
     filters?: Omit<SedeFilters, "isActive">
   ): Promise<SedeEntity[]> {
     const query = this.buildQuery({ ...filters, isActive: true })
-    const docs = await this.model.find(query).lean()
+    const docs = await this.model
+      .find(query)
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
+      .lean()
     return (docs as SedeDocument[]).map(this.toEntity.bind(this))
   }
 
   async findByCiudad(ciudad: string): Promise<SedeEntity[]> {
     const docs = await this.model
       .find({ ciudad: new RegExp(ciudad, "i"), isActive: true })
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
       .lean()
     return (docs as SedeDocument[]).map(this.toEntity.bind(this))
   }
@@ -105,22 +135,13 @@ export class MongooseSedeRepository implements ISedeRepository {
   async findTalleres(): Promise<SedeEntity[]> {
     const docs = await this.model
       .find({ isTaller: true, isActive: true })
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
       .lean()
     return (docs as SedeDocument[]).map(this.toEntity.bind(this))
   }
 
-  async create(
-    data: Omit<
-      SedeEntity,
-      | "id"
-      | "createdAt"
-      | "updatedAt"
-      | "isPublishable"
-      | "hasVentasMarcas"
-      | "hasTaller"
-      | "hasMapa"
-    >
-  ): Promise<SedeEntity> {
+  async create(data: ICreateSedeData): Promise<SedeEntity> {
     const doc = await this.model.create({
       name: data.name,
       slug: data.slug,
@@ -132,8 +153,8 @@ export class MongooseSedeRepository implements ISedeRepository {
       scheduleRegular: data.scheduleRegular,
       scheduleExtended: data.scheduleExtended,
       linkHowArrived: data.linkHowArrived,
-      marcasDisponiblesVentas: data.marcasDisponiblesVentas,
-      marcasDisponiblesTaller: data.marcasDisponiblesTaller,
+      marcasDisponiblesVentas: idsToObjectIds(data.marcasDisponiblesVentas),
+      marcasDisponiblesTaller: idsToObjectIds(data.marcasDisponiblesTaller),
       coordenadasMapa: data.coordenadasMapa,
       celularCitas: data.celularCitas,
       isTaller: data.isTaller,
@@ -143,10 +164,7 @@ export class MongooseSedeRepository implements ISedeRepository {
     return this.toEntity(doc)
   }
 
-  async update(
-    id: string,
-    data: Partial<SedeEntity>
-  ): Promise<SedeEntity | null> {
+  async update(id: string, data: IUpdateSedeData): Promise<SedeEntity | null> {
     // Mapeo explícito: solo actualiza los campos que llegan
     const update: Record<string, unknown> = {}
 
@@ -170,9 +188,13 @@ export class MongooseSedeRepository implements ISedeRepository {
     if (data.isTaller !== undefined) update.isTaller = data.isTaller
     if (data.isActive !== undefined) update.isActive = data.isActive
     if (data.marcasDisponiblesVentas !== undefined)
-      update.marcasDisponiblesVentas = data.marcasDisponiblesVentas
+      update.marcasDisponiblesVentas = idsToObjectIds(
+        data.marcasDisponiblesVentas
+      )
     if (data.marcasDisponiblesTaller !== undefined)
-      update.marcasDisponiblesTaller = data.marcasDisponiblesTaller
+      update.marcasDisponiblesTaller = idsToObjectIds(
+        data.marcasDisponiblesTaller
+      )
 
     const doc = await this.model
       .findByIdAndUpdate(

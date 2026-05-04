@@ -45,7 +45,12 @@ export function MarcaModeloView({
         fichaTecnica={vehiculo.fichaTecnica}
         nombre={vehiculo.name}
       />
-      <VehiculoCTA vehiculo={vehiculo} imagenActiva={imagenActiva} />
+      <VehiculoCTA
+        marca={marca}
+        marcaSlug={marcaSlug}
+        vehiculo={vehiculo}
+        imagenActiva={imagenActiva}
+      />
     </main>
   )
 }

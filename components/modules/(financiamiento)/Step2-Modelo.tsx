@@ -1,3 +1,5 @@
+"use client"
+
 import { Skeleton } from "@/components/ui/skeleton"
 import { useVehiculosByMarca } from "@/hooks/queries/use-vehiculo"
 import { precioFormateadoUSD } from "@/lib/global.functions"

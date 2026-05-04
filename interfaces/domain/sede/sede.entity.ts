@@ -1,3 +1,5 @@
+import { IMarcaRef } from "@/types"
+
 export interface CoordenadasVO {
   latitud: string
   longitud: string
@@ -16,8 +18,8 @@ export class SedeEntity {
     public readonly scheduleRegular: string,
     public readonly scheduleExtended: string,
     public readonly linkHowArrived: string,
-    public readonly marcasDisponiblesVentas: string[],
-    public readonly marcasDisponiblesTaller: string[],
+    public readonly marcasDisponiblesVentas: IMarcaRef[],
+    public readonly marcasDisponiblesTaller: IMarcaRef[],
     public readonly coordenadasMapa: CoordenadasVO,
     public readonly celularCitas: string,
     public readonly isTaller: boolean,

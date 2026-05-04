@@ -17,16 +17,16 @@ import {
   Step4Schema,
   TIPO_DOCUMENTO_OPTIONS,
   TRATAMIENTO_DATOS_OFERTAS_COMERCIALES,
-} from "@/constants/financiamiento.constant"
-import { groupCn } from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { STEP4_CONTACTO_PROPS } from "@/types/financiamiento.types"
+} from "@/constants"
+import { cn, groupCn } from "@/lib/"
+import { STEP4_CONTACTO_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   ChevronLeft,
   ChevronsUpDown,
   FileText,
   Hash,
+  Loader2,
   Mail,
   Phone,
   Send,
@@ -38,6 +38,7 @@ export function Step4Contacto({
   onBack,
   onSubmit,
   resumen,
+  isLoading = false,
 }: STEP4_CONTACTO_PROPS) {
   const {
     control,
@@ -52,11 +53,14 @@ export function Step4Contacto({
     },
   })
 
+  const isDisabled = isLoading || isSubmitting
+
   return (
     <div className="p-4 md:p-8">
       <div className="rounded-2xl bg-gray-custom-100 px-2 py-4 md:px-5 md:py-8">
         <button
           onClick={onBack}
+          disabled={isDisabled}
           className="mb-4 flex cursor-pointer items-center gap-1 font-textOffice-regular text-sm text-gray-custom-700 transition-colors hover:text-sky-custom-500"
         >
           <ChevronLeft size={14} /> Cambiar concesionario
@@ -103,7 +107,7 @@ export function Step4Contacto({
                     "h-12 rounded-lg border border-blue-custom-500 bg-white",
                     "text-blue-custom-500",
                     "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                    isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                    isDisabled ? "cursor-not-allowed opacity-50" : ""
                   )}
                 >
                   <InputGroupInput
@@ -112,7 +116,7 @@ export function Step4Contacto({
                     aria-invalid={fieldState.invalid}
                     placeholder="Nombres"
                     autoComplete="off"
-                    disabled={isSubmitting}
+                    disabled={isDisabled}
                   />
                   <InputGroupAddon className="text-blue-custom-500">
                     <User size={16} />
@@ -139,12 +143,12 @@ export function Step4Contacto({
                     <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={groupCn(fieldState.invalid, isDisabled)}
                   >
                     <select
                       {...field}
                       id="input-tipo-doc"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       aria-invalid={fieldState.invalid}
                       className={cn(
                         "flex-1 cursor-pointer appearance-none bg-transparent px-4 py-2",
@@ -189,13 +193,18 @@ export function Step4Contacto({
                     <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={cn(
+                      "h-12 rounded-lg border border-blue-custom-500 bg-white",
+                      "text-blue-custom-500",
+                      "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
+                    )}
                   >
                     <InputGroupInput
                       {...field}
                       id="input-num-doc"
                       placeholder="Número de Documento"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       aria-invalid={fieldState.invalid}
                       type="text"
                       minLength={8}
@@ -226,16 +235,21 @@ export function Step4Contacto({
                     Celular <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={cn(
+                      "h-12 rounded-lg border border-blue-custom-500 bg-white",
+                      "text-blue-custom-500",
+                      "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
+                    )}
                   >
                     <InputGroupInput
                       {...field}
                       id="input-celular"
-                      placeholder="N° Celular"
+                      placeholder="9XXXXXXXX"
                       type="tel"
                       autoComplete="tel"
                       maxLength={9}
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       aria-invalid={fieldState.invalid}
                     />
                     <InputGroupAddon className="text-blue-custom-500">
@@ -261,15 +275,20 @@ export function Step4Contacto({
                     E-mail <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={cn(
+                      "h-12 rounded-lg border border-blue-custom-500 bg-white",
+                      "text-blue-custom-500",
+                      "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
+                    )}
                   >
                     <InputGroupInput
                       {...field}
                       id="input-email"
                       placeholder="E-mail"
                       type="email"
-                      autoComplete="email"
-                      disabled={isSubmitting}
+                      autoComplete="off"
+                      disabled={isDisabled}
                       aria-invalid={fieldState.invalid}
                     />
                     <InputGroupAddon className="text-blue-custom-500">
@@ -298,12 +317,17 @@ export function Step4Contacto({
                   <span className="text-red-custom-500">*</span>
                 </FieldLabel>
                 <InputGroup
-                  className={groupCn(fieldState.invalid, isSubmitting)}
+                  className={cn(
+                    "h-12 rounded-lg border border-blue-custom-500 bg-white",
+                    "text-blue-custom-500",
+                    "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
+                    isDisabled ? "cursor-not-allowed opacity-50" : ""
+                  )}
                 >
                   <select
                     {...field}
                     id="input-intencion"
-                    disabled={isSubmitting}
+                    disabled={isDisabled}
                     aria-invalid={fieldState.invalid}
                     className={cn(
                       "flex-1 appearance-none bg-transparent px-4 py-2",
@@ -344,7 +368,7 @@ export function Step4Contacto({
                       type="checkbox"
                       checked={field.value}
                       onChange={field.onChange}
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       aria-invalid={fieldState.invalid}
                       className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-sky-custom-500 disabled:opacity-50"
                     />
@@ -392,7 +416,7 @@ export function Step4Contacto({
                     type="radio"
                     name="autorizaMarketing-radio"
                     value={String(opt.value)}
-                    disabled={isSubmitting}
+                    disabled={isDisabled}
                     onChange={() => setValue("autorizaMarketing", opt.value)}
                     className="h-4 w-4 accent-sky-custom-500 disabled:opacity-50"
                   />
@@ -407,22 +431,22 @@ export function Step4Contacto({
           {/* ── Submit ── */}
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isDisabled}
             className={cn(
               "flex w-full items-center justify-center gap-2 rounded-xl py-4",
               "bg-sky-custom-500 font-headOffice-bold text-sm tracking-widest text-white uppercase",
               "transition-all duration-200 hover:bg-sky-custom-700 active:scale-[0.98]",
-              "disabled:cursor-not-allowed disabled:opacity-60"
+              "cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
             )}
           >
-            {isSubmitting ? (
+            {isDisabled ? (
               <>
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                Enviando...
+                <Loader2 size={18} className="animate-spin" />
+                Enviando solicitud...
               </>
             ) : (
               <>
-                <Send size={16} aria-hidden="true" />
+                <Send size={18} aria-hidden="true" />
                 Enviar Solicitud
               </>
             )}

@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server"
 
 export class ResponseFactory {
-  static success<T>(data: T, message = "OK"): NextResponse {
-    return NextResponse.json({ success: true, message, data }, { status: 200 })
+  static success<T>(data: T, message = "OK", status = 200): NextResponse {
+    return NextResponse.json({ success: true, message, data }, { status })
   }
 
   static created<T>(data: T, message = "Creado"): NextResponse {
     return NextResponse.json({ success: true, message, data }, { status: 201 })
+  }
+
+  static validationError(message: string): NextResponse {
+    return NextResponse.json(
+      { success: false, message, error: "Validation Error" },
+      { status: 422 }
+    )
   }
 
   static error(err: unknown): NextResponse {

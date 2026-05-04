@@ -1,5 +1,5 @@
-import { httpClient } from "../lib/http/axios.client"
-import type { APIResponse, MarcaType } from "../types/api.types"
+import { httpClient } from "@/lib/http/axios.client"
+import type { APIResponse, MarcaType } from "@/types"
 
 export const marcaService = {
   getAll: async (): Promise<MarcaType[]> => {

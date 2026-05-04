@@ -1,3 +1,4 @@
+import type { IMarcaRef } from "@/types"
 import z from "zod"
 
 const CoordenadasSchema = z.object({
@@ -67,8 +68,8 @@ export type SedeResponseDTO = {
   scheduleExtended: string
   linkHowArrived: string
   /** IDs de marcas como strings */
-  marcasDisponiblesVentas: string[]
-  marcasDisponiblesTaller: string[]
+  marcasDisponiblesVentas: IMarcaRef[]
+  marcasDisponiblesTaller: IMarcaRef[]
   coordenadasMapa: CoordenadasResponseDTO
   celularCitas: string
   isTaller: boolean

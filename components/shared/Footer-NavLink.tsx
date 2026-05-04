@@ -1,6 +1,6 @@
+import { FooterLink } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { FooterLink } from "../../interfaces"
 
 export function FooterNavLink({ href, label, external }: FooterLink) {
   return (

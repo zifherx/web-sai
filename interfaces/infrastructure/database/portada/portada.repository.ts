@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PortadaEntity } from "@/interfaces/domain/portada/portada.entity"
 import { IPortadaRepository } from "@/interfaces/domain/portada/portada.repository.port"
 import { Model } from "mongoose"

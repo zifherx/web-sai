@@ -1,13 +1,29 @@
-import { cn } from "@/lib/utils"
-import { REPSOL_BENEFICIOS_PROPS } from "@/types/repsol.types"
-import { MapPin } from "lucide-react"
+import { cn } from "@/lib"
+import { BadgeCheck, MapPin } from "lucide-react"
 import Image from "next/image"
 
-export function RepsolBeneficios({ beneficios }: REPSOL_BENEFICIOS_PROPS) {
-  const { beneficiosAdicionales, cobertura, descuentos, imageAlt, imageSrc } =
-    beneficios
-  const BeneficioIcon = beneficiosAdicionales.icon
+const REPSOL_BENEFICIOS = {
+  imageSrc: "/images/repsol/gas-station.jpg",
+  imageAlt: "Pistola de combustible en grifo Repsol",
+  descuentos: [
+    { tipo: "Premier y Regular", monto: "S/ 2.50" },
+    { tipo: "Diesel", monto: "S/ 0.50" },
+    { tipo: "GLP", monto: "S/ 0.20" },
+  ],
+  cobertura: [
+    { ciudad: "Lima" },
+    { ciudad: "Chimbote" },
+    { ciudad: "Trujillo" },
+    { ciudad: "Chiclayo" },
+  ],
+  beneficiosAdicionales: {
+    label: "Beneficios Adicionales",
+    icon: BadgeCheck,
+  },
+}
 
+export function RepsolBeneficios() {
+  const BeneficioIcon = REPSOL_BENEFICIOS.beneficiosAdicionales.icon
   return (
     <section className="w-full bg-sky-custom-50 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -15,8 +31,8 @@ export function RepsolBeneficios({ beneficios }: REPSOL_BENEFICIOS_PROPS) {
           {/* ── Imagen izquierda ── */}
           <div className="relative h-80 overflow-hidden rounded-2xl md:h-full md:min-h-160">
             <Image
-              src={imageSrc}
-              alt={imageAlt}
+              src={REPSOL_BENEFICIOS.imageSrc}
+              alt={REPSOL_BENEFICIOS.imageAlt}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-center"
@@ -31,7 +47,7 @@ export function RepsolBeneficios({ beneficios }: REPSOL_BENEFICIOS_PROPS) {
                 Descuentos
               </h3>
               <div className="flex flex-col gap-3">
-                {descuentos.map((d) => (
+                {REPSOL_BENEFICIOS.descuentos.map((d) => (
                   <div
                     key={d.tipo}
                     className="flex items-center justify-between gap-2 rounded-xl bg-gray-custom-100 px-2 py-1.5 sm:gap-4 sm:px-4 sm:py-3"
@@ -58,7 +74,7 @@ export function RepsolBeneficios({ beneficios }: REPSOL_BENEFICIOS_PROPS) {
                 Cobertura
               </h3>
               <div className="flex flex-wrap gap-4">
-                {cobertura.map((c) => (
+                {REPSOL_BENEFICIOS.cobertura.map((c) => (
                   <span
                     key={c.ciudad}
                     className={cn(
@@ -82,7 +98,7 @@ export function RepsolBeneficios({ beneficios }: REPSOL_BENEFICIOS_PROPS) {
                 strokeWidth={2}
               />
               <span className="font-headOffice-bold text-xl tracking-wider text-gray-custom-900/90 md:text-3xl">
-                {beneficiosAdicionales.label}
+                {REPSOL_BENEFICIOS.beneficiosAdicionales.label}
               </span>
             </div>
           </div>

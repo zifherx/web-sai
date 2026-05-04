@@ -1,25 +1,46 @@
 import { Car } from "lucide-react"
-import { CircleProgress } from "../components/shared/Circle-Progress"
 
 export default function LoadingPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100">
-      <div className="relative mb-8 h-24 w-24">
-        <CircleProgress value={66} className="h-24 w-24" />
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Car className="animate-bounce" />
-        </div>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-white px-4">
+      {/* Ícono central con anillo animado */}
+      <div className="relative flex h-28 w-28 items-center justify-center">
+        {/* Anillo exterior giratorio */}
+        <span
+          className="absolute inset-0 animate-spin rounded-full border-4 border-sky-custom-100 border-t-sky-custom-500"
+          aria-hidden="true"
+        />
+        {/* Anillo interior giratorio inverso */}
+        <span
+          className="absolute inset-3 animate-spin rounded-full border-4 border-blue-custom-100 border-b-blue-custom-500"
+          style={{ animationDirection: "reverse", animationDuration: "0.8s" }}
+          aria-hidden="true"
+        />
+        {/* Ícono de auto centrado */}
+        <Car
+          size={36}
+          strokeWidth={1.5}
+          className="text-blue-custom-500"
+          aria-hidden="true"
+        />
       </div>
 
-      <h1 className="mb-2 text-2xl font-semibold text-gray-800">Cargando</h1>
+      {/* Texto */}
+      <div className="flex flex-col items-center gap-1 text-center">
+        <p className="font-headOffice-bold text-xl text-gray-custom-900">
+          Cargando
+        </p>
+        <p className="font-textOffice-regular text-sm text-gray-custom-700">
+          Preparando tu experiencia automotriz
+        </p>
+      </div>
 
-      <p className="text-gray-600">Preparando su experiencia automotriz</p>
-
-      <div className="mt-8 flex space-x-2">
-        <span className="h-3 w-3 animate-pulse rounded-full bg-gray-400"></span>
-        <span className="h-3 w-3 animate-pulse rounded-full bg-gray-400 delay-150"></span>
-        <span className="h-3 w-3 animate-pulse rounded-full bg-gray-400 delay-300"></span>
+      {/* Barra de progreso indeterminada */}
+      <div className="h-1 w-48 overflow-hidden rounded-full bg-sky-custom-100">
+        <div
+          className="loading-bar h-full w-1/3 rounded-full bg-sky-custom-500"
+          aria-hidden="true"
+        />
       </div>
     </div>
   )

@@ -1,18 +1,9 @@
 import {
-  IBeneficioCorporativo,
   ICorporativoValueLabel,
   IFormCorporativo,
   IHeroCorporativo,
   IIntroCorporativo,
 } from "@/types/corporativo.types"
-import {
-  BarChart3,
-  GraduationCap,
-  Handshake,
-  Settings,
-  ShoppingCart,
-  Users,
-} from "lucide-react"
 import z from "zod/v3"
 
 export const CORPORATIVO_HERO: IHeroCorporativo = {
@@ -31,57 +22,6 @@ export const CORPORATIVO_FORM: IFormCorporativo = {
   legal:
     "Al enviar el formulario autorizas el tratamiento de tus datos personales conforme a la Política de Protección de Datos Personales de Automotores Inka.",
 }
-
-export const CORPORATIVO_BENEFICIOS: IBeneficioCorporativo[] = [
-  {
-    id: "equipo-profesional",
-    icon: Users,
-    title: "Equipo profesional",
-    description:
-      "Contamos con asesores especializados en flotas corporativas que te brindan atención personalizada y profesional en todos nuestros procesos.",
-    variant: "light",
-  },
-  {
-    id: "generacion-reportes",
-    icon: BarChart3,
-    title: "Generación de reportes",
-    description:
-      "Accede a reportes detallados de tu flota: mantenimientos, seguimiento de unidades y cumplimiento de indicadores operativos.",
-    variant: "dark",
-  },
-  {
-    id: "capacitaciones",
-    icon: GraduationCap,
-    title: "Capacitaciones",
-    description:
-      "Ofrecemos programas de capacitación para conductores y gestores de flota, potenciando el uso eficiente y seguro de los vehículos.",
-    variant: "light",
-  },
-  {
-    id: "convenios",
-    icon: Handshake,
-    title: "Convenios",
-    description:
-      "Establecemos convenios corporativos en precios, mantenimientos y repuestos exclusivos pensados para maximizar la rentabilidad de tu empresa.",
-    variant: "dark",
-  },
-  {
-    id: "gestion",
-    icon: Settings,
-    title: "Gestión",
-    description:
-      "Te acompañamos con una plataforma de gestión que integra y administra los procesos técnicos y logísticos de toda tu flota.",
-    variant: "light",
-  },
-  {
-    id: "compras",
-    icon: ShoppingCart,
-    title: "Compras",
-    description:
-      "Simplificamos ventas, renovaciones y adquisiciones corporativas, facilitando los trámites administrativos y la toma de decisiones.",
-    variant: "dark",
-  },
-]
 
 export const CorporativoSchema = z.object({
   nombres: z

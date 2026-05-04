@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { VehiculoEntity } from "@/interfaces/domain/vehiculo/vehiculo.entity"
 import {
   IVehiculoRepository,

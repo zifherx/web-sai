@@ -1,16 +1,18 @@
+"use client"
+
+import { cn, precioFormateadoUSD } from "@/lib"
+import { VEHICLE_HOME_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { precioFormateadoUSD } from "../../lib/global.functions"
-import { cn } from "../../lib/utils"
-import { VEHICLE_HOME_CARD_PROPS } from "../../types/vehicle.types"
 
 export function VehicleHomeCard({
   vehiculo,
   marcaNombre,
+  marcaSlug,
 }: VEHICLE_HOME_CARD_PROPS) {
   const { imageUrl, name, precioBase } = vehiculo
-  const href = `/catalogo/${vehiculo.slug}`
+  const href = `/catalogo/${marcaSlug}/${vehiculo.slug}`
 
   return (
     <div

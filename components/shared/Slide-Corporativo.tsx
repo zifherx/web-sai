@@ -1,8 +1,8 @@
+import { cn } from "@/lib"
+import { SLIDE_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { cn } from "../../lib/utils"
-import { SLIDE_CARD_PROPS } from "../../types"
 
 export function SlideCorporativo({ isActive = true, slide }: SLIDE_CARD_PROPS) {
   const { ctaHref, ctaLabel, description, eyebrow, imageAlt, imageSrc, title } =

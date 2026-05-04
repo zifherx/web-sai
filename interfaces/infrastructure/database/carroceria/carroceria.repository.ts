@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CarroceriaEntity } from "@/interfaces/domain/carroceria/carroceria.entity"
 import { ICarroceriaRepository } from "@/interfaces/domain/carroceria/carroceria.repository.port"
 import { Model } from "mongoose"

@@ -40,6 +40,7 @@ export const Step1Schema = z.object({
   marcaId: z.string().min(1, "Selecciona una marca"),
   marcaNombre: z.string().min(1),
   marcaSlug: z.string().min(1),
+  marcaIdNovaly: z.number().default(0),
 })
 
 export const Step2Schema = z.object({
@@ -52,6 +53,8 @@ export const Step2Schema = z.object({
 export const Step3Schema = z.object({
   sedeId: z.string().min(1, "Selecciona un concesionario"),
   sedeNombre: z.string().min(1),
+  sedeCiudad: z.string().min(1),
+  sedeIdTiendaNovaly: z.number().default(0),
 })
 
 export const Step4Schema = z.object({
@@ -66,7 +69,9 @@ export const Step4Schema = z.object({
   celular: z
     .string()
     .regex(/^9\d{8}$/, "Ingresa un celular válido (9XXXXXXXX)"),
-  email: z.string().email("Ingresa un email válido"),
+  email: z
+    .string({ required_error: "Ingresa tu email" })
+    .email("Ingresa un email válido"),
   intencionCompra: z.enum(
     ["inmediata", "1_mes", "3_meses", "6_meses", "solo_informacion"],
     { required_error: "Selecciona una intención de compra" }

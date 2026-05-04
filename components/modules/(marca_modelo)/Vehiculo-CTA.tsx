@@ -1,10 +1,30 @@
-import { cn } from "@/lib/utils"
-import { VEHICULO_CTA_PROPS } from "@/types/marcamodelo.types"
+"use client"
+
+import { cn } from "@/lib"
+import { VEHICULO_CTA_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-export function VehiculoCTA({ imagenActiva, vehiculo }: VEHICULO_CTA_PROPS) {
+export function VehiculoCTA({
+  imagenActiva,
+  vehiculo,
+  marcaSlug,
+  marca,
+}: VEHICULO_CTA_PROPS) {
+  const marcaNombre = marca?.name ?? marcaSlug.toUpperCase()
+  const cotizarParams = new URLSearchParams({
+    marcaId: marca?.id ?? "",
+    marcaSlug: marcaSlug,
+    marcaNombre: marcaNombre,
+    vehiculoId: vehiculo.id,
+    vehiculoSlug: vehiculo.slug,
+    vehiculoNombre: vehiculo.name,
+    precioBase: String(vehiculo.precioBase),
+  })
+
+  const cotizarHref = `/comercial/financiamiento?${cotizarParams.toString()}`
+
   return (
     <section className="w-full overflow-hidden bg-sky-custom-500">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -21,7 +41,7 @@ export function VehiculoCTA({ imagenActiva, vehiculo }: VEHICULO_CTA_PROPS) {
             </div>
 
             <Link
-              href={`/cotizacion?modelo=${vehiculo.slug}`}
+              href={cotizarHref}
               className={cn(
                 "inline-flex w-fit items-center gap-2 rounded-xl",
                 "bg-white px-8 py-4",

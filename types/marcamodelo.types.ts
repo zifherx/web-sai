@@ -27,8 +27,10 @@ export type COLOR_PICKER_PROPS = {
 }
 
 export interface IMarcaOptional {
+  id: string
   name: string
   slug: string
+  idNovaly: number
 }
 
 export type VEHICULO_HERO_PROPS = {
@@ -68,6 +70,8 @@ export type GALERIA_ITEM_PROPS = {
 }
 
 export type VEHICULO_CTA_PROPS = {
+  marca?: IMarcaOptional
+  marcaSlug: string
   vehiculo: VehiculoType
   imagenActiva: string
 }

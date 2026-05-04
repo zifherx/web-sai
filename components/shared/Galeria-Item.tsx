@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { GALERIA_ITEM_PROPS } from "@/types/marcamodelo.types"
+import { cn } from "@/lib"
+import { GALERIA_ITEM_PROPS } from "@/types"
 import Image from "next/image"
 
 export function GaleriaItem({ height, img, nombre }: GALERIA_ITEM_PROPS) {

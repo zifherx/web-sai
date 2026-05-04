@@ -1,5 +1,3 @@
-import { GENERAL_ICON } from "@/interfaces"
-
 export interface IRepsolHero {
   eyebrow: string
   heading: string
@@ -13,14 +11,6 @@ export interface IRepsolInfo {
   description: string
 }
 
-export interface IRepsolBeneficio {
-  imageSrc: string
-  imageAlt: string
-  descuentos: IDescuento[]
-  cobertura: ICobertura[]
-  beneficiosAdicionales: IBeneficioAdicional
-}
-
 export interface IRepsolVentaja {
   heading: string
   imageSrc: string
@@ -32,16 +22,6 @@ export interface IDescuento {
   tipo: string
   monto: string
 }
-
-export interface ICobertura {
-  ciudad: string
-}
-
-export interface IBeneficioAdicional {
-  label: string
-  icon: GENERAL_ICON
-}
-
 export interface IVentaja {
   id: string
   label: string
@@ -71,10 +51,6 @@ export type REPSOL_HERO_PROPS = {
 
 export type REPSOL_INFO_PROPS = {
   info: IRepsolInfo
-}
-
-export type REPSOL_BENEFICIOS_PROPS = {
-  beneficios: IRepsolBeneficio
 }
 
 export type REPSOL_VENTAJAS_PROPS = {

@@ -1,10 +1,6 @@
-import { TIPO_CAMBIO } from "@/constants/catalogo.constants"
-import {
-  precioFormateadoPEN,
-  precioFormateadoUSD,
-} from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { CATALOGO_VEHICULO_CARD_PROPS } from "@/types/catalogo.types"
+import { TIPO_CAMBIO } from "@/constants"
+import { cn, precioFormateadoPEN, precioFormateadoUSD } from "@/lib"
+import { CATALOGO_VEHICULO_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

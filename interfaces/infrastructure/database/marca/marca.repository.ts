@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MarcaEntity } from "@/interfaces/domain/marca/marca.entity"
 import { IMarcaRepository } from "@/interfaces/domain/marca/marca.repository.port"
 import { Model } from "mongoose"
@@ -14,6 +13,7 @@ export class MongooseMarcaRepository implements IMarcaRepository {
       slug: doc.slug,
       imageUrl: doc.imageUrl,
       isActive: doc.isActive,
+      idNovaly: doc.idNovaly,
       createdBy: doc.createdBy,
       createdAt: new Date(doc.createdAt),
       updatedAt: new Date(doc.updatedAt),

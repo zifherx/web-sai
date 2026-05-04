@@ -1,7 +1,7 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { SERVICE_SHOWCASE_CARD_PROPS } from "@/types/showcase.types"
+import { cn } from "@/lib"
+import { SERVICE_SHOWCASE_CARD_PROPS } from "@/types"
 import Image from "next/image"
 
 export function ServiceShowcaseCard({

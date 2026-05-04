@@ -1,12 +1,5 @@
-import { GENERAL_ICON } from "@/interfaces"
-
-export interface IBeneficioCorporativo {
-  id: string
-  icon: GENERAL_ICON
-  title: string
-  description: string
-  variant: "light" | "dark"
-}
+import { LucideIcon } from "lucide-react"
+import { IconType } from "react-icons/lib"
 
 export interface IHeroCorporativo {
   eyebrow: string
@@ -32,10 +25,6 @@ export type CORPORATIVO_INTRO_PROPS = {
   intro: IIntroCorporativo
 }
 
-export type CORPORATIVO_BENEFICIOS_PROPS = {
-  beneficios: IBeneficioCorporativo[]
-}
-
 export interface ICorporativoValueLabel {
   value: string
   label: string
@@ -43,4 +32,11 @@ export interface ICorporativoValueLabel {
 
 export type CORPORATIVO_FORM_PROPS = {
   formulario: IFormCorporativo
+}
+
+export type GENERAL_ICON = LucideIcon | IconType
+
+export interface IProximosPasosGracias {
+  icon: GENERAL_ICON
+  text: string
 }

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/refs */
 "use client"
 
 import { SlideCorporativo } from "@/components/shared/Slide-Corporativo"
@@ -7,7 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import { CARRUSEL_CORPORATIVO } from "@/constants/home.constants"
+import { CARRUSEL_CORPORATIVO } from "@/constants"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
 
