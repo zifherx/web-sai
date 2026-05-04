@@ -29,5 +29,9 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "noUncheckedIndexedAccess": true, // arr[0] es T | undefined, no T
+  "exactOptionalPropertyTypes": true, // { a?: string } no acepta undefined explícito
+  "noImplicitReturns": true, // todas las rutas de una función deben retornar
+  "noFallthroughCasesInSwitch": true // switch cases sin break explícito dan error
 }

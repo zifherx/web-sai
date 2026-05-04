@@ -69,8 +69,8 @@ export interface SedeType {
   scheduleRegular: string
   scheduleExtended: string
   linkHowArrived: string
-  marcasDisponiblesVentas: string[]
-  marcasDisponiblesTaller: string[]
+  marcasDisponiblesVentas: IMarcaRef[]
+  marcasDisponiblesTaller: IMarcaRef[]
   coordenadasMapa: ICoordenadasMapa
   celularCitas: string
   isTaller: boolean
@@ -149,4 +149,48 @@ export interface ISedeFilters {
 
 export interface ICarroceriaFilters {
   isActive?: boolean
+}
+
+export interface IMarcaRef {
+  id: string
+  name: string
+  slug: string
+  imageUrl: string
+}
+
+export interface ReclamoType {
+  // Consumidor
+  tipoDocumento: string
+  numeroDocumento: string
+  nombres: string
+  apellidos: string
+  email?: string
+  celular?: string
+  departamento?: string
+  provincia?: string
+  distrito?: string
+  direccion?: string
+  // Bien
+  tipoBien: string
+  vin?: string
+  placa?: string
+  sedeCodexHR: string
+  sedeCompra?: string
+  sedeDireccion?: string
+  moneda?: string
+  importeBien?: number
+  descripcionBien: string
+  // Reclamo
+  tipoSolicitud: string
+  detalleSolicitud: string
+  pedidoSolicitud: string
+  isConforme: boolean
+}
+
+export interface ReclamoResponseType {
+  id: string
+  numeroReclamo: string
+  fecha: string
+  hora: string
+  createdAt?: string
 }

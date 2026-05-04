@@ -19,7 +19,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/servicios/financiamiento"
+            href="/comercial/financiamiento"
             className="hidden rounded-lg bg-sky-custom-500 px-5 py-2 font-headOffice-bold text-sm text-white uppercase transition-colors hover:bg-sky-custom-700 sm:block"
           >
             Financia aquí

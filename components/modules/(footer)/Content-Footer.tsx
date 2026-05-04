@@ -1,3 +1,5 @@
+"use client"
+
 import { FooterNavSection } from "@/components/shared/Footer-NavSection"
 import { SocialButton } from "@/components/shared/Social-Button"
 import { CONTENT_FOOTER_PROPS } from "@/types"

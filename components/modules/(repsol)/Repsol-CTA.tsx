@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { REPSOL_CTA_PROPS } from "@/types/repsol.types"
+import { cn } from "@/lib"
+import { REPSOL_CTA_PROPS } from "@/types"
 import Link from "next/link"
 
 export function RepsolCTA({ callToAction }: REPSOL_CTA_PROPS) {

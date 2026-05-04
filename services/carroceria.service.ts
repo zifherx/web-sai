@@ -1,9 +1,5 @@
-import { httpClient } from "../lib/http/axios.client"
-import type {
-  APIResponse,
-  CarroceriaType,
-  ICarroceriaFilters,
-} from "../types/api.types"
+import { httpClient } from "@/lib/http/axios.client"
+import type { APIResponse, CarroceriaType, ICarroceriaFilters } from "@/types"
 
 export const carroceriaService = {
   getAll: async (filters?: ICarroceriaFilters): Promise<CarroceriaType[]> => {

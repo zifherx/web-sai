@@ -1,4 +1,4 @@
-import { IPriceRange } from "../types/catalogo.types"
+import { IMarcaRef, IPriceRange } from "@/types"
 import { cn } from "./utils"
 
 export const precioFormateadoUSD = (value: number) => {
@@ -42,3 +42,38 @@ export const groupCn = (invalid: boolean, disabled: boolean) =>
     invalid ? "border-red-custom-500" : "border-blue-custom-500",
     disabled ? "cursor-not-allowed opacity-50" : ""
   )
+
+export const parseMarca = (item: any): IMarcaRef => {
+  if (typeof item === "string") {
+    return {
+      id: item,
+      name: "",
+      slug: "",
+      imageUrl: "",
+    }
+  }
+
+  return {
+    id: item._id?.toString() ?? "",
+    name: item.name ?? "",
+    slug: item.slug ?? "",
+    imageUrl: item.imageUrl ?? "",
+  }
+}
+
+export const toObjectMarcaIds = (marcas: { id: string }[]): string[] => {
+  return marcas.map((m) => m.id).filter(Boolean)
+}
+
+export const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
+  const uint8 = new Uint8Array(buffer)
+  const CHUNK = 8192 // 8KB — bien por debajo del límite
+  let binary = ""
+
+  for (let i = 0; i < uint8.length; i += CHUNK) {
+    const slice = uint8.subarray(i, i + CHUNK)
+    binary += String.fromCharCode(...slice) // spread de 8KB → seguro
+  }
+
+  return btoa(binary)
+}

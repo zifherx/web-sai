@@ -1,5 +1,5 @@
+import { BOTTOM_BAR_PROPS } from "@/types"
 import Link from "next/link"
-import { BOTTOM_BAR_PROPS } from "../../../types"
 
 export function BottomBar({ bottom }: BOTTOM_BAR_PROPS) {
   const { copyright, designedBy } = bottom

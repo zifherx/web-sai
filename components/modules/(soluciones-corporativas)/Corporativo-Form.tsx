@@ -12,11 +12,10 @@ import {
   CORPORATIVO_SECTOR_OPTIONS,
   CorporativoData,
   CorporativoSchema,
-} from "@/constants/corporativo.constants"
-import { useActiveMarcas } from "@/hooks/queries/use-marca"
-import { groupCn } from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { CORPORATIVO_FORM_PROPS } from "@/types/corporativo.types"
+} from "@/constants"
+import { useActiveMarcas } from "@/hooks"
+import { cn, groupCn, toastError, toastSuccess } from "@/lib"
+import { CORPORATIVO_FORM_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Barcode,
@@ -31,9 +30,12 @@ import {
   ShoppingCart,
   User,
 } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { Controller, useForm } from "react-hook-form"
+import { useCrearLeadCorporativo } from "../../../hooks/mutations/use-lead-corporativo.mutations"
 
 export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
+  const router = useRouter()
   const { heading, legal } = formulario
   const { data: marcas } = useActiveMarcas()
 
@@ -48,10 +50,33 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
     },
   })
 
+  const { mutate: crearLead, isPending } = useCrearLeadCorporativo({
+    onSuccess: () => {
+      toastSuccess.corporativo()
+      router.push(`/comercial/soluciones-corporativas/gracias`)
+    },
+    onError: (err) => {
+      toastError.corporativo(err.message)
+      console.error("[CorporativoForm]", err.message)
+    },
+  })
+
+  const isDisabled = isPending || isSubmitting
+
   const onSubmit = (data: CorporativoData) => {
-    // Mock — reemplazar con mutación al backend de Cotización
-    console.log("📋 [CorporativaForm] Datos:", data)
-    console.table(data)
+    crearLead({
+      nombres: data.nombres,
+      apellidos: "", // el form corporativo no tiene apellidos
+      correoElectronico: data.email,
+      celular: data.celular,
+      dni: data.dni,
+      razonSocial: "",
+      ruc: data.ruc ?? "",
+      marcaText: data.marca,
+      ciudad: "",
+      intencionCompra: data.periodoCompra,
+      sector: data.sector,
+    })
   }
 
   return (
@@ -61,11 +86,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
           {heading}
         </h2>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-5"
-          noValidate
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
           {/* Nombres */}
           <Controller
             control={control}
@@ -84,7 +105,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                     "h-12 rounded-lg border border-blue-custom-500 bg-white",
                     "text-blue-custom-500",
                     "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                    isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                    isDisabled ? "cursor-not-allowed opacity-50" : ""
                   )}
                 >
                   <InputGroupInput
@@ -93,7 +114,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                     placeholder="Nombres"
                     aria-invalid={fieldState.invalid}
                     autoComplete="off"
-                    disabled={isSubmitting}
+                    disabled={isDisabled}
                   />
                   <InputGroupAddon className="text-blue-custom-500">
                     <User size={16} />
@@ -112,7 +133,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               control={control}
               name="dni"
               render={({ field, fieldState }) => (
-                <Field dadata-invalid={fieldState.invalid}>
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel
                     htmlFor="form-input-dni"
                     className="font-headOffice-medium text-base text-blue-custom-500"
@@ -125,7 +146,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       "h-12 rounded-lg border border-blue-custom-500 bg-white",
                       "text-blue-custom-500",
                       "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                      isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
                     )}
                   >
                     <InputGroupInput
@@ -134,7 +155,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       placeholder="DNI"
                       autoComplete="off"
                       maxLength={8}
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                     />
                     <InputGroupAddon className="text-blue-custom-500">
                       <Barcode size={16} />
@@ -150,7 +171,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               control={control}
               name="paseFiscal"
               render={({ field, fieldState }) => (
-                <Field dadata-invalid={fieldState.invalid}>
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel
                     htmlFor="form-input-razon-social"
                     className="font-headOffice-medium text-base text-blue-custom-500"
@@ -163,7 +184,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       "h-12 rounded-lg border border-blue-custom-500 bg-white",
                       "text-blue-custom-500",
                       "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                      isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
                     )}
                   >
                     <InputGroupInput
@@ -171,7 +192,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       id="form-input-razon-social"
                       placeholder="Razón Social"
                       autoComplete="off"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                     />
 
                     <InputGroupAddon className="text-blue-custom-500">
@@ -192,7 +213,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               control={control}
               name="ruc"
               render={({ field, fieldState }) => (
-                <Field dadata-invalid={fieldState.invalid}>
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel
                     htmlFor="form-input-ruc"
                     className="font-headOffice-medium text-base text-blue-custom-500"
@@ -205,7 +226,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       "h-12 rounded-lg border border-blue-custom-500 bg-white",
                       "text-blue-custom-500",
                       "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                      isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
                     )}
                   >
                     <InputGroupInput
@@ -214,7 +235,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       placeholder="RUC"
                       autoComplete="off"
                       maxLength={11}
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                     />
 
                     <InputGroupAddon className="text-blue-custom-500">
@@ -239,12 +260,12 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                     Marca <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={groupCn(fieldState.invalid, isDisabled)}
                   >
                     <select
                       {...field}
                       id="form-input-marca"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       className={cn(
                         "flex-1 cursor-pointer appearance-none bg-transparent px-4 py-2",
                         "font-textOffice-regular text-sm focus:outline-none",
@@ -283,7 +304,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               control={control}
               name="celular"
               render={({ field, fieldState }) => (
-                <Field dadata-invalid={fieldState.invalid}>
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel
                     htmlFor="form-input-celular"
                     className="font-headOffice-medium text-base text-blue-custom-500"
@@ -296,7 +317,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       "h-12 rounded-lg border border-blue-custom-500 bg-white",
                       "text-blue-custom-500",
                       "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                      isSubmitting ? "cursor-not-allowed opacity-50" : ""
+                      isDisabled ? "cursor-not-allowed opacity-50" : ""
                     )}
                   >
                     <InputGroupInput
@@ -306,7 +327,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       autoComplete="off"
                       pattern="[0-9]*"
                       maxLength={9}
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                     />
                     <InputGroupAddon className="text-blue-custom-500">
                       <Phone size={16} />
@@ -322,7 +343,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               control={control}
               name="email"
               render={({ field, fieldState }) => (
-                <Field dadata-invalid={fieldState.invalid}>
+                <Field data-invalid={fieldState.invalid}>
                   <FieldLabel
                     htmlFor="form-input-email"
                     className="font-headOffice-medium text-base text-blue-custom-500"
@@ -335,7 +356,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       "h-12 rounded-lg border border-blue-custom-500 bg-white",
                       "text-base text-blue-custom-500",
                       "focus:border-2 focus:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-sky-custom-500",
-                      isSubmitting ? "cursor-not-allowed opacity-50" : "",
+                      isDisabled ? "cursor-not-allowed opacity-50" : "",
                       "placeholder:text-base placeholder:text-blue-custom-500"
                     )}
                   >
@@ -345,7 +366,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                       placeholder="E-mail"
                       autoComplete="off"
                       type="email"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                     />
                     <InputGroupAddon className="text-blue-custom-500">
                       <Mail size={16} />
@@ -373,12 +394,12 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                     Sector <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={groupCn(fieldState.invalid, isDisabled)}
                   >
                     <select
                       {...field}
                       id="form-input-sector"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       className={cn(
                         "flex-1 cursor-pointer appearance-none bg-transparent px-4 py-2",
                         "font-textOffice-regular text-sm focus:outline-none",
@@ -422,12 +443,12 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
                     <span className="text-red-custom-500">*</span>
                   </FieldLabel>
                   <InputGroup
-                    className={groupCn(fieldState.invalid, isSubmitting)}
+                    className={groupCn(fieldState.invalid, isDisabled)}
                   >
                     <select
                       {...field}
                       id="form-input-compra"
-                      disabled={isSubmitting}
+                      disabled={isDisabled}
                       className={cn(
                         "flex-1 cursor-pointer appearance-none bg-transparent px-4 py-2",
                         "font-textOffice-regular text-sm focus:outline-none",
@@ -489,7 +510,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
           {/* Submit */}
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isDisabled}
             className={cn(
               "mx-auto flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-12 py-6 sm:w-fit",
               "bg-sky-custom-500 font-headOffice-bold text-sm tracking-widest text-white uppercase",
@@ -497,7 +518,7 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
               "disabled:cursor-not-allowed disabled:opacity-60"
             )}
           >
-            {isSubmitting ? (
+            {isDisabled ? (
               <>
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />{" "}
                 Enviando...

@@ -1,4 +1,4 @@
-import { SPEC_ITEM_PROPS } from "@/types/marcamodelo.types"
+import { SPEC_ITEM_PROPS } from "@/types"
 
 export function SpecItem({ spec }: SPEC_ITEM_PROPS) {
   const { mainTitle, superTitle, subTitle } = spec

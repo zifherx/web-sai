@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
+import { REPSOL_VENTAJAS_PROPS } from "@/types"
 import { BadgeCheck } from "lucide-react"
 import Image from "next/image"
-import { REPSOL_VENTAJAS_PROPS } from "../../../types/repsol.types"
 
 export function RepsolVentajas({ ventajas }: REPSOL_VENTAJAS_PROPS) {
   const { heading, imageAlt, imageSrc, items } = ventajas
