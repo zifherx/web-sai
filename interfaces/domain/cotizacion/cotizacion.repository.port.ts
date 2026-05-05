@@ -1,4 +1,4 @@
-import { CotizacionEntity } from "./cotizacion.entity"
+import { CotizacionEntity } from "@/interfaces/domain"
 
 export interface CotizacionFilters {
   from?: string // ISO date string — rango de fechas para el admin

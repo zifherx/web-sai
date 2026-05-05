@@ -1,4 +1,4 @@
-import { IBitacoraRepository } from "@/interfaces/domain/bitacora/bitacora.repository.port"
+import { IBitacoraRepository } from "@/interfaces/domain"
 import { AxiosError, AxiosResponse } from "axios"
 
 export class BitacoraService {

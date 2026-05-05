@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { REPSOL_VENTAJAS_PROPS } from "@/types"
 import { BadgeCheck } from "lucide-react"
 import Image from "next/image"

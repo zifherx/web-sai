@@ -1,6 +1,5 @@
-import { connectDB } from "@/interfaces/infrastructure/database/connection"
-import { marcaFactory } from "@/interfaces/infrastructure/di/marca.factory"
-import { ResponseFactory } from "@/lib/response-factory"
+import { connectDB, marcaFactory } from "@/interfaces/infrastructure"
+import { ResponseFactory } from "@/lib"
 import { type NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {

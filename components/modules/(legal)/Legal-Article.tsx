@@ -1,4 +1,4 @@
-import { LEGAL_ARTICLE_PROPS } from "@/types/legal.types"
+import { LEGAL_ARTICLE_PROPS } from "@/types"
 import { LegalSection } from "./Legal-Section"
 
 export function LegalArticle({ page }: LEGAL_ARTICLE_PROPS) {

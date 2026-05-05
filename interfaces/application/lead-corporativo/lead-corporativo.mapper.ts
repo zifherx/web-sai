@@ -1,5 +1,5 @@
-import { LeadCorporativoEntity } from "@/interfaces/domain/lead-corporativo/lead-corporativo.entity"
-import { LeadCorporativoResponseDTO } from "./lead-corporativo.dto"
+import { LeadCorporativoResponseDTO } from "@/interfaces/application"
+import { LeadCorporativoEntity } from "@/interfaces/domain"
 
 export class LeadCorporativoMapper {
   static toDTO(e: LeadCorporativoEntity): LeadCorporativoResponseDTO {

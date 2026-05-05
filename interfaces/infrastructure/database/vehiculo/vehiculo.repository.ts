@@ -1,10 +1,10 @@
-import { VehiculoEntity } from "@/interfaces/domain/vehiculo/vehiculo.entity"
 import {
   IVehiculoRepository,
+  VehiculoEntity,
   VehiculoFilters,
-} from "@/interfaces/domain/vehiculo/vehiculo.repository.port"
+} from "@/interfaces/domain"
+import { VehiculoDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { VehiculoDocument } from "./vehiculo.schema"
 
 export class MongooseVehiculoRepository implements IVehiculoRepository {
   constructor(private readonly model: Model<VehiculoDocument>) {}
@@ -65,7 +65,7 @@ export class MongooseVehiculoRepository implements IVehiculoRepository {
 
   async findAll(filters?: VehiculoFilters): Promise<VehiculoEntity[]> {
     const query = this.buildQuery(filters)
-    const docs = await this.model.find(query).lean()
+    const docs = await this.model.find(query).sort({ precioBase: 1 }).lean()
     return (docs as VehiculoDocument[]).map(this.toEntity.bind(this))
   }
 

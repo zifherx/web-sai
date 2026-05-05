@@ -1,7 +1,9 @@
-import { LeadCorporativoEntity } from "@/interfaces/domain/lead-corporativo/lead-corporativo.entity"
-import { ILeadCorporativoRepository } from "@/interfaces/domain/lead-corporativo/lead-corporativo.repository.port"
+import {
+  ILeadCorporativoRepository,
+  LeadCorporativoEntity,
+} from "@/interfaces/domain"
+import { LeadCorporativoDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { LeadCorporativoDocument } from "./lead-corporativo.schema"
 
 export class MongooseLeadCorporativoRepository implements ILeadCorporativoRepository {
   constructor(private readonly model: Model<LeadCorporativoDocument>) {}

@@ -1,10 +1,10 @@
-import { CotizacionEntity } from "@/interfaces/domain/cotizacion/cotizacion.entity"
 import {
+  CotizacionEntity,
   CotizacionFilters,
   ICotizacionRepository,
-} from "@/interfaces/domain/cotizacion/cotizacion.repository.port"
+} from "@/interfaces/domain"
+import { CotizacionDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { CotizacionDocument } from "./cotizacion.schema"
 
 const POPULATE_COTIZACION_OPTIONS = [
   {

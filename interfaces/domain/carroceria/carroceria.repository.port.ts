@@ -1,4 +1,4 @@
-import { CarroceriaEntity } from "./carroceria.entity"
+import { CarroceriaEntity } from "@/interfaces/domain"
 
 export interface ICarroceriaRepository {
   findAll(filter?: Record<string, unknown>): Promise<CarroceriaEntity[]>

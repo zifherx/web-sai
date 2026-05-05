@@ -1,15 +1,15 @@
 import {
-  CarroceriaAlreadyExistsError,
-  CarroceriaNotFoundError,
-} from "@/interfaces/domain/carroceria/carroceria.errors"
-import { ICarroceriaRepository } from "@/interfaces/domain/carroceria/carroceria.repository.port"
-import { ValidationError } from "@/interfaces/domain/marca/marca.errors"
-import {
+  CarroceriaMapper,
   CarroceriaResponseDTO,
   CreateCarroceriaDTO,
   UpdateCarroceriaDTO,
-} from "./carroceria.dto"
-import { CarroceriaMapper } from "./carroceria.mapper"
+} from "@/interfaces/application"
+import {
+  CarroceriaAlreadyExistsError,
+  CarroceriaNotFoundError,
+  ICarroceriaRepository,
+  ValidationError,
+} from "@/interfaces/domain"
 
 export class CarroceriaService {
   constructor(private readonly repository: ICarroceriaRepository) {}

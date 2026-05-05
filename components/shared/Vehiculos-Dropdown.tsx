@@ -1,7 +1,7 @@
 "use client"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActiveMarcas } from "@/hooks/queries/use-marca"
+import { useActiveMarcas } from "@/hooks"
 import { cn } from "@/lib/"
 import { ChevronDown } from "lucide-react"
 import Image from "next/image"

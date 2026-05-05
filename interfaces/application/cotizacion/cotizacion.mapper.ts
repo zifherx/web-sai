@@ -1,5 +1,5 @@
-import { CotizacionEntity } from "@/interfaces/domain/cotizacion/cotizacion.entity"
-import { CotizacionResponseDTO } from "./cotizacion.dto"
+import { CotizacionResponseDTO } from "@/interfaces/application"
+import { CotizacionEntity } from "@/interfaces/domain"
 
 export class CotizacionMapper {
   static toDTO(entity: CotizacionEntity): CotizacionResponseDTO {

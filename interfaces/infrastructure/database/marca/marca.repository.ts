@@ -1,7 +1,6 @@
-import { MarcaEntity } from "@/interfaces/domain/marca/marca.entity"
-import { IMarcaRepository } from "@/interfaces/domain/marca/marca.repository.port"
+import { IMarcaRepository, MarcaEntity } from "@/interfaces/domain"
+import { MarcaDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { MarcaDocument } from "./marca.schema"
 
 export class MongooseMarcaRepository implements IMarcaRepository {
   constructor(private readonly model: Model<MarcaDocument>) {}

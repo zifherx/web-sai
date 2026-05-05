@@ -1,7 +1,6 @@
-import { ClienteEntity } from "@/interfaces/domain/cliente/cliente.entity"
-import { IClienteRepository } from "@/interfaces/domain/cliente/cliente.repository.port"
+import { ClienteEntity, IClienteRepository } from "@/interfaces/domain"
+import { ClienteDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { ClienteDocument } from "./cliente.schema"
 
 export class MongooseClienteRepository implements IClienteRepository {
   constructor(private readonly model: Model<ClienteDocument>) {}

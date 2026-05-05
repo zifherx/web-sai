@@ -8,7 +8,7 @@ import {
   CORPORATIVO_FORM,
   CORPORATIVO_HERO,
   CORPORATIVO_INTRO,
-} from "@/constants/corporativo.constants"
+} from "@/constants"
 
 export function SolucionesCorporativasView() {
   return (

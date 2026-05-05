@@ -1,4 +1,4 @@
-import { VehiculoType } from "./api.types"
+import { VehiculoType } from "@/types"
 
 export interface ISearchParamsCatalogo {
   marca?: string

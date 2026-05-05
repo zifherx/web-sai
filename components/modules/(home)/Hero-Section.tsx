@@ -6,7 +6,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActivePortadas } from "@/hooks/queries/use-portada"
+import { useActivePortadas } from "@/hooks"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useRef } from "react"

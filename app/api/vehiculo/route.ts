@@ -1,8 +1,7 @@
-import { VehiculoFiltersSchema } from "@/interfaces/application/vehiculo/vehiculo.dto"
-import { VehiculoValidationError } from "@/interfaces/domain/vehiculo/vehiculo.errors"
-import { connectDB } from "@/interfaces/infrastructure/database/connection"
-import { vehiculoFactory } from "@/interfaces/infrastructure/di/vehiculo.factory"
-import { ResponseFactory } from "@/lib/response-factory"
+import { VehiculoFiltersSchema } from "@/interfaces/application"
+import { VehiculoValidationError } from "@/interfaces/domain"
+import { connectDB, vehiculoFactory } from "@/interfaces/infrastructure"
+import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {
