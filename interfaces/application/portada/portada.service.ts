@@ -1,15 +1,15 @@
 import {
-  PortadaAlreadyExistsError,
-  PortadaNotFoundError,
-  ValidationError,
-} from "@/interfaces/domain/portada/portada.errors"
-import { IPortadaRepository } from "@/interfaces/domain/portada/portada.repository.port"
-import {
   CreatePortadaDTO,
+  PortadaMapper,
   PortadaResponseDTO,
   UpdatePortadaDTO,
-} from "./portada.dto"
-import { PortadaMapper } from "./portada.mapper"
+} from "@/interfaces/application"
+import {
+  IPortadaRepository,
+  PortadaAlreadyExistsError,
+  PortadaNotFoundError,
+  PortadaValidationError,
+} from "@/interfaces/domain"
 
 export class PortadaService {
   constructor(private readonly repository: IPortadaRepository) {}
@@ -27,7 +27,7 @@ export class PortadaService {
   }
 
   async getById(id: string): Promise<PortadaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new PortadaValidationError("El id es requerido")
     const portada = await this.repository.findById(id)
     if (!portada) throw new PortadaNotFoundError(id)
     return PortadaMapper.toDTO(portada)
@@ -53,14 +53,14 @@ export class PortadaService {
   }
 
   async update(id: string, dto: UpdatePortadaDTO): Promise<PortadaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new PortadaValidationError("El id es requerido")
     const updated = await this.repository.update(id, dto)
     if (!updated) throw new PortadaNotFoundError(id)
     return PortadaMapper.toDTO(updated)
   }
 
   async delete(id: string): Promise<PortadaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new PortadaValidationError("El id es requerido")
     const deleted = await this.repository.delete(id)
     if (!deleted) throw new PortadaNotFoundError(id)
     return PortadaMapper.toDTO(deleted)

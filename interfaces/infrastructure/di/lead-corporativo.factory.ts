@@ -1,6 +1,8 @@
-import { LeadCorporativoService } from "@/interfaces/application/lead-corporativo/lead-corporativo.service"
-import { MongooseLeadCorporativoRepository } from "@/interfaces/infrastructure/database/lead-corporativo/lead-corporativo.repository"
-import { LeadCorporativoModel } from "@/interfaces/infrastructure/database/lead-corporativo/lead-corporativo.schema"
+import { LeadCorporativoService } from "@/interfaces/application"
+import {
+  LeadCorporativoModel,
+  MongooseLeadCorporativoRepository,
+} from "@/interfaces/infrastructure"
 
 export function leadCorporativoFactory(): LeadCorporativoService {
   return new LeadCorporativoService(

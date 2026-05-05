@@ -1,7 +1,7 @@
+import { BackButton } from "@/components/shared/Back-Button"
 import { cn } from "@/lib"
 import { AlertTriangle, Home } from "lucide-react"
 import Link from "next/link"
-import { BackButton } from "../components/shared/Back-Button"
 
 export default function NotFoundPage() {
   return (

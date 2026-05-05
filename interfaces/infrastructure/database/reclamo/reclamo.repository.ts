@@ -1,10 +1,10 @@
-import { ReclamoEntity } from "@/interfaces/domain/reclamo/reclamo.entity"
 import {
   IReclamoRepository,
+  ReclamoEntity,
   ReclamoFilters,
-} from "@/interfaces/domain/reclamo/reclamo.repository.port"
+} from "@/interfaces/domain"
+import { ReclamoDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { ReclamoDocument } from "./reclamo.schema"
 
 export class MongooseReclamoRepository implements IReclamoRepository {
   constructor(private readonly model: Model<ReclamoDocument>) {}

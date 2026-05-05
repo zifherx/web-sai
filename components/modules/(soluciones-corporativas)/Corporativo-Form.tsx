@@ -13,7 +13,7 @@ import {
   CorporativoData,
   CorporativoSchema,
 } from "@/constants"
-import { useActiveMarcas } from "@/hooks"
+import { useActiveMarcas, useCrearLeadCorporativo } from "@/hooks"
 import { cn, groupCn, toastError, toastSuccess } from "@/lib"
 import { CORPORATIVO_FORM_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -32,7 +32,6 @@ import {
 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { Controller, useForm } from "react-hook-form"
-import { useCrearLeadCorporativo } from "../../../hooks/mutations/use-lead-corporativo.mutations"
 
 export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
   const router = useRouter()

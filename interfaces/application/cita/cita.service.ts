@@ -1,14 +1,15 @@
 import {
-  CitaNotFoundError,
-  CitaValidationError,
-} from "@/interfaces/domain/cita/cita.errors"
+  CitaMapper,
+  CitaResponseDTO,
+  CreateCitaDTO,
+} from "@/interfaces/application"
 import {
   CitaFilters,
+  CitaNotFoundError,
+  CitaValidationError,
   ICitaRepository,
-} from "@/interfaces/domain/cita/cita.repository.port"
-import { IClienteRepository } from "@/interfaces/domain/cliente/cliente.repository.port"
-import { CitaResponseDTO, CreateCitaDTO } from "./cita.dto"
-import { CitaMapper } from "./cita.mapper"
+  IClienteRepository,
+} from "@/interfaces/domain"
 
 export class CitaService {
   constructor(

@@ -1,7 +1,6 @@
-import { CarroceriaEntity } from "@/interfaces/domain/carroceria/carroceria.entity"
-import { ICarroceriaRepository } from "@/interfaces/domain/carroceria/carroceria.repository.port"
+import { CarroceriaEntity, ICarroceriaRepository } from "@/interfaces/domain"
+import { CarroceriaDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { CarroceriaDocument } from "./carroceria.schema"
 
 export class MongooseCarroceriaRepository implements ICarroceriaRepository {
   constructor(private readonly model: Model<CarroceriaDocument>) {}

@@ -1,5 +1,5 @@
-import { CitaEntity } from "@/interfaces/domain/cita/cita.entity"
-import { CitaResponseDTO } from "./cita.dto"
+import { CitaResponseDTO } from "@/interfaces/application"
+import { CitaEntity } from "@/interfaces/domain"
 
 export class CitaMapper {
   static toDTO(entity: CitaEntity): CitaResponseDTO {

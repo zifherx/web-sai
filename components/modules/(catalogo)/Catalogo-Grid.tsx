@@ -1,9 +1,9 @@
 import { SearchSelect } from "@/components/shared/Search-Select"
 import { VehicleCatalogoCard } from "@/components/shared/Vehicle-Catalogo-Card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { SORT_OPTIONS } from "@/constants/catalogo.constants"
-import { cn } from "@/lib/utils"
-import { CATALOGO_GRID_PROPS, SORT_OPTION_TYPE } from "@/types/catalogo.types"
+import { SORT_OPTIONS } from "@/constants"
+import { cn } from "@/lib"
+import { CATALOGO_GRID_PROPS, SORT_OPTION_TYPE } from "@/types"
 import { ChevronRight, SlidersHorizontal } from "lucide-react"
 
 export function CatalogoGrid({

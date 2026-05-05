@@ -1,9 +1,9 @@
+import { SedeUbicanosCard } from "@/components/shared/Sede-Ubicanos-Card"
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActiveMarcas } from "@/hooks/queries/use-marca"
-import { SEDE_GRID_PROPS } from "@/types/ubicanos.types"
+import { useActiveMarcas } from "@/hooks"
+import { SEDE_GRID_PROPS } from "@/types"
 import { MapPinOff } from "lucide-react"
 import { useMemo } from "react"
-import { SedeUbicanosCard } from "../../shared/Sede-Ubicanos-Card"
 
 export function SedesGrid({ isLoading, sedes }: SEDE_GRID_PROPS) {
   const { data: marcas } = useActiveMarcas()

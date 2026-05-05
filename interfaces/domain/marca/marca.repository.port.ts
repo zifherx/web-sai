@@ -1,4 +1,4 @@
-import { MarcaEntity } from "./marca.entity"
+import { MarcaEntity } from "@/interfaces/domain"
 
 export interface IMarcaRepository {
   findAll(filter?: Record<string, unknown>): Promise<MarcaEntity[]>

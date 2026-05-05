@@ -1,4 +1,4 @@
-import { SystemEmailArea, SystemEmailEntity } from "./system-email.entity"
+import { SystemEmailArea, SystemEmailEntity } from "@/interfaces/domain"
 
 export interface ISystemEmailRepository {
   findAll(): Promise<SystemEmailEntity[]>

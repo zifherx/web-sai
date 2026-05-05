@@ -1,5 +1,4 @@
-import { connectDB } from "@/interfaces/infrastructure/database/connection"
-import { portadaFactory } from "@/interfaces/infrastructure/di/portada.factory"
+import { connectDB, portadaFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib/response-factory"
 import { type NextRequest } from "next/server"
 

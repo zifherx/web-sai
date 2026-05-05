@@ -1,7 +1,6 @@
-import { PortadaEntity } from "@/interfaces/domain/portada/portada.entity"
-import { IPortadaRepository } from "@/interfaces/domain/portada/portada.repository.port"
+import { IPortadaRepository, PortadaEntity } from "@/interfaces/domain"
+import { PortadaDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { PortadaDocument } from "./portada.schema"
 
 export class MongoosePortadaRepository implements IPortadaRepository {
   constructor(private readonly model: Model<PortadaDocument>) {}

@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
-import { cn } from "@/lib/utils"
-import { UBICANOS_SIDEBAR_PROPS } from "@/types/ubicanos.types"
+import { cn } from "@/lib"
+import { UBICANOS_SIDEBAR_PROPS } from "@/types"
 import { MapPin } from "lucide-react"
 import Image from "next/image"
 

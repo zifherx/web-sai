@@ -1,5 +1,8 @@
-import { ICarouselCorporativo } from "../interfaces"
-import { IServiceShowcase, IVehicleShowcase } from "../types/showcase.types"
+import {
+  ICarouselCorporativo,
+  IServiceShowcase,
+  IVehicleShowcase,
+} from "@/types"
 
 export const CARRUSEL_CORPORATIVO: ICarouselCorporativo = {
   autoplayInterval: 5000,

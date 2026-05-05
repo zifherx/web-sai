@@ -1,4 +1,4 @@
-import { BreadcrumbUbicanos } from "../../shared/Breadcrumb-Ubicanos"
+import { BreadcrumbUbicanos } from "@/components/shared/Breadcrumb-Ubicanos"
 
 export function MapaHero() {
   return (

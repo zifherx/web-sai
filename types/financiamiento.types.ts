@@ -54,6 +54,7 @@ export type STEP3_SEDE_PROPS = {
   onNext: (data: Step3Data) => void
   onBack: () => void
   initialData: Step3Data | null
+  marcaNombre?: string
 }
 
 export interface ISedeParam {

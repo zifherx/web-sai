@@ -1,9 +1,9 @@
 "use client"
 
 import { SpecItem } from "@/components/shared/Spec-Item"
-import { TAB_LABELS } from "@/constants/marcamodelo.constanst"
-import { cn } from "@/lib/utils"
-import { ITab, VEHICULO_FEATURES_PROPS } from "@/types/marcamodelo.types"
+import { TAB_LABELS } from "@/constants"
+import { cn } from "@/lib"
+import { ITab, VEHICULO_FEATURES_PROPS } from "@/types"
 import { useState } from "react"
 
 export function VehiculoFeatures({ features }: VEHICULO_FEATURES_PROPS) {

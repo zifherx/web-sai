@@ -35,6 +35,7 @@ export const sedeKeys = {
   slug: (slug: string) => ["sede", "slug", slug] as const,
   talleres: () => ["sede", "talleres"] as const,
   byCiudad: (ciudad: string) => ["sede", "ciudad", ciudad] as const,
+  byMarca: (marcaNombre: string) => ["sede", "marca", marcaNombre] as const,
 }
 
 export const vehiculoKeys = {

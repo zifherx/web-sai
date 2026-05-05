@@ -1,5 +1,4 @@
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { systemEmailFactory } from "@/interfaces/infrastructure/di"
+import { connectDB, systemEmailFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 import z from "zod"

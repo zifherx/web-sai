@@ -1,16 +1,29 @@
 "use client"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { useActiveSedes } from "@/hooks"
+import { useActiveSedes, useSedesByMarca } from "@/hooks"
 import { cn } from "@/lib"
 import { ISedeParam, STEP3_SEDE_PROPS } from "@/types"
 import { ChevronLeft, Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useMemo, useState } from "react"
 
-export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
-  const { data: sedes, isLoading } = useActiveSedes()
+export function Step3Sede({
+  initialData,
+  onBack,
+  onNext,
+  marcaNombre,
+}: STEP3_SEDE_PROPS) {
   const [ciudadFiltro, setCiudadFiltro] = useState("")
+
+  const { data: sedesByMarca, isLoading: loadingByMarca } = useSedesByMarca(
+    marcaNombre ?? ""
+  )
+  const { data: todasSedes, isLoading: loadingTodas } = useActiveSedes()
+
+  const hayFiltroMarca = !!marcaNombre?.trim()
+  const sedes = hayFiltroMarca ? (sedesByMarca ?? []) : (todasSedes ?? [])
+  const isLoading = hayFiltroMarca ? loadingByMarca : loadingTodas
 
   const ciudades = useMemo(() => {
     const seen = new Set<string>()
@@ -26,7 +39,7 @@ export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
   }, [sedes])
 
   const sedesFiltradas = useMemo(() => {
-    if (!ciudadFiltro) return sedes ?? []
+    if (!ciudadFiltro) return sedes
     return (sedes ?? []).filter(
       (s) => s.ciudad.toLowerCase() === ciudadFiltro.toLowerCase()
     )
@@ -54,7 +67,9 @@ export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
           Encuentra tu concesionario
         </h2>
         <p className="mt-1 font-textOffice-regular text-lg leading-5 tracking-tight text-gray-custom-900 md:text-xl md:leading-6">
-          Selecciona la ciudad y el concesionario más cercano a ti
+          {hayFiltroMarca
+            ? `Concesionarios ${marcaNombre} disponibles cerca de ti`
+            : "Selecciona la ciudad y el concesionario más cercano a ti"}
         </p>
       </div>
 
@@ -70,7 +85,9 @@ export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
           onChange={(e) => setCiudadFiltro(e.target.value)}
           className="w-full cursor-pointer appearance-none rounded-lg border border-gray-custom-300/60 bg-gray-custom-100 py-3.5 pr-4 pl-9 font-textOffice-regular text-sm text-gray-custom-900 focus:ring-2 focus:ring-sky-custom-300 focus:outline-none md:rounded-2xl"
         >
-          <option value="">Elige tu ciudad</option>
+          <option value="">
+            {isLoading ? "Cargando ciudades..." : "Elige tu ciudad"}
+          </option>
           {ciudades.map((c) => (
             <option key={c} value={c}>
               {c}
@@ -87,6 +104,22 @@ export function Step3Sede({ initialData, onBack, onNext }: STEP3_SEDE_PROPS) {
             .map((_, i) => (
               <Skeleton key={i} className="h-32 w-full rounded-2xl" />
             ))}
+
+        {!isLoading && sedesFiltradas.length === 0 && ciudadFiltro && (
+          <p className="py-10 text-center font-textOffice-regular text-sm text-gray-custom-900">
+            No hay concesarios disponibles en {ciudadFiltro}
+            {hayFiltroMarca ? ` para ${marcaNombre}` : ""}
+          </p>
+        )}
+
+        {!isLoading &&
+          sedesFiltradas.length === 0 &&
+          !ciudadFiltro &&
+          hayFiltroMarca && (
+            <p className="py-10 text-center font-textOffice-regular text-sm text-gray-custom-900">
+              No hay concesionarios disponibles para {marcaNombre}
+            </p>
+          )}
 
         {!isLoading &&
           sedesFiltradas.map((sede) => {

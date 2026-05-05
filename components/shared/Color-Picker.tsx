@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib"
 import { COLOR_PICKER_PROPS } from "@/types"
 

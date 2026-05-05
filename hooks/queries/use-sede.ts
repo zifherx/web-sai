@@ -1,7 +1,7 @@
-import { sedeService } from "@/services/sede.service"
-import { ISedeFilters } from "@/types/api.types"
+import { sedeKeys } from "@/hooks/query-keys"
+import { sedeService } from "@/services"
+import { ISedeFilters } from "@/types"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { sedeKeys } from "../query-keys"
 
 export function useSedes(filters?: ISedeFilters) {
   return useQuery({
@@ -42,6 +42,15 @@ export function useTalleres() {
   return useQuery({
     queryKey: sedeKeys.talleres(),
     queryFn: sedeService.getTallers,
+    staleTime: 1000 * 60 * 5,
+  })
+}
+
+export function useSedesByMarca(marcaNombre: string) {
+  return useQuery({
+    queryKey: sedeKeys.byMarca(marcaNombre),
+    queryFn: () => sedeService.getByMarcaNombre(marcaNombre),
+    enabled: !!marcaNombre.trim(),
     staleTime: 1000 * 60 * 5,
   })
 }

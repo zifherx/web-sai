@@ -1,5 +1,5 @@
 import { CodigoConductaCard } from "@/components/shared/Codigo-Conducta-Card"
-import { CODIGOS_CONDUCTA_SAI } from "@/constants/nosotros.constants"
+import { CODIGOS_CONDUCTA_SAI } from "@/constants"
 
 export function CodigosConducta() {
   const { headingNeutral, headingAccent, codigos } = CODIGOS_CONDUCTA_SAI

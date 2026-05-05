@@ -27,9 +27,15 @@ export const sedeService = {
     return data.data
   },
   getTallers: async (): Promise<SedeType[]> => {
-    const { data } = await httpClient.get<APIResponse<SedeType[]>>(`sede`, {
+    const { data } = await httpClient.get<APIResponse<SedeType[]>>(`/sede`, {
       params: { isTaller: true, isActive: true },
     })
+    return data.data
+  },
+  getByMarcaNombre: async (marcaNombre: string): Promise<SedeType[]> => {
+    const { data } = await httpClient.get<APIResponse<SedeType[]>>(
+      `/sede?marcaNombre=${encodeURIComponent(marcaNombre)}`
+    )
     return data.data
   },
   getByCiudad: async (ciudad: string): Promise<SedeType[]> => {

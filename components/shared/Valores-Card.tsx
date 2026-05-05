@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { VALORES_CARD_PROPS } from "@/types"
 
 export function ValoresCard({ valor }: VALORES_CARD_PROPS) {

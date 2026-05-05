@@ -1,4 +1,4 @@
-export abstract class DomainError extends Error {
+abstract class DomainError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number

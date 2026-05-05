@@ -1,6 +1,5 @@
-// interfaces/application/reclamo/reclamo.mapper.ts
-import { ReclamoEntity } from "@/interfaces/domain/reclamo/reclamo.entity"
-import { ReclamoResponseDTO } from "./reclamo.dto"
+import { ReclamoResponseDTO } from "@/interfaces/application"
+import { ReclamoEntity } from "@/interfaces/domain"
 
 export class ReclamoMapper {
   static toDTO(entity: ReclamoEntity): ReclamoResponseDTO {

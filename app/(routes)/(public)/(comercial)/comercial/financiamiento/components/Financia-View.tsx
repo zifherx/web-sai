@@ -168,6 +168,7 @@ export function FinanciamientoView({
                 onNext={handleStep3}
                 onBack={prevStep}
                 initialData={step3Data}
+                marcaNombre={step1Data.marcaNombre}
               />
             )}
             {currentStep === 4 && step1Data && step2Data && step3Data && (

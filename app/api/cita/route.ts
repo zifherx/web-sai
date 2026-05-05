@@ -1,9 +1,5 @@
-import {
-  CitaFiltersSchema,
-  CreateCitaSchema,
-} from "@/interfaces/application/cita/cita.dto"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { citaFactory } from "@/interfaces/infrastructure/di"
+import { CitaFiltersSchema, CreateCitaSchema } from "@/interfaces/application"
+import { citaFactory, connectDB } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

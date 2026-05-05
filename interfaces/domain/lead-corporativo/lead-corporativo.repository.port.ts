@@ -1,4 +1,4 @@
-import { LeadCorporativoEntity } from "./lead-corporativo.entity"
+import { LeadCorporativoEntity } from "@/interfaces/domain"
 
 export interface ILeadCorporativoRepository {
   findAll(): Promise<LeadCorporativoEntity[]>

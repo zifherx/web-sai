@@ -1,5 +1,5 @@
-import { parseBoldText } from "@/lib/global.functions"
-import { LEGAL_PARRAFO_PROPS } from "@/types/legal.types"
+import { parseBoldText } from "@/lib"
+import { LEGAL_PARRAFO_PROPS } from "@/types"
 
 export function LegalParrafo({ parrafo }: LEGAL_PARRAFO_PROPS) {
   const { text } = parrafo
