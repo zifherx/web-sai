@@ -1,4 +1,4 @@
-export abstract class DomainError extends Error {
+abstract class DomainError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number
@@ -24,12 +24,6 @@ export class VehiculoSlugNotFoundError extends DomainError {
 export class VehiculoAlreadyExistsError extends DomainError {
   constructor(slug: string) {
     super(`Ya existe un vehículo con el slug "${slug}"`, 409)
-  }
-}
-
-export class UnauthorizedError extends DomainError {
-  constructor() {
-    super(`No autorizado`, 401)
   }
 }
 

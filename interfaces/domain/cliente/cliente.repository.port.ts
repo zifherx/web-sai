@@ -1,4 +1,4 @@
-import { ClienteEntity } from "./cliente.entity"
+import { ClienteEntity } from "@/interfaces/domain"
 
 export interface IClienteRepository {
   findByNumeroDocumento(numeroDocumento: string): Promise<ClienteEntity | null>

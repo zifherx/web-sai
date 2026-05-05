@@ -1,17 +1,9 @@
-import { VehiculoService } from "@/interfaces/application/vehiculo/vehiculo.service"
-import { MongooseVehiculoRepository } from "@/interfaces/infrastructure/database/vehiculo/vehiculo.repository"
-import { VehiculoModel } from "@/interfaces/infrastructure/database/vehiculo/vehiculo.schema"
-import { DIContainer } from "./container"
+import { VehiculoService } from "@/interfaces/application"
+import {
+  MongooseVehiculoRepository,
+  VehiculoModel,
+} from "@/interfaces/infrastructure"
 
 export function vehiculoFactory(): VehiculoService {
-  const container = DIContainer.getInstance()
-
-  if (!container.has("IVehiculoRepository")) {
-    container.register(
-      "IVehiculoRepository",
-      new MongooseVehiculoRepository(VehiculoModel)
-    )
-  }
-
-  return new VehiculoService(container.get("IVehiculoRepository"))
+  return new VehiculoService(new MongooseVehiculoRepository(VehiculoModel))
 }

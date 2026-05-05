@@ -1,10 +1,9 @@
 "use client"
 
 import { Skeleton } from "@/components/ui/skeleton"
-import { useVehiculosByMarca } from "@/hooks/queries/use-vehiculo"
-import { precioFormateadoUSD } from "@/lib/global.functions"
-import { cn } from "@/lib/utils"
-import { IModeloSelect, STEP2_MODELO_PROPS } from "@/types/financiamiento.types"
+import { useVehiculosByMarca } from "@/hooks"
+import { cn, precioFormateadoUSD } from "@/lib"
+import { IModeloSelect, STEP2_MODELO_PROPS } from "@/types"
 import { BadgeCheck, ChevronLeft, Fuel, Gauge } from "lucide-react"
 import Image from "next/image"
 

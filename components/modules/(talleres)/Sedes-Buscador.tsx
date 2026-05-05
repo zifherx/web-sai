@@ -1,10 +1,8 @@
 import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { IOptionSelect } from "@/types/searchSelect.types"
-import { SEDE_BUSCADOR_PROPS } from "@/types/ubicanos.types"
-
-export const ALL_CITIES = "todos"
+import { ALL_CITIES } from "@/constants"
+import { cn } from "@/lib"
+import { IOptionSelect, SEDE_BUSCADOR_PROPS } from "@/types"
 
 export function SedesBuscador({
   ciudadValue,

@@ -1,4 +1,4 @@
-import { YoutubeVideoFrame } from "../../shared/Youtube-Video-Frame"
+import { YoutubeVideoFrame } from "@/components/shared/Youtube-Video-Frame"
 
 export function HeroBanner() {
   return (

@@ -10,7 +10,7 @@ import {
   REPSOL_INFO,
   REPSOL_VENTAJAS,
   REPSOL_VIDEO,
-} from "@/constants/repsol.constants"
+} from "@/constants"
 
 export function BenficiosRepsolView() {
   return (

@@ -2,7 +2,7 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { IMarcaSelect, STEP1_MARCA_PROPS } from "@/types"
 import Image from "next/image"
 

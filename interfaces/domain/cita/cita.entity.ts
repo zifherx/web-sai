@@ -1,4 +1,3 @@
-/** Refs populados — solo presentes en lecturas del admin */
 export interface ICitaClienteRef {
   id: string
   name: string

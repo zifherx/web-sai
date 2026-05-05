@@ -1,4 +1,4 @@
-export abstract class DomainError extends Error {
+abstract class DomainError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number
@@ -21,13 +21,7 @@ export class MarcaAlreadyExistsError extends DomainError {
   }
 }
 
-export class UnauthorizedError extends DomainError {
-  constructor() {
-    super(`No autorizado`, 401)
-  }
-}
-
-export class ValidationError extends DomainError {
+export class MarcaValidationError extends DomainError {
   constructor(message: string) {
     super(message, 422)
   }

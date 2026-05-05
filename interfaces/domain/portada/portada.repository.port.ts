@@ -1,4 +1,4 @@
-import type { PortadaEntity } from "./portada.entity"
+import type { PortadaEntity } from "@/interfaces/domain"
 
 export interface IPortadaRepository {
   findAll(filter?: Record<string, unknown>): Promise<PortadaEntity[]>

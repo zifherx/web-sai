@@ -1,11 +1,15 @@
 import {
+  CreateMarcaDTO,
+  MarcaMapper,
+  MarcaResponseDTO,
+  UpdateMarcaDTO,
+} from "@/interfaces/application"
+import {
+  IMarcaRepository,
   MarcaAlreadyExistsError,
   MarcaNotFoundError,
-  ValidationError,
-} from "@/interfaces/domain/marca/marca.errors"
-import { IMarcaRepository } from "@/interfaces/domain/marca/marca.repository.port"
-import { CreateMarcaDTO, MarcaResponseDTO, UpdateMarcaDTO } from "./marca.dto"
-import { MarcaMapper } from "./marca.mapper"
+  MarcaValidationError,
+} from "@/interfaces/domain"
 
 export class MarcaService {
   constructor(private readonly repository: IMarcaRepository) {}
@@ -21,14 +25,14 @@ export class MarcaService {
   }
 
   async getById(id: string): Promise<MarcaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new MarcaValidationError("El id es requerido")
     const item = await this.repository.findById(id)
     if (!item) throw new MarcaNotFoundError(id)
     return MarcaMapper.toDTO(item)
   }
 
   async getBySlug(slug: string): Promise<MarcaResponseDTO> {
-    if (!slug) throw new ValidationError("El slug es requerido")
+    if (!slug) throw new MarcaValidationError("El slug es requerido")
     const item = await this.repository.findBySlug(slug)
     if (!item) throw new MarcaNotFoundError(slug)
     return MarcaMapper.toDTO(item)
@@ -52,14 +56,14 @@ export class MarcaService {
   }
 
   async update(id: string, dto: UpdateMarcaDTO): Promise<MarcaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new MarcaValidationError("El id es requerido")
     const updated = await this.repository.update(id, dto)
     if (!updated) throw new MarcaNotFoundError(id)
     return MarcaMapper.toDTO(updated)
   }
 
   async delete(id: string): Promise<MarcaResponseDTO> {
-    if (!id) throw new ValidationError("El id es requerido")
+    if (!id) throw new MarcaValidationError("El id es requerido")
     const deleted = await this.repository.delete(id)
     if (!deleted) throw new MarcaNotFoundError(id)
     return MarcaMapper.toDTO(deleted)

@@ -1,9 +1,8 @@
 import {
   CotizacionFiltersSchema,
   CreateCotizacionSchema,
-} from "@/interfaces/application/cotizacion/cotizacion.dto"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { cotizacionFactory } from "@/interfaces/infrastructure/di"
+} from "@/interfaces/application"
+import { connectDB, cotizacionFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

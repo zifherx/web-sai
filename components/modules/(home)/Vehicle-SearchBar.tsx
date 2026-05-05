@@ -3,7 +3,7 @@
 import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
 import { useActiveMarcas, useActiveSedes, useActiveVehiculos } from "@/hooks"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { IOptionSelect } from "@/types"
 import { useRouter } from "next/navigation"
 import { useMemo, useState } from "react"

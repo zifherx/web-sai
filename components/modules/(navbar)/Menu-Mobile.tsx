@@ -1,7 +1,7 @@
 "use client"
 
 import { NAVBAR_MOBILE_LINKS } from "@/constants"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib"
 import { CircleDollarSign, Menu } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"

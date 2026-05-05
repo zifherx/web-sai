@@ -1,19 +1,17 @@
 import {
-  VehiculoAlreadyExistsError,
-  VehiculoNotFoundError,
-  VehiculoValidationError,
-} from "@/interfaces/domain/vehiculo/vehiculo.errors"
-import {
-  IVehiculoRepository,
-  VehiculoFilters,
-} from "@/interfaces/domain/vehiculo/vehiculo.repository.port"
-import {
   CreateVehiculoDTO,
   UpdateVehiculoDTO,
   VehiculoFiltersDTO,
+  VehiculoMapper,
   VehiculoResponseDTO,
-} from "./vehiculo.dto"
-import { VehiculoMapper } from "./vehiculo.mapper"
+} from "@/interfaces/application"
+import {
+  IVehiculoRepository,
+  VehiculoAlreadyExistsError,
+  VehiculoFilters,
+  VehiculoNotFoundError,
+  VehiculoValidationError,
+} from "@/interfaces/domain"
 
 export class VehiculoService {
   constructor(private readonly repository: IVehiculoRepository) {}

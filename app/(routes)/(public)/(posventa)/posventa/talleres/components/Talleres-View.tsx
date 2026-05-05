@@ -1,12 +1,10 @@
 "use client"
 
 import { MapaHero } from "@/components/modules/(talleres)/Mapa-Hero"
-import {
-  ALL_CITIES,
-  SedesBuscador,
-} from "@/components/modules/(talleres)/Sedes-Buscador"
+import { SedesBuscador } from "@/components/modules/(talleres)/Sedes-Buscador"
 import { SedesGrid } from "@/components/modules/(talleres)/Sedes-Grid"
-import { useActiveSedes } from "@/hooks/queries/use-sede"
+import { ALL_CITIES } from "@/constants"
+import { useActiveSedes } from "@/hooks"
 import { useMemo, useState } from "react"
 
 export function TalleresView() {

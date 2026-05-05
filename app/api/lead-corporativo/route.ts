@@ -1,8 +1,12 @@
-import { emailService } from "@/interfaces/application/email/email.service"
-import { CreateLeadCorporativoSchema } from "@/interfaces/application/lead-corporativo/lead-corporativo.dto"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { systemEmailFactory } from "@/interfaces/infrastructure/di"
-import { leadCorporativoFactory } from "@/interfaces/infrastructure/di/lead-corporativo.factory"
+import {
+  CreateLeadCorporativoSchema,
+  emailService,
+} from "@/interfaces/application"
+import {
+  connectDB,
+  leadCorporativoFactory,
+  systemEmailFactory,
+} from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

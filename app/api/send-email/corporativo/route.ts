@@ -1,6 +1,5 @@
-import { emailService } from "@/interfaces/application/email/email.service"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { systemEmailFactory } from "@/interfaces/infrastructure/di"
+import { emailService } from "@/interfaces/application"
+import { connectDB, systemEmailFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

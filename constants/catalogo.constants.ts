@@ -1,5 +1,6 @@
-import { SORT_OPTION_TYPE } from "@/types/catalogo.types"
-import { IOptionSelect } from "@/types/searchSelect.types"
+import { IOptionSelect, SORT_OPTION_TYPE } from "@/types"
+
+export const ALL_BRANDS = "todos"
 
 export const SORT_OPTIONS: IOptionSelect[] = [
   { value: "precio-asc", label: "Menor a mayor precio" },

@@ -1,5 +1,5 @@
-import { PortadaEntity } from "@/interfaces/domain/portada/portada.entity"
-import { PortadaResponseDTO } from "./portada.dto"
+import { PortadaResponseDTO } from "@/interfaces/application"
+import { PortadaEntity } from "@/interfaces/domain"
 
 export class PortadaMapper {
   static toDTO(entity: PortadaEntity): PortadaResponseDTO {

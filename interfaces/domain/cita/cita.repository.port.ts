@@ -1,4 +1,4 @@
-import { CitaEntity } from "./cita.entity"
+import { CitaEntity } from "@/interfaces/domain"
 
 export interface CitaFilters {
   sedeId?: string

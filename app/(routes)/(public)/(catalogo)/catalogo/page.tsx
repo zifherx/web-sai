@@ -1,4 +1,4 @@
-import { CATALOGO_PAGE_PROPS } from "@/types/catalogo.types"
+import { CATALOGO_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
 import { CatalogoView } from "./components/Catalogo-View"
 

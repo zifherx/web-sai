@@ -1,4 +1,4 @@
-export abstract class DomainError extends Error {
+abstract class DomainError extends Error {
   constructor(
     message: string,
     public readonly statusCode: number
@@ -18,17 +18,5 @@ export class CotizacionNotFoundError extends DomainError {
 export class CotizacionValidationError extends DomainError {
   constructor(message: string) {
     super(message, 422)
-  }
-}
-
-export class VehiculoNotFoundError extends DomainError {
-  constructor(id: string) {
-    super(`Vehículo "${id}" no encontrado`, 404)
-  }
-}
-
-export class SedeNotFoundError extends DomainError {
-  constructor(id: string) {
-    super(`Sede "${id}" no encontrada`, 404)
   }
 }

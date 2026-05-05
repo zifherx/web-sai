@@ -1,5 +1,5 @@
-import { SedeEntity } from "@/interfaces/domain/sede/sede.entity"
-import { SedeResponseDTO } from "./sede.dto"
+import { SedeResponseDTO } from "@/interfaces/application"
+import { SedeEntity } from "@/interfaces/domain"
 
 export class SedeMapper {
   static toDTO(entity: SedeEntity): SedeResponseDTO {

@@ -1,5 +1,3 @@
-// ─── types/cita.types.ts ──────────────────────────────────────
-
 export interface CitaType {
   // Cliente
   nombres: string

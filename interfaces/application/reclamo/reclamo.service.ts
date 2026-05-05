@@ -1,13 +1,14 @@
 import {
-  ReclamoNotFoundError,
-  ReclamoValidationError,
-} from "@/interfaces/domain/reclamo/reclamo.errors"
+  CreateReclamoDTO,
+  ReclamoMapper,
+  ReclamoResponseDTO,
+} from "@/interfaces/application"
 import {
   IReclamoRepository,
   ReclamoFilters,
-} from "@/interfaces/domain/reclamo/reclamo.repository.port"
-import { CreateReclamoDTO, ReclamoResponseDTO } from "./reclamo.dto"
-import { ReclamoMapper } from "./reclamo.mapper"
+  ReclamoNotFoundError,
+  ReclamoValidationError,
+} from "@/interfaces/domain"
 
 export class ReclamoService {
   constructor(private readonly repository: IReclamoRepository) {}

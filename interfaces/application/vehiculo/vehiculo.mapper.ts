@@ -1,5 +1,5 @@
-import { VehiculoEntity } from "@/interfaces/domain/vehiculo/vehiculo.entity"
-import { VehiculoResponseDTO } from "./vehiculo.dto"
+import { VehiculoResponseDTO } from "@/interfaces/application"
+import { VehiculoEntity } from "@/interfaces/domain"
 
 export class VehiculoMapper {
   static toDTO(entity: VehiculoEntity): VehiculoResponseDTO {

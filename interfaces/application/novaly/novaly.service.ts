@@ -1,5 +1,5 @@
+import { NovalyPayload } from "@/interfaces/application"
 import axios, { AxiosResponse } from "axios"
-import { NovalyPayload } from "./novaly.dto"
 
 export class NovalyService {
   private readonly apiUrl: string

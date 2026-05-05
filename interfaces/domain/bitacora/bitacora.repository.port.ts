@@ -2,7 +2,7 @@ import {
   BitacoraEntity,
   IBitacoraRequest,
   IBitacoraResponse,
-} from "./bitacora.entity"
+} from "@/interfaces/domain"
 
 export interface ICreateBitacoraData {
   request: IBitacoraRequest

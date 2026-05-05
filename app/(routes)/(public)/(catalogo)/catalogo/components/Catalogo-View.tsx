@@ -1,21 +1,17 @@
 "use client"
 
-import {
-  ALL_BRANDS,
-  CatalogoBuscador,
-} from "@/components/modules/(catalogo)/Catalogo-Buscador"
+import { CatalogoBuscador } from "@/components/modules/(catalogo)/Catalogo-Buscador"
 import { CatalogoGrid } from "@/components/modules/(catalogo)/Catalogo-Grid"
 import { CatalogoHero } from "@/components/modules/(catalogo)/Catalogo-Hero"
 import {
+  ALL_BRANDS,
   DEFAULT_SORT_CATALOGO,
   INITIAL_PAGE_SIZE,
   LOAD_MORE_SIZE,
-} from "@/constants/catalogo.constants"
-import { useActiveMarcas } from "@/hooks/queries/use-marca"
-import { useActiveVehiculos } from "@/hooks/queries/use-vehiculo"
-import { parsePriceRange } from "@/lib/global.functions"
-import { VehiculoType } from "@/types/api.types"
-import { CATALOGO_VIEW_PROPS, SORT_OPTION_TYPE } from "@/types/catalogo.types"
+} from "@/constants"
+import { useActiveMarcas, useActiveVehiculos } from "@/hooks"
+import { parsePriceRange } from "@/lib"
+import { CATALOGO_VIEW_PROPS, SORT_OPTION_TYPE, VehiculoType } from "@/types"
 import { usePathname, useRouter } from "next/navigation"
 import { useCallback, useMemo, useState } from "react"
 

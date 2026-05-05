@@ -1,4 +1,4 @@
-import { VehiculoEntity } from "./vehiculo.entity"
+import { VehiculoEntity } from "@/interfaces/domain"
 
 export interface VehiculoFilters {
   marcaId?: string

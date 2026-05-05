@@ -1,14 +1,14 @@
-import { SedeService } from "@/interfaces/application/sede/sede.service"
-import { MongooseSedeRepository } from "@/interfaces/infrastructure/database/sede/sede.repository"
-import { SedeModel } from "@/interfaces/infrastructure/database/sede/sede.schema"
-import { DIContainer } from "./container"
+import { SedeService } from "@/interfaces/application"
+import {
+  MarcaModel,
+  MongooseMarcaRepository,
+  MongooseSedeRepository,
+  SedeModel,
+} from "@/interfaces/infrastructure"
 
 export function sedeFactory(): SedeService {
-  const container = DIContainer.getInstance()
-
-  if (!container.has("ISedeRepository")) {
-    container.register("ISedeRepository", new MongooseSedeRepository(SedeModel))
-  }
-
-  return new SedeService(container.get("ISedeRepository"))
+  return new SedeService(
+    new MongooseSedeRepository(SedeModel),
+    new MongooseMarcaRepository(MarcaModel)
+  )
 }

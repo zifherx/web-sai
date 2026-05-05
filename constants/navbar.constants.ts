@@ -1,4 +1,4 @@
-import { INavbarMobile } from "@/types/navbar.types"
+import { INavbarMobile } from "@/types"
 
 export const NAVBAR_MOBILE_LINKS: INavbarMobile[] = [
   { label: "Vehículos", href: "/catalogo" },

@@ -2,12 +2,9 @@
 
 import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
-import { PRICE_RANGES } from "@/constants/catalogo.constants"
-import { cn } from "@/lib/utils"
-import { CATALOGO_BUSCAR_PROPS } from "@/types/catalogo.types"
-import { IOptionSelect } from "@/types/searchSelect.types"
-
-export const ALL_BRANDS = "todos"
+import { ALL_BRANDS, PRICE_RANGES } from "@/constants"
+import { cn } from "@/lib"
+import { CATALOGO_BUSCAR_PROPS, IOptionSelect } from "@/types"
 
 export function CatalogoBuscador({
   loadingMarcas,
