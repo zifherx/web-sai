@@ -1,5 +1,5 @@
 import { marcaService, vehiculoService } from "@/services"
-import { MARCA_MODELO_PAGE_PROPS } from "@/types/marcamodelo.types"
+import { MARCA_MODELO_PAGE_PROPS } from "@/types"
 import { Metadata } from "next"
 import { MarcaModeloView } from "./components/Marca-Modelo-View"
 

@@ -1,12 +1,12 @@
-import { cn } from "@/lib"
-import { SEARCH_SELECT_PROPS } from "@/types"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select"
+} from "@/components/ui/select"
+import { cn } from "@/lib"
+import { SEARCH_SELECT_PROPS } from "@/types"
 
 export function SearchSelect({
   id,

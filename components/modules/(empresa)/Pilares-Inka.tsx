@@ -1,5 +1,5 @@
-import { PILARES_SAI } from "@/constants/nosotros.constants"
-import { PilaresCard } from "../../shared/Pilares-Card"
+import { PilaresCard } from "@/components/shared/Pilares-Card"
+import { PILARES_SAI } from "@/constants"
 
 export function PilaresInka() {
   return (

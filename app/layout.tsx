@@ -1,11 +1,4 @@
 import { Toaster } from "@/components/ui/sonner"
-import { cn } from "@/lib/utils"
-import { QueryProvider } from "@/providers/QueryProvider"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import type { Metadata } from "next"
-import { Geist } from "next/font/google"
-import NextTopLoader from "nextjs-toploader"
 import {
   dmSans,
   fontMono,
@@ -19,7 +12,14 @@ import {
   hyundaiSansTextMediumItalic,
   hyundaiSansTextRegular,
   hyundaiSansTextRegularItalic,
-} from "../fonts"
+} from "@/fonts"
+import { cn } from "@/lib/utils"
+import { QueryProvider } from "@/providers/QueryProvider"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import type { Metadata } from "next"
+import { Geist } from "next/font/google"
+import NextTopLoader from "nextjs-toploader"
 import "./globals.css"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
@@ -134,8 +134,8 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 }
 

@@ -3,7 +3,7 @@ import {
   IFormCorporativo,
   IHeroCorporativo,
   IIntroCorporativo,
-} from "@/types/corporativo.types"
+} from "@/types"
 import z from "zod/v3"
 
 export const CORPORATIVO_HERO: IHeroCorporativo = {

@@ -1,4 +1,4 @@
-import { NovalyPayload, NovalyRequest } from "./novaly.dto"
+import { NovalyPayload, NovalyRequest } from "@/interfaces/application"
 
 interface DivisionNombreCompleto {
   nombres: string

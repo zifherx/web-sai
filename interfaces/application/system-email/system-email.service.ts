@@ -1,8 +1,8 @@
 import {
+  ISystemEmailRepository,
   SystemEmailArea,
   SystemEmailEntity,
-} from "@/interfaces/domain/system-email/system-email.entity"
-import { ISystemEmailRepository } from "@/interfaces/domain/system-email/system-email.repository.port"
+} from "@/interfaces/domain"
 
 export class SystemEmailService {
   constructor(private readonly repository: ISystemEmailRepository) {}

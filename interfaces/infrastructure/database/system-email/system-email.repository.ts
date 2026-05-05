@@ -1,7 +1,6 @@
-import { SystemEmailEntity } from "@/interfaces/domain/system-email/system-email.entity"
-import { ISystemEmailRepository } from "@/interfaces/domain/system-email/system-email.repository.port"
+import { ISystemEmailRepository, SystemEmailEntity } from "@/interfaces/domain"
+import { SystemEmailDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { SystemEmailDocument } from "./system-email.schema"
 
 export class MongooseSystemEmailRepository implements ISystemEmailRepository {
   constructor(private readonly model: Model<SystemEmailDocument>) {}

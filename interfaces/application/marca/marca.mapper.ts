@@ -1,5 +1,5 @@
-import { MarcaEntity } from "@/interfaces/domain/marca/marca.entity"
-import { MarcaResponseDTO } from "./marca.dto"
+import { MarcaResponseDTO } from "@/interfaces/application"
+import { MarcaEntity } from "@/interfaces/domain"
 
 export class MarcaMapper {
   static toDTO(entity: MarcaEntity): MarcaResponseDTO {

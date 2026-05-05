@@ -1,3 +1,5 @@
+"use client"
+
 import { ReclamoSectionCard } from "@/components/shared/Reclamo-Section-Card"
 import { Field, FieldError, FieldLabel } from "@/components/ui/field"
 import {

@@ -1,7 +1,3 @@
-/**
- * Refs populados que llegan en el GET (para mostrar en el admin).
- * En el CREATE solo se guardan los IDs, no los objetos.
- */
 export interface ICotizacionClienteRef {
   id: string
   name: string

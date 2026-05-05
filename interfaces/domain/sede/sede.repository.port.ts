@@ -1,4 +1,4 @@
-import { SedeEntity } from "./sede.entity"
+import { SedeEntity } from "@/interfaces/domain"
 
 export interface SedeFilters {
   ciudad?: string
@@ -19,8 +19,6 @@ export interface ICreateSedeData {
   scheduleRegular: string
   scheduleExtended: string
   linkHowArrived: string
-  // FIX: string[] — el repositorio recibe IDs y Mongoose los guarda como ObjectId.
-  //      El populate a IMarcaRef[] ocurre en toEntity() dentro del repository.
   marcasDisponiblesVentas: string[]
   marcasDisponiblesTaller: string[]
   coordenadasMapa: {
@@ -42,6 +40,7 @@ export interface ISedeRepository {
   findActive(filters?: Omit<SedeFilters, "isActive">): Promise<SedeEntity[]>
   findByCiudad(ciudad: string): Promise<SedeEntity[]>
   findTalleres(): Promise<SedeEntity[]>
+  findByMarcaVentas(marcaId: string): Promise<SedeEntity[]>
   create(data: ICreateSedeData): Promise<SedeEntity>
   update(id: string, data: IUpdateSedeData): Promise<SedeEntity | null>
   delete(id: string): Promise<SedeEntity | null>

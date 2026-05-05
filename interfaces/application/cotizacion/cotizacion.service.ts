@@ -1,14 +1,15 @@
-import { IClienteRepository } from "@/interfaces/domain/cliente/cliente.repository.port"
 import {
-  CotizacionNotFoundError,
-  CotizacionValidationError,
-} from "@/interfaces/domain/cotizacion/cotizacion.errors"
+  CotizacionMapper,
+  CotizacionResponseDTO,
+  CreateCotizacionDTO,
+} from "@/interfaces/application"
 import {
   CotizacionFilters,
+  CotizacionNotFoundError,
+  CotizacionValidationError,
+  IClienteRepository,
   ICotizacionRepository,
-} from "@/interfaces/domain/cotizacion/cotizacion.repository.port"
-import { CotizacionResponseDTO, CreateCotizacionDTO } from "./cotizacion.dto"
-import { CotizacionMapper } from "./cotizacion.mapper"
+} from "@/interfaces/domain"
 
 export class CotizacionService {
   constructor(

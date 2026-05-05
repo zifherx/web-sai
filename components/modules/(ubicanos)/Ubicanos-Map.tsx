@@ -1,7 +1,7 @@
 "use client"
 
 import { UbicanosMarker } from "@/components/shared/Ubicanos-Marker"
-import { UBICANOS_MAP_PROPS } from "@/types/ubicanos.types"
+import { UBICANOS_MAP_PROPS } from "@/types"
 import type { Marker } from "leaflet"
 import "leaflet/dist/leaflet.css"
 import { RefObject, useEffect } from "react"

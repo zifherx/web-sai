@@ -1,5 +1,4 @@
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { carroceriaFactory } from "@/interfaces/infrastructure/di"
+import { carroceriaFactory, connectDB } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { type NextRequest } from "next/server"
 

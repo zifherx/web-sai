@@ -1,5 +1,5 @@
 import { LegalArticle } from "@/components/modules/(legal)/Legal-Article"
-import { LEGAL_COPYRIGHT } from "@/constants/legal.constants"
+import { LEGAL_COPYRIGHT } from "@/constants"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {

@@ -1,4 +1,4 @@
-import { CORPORATIVO_HERO_PROPS } from "@/types/corporativo.types"
+import { CORPORATIVO_HERO_PROPS } from "@/types"
 import Image from "next/image"
 
 export function CorporativoHero({ hero }: CORPORATIVO_HERO_PROPS) {

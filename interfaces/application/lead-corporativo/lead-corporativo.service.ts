@@ -1,9 +1,9 @@
-import { ILeadCorporativoRepository } from "@/interfaces/domain/lead-corporativo/lead-corporativo.repository.port"
 import {
   CreateLeadCorporativoDTO,
+  LeadCorporativoMapper,
   LeadCorporativoResponseDTO,
-} from "./lead-corporativo.dto"
-import { LeadCorporativoMapper } from "./lead-corporativo.mapper"
+} from "@/interfaces/application"
+import { ILeadCorporativoRepository } from "@/interfaces/domain"
 
 export class LeadCorporativoService {
   constructor(private readonly repository: ILeadCorporativoRepository) {}

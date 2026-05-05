@@ -1,10 +1,9 @@
 import {
+  emailService,
   SendReclamoEmailBody,
   SendReclamoEmailSchema,
-} from "@/interfaces/application/email/email.dto"
-import { emailService } from "@/interfaces/application/email/email.service"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { systemEmailFactory } from "@/interfaces/infrastructure/di"
+} from "@/interfaces/application"
+import { connectDB, systemEmailFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

@@ -1,13 +1,13 @@
-import { SedeEntity } from "@/interfaces/domain/sede/sede.entity"
 import {
   ICreateSedeData,
   ISedeRepository,
   IUpdateSedeData,
+  SedeEntity,
   SedeFilters,
-} from "@/interfaces/domain/sede/sede.repository.port"
+} from "@/interfaces/domain"
+import { SedeDocument } from "@/interfaces/infrastructure"
 import { parseMarca } from "@/lib"
 import { Model, Types } from "mongoose"
-import { SedeDocument } from "./sede.schema"
 
 const POPULATE_MARCAS_TALLER = {
   path: "marcasDisponiblesTaller",
@@ -141,6 +141,21 @@ export class MongooseSedeRepository implements ISedeRepository {
     return (docs as SedeDocument[]).map(this.toEntity.bind(this))
   }
 
+  async findByMarcaVentas(marcaId: string): Promise<SedeEntity[]> {
+    if (!Types.ObjectId.isValid(marcaId)) return []
+
+    const docs = await this.model
+      .find({
+        isActive: true,
+        marcasDisponiblesVentas: { $in: [new Types.ObjectId(marcaId)] },
+      })
+      .populate(POPULATE_MARCAS_TALLER)
+      .populate(POPULATE_MARCAS_VENTAS)
+      .lean()
+
+    return (docs as SedeDocument[]).map(this.toEntity.bind(this))
+  }
+
   async create(data: ICreateSedeData): Promise<SedeEntity> {
     const doc = await this.model.create({
       name: data.name,
@@ -200,7 +215,7 @@ export class MongooseSedeRepository implements ISedeRepository {
       .findByIdAndUpdate(
         id,
         { $set: update },
-        { new: true, runValidators: true }
+        { after: true, runValidators: true }
       )
       .lean()
     return doc ? this.toEntity(doc as SedeDocument) : null

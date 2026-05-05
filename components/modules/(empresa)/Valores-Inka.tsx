@@ -1,5 +1,5 @@
 import { ValoresCard } from "@/components/shared/Valores-Card"
-import { VALORES_SAI } from "@/constants/nosotros.constants"
+import { VALORES_SAI } from "@/constants"
 
 export function ValoresInka() {
   const { headingNeutral, headingAccent, subtitle, valores } = VALORES_SAI
@@ -23,12 +23,6 @@ export function ValoresInka() {
               <ValoresCard valor={valor} />
             </div>
           ))}
-
-          {/* {valores.slice(3).map((valor) => (
-            <div key={valor.id} className="sm:col-span-3">
-              <ValoresCard valor={valor} />
-            </div>
-          ))} */}
         </div>
       </div>
     </section>

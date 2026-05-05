@@ -6,10 +6,7 @@ import { ServiceShowcase } from "@/components/modules/(home)/Service-Showcase"
 import { TalleresAutorizados } from "@/components/modules/(home)/Talleres-Autorizados"
 import { VehicleSearchBar } from "@/components/modules/(home)/Vehicle-SearchBar"
 import { VehicleShowcase } from "@/components/modules/(home)/Vehicle-Showcase"
-import {
-  MIATA_MX5_SHOWCASE,
-  SERVICE_SHOWCASE,
-} from "@/constants/home.constants"
+import { MIATA_MX5_SHOWCASE, SERVICE_SHOWCASE } from "@/constants"
 
 export function HomeView() {
   return (

@@ -1,6 +1,5 @@
-import { CreateReclamoSchema } from "@/interfaces/application/reclamo/reclamo.dto"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { reclamoFactory } from "@/interfaces/infrastructure/di"
+import { CreateReclamoSchema } from "@/interfaces/application"
+import { connectDB, reclamoFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
 import { NextRequest } from "next/server"
 

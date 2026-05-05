@@ -1,6 +1,6 @@
 import type { Marker as LeafletMarker } from "leaflet"
 import { RefObject } from "react"
-import { SedeType } from "./api.types"
+import { SedeType } from "@/types"
 
 export type SEDE_BUSCADOR_PROPS = {
   ciudades: string[]

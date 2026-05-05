@@ -1,10 +1,10 @@
-import { BitacoraEntity } from "@/interfaces/domain/bitacora/bitacora.entity"
 import {
+  BitacoraEntity,
   IBitacoraRepository,
   ICreateBitacoraData,
-} from "@/interfaces/domain/bitacora/bitacora.repository.port"
+} from "@/interfaces/domain"
+import { BitacoraDocument } from "@/interfaces/infrastructure"
 import { Model } from "mongoose"
-import { BitacoraDocument } from "./bitacora.schema"
 
 export class MongooseBitacoraRepository implements IBitacoraRepository {
   constructor(private readonly model: Model<BitacoraDocument>) {}

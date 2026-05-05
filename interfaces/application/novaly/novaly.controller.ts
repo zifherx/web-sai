@@ -1,11 +1,12 @@
-import { BitacoraService } from "@/interfaces/application/bitacora/bitacora.service"
-import { connectDB } from "@/interfaces/infrastructure/database"
-import { bitacoraFactory } from "@/interfaces/infrastructure/di/bitacora.factory"
+import {
+  BitacoraService,
+  NovalyMapper,
+  NovalyPayloadSchema,
+  NovalyService,
+} from "@/interfaces/application"
+import { bitacoraFactory, connectDB } from "@/interfaces/infrastructure"
 import { AxiosError } from "axios"
 import { NextRequest, NextResponse } from "next/server"
-import { NovalyPayloadSchema } from "./novaly.dto"
-import { NovalyMapper } from "./novaly.mapper"
-import { NovalyService } from "./novaly.service"
 
 export class NovalyController {
   private readonly novalyService: NovalyService
