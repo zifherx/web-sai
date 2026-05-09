@@ -22,17 +22,24 @@ export function FinanciamientoView({
   initialVehiculoSlug = "",
   initialVehiculoNombre = "",
   initialPrecioBase = 0,
+  initialSedeId = "",
+  initialSedeNombre = "",
+  initialSedeCiudad = "",
 }: FINANCIAMIENTO_VIEW_PROPS) {
   const router = useRouter()
 
-  const hasPreselection = Boolean(initialMarcaId && initialVehiculoId)
+  const hasPartialPreselection = Boolean(initialMarcaId && initialVehiculoId)
+  const hasFullPreselection = Boolean(
+    initialMarcaId && initialVehiculoId && initialSedeId
+  )
+
   const [currentStep, setCurrentStep] = useState<number>(
-    hasPreselection ? 3 : 1
+    hasFullPreselection ? 4 : hasPartialPreselection ? 3 : 1
   )
 
   // Datos acumulados de cada paso
   const [step1Data, setStep1Data] = useState<Step1Data | null>(
-    hasPreselection
+    hasPartialPreselection
       ? {
           marcaId: initialMarcaId,
           marcaSlug: initialMarcaSlug,
@@ -42,7 +49,7 @@ export function FinanciamientoView({
       : null
   )
   const [step2Data, setStep2Data] = useState<Step2Data | null>(
-    hasPreselection
+    hasPartialPreselection
       ? {
           vehiculoId: initialVehiculoId,
           vehiculoSlug: initialVehiculoSlug,
@@ -51,7 +58,16 @@ export function FinanciamientoView({
         }
       : null
   )
-  const [step3Data, setStep3Data] = useState<Step3Data | null>(null)
+  const [step3Data, setStep3Data] = useState<Step3Data | null>(
+    initialSedeId
+      ? {
+          sedeId: initialSedeId,
+          sedeNombre: initialSedeNombre,
+          sedeCiudad: initialSedeCiudad,
+          sedeIdTiendaNovaly: 0,
+        }
+      : null
+  )
 
   const goToStep = (step: number) => setCurrentStep(step)
   const nextStep = () => setCurrentStep((s) => Math.min(s + 1, 4))
@@ -59,7 +75,6 @@ export function FinanciamientoView({
 
   const handleStep1 = (data: Step1Data) => {
     setStep1Data(data)
-
     if (step1Data?.marcaId !== data.marcaId) {
       setStep2Data(null)
       setStep3Data(null)
@@ -136,9 +151,28 @@ export function FinanciamientoView({
           <h1 className="font-headOffice-bold text-4xl text-gray-custom-900 md:text-5xl">
             Encuentra tu <span className="text-sky-custom-500">Auto Ideal</span>
           </h1>
+
           <p className="mt-2 font-textOffice-regular text-base text-gray-custom-700">
             Te ayudamos a encontrar el vehículo perfecto en simples pasos
           </p>
+
+          {/* Banner de preselección completa */}
+          {hasFullPreselection && step1Data && step2Data && step3Data && (
+            <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-sky-custom-100 px-5 py-2.5">
+              <span className="font-textOffice-regular text-sm text-sky-custom-500">
+                ✅ Preseleccionado:
+              </span>
+
+              <span className="font-headOffice-medium text-sm text-sky-custom-500">
+                {step1Data.marcaNombre} - {step2Data.vehiculoNombre} ·{" "}
+                {step3Data.sedeCiudad}
+              </span>
+
+              <span className="font-textOffice-regular text-xs text-gray-custom-700">
+                · Solo completa tus datos
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Layout: sidebar + contenido */}
