@@ -100,6 +100,9 @@ export interface IParamsCotizacionVehicular {
   vehiculoSlug?: string
   vehiculoNombre?: string
   precioBase?: string
+  sedeId?: string
+  sedeNombre?: string
+  seceCiudad?: string
 }
 
 export type FINANCIA_TU_AUTO_PAGE_PROPS = {
@@ -115,6 +118,9 @@ export type FINANCIAMIENTO_VIEW_PROPS = {
   initialVehiculoSlug?: string
   initialVehiculoNombre?: string
   initialPrecioBase?: number
+  initialSedeId?: string
+  initialSedeNombre?: string
+  initialSedeCiudad?: string
 }
 
 export interface IGraciasFinanciamientoParams {

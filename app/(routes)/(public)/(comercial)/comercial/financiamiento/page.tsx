@@ -19,15 +19,20 @@ export default async function FinanciaTuAutoPage({
 
   return (
     <FinanciamientoView
+      // Step 1 - Marca
       initialMarcaId={params.marcaId ?? ""}
       initialMarcaSlug={params.marcaSlug ?? ""}
       initialMarcaNombre={params.marcaNombre ?? ""}
       initialMarcaIdNovaly={Number(params.marcaIdNovaly) ?? 0}
-      // Preselección de modelo (step2)
+      // Step 2 - Modelo
       initialVehiculoId={params.vehiculoId ?? ""}
       initialVehiculoSlug={params.vehiculoSlug ?? ""}
       initialVehiculoNombre={params.vehiculoNombre ?? ""}
       initialPrecioBase={params.precioBase ? Number(params.precioBase) : 0}
+      // Step 3 - Sede
+      initialSedeId={params.sedeId ?? ""}
+      initialSedeNombre={params.sedeNombre ?? ""}
+      initialSedeCiudad={params.seceCiudad ?? ""}
     />
   )
 }
