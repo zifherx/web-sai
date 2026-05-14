@@ -12,6 +12,7 @@ export function RepsolCTA({ callToAction }: REPSOL_CTA_PROPS) {
           {/* Botón CTA */}
           <Link
             href={ctaHref}
+            target="_blank"
             className={cn(
               "inline-flex shrink-0 items-center justify-center rounded-xl",
               "border-2 border-white bg-transparent px-8 py-3.5",

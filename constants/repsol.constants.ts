@@ -37,7 +37,8 @@ export const REPSOL_VENTAJAS: IRepsolVentaja = {
 
 export const REPSOL_CTA: IRepsolCTA = {
   cta: "ÚNETE AHORA",
-  ctaHref: "/financia-tu-auto",
+  ctaHref:
+    "https://repsolperu.everilion.com/ILIONX45/Custom/RepsolPeru/Fidelizacion/LoginProgramaFidelizacion.aspx",
   heading: "Y obtén beneficios",
 }
 
