@@ -4,11 +4,11 @@ import { MapaHero } from "@/components/modules/(talleres)/Mapa-Hero"
 import { SedesBuscador } from "@/components/modules/(talleres)/Sedes-Buscador"
 import { SedesGrid } from "@/components/modules/(talleres)/Sedes-Grid"
 import { ALL_CITIES } from "@/constants"
-import { useActiveSedes } from "@/hooks"
+import { useTalleres } from "@/hooks"
 import { useMemo, useState } from "react"
 
 export function TalleresView() {
-  const { data: sedes = [], isLoading } = useActiveSedes()
+  const { data: sedes = [], isLoading } = useTalleres()
 
   const [ciudadFiltro, setCiudadFiltro] = useState("")
   const [localFiltro, setLocalFiltro] = useState("")

@@ -19,17 +19,27 @@ export function UbicanosMarker({ markersRef, sede }: UBICANOS_MARKER_PROPS) {
     coordenadasMapa,
     name,
     imageUrl,
-    scheduleExtended,
-    scheduleRegular,
+    horarioVentas,
+    horarioTaller,
     id,
   } = sede
 
   if (!coordenadasMapa?.latitud || !coordenadasMapa?.longitud) return null
 
-  const scheduleLines = [
-    `Lunes a Viernes de ${scheduleRegular}`,
-    `Sábado de ${scheduleExtended}`,
+  const scheduleLinesVentas = [
+    `Lunes a Viernes de ${horarioVentas.scheduleRegular}`,
+    `Sábado de ${horarioVentas.scheduleExtended}`,
   ].filter(Boolean)
+
+  const scheduleLinesTaller = [
+    `Lunes a Viernes de ${horarioTaller.scheduleRegular}`,
+    `Sábado de ${horarioTaller.scheduleExtended}`,
+  ].filter(Boolean)
+
+  const hasHorarioVentas =
+    horarioVentas.scheduleRegular || horarioVentas.scheduleExtended
+  const hasHorarioTaller =
+    horarioTaller.scheduleRegular || horarioTaller.scheduleExtended
 
   return (
     <Marker
@@ -42,23 +52,23 @@ export function UbicanosMarker({ markersRef, sede }: UBICANOS_MARKER_PROPS) {
         if (ref) markersRef.current[id] = ref
       }}
     >
-      <Popup autoClose maxWidth={520}>
-        <div className="flex w-60 gap-4 p-1 md:w-120">
+      <Popup autoClose maxWidth={580}>
+        <div className="flex w-60 gap-2 p-1 md:w-130">
           {/* Imagen — oculta en mobile */}
-          <div className="hidden shrink-0 md:block">
-            <div className="relative h-36 w-44 overflow-hidden rounded-xl">
+          <div className="hidden flex-1 shrink-0 md:block">
+            <div className="relative h-full w-60 overflow-hidden rounded-xl">
               <Image
                 src={imageUrl}
                 alt={name}
                 fill
                 sizes="176px"
-                className="object-cover object-center"
+                className="object-cover"
               />
             </div>
           </div>
 
           {/* Info */}
-          <div className="flex flex-1 flex-col gap-2">
+          <div className="block">
             <h2 className="font-headOffice-bold text-base leading-tight text-sky-custom-500">
               {name}
             </h2>
@@ -69,19 +79,39 @@ export function UbicanosMarker({ markersRef, sede }: UBICANOS_MARKER_PROPS) {
               </p>
             </div>
 
-            <div>
-              <p className="flex items-center gap-1 font-headOffice-medium text-xs text-gray-custom-900">
-                <Clock size={12} /> Horario de atención
-              </p>
-              {scheduleLines.map((line, i) => (
-                <p
-                  key={i}
-                  className="font-textOffice-regular text-xs text-gray-custom-700"
-                >
-                  {line}
+            {hasHorarioVentas && (
+              <div>
+                <p className="flex items-center font-headOffice-medium text-xs text-gray-custom-900">
+                  <Clock size={12} className="mr-1" /> Horario de atención
+                  Ventas
                 </p>
-              ))}
-            </div>
+                {scheduleLinesVentas.map((line, i) => (
+                  <p
+                    key={i}
+                    className="font-textOffice-regular text-xs text-gray-custom-700"
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {hasHorarioTaller && (
+              <div>
+                <p className="flex items-center font-headOffice-medium text-xs text-gray-custom-900">
+                  <Clock className="mr-1" size={12} /> Horario de atención
+                  Postventa
+                </p>
+                {scheduleLinesTaller.map((line, i) => (
+                  <p
+                    key={i}
+                    className="font-textOffice-regular text-xs text-gray-custom-700"
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
+            )}
 
             {sede.linkHowArrived && (
               <Link
