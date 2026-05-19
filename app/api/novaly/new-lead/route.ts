@@ -1,4 +1,4 @@
-import { NovalyController } from "@/interfaces/application"
+import { NovalyController } from "@/modules/application"
 import { NextRequest } from "next/server"
 
 const controller = new NovalyController()

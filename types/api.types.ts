@@ -57,6 +57,10 @@ export interface ICoordenadasMapa {
   longitud: string
 }
 
+export interface IHorarioSede {
+  scheduleRegular: string
+  scheduleExtended: string
+}
 export interface SedeType {
   id: string
   name: string
@@ -68,6 +72,8 @@ export interface SedeType {
   address: string
   scheduleRegular: string
   scheduleExtended: string
+  horarioVentas: IHorarioSede
+  horarioTaller: IHorarioSede
   linkHowArrived: string
   marcasDisponiblesVentas: IMarcaRef[]
   marcasDisponiblesTaller: IMarcaRef[]

@@ -8,7 +8,9 @@
     "build": "next build",
     "build:debug": "next build --debug-prerender",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
