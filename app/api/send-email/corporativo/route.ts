@@ -1,6 +1,6 @@
-import { emailService } from "@/interfaces/application"
-import { connectDB, systemEmailFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
+import { emailService } from "@/modules/application"
+import { connectDB, systemEmailFactory } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function POST(req: NextRequest): Promise<Response> {

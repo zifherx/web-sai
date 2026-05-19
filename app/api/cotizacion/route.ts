@@ -1,9 +1,9 @@
+import { ResponseFactory } from "@/lib"
 import {
   CotizacionFiltersSchema,
   CreateCotizacionSchema,
-} from "@/interfaces/application"
-import { connectDB, cotizacionFactory } from "@/interfaces/infrastructure"
-import { ResponseFactory } from "@/lib"
+} from "@/modules/application"
+import { connectDB, cotizacionFactory } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {

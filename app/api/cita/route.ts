@@ -1,6 +1,6 @@
-import { CitaFiltersSchema, CreateCitaSchema } from "@/interfaces/application"
-import { citaFactory, connectDB } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
+import { CitaFiltersSchema, CreateCitaSchema } from "@/modules/application"
+import { citaFactory, connectDB } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {
