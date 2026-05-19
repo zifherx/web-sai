@@ -1,7 +1,7 @@
-import { VehiculoFiltersSchema } from "@/interfaces/application"
-import { VehiculoValidationError } from "@/interfaces/domain"
-import { connectDB, vehiculoFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
+import { VehiculoFiltersSchema } from "@/modules/application"
+import { VehiculoValidationError } from "@/modules/domain"
+import { connectDB, vehiculoFactory } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {

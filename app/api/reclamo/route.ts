@@ -1,6 +1,6 @@
-import { CreateReclamoSchema } from "@/interfaces/application"
-import { connectDB, reclamoFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib"
+import { CreateReclamoSchema } from "@/modules/application"
+import { connectDB, reclamoFactory } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {

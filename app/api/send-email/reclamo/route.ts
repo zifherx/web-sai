@@ -1,10 +1,10 @@
+import { ResponseFactory } from "@/lib"
 import {
   emailService,
   SendReclamoEmailBody,
   SendReclamoEmailSchema,
-} from "@/interfaces/application"
-import { connectDB, systemEmailFactory } from "@/interfaces/infrastructure"
-import { ResponseFactory } from "@/lib"
+} from "@/modules/application"
+import { connectDB, systemEmailFactory } from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function POST(req: NextRequest): Promise<Response> {

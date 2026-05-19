@@ -64,7 +64,6 @@ export function useCrearReclamo(options?: ICreateReclamoOption) {
 
         pdfBase64 = arrayBufferToBase64(pdfArrayBuffer)
       } catch (pdfErr: any) {
-        console.log("pdfErr: ", pdfErr)
         console.error("[useCrearReclamo] Error generando PDF:", pdfErr.message)
       }
 

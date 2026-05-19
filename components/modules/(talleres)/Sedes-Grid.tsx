@@ -74,7 +74,7 @@ export function SedesGrid({ isLoading, sedes }: SEDE_GRID_PROPS) {
               <SedeUbicanosCard
                 key={sede.id}
                 sede={sede}
-                marcasVentas={sede.marcasDisponiblesVentas
+                marcasTaller={sede.marcasDisponiblesTaller
                   .map((m) => marcaMap[m.id] ?? "")
                   .filter(Boolean)}
               />

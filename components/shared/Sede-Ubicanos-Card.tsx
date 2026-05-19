@@ -6,13 +6,12 @@ import Link from "next/link"
 
 export function SedeUbicanosCard({
   sede,
-  marcasVentas = [],
+  marcasTaller = [],
 }: SEDE_UBICANOS_CARD_PROPS) {
-  const { address, imageUrl, name, scheduleExtended, scheduleRegular, ciudad } =
-    sede
+  const { address, imageUrl, name, ciudad, horarioTaller } = sede
   const scheduleLines = [
-    `Lunes a Viernes de ${scheduleRegular}`,
-    `Sábado de ${scheduleExtended}`,
+    `Lunes a Viernes de ${horarioTaller.scheduleRegular}`,
+    `Sábado de ${horarioTaller.scheduleExtended}`,
   ].filter(Boolean)
 
   const separaCitaHref = `/posventa/separa-tu-cita?ciudad=${encodeURIComponent(ciudad.toLowerCase())}`
@@ -68,7 +67,7 @@ export function SedeUbicanosCard({
               aria-hidden="true"
             />
             <span className="font-headOffice-medium text-base text-sky-custom-500">
-              Horario de Atención
+              Horario de Atención de Postventa
             </span>
           </div>
           <div className="pl-6">
@@ -83,7 +82,7 @@ export function SedeUbicanosCard({
           </div>
         </div>
 
-        {marcasVentas.length > 0 && (
+        {marcasTaller.length > 0 && (
           <div>
             <div className="mb-2 flex items-center gap-2">
               <Car
@@ -93,11 +92,11 @@ export function SedeUbicanosCard({
                 aria-hidden="true"
               />
               <span className="font-headOffice-medium text-base text-sky-custom-500">
-                Marcas autorizadas
+                Marcas autorizadas de Postventa
               </span>
             </div>
             <div className="flex flex-wrap gap-2 pl-6">
-              {marcasVentas.map((marca) => (
+              {marcasTaller.map((marca) => (
                 <span
                   key={marca}
                   className="rounded-sm bg-sky-custom-50 px-3 py-1 font-textOffice-medium text-xs text-gray-custom-900"
