@@ -1,13 +1,13 @@
+import { ResponseFactory } from "@/lib"
 import {
   CreateLeadCorporativoSchema,
   emailService,
-} from "@/interfaces/application"
+} from "@/modules/application"
 import {
   connectDB,
   leadCorporativoFactory,
   systemEmailFactory,
-} from "@/interfaces/infrastructure"
-import { ResponseFactory } from "@/lib"
+} from "@/modules/infrastructure"
 import { NextRequest } from "next/server"
 
 export async function GET(): Promise<Response> {

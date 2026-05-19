@@ -1,6 +1,6 @@
+import { SedeType } from "@/types"
 import type { Marker as LeafletMarker } from "leaflet"
 import { RefObject } from "react"
-import { SedeType } from "@/types"
 
 export type SEDE_BUSCADOR_PROPS = {
   ciudades: string[]
@@ -15,6 +15,7 @@ export type SEDE_BUSCADOR_PROPS = {
 export type SEDE_UBICANOS_CARD_PROPS = {
   sede: SedeType
   marcasVentas?: string[]
+  marcasTaller?: string[]
 }
 
 export type SEDE_GRID_PROPS = {

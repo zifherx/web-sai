@@ -1,5 +1,5 @@
-import { connectDB, portadaFactory } from "@/interfaces/infrastructure"
 import { ResponseFactory } from "@/lib/response-factory"
+import { connectDB, portadaFactory } from "@/modules/infrastructure"
 import { type NextRequest } from "next/server"
 
 export async function GET(req: NextRequest): Promise<Response> {
