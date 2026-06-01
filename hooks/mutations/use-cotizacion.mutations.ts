@@ -57,7 +57,7 @@ export function useCrearCotizacion(options?: ICreateCotizacionOption) {
           modeloVehiculo: _novaly?.vehiculoNombre ?? "",
           idMarca: _novaly?.idMarca ?? 0,
           idTienda: _novaly?.idTienda ?? 0,
-          utmTrafico: "WEB",
+          utmTrafico: _novaly?.utm ?? "WEB",
         })
         .then(() => {
           console.log("✅ Lead enviado a Novaly correctamente")

@@ -65,4 +65,5 @@ export interface CotizacionEnrichedMeta {
   vehiculoNombre: string // nombre del modelo para Novaly (ej: "SUV X7 Plus")
   idMarca: number // idNovaly de la marca
   idTienda: number // idTiendaNovaly de la sede
+  utm: string
 }

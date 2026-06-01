@@ -1,6 +1,6 @@
 import { FINANCIA_TU_AUTO_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { FinanciamientoView } from "./components/Financia-View"
+import { MarketingadsView } from "./components/Marketingads-View"
 
 export const metadata: Metadata = {
   title: "Financia tu Auto — Automotores Inka",
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default async function FinanciaTuAutoPage({
+export default async function MarketingADSPage({
   searchParams,
 }: FINANCIA_TU_AUTO_PAGE_PROPS) {
   const params = await searchParams
 
   return (
-    <FinanciamientoView
+    <MarketingadsView
       // Step 1 - Marca
       initialMarcaId={params.marcaId ?? ""}
       initialMarcaSlug={params.marcaSlug ?? ""}
