@@ -103,6 +103,7 @@ export interface IParamsCotizacionVehicular {
   sedeId?: string
   sedeNombre?: string
   seceCiudad?: string
+  utm?: string
 }
 
 export type FINANCIA_TU_AUTO_PAGE_PROPS = {
@@ -121,6 +122,7 @@ export type FINANCIAMIENTO_VIEW_PROPS = {
   initialSedeId?: string
   initialSedeNombre?: string
   initialSedeCiudad?: string
+  initialUTM?: string
 }
 
 export interface IGraciasFinanciamientoParams {

@@ -90,7 +90,7 @@ export function MenuMobile() {
         {/* CTA Financia aquí */}
         <div className="p-3">
           <Link
-            href="/financia-tu-auto"
+            href="/comercial/financiamiento"
             onClick={() => setOpen(false)}
             className={cn(
               "flex w-full items-center justify-center gap-2 rounded-xl py-3.5",

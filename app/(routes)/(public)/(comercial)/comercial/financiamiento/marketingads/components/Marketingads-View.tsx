@@ -13,7 +13,7 @@ import { FINANCIAMIENTO_VIEW_PROPS } from "@/types"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
-export function FinanciamientoView({
+export function MarketingadsView({
   initialMarcaId = "",
   initialMarcaSlug = "",
   initialMarcaNombre = "",

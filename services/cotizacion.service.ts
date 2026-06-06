@@ -16,6 +16,7 @@ export const cotizacionService = {
   },
 
   sendToNovaly: async (params: SendToNovalyParams): Promise<void> => {
+    console.log("Params-sendToNovaly: ", params)
     await httpClient.post("/novaly/new-lead", {
       nombreCompleto: params.nombreCompleto,
       correoElectronico: params.correoElectronico,
