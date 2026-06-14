@@ -14,8 +14,8 @@ export const vehiculoService = {
     filters?: Omit<IVehiculoFilters, "isActive">
   ): Promise<VehiculoType[]> => {
     const { data } = await httpClient.get<APIResponse<VehiculoType[]>>(
-      "/vehiculo",
-      { params: { ...filters, isActive: true } }
+      "/vehiculo/active",
+      { params: { filters } }
     )
     return data.data
   },
@@ -29,16 +29,14 @@ export const vehiculoService = {
 
   getBySlug: async (slug: string): Promise<VehiculoType> => {
     const { data } = await httpClient.get<APIResponse<VehiculoType>>(
-      `/vehiculo`,
-      { params: { slug } }
+      `/vehiculo/slug/${slug}`
     )
     return data.data
   },
 
   getByMarca: async (marcaId: string): Promise<VehiculoType[]> => {
     const { data } = await httpClient.get<APIResponse<VehiculoType[]>>(
-      "/vehiculo",
-      { params: { marcaId, isActive: true } }
+      `/vehiculo/marca/${marcaId}`
     )
     return data.data
   },

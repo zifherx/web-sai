@@ -11,9 +11,12 @@ export const sedeService = {
   getActive: async (
     filters?: Omit<ISedeFilters, "isActive">
   ): Promise<SedeType[]> => {
-    const { data } = await httpClient.get<APIResponse<SedeType[]>>("/sede", {
-      params: { ...filters, isActive: true },
-    })
+    const { data } = await httpClient.get<APIResponse<SedeType[]>>(
+      "/sede/active",
+      {
+        params: { filters },
+      }
+    )
     return data.data
   },
   getById: async (id: string): Promise<SedeType> => {
@@ -21,27 +24,29 @@ export const sedeService = {
     return data.data
   },
   getBySlug: async (slug: string): Promise<SedeType> => {
-    const { data } = await httpClient.get<APIResponse<SedeType>>(`/sede`, {
-      params: { slug },
-    })
+    const { data } = await httpClient.get<APIResponse<SedeType>>(
+      `/sede/slug/${slug}`
+    )
     return data.data
   },
   getTallers: async (): Promise<SedeType[]> => {
-    const { data } = await httpClient.get<APIResponse<SedeType[]>>(`/sede`, {
-      params: { isTaller: true, isActive: true },
-    })
+    const { data } =
+      await httpClient.get<APIResponse<SedeType[]>>(`/sede/talleres`)
     return data.data
   },
   getByMarcaNombre: async (marcaNombre: string): Promise<SedeType[]> => {
     const { data } = await httpClient.get<APIResponse<SedeType[]>>(
-      `/sede?marcaNombre=${encodeURIComponent(marcaNombre)}`
+      `/sede/marca/${encodeURIComponent(marcaNombre)}`
     )
     return data.data
   },
   getByCiudad: async (ciudad: string): Promise<SedeType[]> => {
-    const { data } = await httpClient.get<APIResponse<SedeType[]>>("/sede", {
-      params: { ciudad, isActive: true },
-    })
+    const { data } = await httpClient.get<APIResponse<SedeType[]>>(
+      "/sede/active",
+      {
+        params: { ciudad },
+      }
+    )
     return data.data
   },
   create: async (
