@@ -74,9 +74,9 @@ export class NovalyMapper {
       return (
         [
           dto.utmSource ?? "",
-          dto.utmMedium ?? "",
-          dto.utmCampaign ?? "",
-          dto.utmTerm ?? "",
+          // dto.utmMedium ?? "",
+          // dto.utmCampaign ?? "",
+          // dto.utmTerm ?? "",
         ]
           .join("|")
           // Elimina pipes finales vacíos: "meta|alcance|dia_del_padre|" → "meta|alcance|dia_del_padre"
