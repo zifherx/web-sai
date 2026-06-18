@@ -8,9 +8,8 @@ export const portadaService = {
     return data.data
   },
   getActive: async (): Promise<PortadaType[]> => {
-    const { data } = await httpClient.get<APIResponse<PortadaType[]>>(
-      "/portada?isActive=true"
-    )
+    const { data } =
+      await httpClient.get<APIResponse<PortadaType[]>>("/portada/active")
     return data.data
   },
   getById: async (id: string): Promise<PortadaType> => {

@@ -2,7 +2,7 @@
 
 import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
-import { useActiveMarcas, useActiveVehiculos, useSedesByMarca } from "@/hooks"
+import { useActiveMarcas, useSedesByMarca, useVehiculosByMarca } from "@/hooks"
 import { cn, toastError } from "@/lib"
 import { IOptionSelect } from "@/types"
 import { useRouter } from "next/navigation"
@@ -29,9 +29,7 @@ export function VehicleSearchBar() {
 
   const { data: itemsMarca, isLoading: loadingMarca } = useActiveMarcas()
   const { data: itemsVehiculo, isLoading: loadingVehiculo } =
-    useActiveVehiculos(
-      marcaSeleccionada?.id ? { marcaId: marcaSeleccionada.id } : undefined
-    )
+    useVehiculosByMarca(marcaSeleccionada?.id ? marcaSeleccionada.id : "")
   const { data: sedesByMarca, isLoading: loadingSede } = useSedesByMarca(
     marcaSeleccionada.name
   )
