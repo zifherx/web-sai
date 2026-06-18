@@ -16,7 +16,6 @@ export const cotizacionService = {
   },
 
   sendToNovaly: async (params: SendToNovalyParams): Promise<void> => {
-    console.log("Params-sendToNovaly: ", params)
     await httpClient.post("/novaly/new-lead", {
       nombreCompleto: params.nombreCompleto,
       correoElectronico: params.correoElectronico,
@@ -29,6 +28,11 @@ export const cotizacionService = {
       idMarca: params.idMarca ?? 0,
       idTienda: params.idTienda ?? 0,
       utmTrafico: params.utmTrafico ?? "WEB",
+      // UTMs granulares de campañas de marketing digital
+      utmSource: params.utmSource,
+      utmMedium: params.utmMedium,
+      utmCampaign: params.utmCampaign,
+      utmTerm: params.utmTerm,
     })
   },
 }

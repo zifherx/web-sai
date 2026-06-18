@@ -1,30 +1,8 @@
-import { ResponseFactory } from "@/lib"
-import { emailService } from "@/modules/application"
-import { connectDB, systemEmailFactory } from "@/modules/infrastructure"
-import { NextRequest } from "next/server"
+import { sendCitaEmailHandler } from "@/modules/email/presentation/email.controller"
+import type { NextRequest } from "next/server"
 
-const BCC_DEFAULT = ""
+/**
+ * POST /api/email/cita → confirmación de cita al cliente y área (público)
+ */
 
-export async function POST(req: NextRequest): Promise<Response> {
-  try {
-    await connectDB()
-    const body = await req.json()
-
-    // Obtiene el email del área configurado en SystemEmail
-    const areaEmail =
-      (await systemEmailFactory().getByArea("Citas")) ?? BCC_DEFAULT
-
-    const result = await emailService.sendCita({
-      clienteEmail: body.email,
-      clienteNombre: body.nombres,
-      numeroDocumento: body.numeroDocumento,
-      areaEmail,
-      // reactTemplate: CitaEmailTemplate({ ...body })  ← cuando lo tengas
-    })
-
-    if (!result.success) return ResponseFactory.error(new Error(result.error))
-    return ResponseFactory.success({ id: result.id }, "Email de cita enviado")
-  } catch (err) {
-    return ResponseFactory.error(err)
-  }
-}
+export const POST = (req: NextRequest) => sendCitaEmailHandler(req)

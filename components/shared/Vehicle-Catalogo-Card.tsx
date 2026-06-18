@@ -97,7 +97,7 @@ export function VehicleCatalogoCard({
           href={href}
           className={cn(
             "mt-2 flex w-full items-center justify-center gap-2 rounded-xl",
-            "bg-blue-custom-300 px-4 py-3.5",
+            "cursor-pointer bg-blue-custom-300 px-4 py-3.5",
             "font-headOffice-bold text-sm tracking-widest text-white uppercase",
             "transition-all duration-200 hover:bg-blue-custom-500",
             "focus-visible:outline focus-visible:outline-sky-custom-300"

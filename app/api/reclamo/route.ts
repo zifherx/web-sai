@@ -1,42 +1,12 @@
-import { ResponseFactory } from "@/lib"
-import { CreateReclamoSchema } from "@/modules/application"
-import { connectDB, reclamoFactory } from "@/modules/infrastructure"
+import {
+  createReclamoHandler,
+  getAllReclamosHandler,
+} from "@/modules/reclamo/presentation/reclamo.controller"
 import { NextRequest } from "next/server"
 
-export async function GET(req: NextRequest): Promise<Response> {
-  try {
-    await connectDB()
-
-    const { searchParams } = req.nextUrl
-    const filters = {
-      tipoSolicitud: searchParams.get("tipoSolicitud") ?? undefined,
-      sedeCodexHR: searchParams.get("sedeCodexHR") ?? undefined,
-      fecha: searchParams.get("fecha") ?? undefined,
-    }
-
-    const data = await reclamoFactory().getAll(filters)
-    return ResponseFactory.success(data, "Reclamos obtenidos")
-  } catch (err) {
-    return ResponseFactory.error(err)
-  }
-}
-
-export async function POST(req: NextRequest): Promise<Response> {
-  try {
-    await connectDB()
-
-    const body = await req.json()
-    const parsed = CreateReclamoSchema.safeParse(body)
-
-    if (!parsed.success) {
-      return ResponseFactory.validationError(
-        parsed.error.issues[0]?.message ?? "Datos inválidos"
-      )
-    }
-
-    const data = await reclamoFactory().create(parsed.data)
-    return ResponseFactory.created(data, "Reclamo registrado correctamente")
-  } catch (err) {
-    return ResponseFactory.error(err)
-  }
-}
+/**
+ * GET  /api/reclamo  → obtener reclamo por id (CMS)
+ * POST /api/reclamo  → crea una nueva (público)
+ */
+export const GET = (req: NextRequest) => getAllReclamosHandler(req)
+export const POST = (req: NextRequest) => createReclamoHandler(req)
