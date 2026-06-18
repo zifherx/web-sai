@@ -33,7 +33,10 @@ export default async function MarketingADSPage({
       initialSedeId={params.sedeId ?? ""}
       initialSedeNombre={params.sedeNombre ?? ""}
       initialSedeCiudad={params.seceCiudad ?? ""}
-      initialUTM={params.utm ?? ""}
+      initialUtmSource={params.utm_source ?? ""}
+      initialUtmMedium={params.utm_medium ?? ""}
+      initialUtmCampaign={params.utm_campaign ?? ""}
+      initialUtmTerm={params.utm_term ?? ""}
     />
   )
 }

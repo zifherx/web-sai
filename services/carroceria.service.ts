@@ -10,10 +10,8 @@ export const carroceriaService = {
     return data.data
   },
   getActive: async (): Promise<CarroceriaType[]> => {
-    const { data } = await httpClient.get<APIResponse<CarroceriaType[]>>(
-      "/carroceria",
-      { params: { isActive: true } }
-    )
+    const { data } =
+      await httpClient.get<APIResponse<CarroceriaType[]>>("/carroceria/active")
     return data.data
   },
   getById: async (id: string): Promise<CarroceriaType> => {

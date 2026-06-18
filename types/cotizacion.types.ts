@@ -13,6 +13,12 @@ export interface CotizacionType {
   sedeId: string
   ciudad: string
   intencionCompra: string
+  // [NUEVO] UTMs granulares
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
+  urlCampana?: string
 }
 
 export interface CotizacionResponseType {
@@ -58,6 +64,11 @@ export interface SendToNovalyParams {
   idMarca?: number // ← idNovaly de la marca
   idTienda?: number // ← idTiendaNovaly de la sede
   utmTrafico?: string
+  // [NUEVO] UTMs granulares
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
 }
 
 export interface CotizacionEnrichedMeta {
@@ -65,5 +76,10 @@ export interface CotizacionEnrichedMeta {
   vehiculoNombre: string // nombre del modelo para Novaly (ej: "SUV X7 Plus")
   idMarca: number // idNovaly de la marca
   idTienda: number // idTiendaNovaly de la sede
-  utm: string
+  utm?: string
+  // [NUEVO] UTMs granulares de campañas de marketing digital
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
 }
