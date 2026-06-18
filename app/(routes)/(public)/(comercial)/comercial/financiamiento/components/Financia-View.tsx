@@ -10,7 +10,7 @@ import { Step1Data, Step2Data, Step3Data, Step4Data } from "@/constants"
 import { useCrearCotizacion } from "@/hooks"
 import { toastError, toastSuccess } from "@/lib"
 import { FINANCIAMIENTO_VIEW_PROPS } from "@/types"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 
 export function FinanciamientoView({
@@ -25,9 +25,17 @@ export function FinanciamientoView({
   initialSedeId = "",
   initialSedeNombre = "",
   initialSedeCiudad = "",
-  initialUTM = "",
+  initialUtmSource = "",
+  initialUtmMedium = "",
+  initialUtmCampaign = "",
+  initialUtmTerm = "",
 }: FINANCIAMIENTO_VIEW_PROPS) {
   const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const queryString = searchParams.toString()
+  const fullPath = queryString ? `${pathname}?${queryString}` : pathname
 
   const hasPartialPreselection = Boolean(initialMarcaId && initialVehiculoId)
   const hasFullPreselection = Boolean(
@@ -125,12 +133,21 @@ export function FinanciamientoView({
       sedeId: step3Data.sedeId,
       ciudad: step3Data.sedeCiudad,
       intencionCompra: data.intencionCompra,
+      utmSource: initialUtmSource,
+      utmMedium: initialUtmMedium,
+      utmCampaign: initialUtmCampaign,
+      utmTerm: initialUtmTerm,
+      urlCampana: fullPath,
       _novaly: {
         marcaNombre: step1Data?.marcaNombre ?? "",
         vehiculoNombre: step2Data.vehiculoNombre,
         idMarca: step1Data?.marcaIdNovaly ?? 0,
         idTienda: step3Data.sedeIdTiendaNovaly ?? 0,
-        utm: initialUTM ?? "",
+        utm: initialUtmSource ?? "",
+        utmSource: initialUtmSource,
+        utmMedium: initialUtmMedium,
+        utmCampaign: initialUtmCampaign,
+        utmTerm: initialUtmTerm,
       },
     })
   }

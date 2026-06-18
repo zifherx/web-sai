@@ -1,4 +1,4 @@
-import { ReclamoResponseDTO } from "@/modules/application/reclamo/reclamo.dto"
+import { ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
 import { jsPDF } from "jspdf"
 import { precioFormateadoPEN, precioFormateadoUSD } from "./global.functions"
 

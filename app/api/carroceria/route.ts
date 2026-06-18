@@ -1,14 +1,8 @@
-import { ResponseFactory } from "@/lib"
-import { carroceriaFactory, connectDB } from "@/modules/infrastructure"
+import {
+  createCarroceriaHandler,
+  getAllCarroceriasHandler,
+} from "@/modules/carroceria/presentation/carroceria.controller"
 import { type NextRequest } from "next/server"
 
-export async function GET(req: NextRequest): Promise<Response> {
-  try {
-    await connectDB()
-    const filter = Object.fromEntries(req.nextUrl.searchParams)
-    const data = await carroceriaFactory().getAll(filter)
-    return ResponseFactory.success(data, "Carrocerías obtenidas")
-  } catch (err) {
-    return ResponseFactory.error(err)
-  }
-}
+export const GET = (req: NextRequest) => getAllCarroceriasHandler(req)
+export const POST = (req: NextRequest) => createCarroceriaHandler(req)

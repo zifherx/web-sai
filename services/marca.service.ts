@@ -7,9 +7,8 @@ export const marcaService = {
     return data.data
   },
   getActive: async (): Promise<MarcaType[]> => {
-    const { data } = await httpClient.get<APIResponse<MarcaType[]>>(
-      "/marca?isActive=true"
-    )
+    const { data } =
+      await httpClient.get<APIResponse<MarcaType[]>>("/marca/active")
     return data.data
   },
   getById: async (id: string): Promise<MarcaType> => {
@@ -19,9 +18,12 @@ export const marcaService = {
     return data.data
   },
   getBySlug: async (slug: string): Promise<MarcaType> => {
-    const { data } = await httpClient.get<APIResponse<MarcaType>>(`/marca`, {
-      params: { slug },
-    })
+    const { data } = await httpClient.get<APIResponse<MarcaType>>(
+      `/marca/slug/${slug}`,
+      {
+        params: { slug },
+      }
+    )
     return data.data
   },
   create: async (payload: Partial<MarcaType>): Promise<MarcaType> => {
