@@ -46,6 +46,12 @@ export class MongooseCotizacionRepository implements ICotizacionRepository {
       isPopulated(sede) ? sede._id.toString() : (sede?.toString() ?? ""),
       doc.ciudad,
       doc.intencionCompra,
+      // UTM — se convierten a undefined si son string vacío (default del schema)
+      doc.utmSource || undefined,
+      doc.utmMedium || undefined,
+      doc.utmCampaign || undefined,
+      doc.utmTerm || undefined,
+      doc.urlCampana || undefined,
       isPopulated(cliente)
         ? {
             id: cliente._id.toString(),
@@ -91,6 +97,8 @@ export class MongooseCotizacionRepository implements ICotizacionRepository {
     }
     if (filters.sedeId) query.sedeId = filters.sedeId
     if (filters.intencionCompra) query.intencionCompra = filters.intencionCompra
+    if (filters.utmSource) query.utmSource = filters.utmSource
+    if (filters.utmCampaign) query.utmCampaign = filters.utmCampaign
 
     return query
   }
@@ -119,6 +127,11 @@ export class MongooseCotizacionRepository implements ICotizacionRepository {
       sedeId: data.sedeId,
       ciudad: data.ciudad,
       intencionCompra: data.intencionCompra,
+      utmSource: data.utmSource ?? "",
+      utmMedium: data.utmMedium ?? "",
+      utmCampaign: data.utmCampaign ?? "",
+      utmTerm: data.utmTerm ?? "",
+      urlCampana: data.urlCampana ?? "",
     })
     return this.toEntity(doc)
   }

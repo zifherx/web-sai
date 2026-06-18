@@ -44,6 +44,11 @@ export class CreateCotizacionUseCase {
       sedeId: dto.sedeId,
       ciudad: dto.ciudad,
       intencionCompra: dto.intencionCompra,
+      utmSource: dto.utmSource,
+      utmMedium: dto.utmMedium,
+      utmCampaign: dto.utmCampaign,
+      utmTerm: dto.utmTerm,
+      urlCampana: dto.urlCampana,
     })
 
     return CotizacionMapper.toDTO(created)

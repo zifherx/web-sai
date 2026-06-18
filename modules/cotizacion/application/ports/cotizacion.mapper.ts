@@ -10,6 +10,12 @@ export class CotizacionMapper {
       sedeId: entity.sedeId,
       ciudad: entity.ciudad,
       intencionCompra: entity.intencionCompra,
+      // UTM — se omiten del DTO si son undefined o string vacío
+      utmSource: entity.utmSource || undefined,
+      utmMedium: entity.utmMedium || undefined,
+      utmCampaign: entity.utmCampaign || undefined,
+      utmTerm: entity.utmTerm || undefined,
+      urlCampana: entity.urlCampana || undefined,
       cliente: entity.cliente,
       vehiculo: entity.vehiculo,
       sede: entity.sede,

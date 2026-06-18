@@ -36,6 +36,13 @@ export class CotizacionEntity {
     public readonly ciudad: string,
     public readonly intencionCompra: string,
 
+    // Trazabilidad de campañas de marketing
+    public readonly utmSource?: string,
+    public readonly utmMedium?: string,
+    public readonly utmCampaign?: string,
+    public readonly utmTerm?: string,
+    public readonly urlCampana?: string,
+
     // Populated — solo presentes en lecturas, opcionales en creación
     public readonly cliente?: ICotizacionClienteRef,
     public readonly vehiculo?: ICotizacionVehiculoRef,

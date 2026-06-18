@@ -1,6 +1,11 @@
 import { NovalyRequestDTO } from "@/modules/novaly/application/dto/novaly.dto"
 import { NovalyPayload } from "@/modules/novaly/domain/types/NovalyTypes"
 
+interface INombreSeparado {
+  nombres: string
+  apellidos: string
+}
+
 /**
  * Mapper entre el DTO del frontend y el payload que espera la API de Novaly.
  *
@@ -28,7 +33,7 @@ export class NovalyMapper {
       id_tienda: dto.idTienda ?? 0,
       form_name: "NUEVOS",
       city: dto.ciudadCotizacion ?? "",
-      utm: dto.utmTrafico ?? "WEB",
+      utm: NovalyMapper.buildUtm(dto),
     }
   }
 
@@ -40,10 +45,7 @@ export class NovalyMapper {
    * - 2 palabras → nombre: "Carlos",  apellidos: "Pérez"
    * - 3+ palabras → nombres: "Juan Carlos", apellidos: "Pérez López"
    */
-  private static splitNombreCompleto(nombreCompleto: string): {
-    nombres: string
-    apellidos: string
-  } {
+  private static splitNombreCompleto(nombreCompleto: string): INombreSeparado {
     if (!nombreCompleto?.trim()) return { nombres: "", apellidos: "" }
 
     const partes = nombreCompleto.trim().split(/\s+/)
@@ -55,5 +57,33 @@ export class NovalyMapper {
       nombres: partes.slice(0, -2).join(" "),
       apellidos: partes.slice(-2).join(" "),
     }
+  }
+  /**
+   * Consolida los campos UTM en el string único que Novaly espera.
+   *
+   * Prioridad:
+   *   1. UTMs granulares → "{source}|{medium}|{campaign}|{term}"
+   *   2. utmTrafico legacy → valor tal cual ("WEB", "meta", etc.)
+   *   3. Fallback → "WEB"
+   */
+  private static buildUtm(dto: NovalyRequestDTO): string {
+    const hasGranularUtm =
+      dto.utmSource || dto.utmMedium || dto.utmCampaign || dto.utmTerm
+
+    if (hasGranularUtm) {
+      return (
+        [
+          dto.utmSource ?? "",
+          dto.utmMedium ?? "",
+          dto.utmCampaign ?? "",
+          dto.utmTerm ?? "",
+        ]
+          .join("|")
+          // Elimina pipes finales vacíos: "meta|alcance|dia_del_padre|" → "meta|alcance|dia_del_padre"
+          .replace(/\|+$/, "")
+      )
+    }
+
+    return dto.utmTrafico ?? "WEB"
   }
 }

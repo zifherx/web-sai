@@ -15,6 +15,13 @@ export const CreateCotizacionSchema = z.object({
   sedeId: z.string().length(24, "ID de sede inválido"),
   ciudad: z.string().min(1, "La ciudad es requerida"),
   intencionCompra: z.string().min(1, "La intención de compra es requerida"),
+
+  // UTM
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+  utmTerm: z.string().optional(),
+  urlCampana: z.string().optional(),
 })
 
 export const CotizacionIdSchema = z.object({
@@ -26,6 +33,9 @@ export const CotizacionFiltersSchema = z.object({
   to: z.string().optional(),
   sedeId: z.string().optional(),
   intencionCompra: z.string().optional(),
+  // Filtros de campaña — útiles en el CMS para analizar conversiones por fuente
+  utmSource: z.string().optional(),
+  utmCampaign: z.string().optional(),
 })
 
 export type CreateCotizacionDTO = z.infer<typeof CreateCotizacionSchema>
@@ -40,6 +50,12 @@ export type CotizacionResponseDTO = {
   sedeId: string
   ciudad: string
   intencionCompra: string
+  // Trazabilidad UTM — undefined si la cotización es orgánica
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
+  urlCampana?: string
   // Populated — presentes en las lecturas
   cliente?: {
     id: string

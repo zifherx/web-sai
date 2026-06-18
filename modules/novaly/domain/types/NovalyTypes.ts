@@ -13,7 +13,13 @@ export interface NovalyRequest {
   ciudadCotizacion?: string
   idMarca?: number
   idTienda?: number
+  // Legacy — fallback para leads orgánicos sin UTMs granulares
   utmTrafico?: string
+  // UTMs granulares de campañas de marketing digital
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
 }
 
 /**

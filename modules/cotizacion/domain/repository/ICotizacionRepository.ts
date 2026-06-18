@@ -5,6 +5,9 @@ export interface CotizacionFilters {
   to?: string
   sedeId?: string
   intencionCompra?: string
+  // Filtros de campaña para análisis en el CMS
+  utmSource?: string
+  utmCampaign?: string
 }
 
 export interface ICreateCotizacionData {
@@ -13,6 +16,12 @@ export interface ICreateCotizacionData {
   sedeId: string
   ciudad: string
   intencionCompra: string
+  // UTM opcionales — se persisten como string vacío si no vienen del frontend
+  utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
+  utmTerm?: string
+  urlCampana?: string
 }
 
 export interface ICotizacionRepository {
