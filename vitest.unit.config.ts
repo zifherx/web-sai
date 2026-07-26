@@ -14,8 +14,8 @@ export default defineConfig({
   test: {
     name: "unit",
     environment: "node",
-    include: ["src/**/*.unit.test.ts"],
-    exclude: ["src/**/*.integration.test.ts", "node_modules/**"],
+    include: ["**/*.unit.test.ts"],
+    exclude: ["**/*.integration.test.ts", "node_modules/**"],
     globals: true,
     testTimeout: 10_000,
     coverage: {

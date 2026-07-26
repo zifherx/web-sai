@@ -69,7 +69,7 @@ export class MongooseClienteRepository
       .findByIdAndUpdate(
         id,
         { $set: update },
-        { after: true, runValidators: true }
+        { returnDocument: "after", runValidators: true }
       )
       .lean()
     return doc ? this.toEntity(doc as ClienteDocument) : null

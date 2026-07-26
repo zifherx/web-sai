@@ -76,7 +76,7 @@ export class MongooseMediaRepository implements IMediaRepository {
           updatedAt: props.updatedAt,
         },
       },
-      { after: true, runValidators: true }
+      { returnDocument: "after", runValidators: true }
     ).lean()
 
     if (!doc) throw new MediaFileNotFoundError(props.id)

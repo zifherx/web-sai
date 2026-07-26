@@ -28,6 +28,7 @@ export interface ICreateSedeData {
     longitud: string
   }
   celularCitas: string
+  correoCitas: string
   isTaller: boolean
   isActive: boolean
   createdBy: string

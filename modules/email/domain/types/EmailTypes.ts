@@ -7,11 +7,33 @@ export interface SendEmailResult {
 // ── Parámetros por tipo de email ──────────────────────────────────────────────
 
 export interface SendCitaEmailParams {
+  areaEmail: string
+
+  // Cliente
   clienteEmail: string
   clienteNombre: string
+  tipoDocumento: string
   numeroDocumento: string
-  areaEmail: string
-  reactTemplate?: React.ReactElement
+  celular: string
+
+  //Vehiculo
+  placa: string
+  kilometraje: string
+  marcaFlat: string
+  modeloFlat: string
+
+  // Servicio
+  tipoServicio: string
+  comentario: string
+
+  // Sede asignada
+  sedeName: string
+  sedeCiudad: string
+  sedeAddress: string
+
+  // Referencia
+  citaId: string
+  fechaRegistro: Date
 }
 
 export interface SendLeadCorporativoEmailParams {
