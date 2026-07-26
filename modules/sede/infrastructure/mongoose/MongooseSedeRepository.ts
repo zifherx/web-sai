@@ -6,7 +6,7 @@ import {
   IUpdateSedeData,
   SedeFilters,
 } from "@/modules/sede/domain/repositories/ISedeRepository"
-import { SedeDocument } from "@/modules/sede/infrastructure/mongoose/sede.schema"
+import { SedeDocument } from "@/modules/sede/infrastructure/mongoose/MongooseSedeSchema"
 import { Model, Types } from "mongoose"
 
 const POPULATE_MARCAS_TALLER = {
@@ -56,6 +56,7 @@ export class MongooseSedeRepository implements ISedeRepository {
         longitud: doc.coordenadasMapa?.longitud ?? "",
       },
       doc.celularCitas ?? "",
+      doc.correoCitas ?? "",
       doc.isTaller,
       doc.isActive,
       doc.createdBy,
@@ -185,6 +186,7 @@ export class MongooseSedeRepository implements ISedeRepository {
     if (data.coordenadasMapa !== undefined)
       update.coordenadasMapa = data.coordenadasMapa
     if (data.celularCitas !== undefined) update.celularCitas = data.celularCitas
+    if (data.correoCitas !== undefined) update.correoCitas = data.correoCitas
     if (data.isTaller !== undefined) update.isTaller = data.isTaller
     if (data.isActive !== undefined) update.isActive = data.isActive
     if (data.marcasDisponiblesVentas !== undefined)
@@ -200,7 +202,7 @@ export class MongooseSedeRepository implements ISedeRepository {
       .findByIdAndUpdate(
         id,
         { $set: update },
-        { after: true, runValidators: true }
+        { returnDocument: "after", runValidators: true }
       )
       .lean()
     return doc ? this.toEntity(doc as SedeDocument) : null

@@ -63,7 +63,7 @@ export class MongooseMarcaRepository implements IMarcaRepository {
       .findByIdAndUpdate(
         id,
         { $set: data },
-        { after: true, runValidators: true }
+        { returnDocument: "after", runValidators: true }
       )
       .lean()
     return doc ? this.toEntity(doc as MarcaDocument) : null

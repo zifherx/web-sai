@@ -8,14 +8,6 @@ export const SendReclamoEmailSchema = z.object({
   pdfBase64: z.string().min(1, "El PDF es requerido"),
 })
 
-// ── Cita ──────────────────────────────────────────────────────────────────────
-
-export const SendCitaEmailSchema = z.object({
-  email: z.string().email("Email inválido"),
-  nombres: z.string().min(1, "El nombre es requerido"),
-  numeroDocumento: z.string().min(1, "El número de documento es requerido"),
-})
-
 // ── Lead Corporativo ──────────────────────────────────────────────────────────
 
 export const SendLeadCorporativoEmailSchema = z.object({
@@ -26,7 +18,6 @@ export const SendLeadCorporativoEmailSchema = z.object({
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 export type SendReclamoEmailDTO = z.infer<typeof SendReclamoEmailSchema>
-export type SendCitaEmailDTO = z.infer<typeof SendCitaEmailSchema>
 export type SendLeadCorporativoEmailDTO = z.infer<
   typeof SendLeadCorporativoEmailSchema
 >

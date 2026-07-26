@@ -10,7 +10,7 @@ import { GetSedesByMarcaUseCase } from "@/modules/sede/application/use-cases/get
 import { GetTalleresUseCase } from "@/modules/sede/application/use-cases/get-talleres.use-case"
 import { UpdateSedeUseCase } from "@/modules/sede/application/use-cases/update-sede.use-case"
 import { MongooseSedeRepository } from "@/modules/sede/infrastructure/mongoose/MongooseSedeRepository"
-import { SedeModel } from "@/modules/sede/infrastructure/mongoose/sede.schema"
+import { SedeModel } from "@/modules/sede/infrastructure/mongoose/MongooseSedeSchema"
 
 export function sedeFactory() {
   const sedeRepository = new MongooseSedeRepository(SedeModel)
