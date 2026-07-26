@@ -26,6 +26,7 @@ export interface SedeDocument extends Document {
     longitud: string
   }
   celularCitas: string
+  correoCitas: string
   isTaller: boolean
   isActive: boolean
   createdBy: string
@@ -62,6 +63,7 @@ const sedeSchema = new Schema<SedeDocument>(
       longitud: { type: String, default: "" },
     },
     celularCitas: { type: String, default: "" },
+    correoCitas: { type: String, lowercase: true, trim: true, default: "" },
     isTaller: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },
     createdBy: { type: String, default: "" },

@@ -55,7 +55,7 @@ export class MongoosePortadaRepository implements IPortadaRepository {
       .findByIdAndUpdate(
         id,
         { $set: data },
-        { after: true, runValidators: true }
+        { returnDocument: "after", runValidators: true }
       )
       .lean()
     return doc ? this.toEntity(doc as PortadaDocument) : null

@@ -35,6 +35,7 @@ export const CreateSedeSchema = z.object({
   linkHowArrived: z.string().url("Debe ser una URL válida"),
   coordenadasMapa: CoordenadasSchema,
   celularCitas: z.string().default(""),
+  correoCitas: z.email("Correo de citas inválido"),
   isTaller: z.boolean().default(false),
   isActive: z.boolean().default(true),
   marcasDisponiblesVentas: z
@@ -95,6 +96,7 @@ export type SedeResponseDTO = {
   marcasDisponiblesTaller: IMarcaRef[]
   coordenadasMapa: CoordenadasResponseDTO
   celularCitas: string
+  correoCitas: string
   isTaller: boolean
   isActive: boolean
   createdBy: string

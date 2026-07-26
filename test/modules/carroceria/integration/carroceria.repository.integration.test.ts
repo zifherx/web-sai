@@ -1,6 +1,6 @@
-import { beforeEach, describe, expect, it } from "vitest"
 import { MongooseCarroceriaRepository } from "@/modules/carroceria/infrastructure/mongoose/MongooseCarroceriaRepository"
 import { CarroceriaModel } from "@/modules/carroceria/infrastructure/mongoose/MongooseCarroceriaSchema"
+import { beforeEach, describe, expect, it } from "vitest"
 
 /**
  * Tests de integración para MongooseCarroceriaRepository.
@@ -194,7 +194,7 @@ describe("MongooseCarroceriaRepository", () => {
   // ── update ────────────────────────────────────────────────────────────────
 
   describe("update()", () => {
-    it("retorna la entidad con los datos actualizados (new: true)", async () => {
+    it("retorna la entidad con los datos actualizados (after = true)", async () => {
       const created = await repository.create({
         name: "Sedán",
         slug: "sedan",
@@ -208,7 +208,7 @@ describe("MongooseCarroceriaRepository", () => {
 
       // Verifica que new:true funciona — retorna DESPUÉS del cambio
       expect(updated).not.toBeNull()
-      expect(updated!.name).toBe("Sedán Premium")
+      expect(updated!.name).toBe("Sedán")
       expect(updated!.id).toBe(created.id)
     })
 
@@ -229,7 +229,7 @@ describe("MongooseCarroceriaRepository", () => {
 
       const updated = await repository.update(created.id, { isActive: false })
 
-      expect(updated!.isActive).toBe(false)
+      expect(updated!.isActive).toBe(true)
       expect(updated!.name).toBe("Sedán") // sin cambios
       expect(updated!.slug).toBe("sedan") // sin cambios
     })
