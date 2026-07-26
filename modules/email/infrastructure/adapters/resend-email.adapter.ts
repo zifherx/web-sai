@@ -6,6 +6,7 @@ import {
   SendReclamoEmailParams,
 } from "@/modules/email/domain/types/EmailTypes"
 import { type CreateEmailOptions, Resend } from "resend"
+import { CitaEmailTemplate } from "../templates/cita-email-template"
 
 const FROM = "Automotores Inka 🤖 <bot@ziphonex.com>"
 const BCC_DEFAULT = "automotores.inka@ziphonex.com"
@@ -43,11 +44,11 @@ export class ResendEmailAdapter implements IEmailPort {
   async sendCita(params: SendCitaEmailParams): Promise<SendEmailResult> {
     return this.send({
       from: FROM,
-      to: [params.clienteEmail],
-      bcc: [BCC_DEFAULT, params.areaEmail].filter(Boolean),
+      to: [params.areaEmail],
+      bcc: [BCC_DEFAULT, params.clienteEmail].filter(Boolean),
       subject: `Nueva Cita ✅ — ${params.numeroDocumento}`,
-      react: params.reactTemplate ?? undefined,
-      text: `Registro de cita por ${params.clienteNombre}`,
+      react: CitaEmailTemplate(params),
+      text: `Nueva cita de ${params.clienteNombre} (${params.numeroDocumento}) - ${params.tipoServicio} en ${params.sedeName}`,
     })
   }
 
@@ -65,11 +66,7 @@ export class ResendEmailAdapter implements IEmailPort {
   }
 
   async sendReclamo(params: SendReclamoEmailParams): Promise<SendEmailResult> {
-    const bcc = [
-      BCC_DEFAULT,
-      params.areaEmail,
-      params.clienteEmail ?? "",
-    ].filter(Boolean)
+    const bcc = [BCC_DEFAULT, params.clienteEmail ?? ""].filter(Boolean)
     return this.send({
       from: FROM,
       to: [params.areaEmail],

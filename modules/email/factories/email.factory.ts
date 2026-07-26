@@ -1,4 +1,3 @@
-import { SendCitaEmailUseCase } from "@/modules/email/application/use-cases/send-cita-email.use-case"
 import { SendLeadCorporativoEmailUseCase } from "@/modules/email/application/use-cases/send-lead-corporativo-email.use-case"
 import { SendReclamoEmailUseCase } from "@/modules/email/application/use-cases/send-reclamo-email.use-case"
 import { ResendEmailAdapter } from "@/modules/email/infrastructure/adapters/resend-email.adapter"
@@ -19,7 +18,6 @@ export function emailFactory() {
   )
 
   return {
-    sendCita: new SendCitaEmailUseCase(emailAdapter, systemEmailRepository),
     sendLeadCorporativo: new SendLeadCorporativoEmailUseCase(
       emailAdapter,
       systemEmailRepository

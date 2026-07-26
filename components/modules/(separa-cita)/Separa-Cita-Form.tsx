@@ -15,7 +15,7 @@ import {
 } from "@/constants"
 import { useActiveSedes, useCrearCita } from "@/hooks"
 import { cn, groupCn, toastError, toastSuccess } from "@/lib"
-import { SedeType, SEPARA_CITA_FORM_PROPS } from "@/types"
+import { IMarcaRef, SedeType, SEPARA_CITA_FORM_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   ChevronsUpDown,
@@ -92,7 +92,7 @@ export function SeparaCitaForm({ initialCiudad = "" }: SEPARA_CITA_FORM_PROPS) {
     const seen = new Set<string>()
     return talleresDeCiudad
       .flatMap((s) => s.marcasDisponiblesTaller ?? [])
-      .filter((m: any) => {
+      .filter((m: IMarcaRef) => {
         if (seen.has(m.slug)) return false
         seen.add(m.slug)
         return true
@@ -107,7 +107,7 @@ export function SeparaCitaForm({ initialCiudad = "" }: SEPARA_CITA_FORM_PROPS) {
         s.isTaller &&
         s.ciudad.toLowerCase() === ciudadWatch.toLowerCase() &&
         (s.marcasDisponiblesTaller ?? []).some(
-          (m: any) => m.slug === marcaWatch
+          (m: IMarcaRef) => m.slug === marcaWatch
         )
     )
   }, [sedes, ciudadWatch, marcaWatch])

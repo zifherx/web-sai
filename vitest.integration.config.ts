@@ -16,10 +16,10 @@ export default defineConfig({
     include: ["**/*.integration.test.ts"],
     exclude: ["**/*.unit.test.ts", "node_modules/**"],
     globals: true,
-    globalSetup: ["tests/setup/mongo.global-setup.ts"],
-    setupFiles: ["tests/setup/mongo.setup.ts"],
+    globalSetup: ["test/setup/mongo.global-setup.ts"],
+    setupFiles: ["test/setup/mongo.setup.ts"],
     pool: "forks",
-    maxWorkers: 1,
+    // maxForks: 1,
     testTimeout: 30_000,
     hookTimeout: 30_000,
     coverage: {

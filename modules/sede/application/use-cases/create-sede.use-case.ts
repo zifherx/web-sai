@@ -30,6 +30,7 @@ export class CreateSedeUseCase {
       marcasDisponiblesTaller: dto.marcasDisponiblesTaller,
       coordenadasMapa: dto.coordenadasMapa,
       celularCitas: dto.celularCitas,
+      correoCitas: dto.correoCitas,
       isTaller: dto.isTaller,
       isActive: dto.isActive,
       createdBy: userId,
