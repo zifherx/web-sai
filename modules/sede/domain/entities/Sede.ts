@@ -29,6 +29,7 @@ export class SedeEntity {
     public readonly marcasDisponiblesTaller: IMarcaRef[],
     public readonly coordenadasMapa: CoordenadasVO,
     public readonly celularCitas: string,
+    public readonly correoCitas: string,
     public readonly isTaller: boolean,
     public readonly isActive: boolean,
     public readonly createdBy: string,
@@ -53,6 +54,11 @@ export class SedeEntity {
       this.coordenadasMapa.latitud.length > 0 &&
       this.coordenadasMapa.longitud.length > 0
     )
+  }
+
+  getCorreoCitas(): string {
+    // if(!this.correoCitas) throw new SedeSinCorreoCitasE
+    return this.correoCitas
   }
 
   static generateSlug(name: string): string {

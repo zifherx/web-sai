@@ -21,6 +21,7 @@ export class SedeMapper {
       marcasDisponiblesTaller: entity.marcasDisponiblesTaller,
       coordenadasMapa: entity.coordenadasMapa,
       celularCitas: entity.celularCitas,
+      correoCitas: entity.correoCitas,
       isTaller: entity.isTaller,
       isActive: entity.isActive,
       createdBy: entity.createdBy,

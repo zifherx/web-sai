@@ -5,6 +5,9 @@ import {
 import { CitaMapper } from "@/modules/cita/application/ports/cita.mapper"
 import { CitaEntity } from "@/modules/cita/domain/entities/Cita"
 import { ICitaRepository } from "@/modules/cita/domain/repository/ICitaRepository"
+import { IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
+import { SedeNotFoundError } from "@/modules/sede/domain/errors/SedeDomainError"
+import { ISedeRepository } from "@/modules/sede/domain/repositories/ISedeRepository"
 import { IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
 
 /**
@@ -26,10 +29,16 @@ import { IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
 export class CreateCitaUseCase {
   constructor(
     private readonly citaRepository: ICitaRepository,
-    private readonly clienteRepository: IClienteUpsertPort
+    private readonly clienteRepository: IClienteUpsertPort,
+    private readonly sedeRepository: ISedeRepository,
+    private readonly emailPort: IEmailPort
   ) {}
 
   async execute(dto: CreateCitaDTO): Promise<CitaResponseDTO> {
+    // 1. Búsqueda de sede
+    const sede = await this.sedeRepository.findById(dto.sedeId)
+    if (!sede) throw new SedeNotFoundError(dto.sedeId)
+
     // 1. Upsert del cliente
     const { cliente } = await this.clienteRepository.upsert({
       name: dto.nombres,
@@ -38,7 +47,7 @@ export class CreateCitaUseCase {
       celular: dto.celular,
       email: dto.email,
       usoDatosPersonales: true,
-      aceptaPromociones: false,
+      aceptaPromociones: true,
     })
 
     // 2. Construir mensaje de WhatsApp — lógica de dominio en la entidad
@@ -66,8 +75,37 @@ export class CreateCitaUseCase {
       tipoServicio: dto.tipoServicio,
       comentario: dto.comentario ?? "",
       whatsappMessage,
-      whatsappContact: "",
+      whatsappContact: sede.celularCitas,
     })
+
+    if (sede.correoCitas) {
+      const resultado = await this.emailPort.sendCita({
+        areaEmail: sede.correoCitas,
+        clienteEmail: dto.email,
+        clienteNombre: dto.nombres,
+        tipoDocumento: dto.tipoDocumento,
+        numeroDocumento: dto.numeroDocumento,
+        celular: dto.celular,
+        placa: created.placa,
+        kilometraje: dto.kilometraje,
+        marcaFlat: dto.marcaFlat,
+        modeloFlat: dto.modeloFlat ?? "",
+        tipoServicio: dto.tipoServicio,
+        comentario: dto.comentario ?? "",
+        sedeName: sede.name,
+        sedeCiudad: sede.ciudad,
+        sedeAddress: sede.address,
+        citaId: created.id,
+        fechaRegistro: created.createdAt ?? new Date(),
+      })
+
+      if (!resultado.success) {
+        console.error("[CreateCitaUseCase] email falló:", {
+          citaId: created.id,
+          error: resultado.error,
+        })
+      }
+    }
 
     return CitaMapper.toDTO(created)
   }
