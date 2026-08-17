@@ -175,7 +175,7 @@ export function VehicleSearchBar() {
       className={cn(
         "relative -bottom-5 z-20 w-full px-4",
         "sm:absolute sm:bottom-0 sm:left-1/2 sm:mt-0",
-        "sm:-translate-x-1/2 sm:translate-y-1/2",
+        "sm:-translate-x-1/2 sm:translate-y-[18%]",
         "sm:max-w-7xl"
       )}
     >

@@ -1,7 +1,7 @@
 import {
   LoginInput,
   LoginOutput,
-} from "@/modules/auth/application/dto/login-dto"
+} from "@/modules/auth/application/dto/login.dto"
 import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
 import { IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
 import { CredencialesInvalidasError } from "@/modules/auth/domain/errors/auth-errors"
@@ -29,6 +29,7 @@ export class LoginUseCase {
         email: usuario.email,
         nombre: usuario.nombre,
         rol: usuario.rol,
+        sedeId: usuario.sedeId,
       },
       token,
     }

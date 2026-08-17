@@ -234,3 +234,36 @@
 .loading-bar {
   animation: loading-bar 1.4s ease-in-out infinite;
 }
+
+@keyframes auth-car-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes auth-speed-line {
+  0% {
+    opacity: 0;
+    transform: translateX(12px) scaleX(0.3);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-32px) scaleX(1);
+  }
+}
+
+@keyframes auth-road-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -32px 0;
+  }
+}

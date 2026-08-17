@@ -1,6 +1,7 @@
 import { connectDB } from "@/shared/infrastructure/connection"
 import { betterAuth } from "better-auth"
 import { mongodbAdapter } from "better-auth/adapters/mongodb"
+import { nextCookies } from "better-auth/next-js"
 import { connection } from "mongoose"
 
 async function getDB() {
@@ -23,10 +24,11 @@ export const auth = betterAuth({
   user: {
     additionalFields: {
       rol: { type: "string", defaultValue: "sede", input: false },
-      sedeIf: { type: "string", required: false },
+      sedeId: { type: "string", required: false, defaultValue: "" },
     },
   },
   trustedOrigins: (process.env.BETTER_AUTH_TRUSTED_ORIGINS ?? "")
     .split(",")
     .filter(Boolean),
+  plugins: [nextCookies()],
 })

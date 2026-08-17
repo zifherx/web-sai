@@ -1,4 +1,5 @@
 export * from "./api.types"
+export * from "./auth.types"
 export * from "./catalogo.types"
 export * from "./cita.types"
 export * from "./corporativo.types"

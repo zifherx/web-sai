@@ -4,7 +4,7 @@ export function toUsuarioEntity(doc: any): Usuario {
   return new Usuario(
     doc._id.toString(),
     doc.email,
-    doc.name ?? "",
+    doc.name,
     doc.rol ?? "sede",
     doc.sedeId ?? null
   )

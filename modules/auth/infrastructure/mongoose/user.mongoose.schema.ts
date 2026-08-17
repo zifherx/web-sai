@@ -20,10 +20,10 @@ const UserSchema = new Schema<UserDocument>(
     versionKey: false,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-    collection: "users",
+    collection: "user",
     timestamps: true,
   }
 )
 
 export const UserModel =
-  models.User ?? model<UserDocument>("Usuario", UserSchema)
+  models.Usuario ?? model<UserDocument>("Usuario", UserSchema)

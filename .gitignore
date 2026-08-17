@@ -81,3 +81,4 @@ emails/
 
 .vercel
 .env*
+postman__auth_collection.json

@@ -1,4 +1,4 @@
-import { IUsuario } from "@/modules/auth/application/ports/i-user-repository.port"
+import { IUsuario } from "@/modules/auth/application/dto/usuario.dto"
 import { z } from "zod"
 
 export const loginSchema = z.object({

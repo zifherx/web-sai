@@ -36,13 +36,15 @@ export function HeroSection() {
           {!isLoading &&
             items?.map((item) => (
               <CarouselItem key={item.id}>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.name}
-                  width={2000}
-                  height={780}
-                  priority
-                />
+                <div className="relative aspect-2000/780 w-full">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </CarouselItem>
             ))}
         </CarouselContent>

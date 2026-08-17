@@ -1,6 +1,11 @@
-import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
-import { Sesion } from "@/modules/auth/domain/entities/sesion.entity"
-import { CredencialesInvalidasError } from "@/modules/auth/domain/errors/auth-errors"
+import {
+  IAuthPort,
+  SignUpInput,
+} from "@/modules/auth/application/ports/i-auth.port"
+import {
+  CredencialesInvalidasError,
+  UsuarioYaExisteError,
+} from "@/modules/auth/domain/errors/auth-errors"
 import { auth } from "@/modules/auth/infrastructure/config/better-auth.config"
 
 export class BetterAuthAdapter implements IAuthPort {
@@ -13,15 +18,30 @@ export class BetterAuthAdapter implements IAuthPort {
     }
   }
 
-  async signOut(token: string) {
-    await auth.api.signOut({ headers: { authorization: `Bearer ${token}` } })
+  async signUp({ email, name, password, sedeId }: SignUpInput) {
+    try {
+      const result = await auth.api.signUpEmail({
+        body: { email, password, name, sedeId },
+      })
+      return {
+        usuarioId: result.user.id,
+        token: result.token,
+      }
+    } catch (err) {
+      throw new UsuarioYaExisteError(email)
+    }
   }
 
-  async getSesion(token: string) {
-    const result = await auth.api.getSession({
-      headers: { authorization: `Bearer ${token}` },
-    })
+  async signOut(headers: Headers): Promise<void> {
+    await auth.api.signOut({ headers })
+  }
+
+  async getSesion(headers: Headers) {
+    const result = await auth.api.getSession({ headers })
     if (!result) return null
-    return new Sesion(token, result.user.id, new Date(result.session.expiresAt))
+    return {
+      usuarioId: result.user.id,
+      expiraEn: new Date(result.session.expiresAt),
+    }
   }
 }

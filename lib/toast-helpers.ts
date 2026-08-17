@@ -56,6 +56,12 @@ export const toastError = {
       description:
         detail ?? "Ocurrió un error inesperado. Inténtalo nuevamente.",
     }),
+
+  login: (detail?: string) =>
+    toast.error("No se pudo iniciar sesión", {
+      description:
+        detail ?? "Verifica tus credenciales e inténtalo nuevamente.",
+    }),
 }
 
 export const toastInfo = {
