@@ -71,3 +71,7 @@ export const citaKeys = {
   bySede: (sedeId: string) => ["cita", "sede", sedeId] as const,
   byServicio: (tipo: string) => ["cita", "servicio", tipo] as const,
 }
+
+export const authKeys = {
+  session: () => ["auth", "session"] as const,
+}

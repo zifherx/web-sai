@@ -3,19 +3,10 @@ import axios from "axios"
 export const httpClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL ?? "/api",
   timeout: 10_000,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
-})
-
-httpClient.interceptors.request.use((config) => {
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("sai_token") : null
-
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
 })
 
 httpClient.interceptors.response.use(
@@ -23,7 +14,7 @@ httpClient.interceptors.response.use(
   (error) => {
     const status = error.response?.status
 
-    if (status === 401) {
+    if (status === 401 && typeof window !== "undefined") {
       window.location.href = "/login"
     }
 

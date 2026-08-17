@@ -1,14 +1,14 @@
 import { RateLimitHeaders } from "@/lib/identity.helpers"
 import { applyRateLimit } from "@/lib/rate-limit.guard"
 import { RateLimitTier } from "@/lib/rate-limit.middleware"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { NextRequest } from "next/server"
 
-function resolveCarroceriaTier(req: NextRequest): RateLimitTier {
+async function resolveCarroceriaTier(req: NextRequest): Promise<RateLimitTier> {
   const method = req.method.toUpperCase()
-  const isAuthenticated = Boolean(req.headers.get("x-clerk-user-id"))
-
   if (method !== "GET") return "authenticated"
-  return isAuthenticated ? "cms-read" : "public"
+  const userId = await resolveUserId(req)
+  return userId ? "cms-read" : "public"
 }
 
 export async function carroceriaRateLimit(req: NextRequest): Promise<{
@@ -16,6 +16,6 @@ export async function carroceriaRateLimit(req: NextRequest): Promise<{
   response?: Response
   headers: RateLimitHeaders
 }> {
-  const tier = resolveCarroceriaTier(req)
+  const tier = await resolveCarroceriaTier(req)
   return applyRateLimit(req, tier)
 }

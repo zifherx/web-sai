@@ -78,3 +78,7 @@ yarn-error.log*
 next-env.d.ts
 emails/
 /emails
+
+.vercel
+.env*
+postman__auth_collection.json
