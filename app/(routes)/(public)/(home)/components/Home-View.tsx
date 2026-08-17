@@ -11,7 +11,7 @@ import { MIATA_MX5_SHOWCASE, SERVICE_SHOWCASE } from "@/constants"
 export function HomeView() {
   return (
     <div>
-      <div className="relative pb-0 sm:pb-20">
+      <div className="relative pb-0 sm:pb-28">
         <HeroSection />
         <VehicleSearchBar />
       </div>
