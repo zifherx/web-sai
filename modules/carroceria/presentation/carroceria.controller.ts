@@ -4,12 +4,11 @@ import {
   CreateCarroceriaSchema,
   UpdateCarroceriaSchema,
 } from "@/modules/carroceria/application/dto/carroceria.dto"
+import { CarroceriaUnauthorizedError } from "@/modules/carroceria/domain/errors/CarroceriaDomainError"
 import { carroceriaFactory } from "@/modules/carroceria/factories/carroceria.factory"
-import {
-  resolveUserId,
-  withRateLimitHeaders,
-} from "@/modules/carroceria/helpers/carroceria.helper"
+import { withRateLimitHeaders } from "@/modules/carroceria/helpers/carroceria.helper"
 import { carroceriaRateLimit } from "@/modules/carroceria/presentation/carroceria.ratelimit"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { type NextRequest } from "next/server"
@@ -92,8 +91,8 @@ export function createCarroceriaHandler(req: NextRequest) {
     const rl = await carroceriaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
-    console.log({ userId })
+    const userId = await resolveUserId(req)
+    if (!userId) throw new CarroceriaUnauthorizedError()
     const body = CreateCarroceriaSchema.parse(await req.json())
     await connectDB()
     const useCases = carroceriaFactory()
@@ -117,7 +116,8 @@ export function updateCarroceriaHandler(req: NextRequest, ctx: RouteContext) {
     const rl = await carroceriaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new CarroceriaUnauthorizedError()
     const { marcaId } = CarroceriaIdSchema.parse(await ctx.params)
     const body = UpdateCarroceriaSchema.parse(await req.json())
     await connectDB()
@@ -141,7 +141,8 @@ export function deleteCarroceriaHandler(req: NextRequest, ctx: RouteContext) {
     const rl = await carroceriaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new CarroceriaUnauthorizedError()
     const { marcaId } = CarroceriaIdSchema.parse(await ctx.params)
     await connectDB()
     const useCases = carroceriaFactory()

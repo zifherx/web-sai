@@ -1,4 +1,6 @@
+import { AuthTransitionOverlay } from "@/components/shared/Auth-Transition-Overlay"
 import { Toaster } from "@/components/ui/sonner"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import {
   dmSans,
   fontMono,
@@ -14,6 +16,7 @@ import {
   hyundaiSansTextRegularItalic,
 } from "@/fonts"
 import { cn } from "@/lib/utils"
+import { AuthTransitionProvider } from "@/providers/Auth-Transition.provider"
 import { QueryProvider } from "@/providers/QueryProvider"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -181,7 +184,12 @@ export default function RootLayout({
           shadow="0 0 10px #0ea5e9, 0 0 5px #0ea5e9"
           zIndex={9999}
         />
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <AuthTransitionProvider>
+            <TooltipProvider>{children}</TooltipProvider>
+            <AuthTransitionOverlay />
+          </AuthTransitionProvider>
+        </QueryProvider>
 
         <Toaster
           position="bottom-right"
