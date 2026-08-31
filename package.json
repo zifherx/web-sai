@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "5.2.2",
-    "@tanstack/react-query": "5.100.5",
+    "@tanstack/react-query": "5.102.8",
     "@tanstack/react-table": "9.1.2",
     "@uploadthing/react": "7.3.3",
     "@upstash/ratelimit": "2.0.8",
@@ -64,7 +64,7 @@
     "@react-email/ui": "6.9.3",
     "@tailwindcss/postcss": "^4",
     "@tanstack/eslint-plugin-query": "^5.100.5",
-    "@tanstack/react-query-devtools": "^5.100.5",
+    "@tanstack/react-query-devtools": "^5.102.8",
     "@types/leaflet": "^1.9.21",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
