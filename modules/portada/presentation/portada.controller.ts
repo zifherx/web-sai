@@ -15,6 +15,8 @@ import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { NextRequest } from "next/server"
+import { resolveUserId } from "../../../shared/infrastructure/auth/resolve-user-id"
+import { PortadaUnauthorizedError } from "../domain/errors/PortadaDomainError"
 
 /**
  * GET /api/portadas
