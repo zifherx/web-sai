@@ -1,7 +1,7 @@
+import { vehiculoKeys } from "@/hooks/query-keys"
 import { vehiculoService } from "@/services/vehiculo.service"
 import { VehiculoType } from "@/types/api.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { vehiculoKeys } from "../query-keys"
 
 export function useCreateVehiculo() {
   const qc = useQueryClient()

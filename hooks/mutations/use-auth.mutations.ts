@@ -26,7 +26,7 @@ export function useLogin() {
     },
     onSuccess: (usuario) => {
       queryClient.setQueryData(authKeys.session(), usuario)
-      router.push("/dashboard")
+      router.push("/cms/dashboard")
       setTimeout(hideTransition, 700)
     },
     onError: (error) => {

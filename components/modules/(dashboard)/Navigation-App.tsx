@@ -18,7 +18,7 @@ import { usePathname } from "next/navigation"
 export function NavigationApp() {
   const pathname = usePathname()
   const segments = pathname.split("/").filter(Boolean)
-  const isRootPath = pathname === "/dashboard"
+  const isRootPath = pathname === "/cms/dashboard"
 
   return (
     <header className="flex h-16 shrink-0 items-center gap-2 px-4">
@@ -31,7 +31,7 @@ export function NavigationApp() {
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
                 <Link
-                  href="/dashboard"
+                  href="/cms/dashboard"
                   className="flex items-center gap-1.5 hover:text-foreground"
                 >
                   <Home className="h-4 w-4" />

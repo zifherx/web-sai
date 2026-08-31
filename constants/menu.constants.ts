@@ -1,5 +1,12 @@
 import { NavMenuItem } from "@/types/auth.types"
-import { Building2, Car, FileText, LayoutDashboard, Users } from "lucide-react"
+import {
+  Building2,
+  Car,
+  FileText,
+  GalleryHorizontal,
+  LayoutDashboard,
+  Users,
+} from "lucide-react"
 
 export const Sidebar_Menu: NavMenuItem[] = [
   {
@@ -7,6 +14,13 @@ export const Sidebar_Menu: NavMenuItem[] = [
     slug: "dashboard",
     icon: LayoutDashboard,
     color: "text-sky-600",
+    hasSubmenu: false,
+  },
+  {
+    label: "Portadas",
+    slug: "portadas",
+    icon: GalleryHorizontal,
+    color: "text-indigo-600",
     hasSubmenu: false,
   },
   {

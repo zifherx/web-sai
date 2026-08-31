@@ -3,6 +3,7 @@
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks"
 import { cn } from "@/lib"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { IMarcaSelect, STEP1_MARCA_PROPS } from "@/types"
 import Image from "next/image"
 
@@ -10,6 +11,11 @@ export function Step1Marca({ initialData, onNext }: STEP1_MARCA_PROPS) {
   const { data: marcas, isLoading } = useActiveMarcas()
 
   const handleSelect = (marca: IMarcaSelect) => {
+    analytics.track({
+      name: "catalogo_marca_click",
+      module: "catalogo",
+      payload: { marca: marca.name, marca_slug: marca.slug },
+    })
     onNext({
       marcaId: marca.id,
       marcaNombre: marca.name,

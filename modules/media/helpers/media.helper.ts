@@ -1,20 +1,12 @@
 import { RateLimitHeaders } from "@/lib/identity.helpers"
-import { MediaUnauthorizedError } from "@/modules/media/domain/errors/MediaDomainError"
-import { NextRequest } from "next/server"
-
-export function resolveUserId(req: NextRequest): string {
-  const userId = req.headers.get("x-clerk-user-id")
-  if (!userId) throw new MediaUnauthorizedError()
-  return userId
-}
-
-export function withRateLimitHeaders(
-  response: Response,
-  rlHeaders: RateLimitHeaders
-): Response {
-  const next = new Response(response.body, response)
-  Object.entries(rlHeaders).forEach(([k, v]) => next.headers.set(k, v))
-  return next
-}
+import { NextResponse } from "next/server"
 
 export type IdContext = { params: Promise<{ id: string }> }
+
+export function withRateLimitHeaders(
+  response: NextResponse,
+  rlHeaders: RateLimitHeaders
+): NextResponse {
+  Object.entries(rlHeaders).forEach(([k, v]) => response.headers.set(k, v))
+  return response
+}

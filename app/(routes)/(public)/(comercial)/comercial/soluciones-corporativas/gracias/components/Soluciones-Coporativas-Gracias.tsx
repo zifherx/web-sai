@@ -1,4 +1,7 @@
+"use client"
+
 import { cn } from "@/lib"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { IProximosPasosGracias } from "@/types"
 import {
   ArrowLeft,
@@ -10,6 +13,7 @@ import {
   Users,
 } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from "react"
 
 const PROXIMOS_PASOS_SOLUCIONES_CORPORATIVAS: IProximosPasosGracias[] = [
   {
@@ -31,6 +35,10 @@ const PROXIMOS_PASOS_SOLUCIONES_CORPORATIVAS: IProximosPasosGracias[] = [
 ]
 
 export function SolucionesCoporativasGracias() {
+  useEffect(() => {
+    analytics.track({ name: "corporativo_gracias_view", module: "corporativo" })
+  }, [])
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-sky-custom-50 px-4 py-16">
       <div className="w-full max-w-lg">

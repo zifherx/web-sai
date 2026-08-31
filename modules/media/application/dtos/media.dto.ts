@@ -4,7 +4,18 @@ import type {
 } from "@/modules/media/domain/entities/MediaFile"
 import z from "zod"
 
-// ─── Input DTOs (lo que entra al use-case) ───────────────────────────────────
+const entityTypeEnum = z.enum([
+  "marca",
+  "portada",
+  "sede",
+  "vehiculo",
+  "unassigned",
+])
+const fieldNameEnum = z.enum([
+  "imageUrl",
+  "galeria[].imageUrl",
+  "colores[].carColor",
+])
 
 export interface RegisterUploadedFileDto {
   fileKey: string
@@ -19,20 +30,14 @@ export interface AssignMediaFileDto {
   mediaFileId: string
   entityType: EntityType
   entityId: string
+  fieldName?: FieldName
 }
 
 export interface AssignManyMediaFilesDto {
   mediaFileIds: string[]
   entityType: EntityType
   entityId: string
-}
-
-export interface ListMediaFilesDto {
-  entityType?: EntityType
-  entityId?: string
-  search?: string
-  limit?: number
-  offset?: number
+  fieldName?: FieldName
 }
 
 export interface DeleteMediaFileDto {
@@ -43,7 +48,18 @@ export interface DeleteManyMediaFilesDto {
   mediaFileIds: string[]
 }
 
-// ─── Output DTOs (lo que sale del use-case hacia presentación) ────────────────
+export interface RenameMediaFileDto {
+  mediaFileId: string
+  fileName: string
+}
+
+export interface ListMediaFilesDto {
+  entityType?: EntityType
+  entityId?: string
+  search?: string
+  limit?: number
+  offset?: number
+}
 
 export interface MediaFileResponseDto {
   id: string
@@ -55,9 +71,8 @@ export interface MediaFileResponseDto {
   entityType: EntityType
   entityId: string
   fieldName: FieldName
-  isAssigned: boolean
   uploadedBy: string
-  createdAt: string // ISO string para serialización segura
+  createdAt: string
   updatedAt: string
 }
 
@@ -68,23 +83,29 @@ export interface PaginatedMediaResponseDto {
   offset: number
 }
 
-export const AssignSchema = z.object({
-  mediaFileId: z.string().length(24, "ID de media inválido"),
-  entityType: z.string().min(1),
+export const EntityQuerySchema = z.object({
+  entityType: entityTypeEnum,
   entityId: z.string().min(1),
+})
+
+export const AssignSchema = z.object({
+  mediaFileId: z.string().min(1),
+  entityType: entityTypeEnum,
+  entityId: z.string().min(1),
+  fieldName: fieldNameEnum.optional(),
 })
 
 export const AssignManySchema = z.object({
-  mediaFileIds: z.array(z.string().length(24)).min(1),
-  entityType: z.string().min(1),
+  mediaFileIds: z.array(z.string().min(1)).min(1),
+  entityType: entityTypeEnum,
   entityId: z.string().min(1),
+  fieldName: fieldNameEnum.optional(),
 })
 
 export const DeleteManySchema = z.object({
-  mediaFileIds: z.array(z.string().length(24)).min(1),
+  mediaFileIds: z.array(z.string().min(1)).min(1),
 })
 
-export const EntityQuerySchema = z.object({
-  entityType: z.string().min(1),
-  entityId: z.string().length(24),
+export const RenameSchema = z.object({
+  fileName: z.string().trim().min(1).max(255),
 })

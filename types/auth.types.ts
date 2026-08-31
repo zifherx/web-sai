@@ -23,3 +23,11 @@ export interface NavMenuItem {
   hasSubmenu: boolean
   roles?: string[]
 }
+
+export interface CreateUsuarioPayload {
+  email: string
+  password: string
+  nombre: string
+  rol: UsuarioRol
+  sedeId?: string
+}

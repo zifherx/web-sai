@@ -5,7 +5,7 @@ import { portadaKeys } from "../query-keys"
 export function usePortadas() {
   return useQuery({
     queryKey: portadaKeys.all(),
-    queryFn: portadaService.getActive,
+    queryFn: portadaService.getAll,
     staleTime: 1000 * 60 * 5,
   })
 }
