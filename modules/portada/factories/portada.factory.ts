@@ -1,3 +1,4 @@
+import "@/modules/auth/infrastructure/mongoose/user.mongoose.schema"
 import { CreatePortadaUseCase } from "@/modules/portada/application/use-cases/create-portada.use-case"
 import { DeletePortadaUseCase } from "@/modules/portada/application/use-cases/delete-portada.use-case"
 import { GetActivePortadasUseCase } from "@/modules/portada/application/use-cases/get-active-portadas.use-case"

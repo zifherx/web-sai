@@ -17,7 +17,15 @@ export function HeroSection() {
 
   if (isError) {
     console.error("❌ [HeroSection] Error al cargar portadas:", error)
-    return null
+    return (
+      <section className="mb-0 flex h-auto w-full items-center justify-center bg-muted sm:h-160">
+        <div className="px-4 text-center text-muted-foreground">
+          <p className="text-sm">
+            No pudimos cargar las portadas en este momento.
+          </p>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -34,15 +42,15 @@ export function HeroSection() {
               ))}
 
           {!isLoading &&
-            items?.map((item) => (
+            items?.map((item, index) => (
               <CarouselItem key={item.id}>
                 <div className="relative aspect-2000/780 w-full">
                   <Image
                     src={item.imageUrl}
                     alt={item.name}
-                    fill
+                    sizes="100vw"
                     className="object-cover"
-                    priority
+                    priority={index === 0}
                   />
                 </div>
               </CarouselItem>

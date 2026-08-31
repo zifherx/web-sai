@@ -8,13 +8,13 @@ import {
 export const portadaKeys = {
   all: () => ["portada"] as const,
   active: () => ["portada", "active"] as const,
-  detail: (id: string) => ["portada", id] as const,
+  detail: (id: string) => ["portada", "detail", id] as const,
 }
 
 export const marcaKeys = {
   all: () => ["marca"] as const,
   active: () => ["marca", "active"] as const,
-  detail: (id: string) => ["marca", id] as const,
+  detail: (id: string) => ["marca", "detail", id] as const,
   slug: (slug: string) => ["marca", "slug", slug] as const,
 }
 

@@ -1,5 +1,5 @@
 import { portadaKeys } from "@/hooks/query-keys"
-import { portadaService } from "@/services"
+import { portadaService } from "@/services/portada.service"
 import { PortadaType } from "@/types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
@@ -79,9 +79,10 @@ export function useDeletePortada() {
 
   return useMutation({
     mutationFn: (id: string) => portadaService.remove(id),
-    onSuccess: () => {
+    onSuccess: (_data, id) => {
       queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
       queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
+      queryClient.invalidateQueries({ queryKey: portadaKeys.detail(id) })
       toast.success("Portada eliminada permanentemente")
     },
     onError: (error) => {
