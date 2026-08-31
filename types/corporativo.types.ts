@@ -40,3 +40,9 @@ export interface IProximosPasosGracias {
   icon: GENERAL_ICON
   text: string
 }
+
+export interface ITrackingDataCorporatativo {
+  sector: string
+  periodoCompra: string
+  marca: string
+}

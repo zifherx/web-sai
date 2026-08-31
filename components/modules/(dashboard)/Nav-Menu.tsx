@@ -20,7 +20,7 @@ export function NavMenu({ menu }: { menu: NavMenuItem[] }) {
       <SidebarGroupContent>
         <SidebarMenu>
           {menu.map(({ icon: Icon, slug, label }) => {
-            const href = `/dashboard/${slug}`
+            const href = `/cms/${slug}`
             const isActive = pathname === href
 
             return (

@@ -24,7 +24,7 @@ export class SeedSuperAdminUseCase {
       name: input.nombre,
     })
 
-    await this.userRepository.asignarRolAdmin(usuarioId)
+    await this.userRepository.actualizarRol(usuarioId, "admin")
 
     return { usuarioId }
   }

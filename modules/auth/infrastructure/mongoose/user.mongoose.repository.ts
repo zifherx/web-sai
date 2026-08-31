@@ -1,4 +1,7 @@
-import { IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
+import {
+  IRol,
+  IUserRepository,
+} from "@/modules/auth/application/ports/i-user-repository.port"
 import { Usuario } from "@/modules/auth/domain/entities/usuario.entity"
 import { toUsuarioEntity } from "@/modules/auth/infrastructure/mongoose/user.mapper"
 import { UserModel } from "@/modules/auth/infrastructure/mongoose/user.mongoose.schema"
@@ -14,20 +17,21 @@ export class MongooseUserRepository implements IUserRepository {
     return doc ? toUsuarioEntity(doc) : null
   }
 
+  async findAll(): Promise<Usuario[]> {
+    const docs = await UserModel.find().sort({ createdAt: -1 }).lean()
+    return docs.map(toUsuarioEntity)
+  }
+
   async existeAlgunUsuario(): Promise<boolean> {
     const existe = await UserModel.exists({})
     return existe !== null
   }
 
-  async asignarRolAdmin(usuarioId: string): Promise<void> {
+  async actualizarRol(usuarioId: string, rol: IRol): Promise<void> {
     await UserModel.findByIdAndUpdate(
       usuarioId,
-      {
-        rol: "admin",
-      },
-      {
-        returnDocument: "after",
-      }
+      { rol },
+      { returnDocument: "after" }
     )
   }
 }

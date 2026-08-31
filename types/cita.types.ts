@@ -36,3 +36,10 @@ export interface ICreateCitaOption {
   onSuccess?: (data: CitaResponseType) => void
   onError?: (err: Error) => void
 }
+
+export interface ITrackingData {
+  sede: string
+  marca: string
+  ciudad: string
+  tipoServicio: string
+}

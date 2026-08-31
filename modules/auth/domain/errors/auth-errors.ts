@@ -38,3 +38,9 @@ export class SeedYaEjecutadoError extends DomainError {
     )
   }
 }
+
+export class UsuariosAccesoDenegadoError extends DomainError {
+  constructor() {
+    super("Solo un administrador puede gestionar usuarios", 403)
+  }
+}
