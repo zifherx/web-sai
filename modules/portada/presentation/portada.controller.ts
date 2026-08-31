@@ -4,13 +4,14 @@ import {
   PortadaIdSchema,
   UpdatePortadaSchema,
 } from "@/modules/portada/application/dtos/portada.dto"
+import { PortadaUnauthorizedError } from "@/modules/portada/domain/errors/PortadaDomainError"
 import { portadaFactory } from "@/modules/portada/factories/portada.factory"
 import {
   RouteContext,
-  resolveUserId,
   withRateLimitHeaders,
 } from "@/modules/portada/helpers/portada.helper"
 import { portadaRateLimit } from "@/modules/portada/presentation/portada.ratelimit"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { NextRequest } from "next/server"
@@ -96,7 +97,9 @@ export function createPortadaHandler(req: NextRequest) {
     const rl = await portadaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new PortadaUnauthorizedError()
+
     const body = CreatePortadaSchema.parse(await req.json())
     await connectDB()
     const useCases = portadaFactory()
@@ -120,7 +123,9 @@ export function updatePortadaHandler(req: NextRequest, ctx: RouteContext) {
     const rl = await portadaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new PortadaUnauthorizedError()
+
     const { portadaId } = PortadaIdSchema.parse(await ctx.params)
     const body = UpdatePortadaSchema.parse(await req.json())
     await connectDB()
@@ -144,7 +149,9 @@ export function deletePortadaHandler(req: NextRequest, ctx: RouteContext) {
     const rl = await portadaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new PortadaUnauthorizedError()
+
     const { portadaId } = PortadaIdSchema.parse(await ctx.params)
     await connectDB()
     const useCases = portadaFactory()

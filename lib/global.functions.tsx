@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils"
 import { IMarcaRef, IPriceRange } from "@/types"
-import { cn } from "./utils"
 
 export const precioFormateadoUSD = (value: number) => {
   return new Intl.NumberFormat("es-PE", {
@@ -76,4 +76,23 @@ export const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
   }
 
   return btoa(binary)
+}
+
+export const getInitials = (nombre: string): string => {
+  return nombre
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase() ?? "")
+    .join("")
+}
+
+export const formatSegment = (segment: string): string => {
+  return segment
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+}
+
+export const buildPath = (segments: string[], index: number): string => {
+  return "/" + segments.slice(0, index + 1).join("/")
 }

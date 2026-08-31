@@ -12,9 +12,6 @@ import { NextRequest } from "next/server"
  * Recibe el payload del formulario del frontend, lo valida, lo mapea
  * y lo envía a la API externa de Novaly.
  *
- * Endpoint PÚBLICO — formularios de cotización sin autenticación Clerk.
- * Tier "public-write" → 10 req/60s por IP.
- *
  * El logging de bitácora ocurre dentro del use-case (fire & forget).
  * Los errores de Novaly (`NovalyApiError`) son manejados por `withHandler`
  * vía `ResponseFactory.error`, que respeta el `statusCode` del DomainError.

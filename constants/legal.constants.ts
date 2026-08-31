@@ -564,6 +564,496 @@ export const LEGAL_PROMOCIONES: ILegalPage = {
         },
       ],
     },
+    {
+      id: "catalogo-vehicular-legal",
+      heading: "Aspectos legales por vehículo",
+      sections: [
+        {
+          id: "legal-byd-shark",
+          title: "BYD - SHARK",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-byd-shark-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con BBVA o BANBIF.",
+            },
+          ],
+        },
+        {
+          id: "legal-byd-seagull",
+          title: "BYD - SEAGULL",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-byd-seagull-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con BBVA, BCP o BANBIF.",
+            },
+          ],
+        },
+        {
+          id: "legal-byd-song-plus",
+          title: "BYD - SONG PLUS",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-byd-song-plus-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con BBVA o BANBIF.",
+            },
+          ],
+        },
+        {
+          id: "legal-byd-yuan-up",
+          title: "BYD - YUAN UP",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-byd-yuan-up-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con BBVA o BANBIF.",
+            },
+          ],
+        },
+        {
+          id: "legal-changan-x7-plus",
+          title: "CHANGAN - X7 PLUS",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-changan-x7-plus-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a gas de $400 o S/1,352",
+            },
+          ],
+        },
+        {
+          id: "legal-changan-cs15",
+          title: "CHANGAN - CS15",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-changan-cs15-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio no incluye bono de financiamiento. Precio incluye conversión a gas exclusivo en transmisión MT. Precio no incluye conversión a gas en transmisión AT de $200 o S/676",
+            },
+          ],
+        },
+        {
+          id: "legal-changan-cs35-max",
+          title: "CHANGAN - CS35 MAX",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-changan-cs35-max-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a gas de $1,000 o S/3,380",
+            },
+          ],
+        },
+        {
+          id: "legal-great-wall-wingle5",
+          title: "GREAT WALL - WINGLE 5",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-great-wall-wingle5-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a gas de $1,100 o S/3,718",
+            },
+          ],
+        },
+        {
+          id: "legal-great-wall-poer",
+          title: "GREAT WALL - POER",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-great-wall-poer-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento.",
+            },
+          ],
+        },
+        {
+          id: "legal-great-wall-jolion-max",
+          title: "GREAT WALL - JOLION MAX",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-great-wall-jolion-max-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a GLP de $1,000 o S/3,380",
+            },
+          ],
+        },
+        {
+          id: "legal-dfsk-glory560",
+          title: "DFSK - GLORY 560",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-dfsk-glory560-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio no incluye bono de financiamiento. Precio no incluye conversión a GLP de $500 o S/1,690",
+            },
+          ],
+        },
+        {
+          id: "legal-dfsk-glory580",
+          title: "DFSK - GLORY 580",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-dfsk-glory580-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio no incluye bono de financiamiento. Precio no incluye conversión a GLP de $500 o S/1,690",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-js2",
+          title: "JAC - JS2",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-js2-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a gas de $600 o S/3,028",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-js4",
+          title: "JAC - JS4",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-js4-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a gas de $600 o S/3,028",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-js8",
+          title: "JAC - JS8",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-js8-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento. Precio no incluye conversión a GLP desde $600 o S/2,028",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-t8-pro",
+          title: "JAC - T8 PRO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-t8-pro-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento.",
+            },
+          ],
+        },
+        {
+          id: "legal-mazda-cx5",
+          title: "MAZDA - CX5",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-mazda-cx5-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913 TCR de S/3.38. Precio incluye bono de financiamiento exclusivo con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-mazda-cx60",
+          title: "MAZDA - CX60",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-mazda-cx60-desc",
+              text: "\t*Campaña de mantenimiento aplica exclusivamente para la versión SPORT 3.3 AT AWD MHEV.",
+            },
+          ],
+        },
+        {
+          id: "legal-renault-duster",
+          title: "RENAULT - DUSTER",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-renault-duster-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913 TCR de S/3.38. Precio incluye bono de financiamiento exclusivo con Santander. Precio no incluye conversión a GLP de $1,100 o S/4,180",
+            },
+          ],
+        },
+        {
+          id: "legal-renault-oroch",
+          title: "RENAULT - OROCH",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-renault-oroch-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913 TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con Santander. Precio no incluye conversión a GLP de $1,100 o S/4,180",
+            },
+          ],
+        },
+        {
+          id: "legal-renault-kwid",
+          title: "RENAULT - KWID",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-renault-kwid-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913 TCR de S/3.38.  Precio no incluye bono de financiamiento exclusivo con Santander. Precio no incluye conversión a GLP de $1,100 o S/4,180",
+            },
+          ],
+        },
+        {
+          id: "legal-renault-master",
+          title: "RENAULT - MASTER",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-renault-master-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio no incluye bono de financiamiento.",
+            },
+          ],
+        },
+        {
+          id: "legal-subaru-crosstrek",
+          title: "SUBARU - CROSSTREK",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-subaru-crosstrek-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento de $1,500 o s/5,070. Precio incluye bono de retoma de $200 o S/676",
+            },
+          ],
+        },
+        {
+          id: "legal-subaru-forester",
+          title: "SUBARU - FORESTER",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-subaru-forester-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento de $1,000 o s/3,380. Precio incluye bono de retoma de $500 o S/1,690",
+            },
+          ],
+        },
+        {
+          id: "legal-subaru-impreza",
+          title: "SUBARU - IMPREZA",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-subaru-impreza-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento de $1,000 o s/3,380. Precio incluye bono de retoma de $500 o S/1,690",
+            },
+          ],
+        },
+        {
+          id: "legal-suzuki-new-jimny",
+          title: "SUZUKI - NEW JIMNY",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-suzuki-new-jimny-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento.",
+            },
+          ],
+        },
+        {
+          id: "legal-suzuki-spresso",
+          title: "SUZUKI - SPRESSO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-suzuki-spresso-desc",
+              text: "\tEl precio varía según versión.  Precio no incluye trámite de tarjetas y placas de $125 o S/423. Precio no incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento.",
+            },
+          ],
+        },
+        {
+          id: "legal-fuso-canter5",
+          title: "FUSO - CANTER 5",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-fuso-canter5-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de descuento exclusivo al contado.",
+            },
+          ],
+        },
+        {
+          id: "legal-mitsubishi-xpander",
+          title: "MITSUBISHI - XPANDER",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-mitsubishi-xpander-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-d300-chasis",
+          title: "JAC CAMIONES - D300 CHASIS",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-d300-chasis-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de $270 o S/913. TCR de S/3.38.  Precio incluye bono de financiamiento exclusivo con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-jac-d400-baranda",
+          title: "JAC CAMIONES - D400 BARANDA",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jac-d400-baranda-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de $270 o S/913. TCR de S/3.38.",
+            },
+          ],
+        },
+        {
+          id: "legal-jmc-grand-vigus",
+          title: "JMC - GRAND VIGUS",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jmc-grand-vigus-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423.",
+            },
+          ],
+        },
+        {
+          id: "legal-jmc-grand-avenue-luxury",
+          title: "JMC - GRAND AVENUE LUXURY",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jmc-grand-avenue-luxury-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423.",
+            },
+          ],
+        },
+        {
+          id: "legal-jmc-touring-bus",
+          title: "JMC - TOURING BUS",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-jmc-touring-bus-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de S/370 o S/1,251. TCR de S/3.38.",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-camiones-ex6",
+          title: "HYUNDAI CAMIONES - EX6",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-camiones-ex6-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de S/370 o S/1,251. TCR de S/3.38.",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-camiones-ex8",
+          title: "HYUNDAI CAMIONES - EX8",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-camiones-ex8-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de S/370 o S/1,251. TCR de S/3.38.",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-camiones-hd35",
+          title: "HYUNDAI CAMIONES - HD35",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-camiones-hd35-desc",
+              text: "\tEl precio varía según versión.  Precio incluye trámite de tarjetas y placas de $125 o S/423. Precio incluye flete de S/370 o S/1,251. TCR de S/3.38.",
+            },
+          ],
+        },
+        {
+          id: "legal-geely-coolray-lite",
+          title: "GEELY - COOLRAY LITE",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-geely-coolray-lite-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $2,490 o S/8,416.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. Bono de financiamiento aplica exclusivamente con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-geely-cityray",
+          title: "GEELY - CITYRAY",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-geely-cityray-desc",
+              text: "\tEl precio varía según versión, precio corresponde a versión EXCLUSIVE. Precio no incluye conversión a GLP de $2,490 o S/8,416.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. Bono de financiamiento aplica exclusivamente con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-geely-gx3-pro",
+          title: "GEELY - GX3 PRO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-geely-gx3-pro-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $1,200 o S/4,056.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. Bono de financiamiento aplica exclusivamente con Santander.",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-creta",
+          title: "HYUNDAI - CRETA",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-creta-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $650 o S/2,197.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. ",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-grandi10-sedan",
+          title: "HYUNDAI - GRAND i10 SEDAN",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-grandi10-sedan-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $650 o S/2,197.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. ",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-accent",
+          title: "HYUNDAI - ACCENT",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-accent-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $650 o S/2,197.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. ",
+            },
+          ],
+        },
+        {
+          id: "legal-hyundai-new-tucson",
+          title: "HYUNDAI - NEW TUCSON",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "legal-hyundai-new-tucson-desc",
+              text: "\tEl precio varía según versión. Precio no incluye conversión a GLP de $650 o S/2,197.  Precio no incluye trámite de tarjetas y placas de $125 o S/423.  TCR de S/3.38. ",
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
 

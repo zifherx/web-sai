@@ -4,16 +4,17 @@ import {
   AssignSchema,
   DeleteManySchema,
   EntityQuerySchema,
+  RenameSchema,
 } from "@/modules/media/application/dtos/media.dto"
 import { EntityType } from "@/modules/media/domain/entities/MediaFile"
-import { mediaFactory } from "@/modules/media/factories/MediaFactory"
+import { mediaFactory } from "@/modules/media/factories/media.factory"
 import {
   IdContext,
-  resolveUserId,
   withRateLimitHeaders,
 } from "@/modules/media/helpers/media.helper"
-import { parseMediaQueryParams } from "@/modules/media/helpers/parseMediaQueryParams"
+import { parseMediaQueryParams } from "@/modules/media/helpers/parse-media-query-params.helper"
 import { mediaRateLimit } from "@/modules/media/presentation/media.ratelimit"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { NextRequest } from "next/server"
@@ -159,6 +160,32 @@ export function deleteManyMediaFilesHandler(req: NextRequest) {
 
     return withRateLimitHeaders(
       ResponseFactory.success(null, "Archivos eliminados correctamente"),
+      rl.headers
+    )
+  })
+}
+
+/**
+ * PATCH /api/media/[id]/rename
+ * Renombra un archivo en UploadThing y sincroniza Mongo. Solo CMS autenticado.
+ */
+export function renameMediaFileHandler(req: NextRequest, ctx: IdContext) {
+  return withHandler(async () => {
+    const rl = await mediaRateLimit(req)
+    if (!rl.allowed) return rl.response!
+
+    resolveUserId(req)
+    const { id } = await ctx.params
+    const body = RenameSchema.parse(await req.json())
+    await connectDB()
+    const useCases = mediaFactory()
+    const data = await useCases.rename.execute({
+      mediaFileId: id,
+      fileName: body.fileName,
+    })
+
+    return withRateLimitHeaders(
+      ResponseFactory.success(data, "Archivo renombrado correctamente"),
       rl.headers
     )
   })

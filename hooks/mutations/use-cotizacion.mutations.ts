@@ -45,11 +45,15 @@ export function useCrearCotizacion(options?: ICreateCotizacionOption) {
           utmCampaign: _novaly?.utmCampaign,
           utmTerm: _novaly?.utmTerm,
         })
+        .then(() => {
+          options?.onNovalySync?.({ success: true })
+        })
         .catch((err: Error) => {
           console.warn(
             "⚠️ El envío a Novaly falló — la cotización en MongoDB ya está guardada",
             err.message
           )
+          options?.onNovalySync?.({ success: false, error: err.message })
         })
 
       return resultado

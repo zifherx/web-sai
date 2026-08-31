@@ -9,6 +9,7 @@ import { BreadcrumbFinanciamiento } from "@/components/shared/Breadcrumb-Financi
 import { Step1Data, Step2Data, Step3Data, Step4Data } from "@/constants"
 import { useCrearCotizacion } from "@/hooks"
 import { toastError, toastSuccess } from "@/lib"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { FINANCIAMIENTO_VIEW_PROPS } from "@/types"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
@@ -104,6 +105,16 @@ export function FinanciamientoView({
   const { mutate: crearCotizacion, isPending } = useCrearCotizacion({
     onSuccess: (resultado) => {
       toastSuccess.cotizacion()
+      analytics.track({
+        name: "cotizacion_submit",
+        module: "cotizacion",
+        payload: {
+          cotizacion_id: resultado.id,
+          marca: step1Data?.marcaNombre ?? "",
+          modelo: step2Data?.vehiculoNombre ?? "",
+          sede: step3Data?.sedeCiudad ?? "",
+        },
+      })
       router.push(`/comercial/financiamiento/gracias?id=${resultado.id}`)
     },
     onError: (err) => {
@@ -112,6 +123,13 @@ export function FinanciamientoView({
         "[FinanciamientoView] Error al crear cotización",
         err.message
       )
+    },
+    onNovalySync: ({ success, error }) => {
+      analytics.track({
+        name: success ? "novaly_sync_success" : "novaly_sync_error",
+        module: "novaly",
+        payload: { origen_modulo: "cotizacion", ...(error ? { error } : {}) },
+      })
     },
   })
 

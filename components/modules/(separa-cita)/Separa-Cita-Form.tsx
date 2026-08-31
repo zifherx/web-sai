@@ -15,7 +15,13 @@ import {
 } from "@/constants"
 import { useActiveSedes, useCrearCita } from "@/hooks"
 import { cn, groupCn, toastError, toastSuccess } from "@/lib"
-import { IMarcaRef, SedeType, SEPARA_CITA_FORM_PROPS } from "@/types"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
+import {
+  IMarcaRef,
+  ITrackingData,
+  SedeType,
+  SEPARA_CITA_FORM_PROPS,
+} from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   ChevronsUpDown,
@@ -35,12 +41,14 @@ import {
   Wrench,
 } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { useMemo } from "react"
+import { useMemo, useRef } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 export function SeparaCitaForm({ initialCiudad = "" }: SEPARA_CITA_FORM_PROPS) {
   const router = useRouter()
   const { data: sedes = [], isLoading: loadingSedes } = useActiveSedes()
+
+  const trackingDataRef = useRef<ITrackingData | null>(null)
 
   const {
     control,
@@ -115,6 +123,18 @@ export function SeparaCitaForm({ initialCiudad = "" }: SEPARA_CITA_FORM_PROPS) {
   const { mutate: crearCita, isPending } = useCrearCita({
     onSuccess: () => {
       toastSuccess.cita()
+      if (trackingDataRef.current) {
+        analytics.track({
+          name: "citas_submit",
+          module: "citas",
+          payload: {
+            sede: trackingDataRef.current.sede,
+            marca: trackingDataRef.current.marca,
+            ciudad: trackingDataRef.current.ciudad,
+            tipo_servicio: trackingDataRef.current.tipoServicio,
+          },
+        })
+      }
       router.push(`/posventa/separa-tu-cita/gracias`)
     },
     onError: (err) => {
@@ -130,6 +150,13 @@ export function SeparaCitaForm({ initialCiudad = "" }: SEPARA_CITA_FORM_PROPS) {
       (s) => s.id === data.concesionario
     )
     const marcaSeleccionada = marcasDeCiudad.find((m) => m.slug === data.marca)
+
+    trackingDataRef.current = {
+      sede: sedeSeleccionada?.name ?? "",
+      marca: marcaSeleccionada?.name ?? "",
+      ciudad: ciudadWatch ?? "",
+      tipoServicio: data.tipoServicio ?? "",
+    }
 
     crearCita({
       // Cliente

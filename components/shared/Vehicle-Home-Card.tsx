@@ -5,14 +5,28 @@ import { VEHICLE_HOME_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { analytics } from "../../shared/infrastructure/analytics/analytics.factory"
 
 export function VehicleHomeCard({
   vehiculo,
   marcaNombre,
   marcaSlug,
+  posicion,
 }: VEHICLE_HOME_CARD_PROPS) {
   const { imageUrl, name, precioBase } = vehiculo
   const href = `/catalogo/${marcaSlug}/${vehiculo.slug}`
+
+  const handleClick = () => {
+    analytics.track({
+      name: "home_mas_vendidos_click",
+      module: "catalogo",
+      payload: {
+        modelo: name,
+        marca: marcaNombre ?? "",
+        posicion: posicion ?? -1,
+      },
+    })
+  }
 
   return (
     <div
@@ -28,6 +42,7 @@ export function VehicleHomeCard({
     >
       <Link
         href={href}
+        onClick={handleClick}
         className="relative block h-52 w-full overflow-hidden rounded-2xl bg-gray-custom-100 p-4"
         tabIndex={-1}
         aria-hidden="true"
@@ -48,7 +63,7 @@ export function VehicleHomeCard({
 
       <div className="flex flex-1 flex-col justify-between px-3 py-5">
         <div>
-          <Link href={href}>
+          <Link href={href} onClick={handleClick}>
             <h3 className="font-headOffice-bold text-2xl leading-tight text-sky-custom-500 transition-colors group-hover:text-sky-custom-700">
               {name}
             </h3>
@@ -72,6 +87,7 @@ export function VehicleHomeCard({
 
           <Link
             href={href}
+            onClick={handleClick}
             className={cn(
               "inline-flex shrink-0 items-center gap-1.5 rounded-xl",
               "bg-sky-custom-500 px-4 py-2.5",

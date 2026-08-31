@@ -1,4 +1,7 @@
+"use client"
+
 import { cn } from "@/lib"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import {
   FINANCIAMIENTO_GRACIAS_VIEW_PROPS,
   PROXIMOS_PASOS_GRACIAS_FINANCIAMIENTO,
@@ -14,6 +17,7 @@ import {
   Users,
 } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from "react"
 
 const PROXIMOS_PASOS_FINANCIAMIENTO_GRACIAS: PROXIMOS_PASOS_GRACIAS_FINANCIAMIENTO[] =
   [
@@ -38,6 +42,14 @@ const PROXIMOS_PASOS_FINANCIAMIENTO_GRACIAS: PROXIMOS_PASOS_GRACIAS_FINANCIAMIEN
 export function FinanciamientoGraciasView({
   cotizacionId,
 }: FINANCIAMIENTO_GRACIAS_VIEW_PROPS) {
+  useEffect(() => {
+    analytics.track({
+      name: "cotizacion_gracias_view",
+      module: "cotizacion",
+      payload: { cotizacion_id: cotizacionId ?? "" },
+    })
+  }, [cotizacionId])
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-sky-custom-50 px-4 py-16">
       <div className="w-full max-w-lg">

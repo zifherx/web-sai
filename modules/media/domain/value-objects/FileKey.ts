@@ -1,4 +1,4 @@
-import { MediaDomainError } from "@/modules/media/domain/errors/MediaDomainError"
+import { MediaDomainError } from "@/modules/media/domain/errors/media-domain.error"
 
 export class FileKey {
   private readonly value: string

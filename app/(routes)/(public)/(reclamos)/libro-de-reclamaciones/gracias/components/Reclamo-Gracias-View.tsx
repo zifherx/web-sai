@@ -1,9 +1,11 @@
 "use client"
 
 import { cn } from "@/lib"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { GRACIAS_VIEW_RECLAMO_PROPS } from "@/types"
 import { CheckCircle2, Clock, FileText, Home, Mail, Scale } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from "react"
 
 const PROXIMOS_PASOS_RECLAMOS = [
   { icon: FileText, text: "Revisaremos detalladamente tu reclamo." },
@@ -15,6 +17,14 @@ const PROXIMOS_PASOS_RECLAMOS = [
 export function ReclamoGraciasView({
   numeroReclamo,
 }: GRACIAS_VIEW_RECLAMO_PROPS) {
+  useEffect(() => {
+    analytics.track({
+      name: "reclamo_gracias_view",
+      module: "reclamo",
+      payload: { numero_reclamo: numeroReclamo ?? "" },
+    })
+  }, [numeroReclamo])
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-sky-custom-50 px-4 py-16">
       <div className="w-full max-w-lg">

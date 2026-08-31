@@ -24,6 +24,16 @@ export const toastSuccess = {
     toast.success("¡Solicitud corporativa enviada!", {
       description: "Nuestro equipo comercial se pondrá en contacto contigo.",
     }),
+
+  usuario: () =>
+    toast.success("¡Usuario creado!", {
+      description:
+        "El usuario ya puede iniciar sesión con las credenciales asignadas.",
+    }),
+  generic: (message: string, description?: string) =>
+    toast.success(message, {
+      description,
+    }),
 }
 
 export const toastError = {
@@ -55,6 +65,12 @@ export const toastError = {
     toast.error("Algo salió mal", {
       description:
         detail ?? "Ocurrió un error inesperado. Inténtalo nuevamente.",
+    }),
+
+  login: (detail?: string) =>
+    toast.error("No se pudo iniciar sesión", {
+      description:
+        detail ?? "Verifica tus credenciales e inténtalo nuevamente.",
     }),
 }
 

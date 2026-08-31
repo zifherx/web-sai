@@ -15,7 +15,8 @@ import {
 } from "@/constants"
 import { useActiveMarcas, useCrearLeadCorporativo } from "@/hooks"
 import { cn, groupCn, toastError, toastSuccess } from "@/lib"
-import { CORPORATIVO_FORM_PROPS } from "@/types"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
+import { CORPORATIVO_FORM_PROPS, ITrackingDataCorporatativo } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Barcode,
@@ -31,12 +32,15 @@ import {
   User,
 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { useRef } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
   const router = useRouter()
   const { heading, legal } = formulario
   const { data: marcas } = useActiveMarcas()
+
+  const trackingDataRef = useRef<ITrackingDataCorporatativo | null>(null)
 
   const {
     control,
@@ -52,6 +56,17 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
   const { mutate: crearLead, isPending } = useCrearLeadCorporativo({
     onSuccess: () => {
       toastSuccess.corporativo()
+      if (trackingDataRef.current) {
+        analytics.track({
+          name: "corporativo_submit",
+          module: "corporativo",
+          payload: {
+            sector: trackingDataRef.current.sector,
+            periodo_compra: trackingDataRef.current.periodoCompra,
+            marca: trackingDataRef.current.marca,
+          },
+        })
+      }
       router.push(`/comercial/soluciones-corporativas/gracias`)
     },
     onError: (err) => {
@@ -63,6 +78,12 @@ export function CorporativoForm({ formulario }: CORPORATIVO_FORM_PROPS) {
   const isDisabled = isPending || isSubmitting
 
   const onSubmit = (data: CorporativoData) => {
+    trackingDataRef.current = {
+      sector: data.sector,
+      periodoCompra: data.periodoCompra,
+      marca: data.marca,
+    }
+
     crearLead({
       nombres: data.nombres,
       apellidos: "", // el form corporativo no tiene apellidos
