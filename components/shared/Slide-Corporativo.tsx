@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { SLIDE_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"

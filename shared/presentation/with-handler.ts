@@ -1,4 +1,4 @@
-import { ResponseFactory } from "@/lib"
+import { ResponseFactory } from "@/lib/response-factory"
 import { NextRequest } from "next/server"
 
 type Handler = () => Promise<Response>

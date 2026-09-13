@@ -14,7 +14,9 @@ import {
   TIPO_SERVICIO_POSVENTA_OPTIONS,
 } from "@/constants"
 import { useActiveSedes, useCrearCita } from "@/hooks"
-import { cn, groupCn, toastError, toastSuccess } from "@/lib"
+import { groupCn } from "@/lib/global.functions"
+import { toastError, toastSuccess } from "@/lib/toast-helpers"
+import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import {
   IMarcaRef,

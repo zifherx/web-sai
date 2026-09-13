@@ -1,4 +1,4 @@
-import { ResponseFactory } from "@/lib"
+import { ResponseFactory } from "@/lib/response-factory"
 import { loginSchema } from "@/modules/auth/application/dto/login.dto"
 import { SeedNoAutorizadoError } from "@/modules/auth/domain/errors/auth-errors"
 import { authFactory } from "@/modules/auth/factories/auth.factory"

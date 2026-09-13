@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import {
   FINANCIAMIENTO_GRACIAS_VIEW_PROPS,

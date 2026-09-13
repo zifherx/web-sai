@@ -2,7 +2,7 @@
 
 import { SpecItem } from "@/components/shared/Spec-Item"
 import { TAB_LABELS } from "@/constants"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { ITab, VEHICULO_FEATURES_PROPS } from "@/types"
 import { useState } from "react"
 

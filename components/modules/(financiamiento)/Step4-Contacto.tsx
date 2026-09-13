@@ -18,7 +18,8 @@ import {
   TIPO_DOCUMENTO_OPTIONS,
   TRATAMIENTO_DATOS_OFERTAS_COMERCIALES,
 } from "@/constants"
-import { cn, groupCn } from "@/lib/"
+import { groupCn } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
 import { STEP4_CONTACTO_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {

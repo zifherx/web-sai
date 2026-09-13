@@ -1,4 +1,4 @@
-import { toGlobalPlain } from "@/lib"
+import { toGlobalPlain } from "@/lib/global.functions"
 import { sedeFactory } from "@/modules/sede/factories/sede.factory"
 import { connectDB } from "@/shared/infrastructure/connection"
 import type { ISedeFilters, SedeType } from "@/types"

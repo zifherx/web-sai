@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { PILARES_CARD_PROPS } from "@/types"
 import Image from "next/image"
 

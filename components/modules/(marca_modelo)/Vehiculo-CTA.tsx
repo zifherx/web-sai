@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { VEHICULO_CTA_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"

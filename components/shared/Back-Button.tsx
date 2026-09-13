@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { ArrowLeft } from "lucide-react"
 
 export function BackButton({ label }: { label: string }) {

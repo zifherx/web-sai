@@ -2,7 +2,7 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { IMarcaSelect, STEP1_MARCA_PROPS } from "@/types"
 import Image from "next/image"

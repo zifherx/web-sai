@@ -1,4 +1,4 @@
-import { ResponseFactory } from "@/lib"
+import { ResponseFactory } from "@/lib/response-factory"
 import { BitacoraFiltersSchema } from "@/modules/bitacora/application/dto/bitacora.dto"
 import { bitacoraFactory } from "@/modules/bitacora/factories/bitacora.factory"
 import {

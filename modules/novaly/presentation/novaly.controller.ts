@@ -1,4 +1,4 @@
-import { ResponseFactory } from "@/lib"
+import { ResponseFactory } from "@/lib/response-factory"
 import { NovalyPayloadSchema } from "@/modules/novaly/application/dto/novaly.dto"
 import { novalyFactory } from "@/modules/novaly/factories/novaly-factory"
 import { withRateLimitHeaders } from "@/modules/novaly/helpers/novaly.helper"

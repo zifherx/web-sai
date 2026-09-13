@@ -3,7 +3,11 @@
 import { BreadcrumbVehiculo } from "@/components/shared/Breadcrumb-Vehiculo"
 import { ColorPicker } from "@/components/shared/Color-Picker"
 import { RUTA_TEST_DRIVE, TIPO_CAMBIO } from "@/constants"
-import { cn, precioFormateadoPEN, precioFormateadoUSD } from "@/lib"
+import {
+  precioFormateadoPEN,
+  precioFormateadoUSD,
+} from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
 import { VEHICULO_HERO_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"

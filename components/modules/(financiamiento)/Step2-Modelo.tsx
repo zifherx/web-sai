@@ -2,7 +2,8 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { useVehiculosByMarca } from "@/hooks"
-import { cn, precioFormateadoUSD } from "@/lib"
+import { precioFormateadoUSD } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { IModeloSelect, STEP2_MODELO_PROPS } from "@/types"
 import { BadgeCheck, ChevronLeft, Fuel, Gauge } from "lucide-react"

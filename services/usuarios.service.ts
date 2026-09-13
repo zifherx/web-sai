@@ -1,4 +1,4 @@
-import { httpClient } from "@/lib"
+import { httpClient } from "@/lib/http/axios.client"
 import { APIResponse, AuthUsuario, CreateUsuarioPayload } from "@/types"
 
 export const usuariosService = {
