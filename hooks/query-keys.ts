@@ -1,5 +1,6 @@
 import {
   ICarroceriaFilters,
+  IMediaFilters,
   ISedeFilters,
   IVehiculoFilters,
 } from "@/types/api.types"
@@ -7,13 +8,13 @@ import {
 export const portadaKeys = {
   all: () => ["portada"] as const,
   active: () => ["portada", "active"] as const,
-  detail: (id: string) => ["portada", id] as const,
+  detail: (id: string) => ["portada", "detail", id] as const,
 }
 
 export const marcaKeys = {
   all: () => ["marca"] as const,
   active: () => ["marca", "active"] as const,
-  detail: (id: string) => ["marca", id] as const,
+  detail: (id: string) => ["marca", "detail", id] as const,
   slug: (slug: string) => ["marca", "slug", slug] as const,
 }
 
@@ -74,4 +75,15 @@ export const citaKeys = {
 
 export const authKeys = {
   session: () => ["auth", "session"] as const,
+}
+
+export const usuarioKeys = {
+  all: () => ["usuarios"] as const,
+}
+
+export const mediaKeys = {
+  all: () => ["media"] as const,
+  list: (filters?: IMediaFilters) => ["media", "list", filters ?? {}] as const,
+  byEntity: (entityType: string, entityId: string) =>
+    ["media", "entity", entityType, entityId] as const,
 }

@@ -1,4 +1,4 @@
-import { parseMarca } from "@/lib"
+import { parseMarca } from "@/lib/global.functions"
 import { SedeEntity } from "@/modules/sede/domain/entities/Sede"
 import {
   ICreateSedeData,

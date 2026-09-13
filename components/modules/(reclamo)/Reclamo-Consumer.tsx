@@ -12,7 +12,8 @@ import {
   LISTA_DEPARTAMENOS_RECLAMOS,
   TIPO_DOCUMENTO_RECLAMO_OPTIONS,
 } from "@/constants"
-import { cn, groupCn } from "@/lib"
+import { groupCn } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
 import { IDepartamento, RECLAMO_CONSUMER_PROPS } from "@/types"
 import {
   AlertCircle,

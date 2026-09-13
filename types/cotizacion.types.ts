@@ -34,6 +34,7 @@ export interface CotizacionResponseType {
 export interface ICreateCotizacionOption {
   onSuccess?: (data: CotizacionResponseType) => void
   onError?: (err: Error) => void
+  onNovalySync?: (result: { success: boolean; error?: string }) => void
 }
 
 export interface NovalyPayload {

@@ -7,7 +7,8 @@ export class PortadaEntity {
     public readonly isActive: boolean,
     public readonly createdBy: string,
     public readonly createdAt?: Date,
-    public readonly updatedAt?: Date
+    public readonly updatedAt?: Date,
+    public readonly createdByNombre?: string
   ) {}
 
   isPublishable(): boolean {

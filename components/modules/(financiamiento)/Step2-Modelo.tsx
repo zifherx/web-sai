@@ -2,7 +2,9 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { useVehiculosByMarca } from "@/hooks"
-import { cn, precioFormateadoUSD } from "@/lib"
+import { precioFormateadoUSD } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { IModeloSelect, STEP2_MODELO_PROPS } from "@/types"
 import { BadgeCheck, ChevronLeft, Fuel, Gauge } from "lucide-react"
 import Image from "next/image"
@@ -16,6 +18,11 @@ export function Step2Modelo({
   const { data: vehiculos, isLoading } = useVehiculosByMarca(marca.marcaId)
 
   const handleSelect = (v: IModeloSelect) => {
+    analytics.track({
+      name: "catalogo_modelo_click",
+      module: "catalogo",
+      payload: { modelo: v.name, marca: marca.marcaNombre },
+    })
     onNext({
       vehiculoId: v.id,
       vehiculoNombre: v.name,

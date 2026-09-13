@@ -7,7 +7,7 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 import { useLogin } from "@/hooks/mutations/use-auth.mutations"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import {
   loginFormSchema,
   LoginFormValues,

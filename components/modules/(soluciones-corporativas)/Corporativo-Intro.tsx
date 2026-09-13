@@ -1,4 +1,4 @@
-import { parseBoldText } from "@/lib"
+import { parseBoldText } from "@/lib/global.functions"
 import { CORPORATIVO_INTRO_PROPS } from "@/types"
 
 export function CorporativoIntro({ intro }: CORPORATIVO_INTRO_PROPS) {

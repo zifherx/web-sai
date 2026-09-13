@@ -17,7 +17,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { useLogout } from "@/hooks/mutations/use-auth.mutations"
-import { getInitials } from "@/lib"
+import { getInitials } from "@/lib/global.functions"
 import { AuthUsuario } from "@/types"
 import {
   Bell,

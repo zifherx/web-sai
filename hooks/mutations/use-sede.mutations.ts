@@ -1,7 +1,7 @@
+import { sedeKeys } from "@/hooks/query-keys"
 import { sedeService } from "@/services/sede.service"
 import { SedeType } from "@/types/api.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { sedeKeys } from "../query-keys"
 
 export function useCreateSede() {
   const qc = useQueryClient()

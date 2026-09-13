@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { NavMenuItem } from "@/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -20,7 +20,7 @@ export function NavMenu({ menu }: { menu: NavMenuItem[] }) {
       <SidebarGroupContent>
         <SidebarMenu>
           {menu.map(({ icon: Icon, slug, label }) => {
-            const href = `/dashboard/${slug}`
+            const href = `/cms/${slug}`
             const isActive = pathname === href
 
             return (

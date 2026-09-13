@@ -24,6 +24,16 @@ export const toastSuccess = {
     toast.success("¡Solicitud corporativa enviada!", {
       description: "Nuestro equipo comercial se pondrá en contacto contigo.",
     }),
+
+  usuario: () =>
+    toast.success("¡Usuario creado!", {
+      description:
+        "El usuario ya puede iniciar sesión con las credenciales asignadas.",
+    }),
+  generic: (message: string, description?: string) =>
+    toast.success(message, {
+      description,
+    }),
 }
 
 export const toastError = {

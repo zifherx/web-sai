@@ -200,3 +200,31 @@ export interface ReclamoResponseType {
   hora: string
   createdAt?: string
 }
+
+export type MediaEntityType =
+  "marca" | "portada" | "sede" | "vehiculo" | "unassigned"
+export type MediaFieldName =
+  "imageUrl" | "galeria[].imageUrl" | "colores[].carColor" | ""
+
+export interface MediaFileType {
+  id: string
+  fileKey: string
+  fileUrl: string
+  fileName: string
+  fileSize: number
+  fileType: string
+  entityType: MediaEntityType
+  entityId: string
+  fieldName: MediaFieldName
+  uploadedBy: string
+  createdAt?: string
+  updatedAt?: string
+}
+
+export interface IMediaFilters {
+  entityType?: MediaEntityType
+  entityId?: string
+  search?: string
+  limit?: number
+  offset?: number
+}

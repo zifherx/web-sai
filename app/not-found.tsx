@@ -1,5 +1,5 @@
 import { BackButton } from "@/components/shared/Back-Button"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { AlertTriangle, Home } from "lucide-react"
 import Link from "next/link"
 

@@ -1,5 +1,5 @@
 import { authKeys } from "@/hooks/query-keys"
-import { toastError } from "@/lib"
+import { toastError } from "@/lib/toast-helpers"
 import { useAuthTransition } from "@/providers/Auth-Transition.provider"
 import { authService } from "@/services/auth.service"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
@@ -26,7 +26,7 @@ export function useLogin() {
     },
     onSuccess: (usuario) => {
       queryClient.setQueryData(authKeys.session(), usuario)
-      router.push("/dashboard")
+      router.push("/cms/dashboard")
       setTimeout(hideTransition, 700)
     },
     onError: (error) => {

@@ -1,5 +1,5 @@
 import { NavigationMenuLink } from "@/components/ui/navigation-menu"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
 
 export const ListItem = forwardRef<

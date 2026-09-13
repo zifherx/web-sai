@@ -1,30 +1,19 @@
 export type EntityType =
-  | "marca"
-  | "portada"
-  | "sede"
-  | "vehiculo"
-  | "galeria"
-  | "color"
-  | "unassigned"
+  "marca" | "portada" | "sede" | "vehiculo" | "unassigned"
 
 export type FieldName =
-  | "imageUrl"
-  | "galeria[].imageUrl"
-  | "colores[].carColor"
-  | ""
+  "imageUrl" | "galeria[].imageUrl" | "colores[].carColor" | ""
 
 export interface MediaFileProps {
   id: string
-  fileKey: string // Clave única de UploadThing (para delete/getUrl)
-  fileUrl: string // URL pública del CDN
+  fileKey: string
+  fileUrl: string
   fileName: string
-  fileSize: number // bytes
-  fileType: string // MIME type
-
+  fileSize: number
+  fileType: string
   entityType: EntityType
-  entityId: string // ObjectId del documento asignado (vacío si unassigned)
-  fieldName: FieldName // Campo exacto del schema destino
-
+  entityId: string
+  fieldName: FieldName
   uploadedBy: string
   createdAt: Date
   updatedAt: Date
@@ -77,6 +66,14 @@ export class MediaFile {
       entityType,
       entityId,
       fieldName,
+      updatedAt: new Date(),
+    })
+  }
+
+  rename(newFileName: string): MediaFile {
+    return new MediaFile({
+      ...this.toProps(),
+      fileName: newFileName,
       updatedAt: new Date(),
     })
   }

@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { SLIDE_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
@@ -9,7 +9,7 @@ export function SlideCorporativo({ isActive = true, slide }: SLIDE_CARD_PROPS) {
     slide
 
   return (
-    <div aria-label={title.replace("\n", " ")} aria-hidden={!isActive}>
+    <div aria-label={title.replace("/\n/g", " ")} aria-hidden={!isActive}>
       <div className="flex flex-col rounded-2xl sm:flex-row">
         {/* Imagen */}
         <div className="relative h-52 w-full shrink-0 sm:h-auto sm:w-1/2">

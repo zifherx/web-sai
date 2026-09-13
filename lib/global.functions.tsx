@@ -96,3 +96,7 @@ export const formatSegment = (segment: string): string => {
 export const buildPath = (segments: string[], index: number): string => {
   return "/" + segments.slice(0, index + 1).join("/")
 }
+
+export function toGlobalPlain<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value))
+}

@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { SedeType } from "@/types"
 import { Clock, MapPin } from "lucide-react"
 import Image from "next/image"
