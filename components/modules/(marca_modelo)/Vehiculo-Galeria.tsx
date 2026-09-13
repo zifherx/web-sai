@@ -1,5 +1,5 @@
 import { GaleriaItem } from "@/components/shared/Galeria-Item"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { VEHICULO_GALERIA_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"

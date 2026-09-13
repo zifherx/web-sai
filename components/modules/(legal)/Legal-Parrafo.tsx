@@ -1,4 +1,4 @@
-import { parseBoldText } from "@/lib"
+import { parseBoldText } from "@/lib/global.functions"
 import { LEGAL_PARRAFO_PROPS } from "@/types"
 
 export function LegalParrafo({ parrafo }: LEGAL_PARRAFO_PROPS) {

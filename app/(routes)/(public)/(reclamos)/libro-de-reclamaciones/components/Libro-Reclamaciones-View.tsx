@@ -7,7 +7,8 @@ import { ReclamoLegal } from "@/components/modules/(reclamo)/Reclamo-Legal"
 import { ReclamoProducto } from "@/components/modules/(reclamo)/Reclamo-Producto"
 import { ReclamoData, ReclamoSchema } from "@/constants"
 import { useCrearReclamo } from "@/hooks"
-import { toastError, toastSuccess } from "@/lib"
+import { toastError, toastSuccess } from "@/lib/toast-helpers"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import type { SedeType } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
@@ -31,6 +32,14 @@ export function LibroReclamacionesView() {
   const { mutate: crearReclamo, isPending } = useCrearReclamo({
     onSuccess: (resultado) => {
       toastSuccess.reclamo(resultado.numeroReclamo)
+      analytics.track({
+        name: "reclamo_submit",
+        module: "reclamo",
+        payload: {
+          numero_reclamo: resultado.numeroReclamo,
+          sede: sedeSeleccionada?.name ?? "",
+        },
+      })
       router.push(
         `/libro-de-reclamaciones/gracias?nro=${resultado.numeroReclamo}`
       )

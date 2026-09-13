@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { UBICANOS_FILTER_PROPS } from "@/types"
 import { Search } from "lucide-react"
 

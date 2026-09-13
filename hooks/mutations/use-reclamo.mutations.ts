@@ -1,5 +1,6 @@
 import { EMPRESA_RAZON_SOCIAL, EMPRESA_RUC } from "@/constants"
-import { arrayBufferToBase64, makePDFCorreoReclamo } from "@/lib"
+import { arrayBufferToBase64 } from "@/lib/global.functions"
+import { makePDFCorreoReclamo } from "@/lib/makePdf"
 import { reclamoService } from "@/services"
 import { ICreateReclamoOption, ReclamoResponseType, ReclamoType } from "@/types"
 import { useMutation } from "@tanstack/react-query"

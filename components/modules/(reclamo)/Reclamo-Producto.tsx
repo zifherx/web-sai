@@ -31,7 +31,8 @@ import {
   MONEDA_RECLAMO_OPTIONS,
 } from "@/constants"
 import { useActiveSedes } from "@/hooks"
-import { cn, groupCn } from "@/lib"
+import { groupCn } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
 import { RECLAMO_PRODUCTO_PROPS, SedeType } from "@/types"
 import {
   Barcode,

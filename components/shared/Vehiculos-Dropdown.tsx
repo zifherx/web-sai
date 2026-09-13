@@ -2,7 +2,7 @@
 
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks"
-import { cn } from "@/lib/"
+import { cn } from "@/lib/utils"
 import { ChevronDown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

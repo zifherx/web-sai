@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { SEARCH_SELECT_PROPS } from "@/types"
 
 export function SearchSelect({

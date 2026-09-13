@@ -1,7 +1,7 @@
 "use client"
 
 import { ServiceShowcaseCard } from "@/components/shared/Service-Showcase-Card"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { SERVICE_SHOWCASE_PROPS } from "@/types"
 import { useState } from "react"
 

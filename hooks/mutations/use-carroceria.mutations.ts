@@ -1,7 +1,7 @@
+import { carroceriaKeys } from "@/hooks/query-keys"
 import { carroceriaService } from "@/services/carroceria.service"
 import { CarroceriaType } from "@/types/api.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { carroceriaKeys } from "../query-keys"
 
 export function useCreateCarroceria() {
   const qc = useQueryClient()

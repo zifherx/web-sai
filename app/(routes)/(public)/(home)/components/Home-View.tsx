@@ -7,12 +7,13 @@ import { TalleresAutorizados } from "@/components/modules/(home)/Talleres-Autori
 import { VehicleSearchBar } from "@/components/modules/(home)/Vehicle-SearchBar"
 import { VehicleShowcase } from "@/components/modules/(home)/Vehicle-Showcase"
 import { MIATA_MX5_SHOWCASE, SERVICE_SHOWCASE } from "@/constants"
+import { HOME_VIEW_PROPS } from "@/types"
 
-export function HomeView() {
+export function HomeView({ initialPortadas }: HOME_VIEW_PROPS) {
   return (
     <div>
       <div className="relative pb-0 sm:pb-28">
-        <HeroSection />
+        <HeroSection initialPortadas={initialPortadas} />
         <VehicleSearchBar />
       </div>
       <BrandCarousel />

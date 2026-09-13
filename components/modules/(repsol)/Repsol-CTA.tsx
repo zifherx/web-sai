@@ -1,4 +1,4 @@
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { REPSOL_CTA_PROPS } from "@/types"
 import Link from "next/link"
 

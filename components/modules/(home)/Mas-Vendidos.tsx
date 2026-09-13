@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas, useActiveVehiculos } from "@/hooks"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
@@ -96,7 +96,7 @@ export function MasVendidos() {
               ))}
 
             {!loadingVehiculos &&
-              vehiculos?.map((vehiculo) => (
+              vehiculos?.map((vehiculo, index) => (
                 <CarouselItem
                   key={vehiculo.id}
                   className="basis-full pl-4 sm:basis-1/2 md:basis-1/3"
@@ -105,6 +105,7 @@ export function MasVendidos() {
                     vehiculo={vehiculo}
                     marcaNombre={marcaNameMap[vehiculo.marcaId]}
                     marcaSlug={marcaSlugMap[vehiculo.marcaId]}
+                    posicion={index}
                   />
                 </CarouselItem>
               ))}

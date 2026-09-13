@@ -1,5 +1,5 @@
 import { FeatureShowcaseCard } from "@/components/shared/Feature-Showcase-Card"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { VEHICLE_SHOWCASE_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"

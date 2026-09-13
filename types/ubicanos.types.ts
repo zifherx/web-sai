@@ -2,6 +2,10 @@ import { SedeType } from "@/types"
 import type { Marker as LeafletMarker } from "leaflet"
 import { RefObject } from "react"
 
+export type UBICANOS_VIEW_PROPS = {
+  initialSedes: SedeType[]
+}
+
 export type SEDE_BUSCADOR_PROPS = {
   ciudades: string[]
   locales: SedeType[]

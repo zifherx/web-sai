@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { COLOR_PICKER_PROPS } from "@/types"
 
 export function ColorPicker({
