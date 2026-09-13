@@ -60,3 +60,7 @@ export type PORTADA_DELETE_DIALOG_PROPS = {
   onOpenChange: (open: boolean) => void
   portada: PortadaType | null
 }
+
+export type HERO_SECTION_HOME_PROPS = {
+  initialPortadas: PortadaType[]
+}

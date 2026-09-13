@@ -6,7 +6,7 @@ import { UbicanosSidebar } from "@/components/modules/(ubicanos)/Ubicanos-Sideba
 import { Skeleton } from "@/components/ui/skeleton"
 import { DEFAULT_UBICATION_CENTER } from "@/constants"
 import { useActiveSedes } from "@/hooks"
-import { SedeType } from "@/types"
+import { SedeType, UBICANOS_VIEW_PROPS } from "@/types"
 import type { Marker } from "leaflet"
 import dynamic from "next/dynamic"
 import { useCallback, useMemo, useRef, useState } from "react"
@@ -26,8 +26,10 @@ const UbicanosMap = dynamic(
   }
 )
 
-export function UbicanosView() {
-  const { data: sedes = [], isLoading } = useActiveSedes()
+export function UbicanosView({ initialSedes }: UBICANOS_VIEW_PROPS) {
+  const { data: sedes = [], isLoading } = useActiveSedes(undefined, {
+    initialData: initialSedes,
+  })
   const [search, setSearch] = useState("")
   // Sede seleccionada desde el sidebar → mueve el mapa y abre el popup
   const [sedeSeleccionada, setSedeSeleccionada] = useState<SedeType | null>(

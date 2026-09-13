@@ -1,7 +1,15 @@
 import axios from "axios"
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL!
+
+if (!baseURL) {
+  throw new Error(
+    "Variable de entorno requerida: NEXT_PUBLIC_API_URL (debe ser una URL absoluta, ej. http://localhost:3000/api)"
+  )
+}
+
 export const httpClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL ?? "/api",
+  baseURL,
   timeout: 10_000,
   withCredentials: true,
   headers: {
