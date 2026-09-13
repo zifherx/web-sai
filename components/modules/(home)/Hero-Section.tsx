@@ -7,13 +7,21 @@ import {
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActivePortadas } from "@/hooks"
+import { HERO_SECTION_HOME_PROPS } from "@/types"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { useRef } from "react"
 
-export function HeroSection() {
+export function HeroSection({ initialPortadas }: HERO_SECTION_HOME_PROPS) {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }))
-  const { data: items, isLoading, isError, error } = useActivePortadas()
+  const {
+    data: items,
+    isLoading,
+    isError,
+    error,
+  } = useActivePortadas({
+    initialData: initialPortadas,
+  })
 
   if (isError) {
     console.error("❌ [HeroSection] Error al cargar portadas:", error)
@@ -48,6 +56,7 @@ export function HeroSection() {
                   <Image
                     src={item.imageUrl}
                     alt={item.name}
+                    fill
                     sizes="100vw"
                     className="object-cover"
                     priority={index === 0}

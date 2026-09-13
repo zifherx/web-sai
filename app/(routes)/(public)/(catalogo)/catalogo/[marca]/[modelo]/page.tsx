@@ -1,7 +1,13 @@
+import { JsonLd } from "@/components/shared/Json-Ld"
 import { marcaService, vehiculoService } from "@/services"
+import { buildVehicleSchema } from "@/shared/infrastructure/seo/schema/build-schema"
 import { MARCA_MODELO_PAGE_PROPS } from "@/types"
 import { Metadata } from "next"
+import { cache } from "react"
 import { MarcaModeloView } from "./components/Marca-Modelo-View"
+
+const getVehiculo = cache((slug: string) => vehiculoService.getBySlug(slug))
+const getMarca = cache((slug: string) => marcaService.getBySlug(slug))
 
 export async function generateMetadata({
   params,
@@ -9,8 +15,8 @@ export async function generateMetadata({
   const { marca, modelo } = await params
 
   try {
-    const vehiculo = await vehiculoService.getBySlug(modelo)
-    const marcaData = await marcaService.getBySlug(marca)
+    const vehiculo = await getVehiculo(modelo)
+    const marcaData = await getMarca(marca)
 
     return {
       title: `${vehiculo.name} — ${marcaData.name} | Automotores Inka`,
@@ -35,7 +41,11 @@ export async function generateMetadata({
         canonical: `https://automotoresinka.pe/catalogo/${marca}/${modelo}`,
       },
     }
-  } catch {
+  } catch (err) {
+    console.error(
+      `[generateMetadata] Falló para marca="${marca}" modelo="${modelo}":`,
+      err
+    )
     return { title: "Vehículo - Automotores Inka" }
   }
 }
@@ -45,5 +55,25 @@ export default async function MarcaModeloPage({
 }: MARCA_MODELO_PAGE_PROPS) {
   const { marca, modelo } = await params
 
-  return <MarcaModeloView marcaSlug={marca} modeloSlug={modelo} />
+  const [vehiculo, marcaData] = await Promise.all([
+    getVehiculo(modelo).catch((err) => {
+      console.error(`[MarcaModeloPage] getVehiculo("${modelo}") falló:`, err)
+      return null
+    }),
+    getMarca(marca).catch((err) => {
+      console.error(`[MarcaModeloPage] getMarca("${marca}") falló:`, err)
+      return null
+    }),
+  ])
+
+  return (
+    <>
+      {vehiculo && (
+        <JsonLd
+          data={buildVehicleSchema(vehiculo, marcaData?.name ?? marca, marca)}
+        />
+      )}
+      <MarcaModeloView marcaSlug={marca} modeloSlug={modelo} />
+    </>
+  )
 }

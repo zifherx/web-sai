@@ -1,11 +1,12 @@
 "use client"
 
-import { cn, precioFormateadoUSD } from "@/lib"
+import { precioFormateadoUSD } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
+import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { VEHICLE_HOME_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { analytics } from "../../shared/infrastructure/analytics/analytics.factory"
 
 export function VehicleHomeCard({
   vehiculo,

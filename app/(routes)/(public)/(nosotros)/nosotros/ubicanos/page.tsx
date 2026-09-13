@@ -1,3 +1,6 @@
+import { JsonLd } from "@/components/shared/Json-Ld"
+import { sedeServerService } from "@/services/server/sede.server"
+import { buildAutoDealerListSchema } from "@/shared/infrastructure/seo/schema/build-autodealer-schema"
 import type { Metadata } from "next"
 import { UbicanosView } from "./components/Ubicanos-View"
 
@@ -9,6 +12,16 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-export default function UbicanosPage() {
-  return <UbicanosView />
+export default async function UbicanosPage() {
+  const sedes = await sedeServerService.getActive().catch((err) => {
+    console.error("[UbicanosPage] sedeService.getActive() falló:", err)
+    return []
+  })
+
+  return (
+    <>
+      {sedes.length > 0 && <JsonLd data={buildAutoDealerListSchema(sedes)} />}
+      <UbicanosView initialSedes={sedes} />
+    </>
+  )
 }

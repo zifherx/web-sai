@@ -19,7 +19,7 @@ import {
   LISTA_TIPO_SOLICITUD_RECLAMOS,
   NOTAS_LEGALES_RECLAMOS,
 } from "@/constants"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { RECLAMO_DETALLE_PROPS } from "@/types"
 import { CheckCircle, FileText, Loader2, MessageCircle } from "lucide-react"
 import Link from "next/link"

@@ -1,6 +1,6 @@
 import { sedeKeys } from "@/hooks/query-keys"
 import { sedeService } from "@/services"
-import { ISedeFilters } from "@/types"
+import { ISedeFilters, SedeType } from "@/types"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
 
 export function useSedes(filters?: ISedeFilters) {
@@ -12,11 +12,15 @@ export function useSedes(filters?: ISedeFilters) {
   })
 }
 
-export function useActiveSedes(filters?: Omit<ISedeFilters, "isActive">) {
+export function useActiveSedes(
+  filters?: Omit<ISedeFilters, "isActive">,
+  options?: { initialData?: SedeType[] }
+) {
   return useQuery({
     queryKey: sedeKeys.active(filters),
     queryFn: () => sedeService.getActive(filters),
     staleTime: 1000 * 60 * 5,
+    initialData: options?.initialData,
   })
 }
 
@@ -38,11 +42,12 @@ export function useSedeBySlug(slug: string) {
   })
 }
 
-export function useTalleres() {
+export function useTalleres(options?: { initialData?: SedeType[] }) {
   return useQuery({
     queryKey: sedeKeys.talleres(),
     queryFn: sedeService.getTallers,
     staleTime: 1000 * 60 * 5,
+    initialData: options?.initialData,
   })
 }
 

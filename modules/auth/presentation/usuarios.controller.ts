@@ -1,4 +1,4 @@
-import { ResponseFactory } from "@/lib"
+import { ResponseFactory } from "@/lib/response-factory"
 import { createUsuarioSchema } from "@/modules/auth/application/dto/create-usuario.dto"
 import { UsuariosAccesoDenegadoError } from "@/modules/auth/domain/errors/auth-errors"
 import { authFactory } from "@/modules/auth/factories/auth.factory"

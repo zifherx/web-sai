@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas, useActiveVehiculos } from "@/hooks"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"

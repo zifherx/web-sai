@@ -5,10 +5,13 @@ import { SedesBuscador } from "@/components/modules/(talleres)/Sedes-Buscador"
 import { SedesGrid } from "@/components/modules/(talleres)/Sedes-Grid"
 import { ALL_CITIES } from "@/constants"
 import { useTalleres } from "@/hooks"
+import { TALLERES_VIEW_PROPS } from "@/types/talleres.types"
 import { useMemo, useState } from "react"
 
-export function TalleresView() {
-  const { data: sedes = [], isLoading } = useTalleres()
+export function TalleresView({ initialSedes }: TALLERES_VIEW_PROPS) {
+  const { data: sedes = [], isLoading } = useTalleres({
+    initialData: initialSedes,
+  })
 
   const [ciudadFiltro, setCiudadFiltro] = useState("")
   const [localFiltro, setLocalFiltro] = useState("")

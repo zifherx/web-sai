@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { buildPath, formatSegment } from "@/lib"
+import { buildPath, formatSegment } from "@/lib/global.functions"
 import { Home } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"

@@ -8,7 +8,7 @@ import { WizardSidebar } from "@/components/modules/(financiamiento)/Wizard-Side
 import { BreadcrumbFinanciamiento } from "@/components/shared/Breadcrumb-Financiamiento"
 import { Step1Data, Step2Data, Step3Data, Step4Data } from "@/constants"
 import { useCrearCotizacion } from "@/hooks"
-import { toastError, toastSuccess } from "@/lib"
+import { toastError, toastSuccess } from "@/lib/toast-helpers"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import { FINANCIAMIENTO_VIEW_PROPS } from "@/types"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"

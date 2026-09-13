@@ -1,4 +1,4 @@
-import { httpClient } from "@/lib"
+import { httpClient } from "@/lib/http/axios.client"
 import {
   APIResponse,
   CotizacionResponseType,

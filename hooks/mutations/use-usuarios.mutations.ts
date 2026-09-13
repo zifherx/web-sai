@@ -1,5 +1,5 @@
 import { usuarioKeys } from "@/hooks/query-keys"
-import { toastError, toastSuccess } from "@/lib"
+import { toastError, toastSuccess } from "@/lib/toast-helpers"
 import { usuariosService } from "@/services/usuarios.service"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 

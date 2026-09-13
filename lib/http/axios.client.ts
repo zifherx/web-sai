@@ -1,12 +1,26 @@
 import axios from "axios"
 
+function getBaseURL(): string {
+  const baseURL = process.env.NEXT_PUBLIC_API_URL
+  if (!baseURL) {
+    throw new Error(
+      "Variable de entorno requerida: NEXT_PUBLIC_API_URL (debe ser una URL absoluta, ej. http://localhost:3000/api)"
+    )
+  }
+  return baseURL
+}
+
 export const httpClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL ?? "/api",
   timeout: 10_000,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
+})
+
+httpClient.interceptors.request.use((config) => {
+  if (!config.baseURL) config.baseURL = getBaseURL()
+  return config
 })
 
 httpClient.interceptors.response.use(

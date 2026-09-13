@@ -4,10 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { useCreateUsuario } from "@/hooks/mutations/use-usuarios.mutations"
-import { Tag } from "lucide-react"
-import { cn, groupCn } from "../../../lib"
-import { Button } from "../../ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -15,13 +12,17 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../../ui/dialog"
-import { Field, FieldError, FieldLabel } from "../../ui/field"
+} from "@/components/ui/dialog"
+import { Field, FieldError, FieldLabel } from "@/components/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "../../ui/input-group"
+} from "@/components/ui/input-group"
+import { useCreateUsuario } from "@/hooks/mutations/use-usuarios.mutations"
+import { groupCn } from "@/lib/global.functions"
+import { cn } from "@/lib/utils"
+import { Tag } from "lucide-react"
 
 const createUsuarioFormSchema = z.object({
   email: z.email("Ingresa un correo válido"),

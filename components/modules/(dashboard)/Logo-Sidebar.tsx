@@ -1,7 +1,7 @@
 "use client"
 
 import { useSidebar } from "@/components/ui/sidebar"
-import { cn } from "@/lib"
+import { cn } from "@/lib/utils"
 import { Building2 } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
