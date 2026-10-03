@@ -34,6 +34,10 @@ export const toastSuccess = {
     toast.success(message, {
       description,
     }),
+  settings: (description?: string) =>
+    toast.success("¡Cambio en plataforma!", {
+      description,
+    }),
 }
 
 export const toastError = {
@@ -71,6 +75,11 @@ export const toastError = {
     toast.error("No se pudo iniciar sesión", {
       description:
         detail ?? "Verifica tus credenciales e inténtalo nuevamente.",
+    }),
+  settings: (detail?: string) =>
+    toast.error("No se pudo cambiar el modo mantenimiento", {
+      description:
+        detail ?? "Ocurrió un error inesperado. Inténtalo nuevamente.",
     }),
 }
 

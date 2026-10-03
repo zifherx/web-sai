@@ -474,6 +474,281 @@ export const LEGAL_PROMOCIONES: ILegalPage = {
   ],
   subsections: [
     {
+      id: "promo-quick-service",
+      heading: "Quick Service",
+      sections: [
+        {
+          id: "quick-service-s1",
+          parrafos: [
+            {
+              id: "quick-service-s1-p1",
+              text: "**Entidad Responsable: SOCIEDAD AUTOMOTORES INKA S.A.C.**",
+            },
+            {
+              id: "quick-service-s1-p2",
+              text: "**Talleres participantes: Trujillo, Chiclayo, Huancayo.**",
+            },
+            {
+              id: "quick-service-s1-p3",
+              text: "**Vigencia de la campaña: 21 septiembre al 31 de octubre del 2026.**",
+            },
+            {
+              id: "quick-service-s1-p4",
+              text: "La presente campaña de servicio postvente es impulsada por SOCIEDAD DE AUTOMOTORES INKA S.A.C. y aplica exclusivamente en sus talleres participantes ubicados en Trujillo, Chiclayo y Huancayo, durante el periodo de vigencia indicado en el presente documento.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s2",
+          title: "1. OBJETIVO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s2-p1",
+              text: "Quick Service es una modalidad de atencoón para mantenimientos preventivos menores, diseñada para reducir el tiempo de permanencia del vehículo y optimizar la capacidad operativa del taller.",
+            },
+            {
+              id: "quick-service-s2-p2",
+              text: "El tiempo objetivo de atención es de hasta 90 minutos, incluido el lavado básico de cortesía. Si esto no llegase a cumplirse el servicio saldría gratis para el cliente.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s3",
+          title: "2. SERVICIOS QUE APLICAN",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s3-p1",
+              text: "Quick Service aplica principalmente a mantenimientos preventivos menores, correspondientes a mantenimientos múltiplos de 5,000 km (5,000; 15,000; 25,000; 35,000; 45,000 km, etc.), siempre que el plan de mantenimiento correspondiente no contemple operaciones que excedan el alcance o el tiempo establecido para esta modalidad.",
+            },
+            {
+              id: "quick-service-s3-p2",
+              text: "En el caso de KIT CONTROL, aplica el compromiso de realizar el servicio en un plazo de 90 minutos; sin embargo, no se contempla la devolución o gratuidad del servicio en caso de exceder dicho tiempo.",
+            },
+            {
+              id: "quick-service-s3-p3",
+              text: "El mantenimiento preventivo podrá incluir, según corresponda al modelo del vehículo y al kilometraje indicado en el plan de mantenimiento del fabricante:",
+            },
+            {
+              id: "quick-service-s3-p4",
+              text: "- Cambio de aceite de motor y filtro de aceite.",
+            },
+            {
+              id: "quick-service-s3-p5",
+              text: "- Cambio de arandela del tapón de cárter.",
+            },
+            {
+              id: "quick-service-s3-p6",
+              text: "- Limpieza y regulación de frenos, cuando corresponda al mantenimiento.",
+            },
+            {
+              id: "quick-service-s3-p7",
+              text: "- Revisión y/o reposición de fluidos.",
+            },
+            {
+              id: "quick-service-s3-p8",
+              text: "- Inspección visual general del vehículo.",
+            },
+            {
+              id: "quick-service-s3-p9",
+              text: "- Escaneo",
+            },
+            {
+              id: "quick-service-s3-p10",
+              text: "- Mano de obra asociada a los repuestos y operaciones señalados.",
+            },
+            {
+              id: "quick-service-s3-p11",
+              text: "Asimismo, el servicio incluye un lavado básico de cortesía.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s4",
+          title: "3. SERVICIOS QUE NO APLICAN",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s4-p1",
+              text: "No califican como Quick Service los mantenimientos o trabajos que incluyan:",
+            },
+            {
+              id: "quick-service-s4-p2",
+              text: "- Cambio de bujías.",
+            },
+            {
+              id: "quick-service-s4-p3",
+              text: "- Cambio de aceite de transmisión.",
+            },
+            {
+              id: "quick-service-s4-p4",
+              text: "- Cambio de filtro de combustible.",
+            },
+            {
+              id: "quick-service-s4-p5",
+              text: "- Mantenimiento, inspección y/o activaciones de GLP.",
+            },
+            {
+              id: "quick-service-s4-p6",
+              text: "- Trabajos correctivos o reparaciones que requieran un tiempo adicional significativo.",
+            },
+            {
+              id: "quick-service-s4-p7",
+              text: "- Reparaciones complejas, trabajos de carrocería y pintura, o diagnósticos que requieran desmontajes prolongados.",
+            },
+            {
+              id: "quick-service-s4-p8",
+              text: "- Trabajos de garantía que requieran una evaluación especializada.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s5",
+          title: "4. HALLAZGOS DURANTE EL QUICK SERVICE",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s5-p1",
+              text: "Durante la ejecución del servicio, si se identifica un trabajo adicional que, por su naturaleza, complejidad o tiempo de ejecución, pueda exceder el tiempo objetivo de 90 minutos, el vehículo dejará de ser atendido bajo la modalidad Quick Service y pasará a gestionarse como un servicio convencional. En estos casos, el asesor de servicio informará al cliente sobre el hallazgo, explicará el trabajo requerido y presentará la cotización correspondiente.",
+            },
+            {
+              id: "quick-service-s5-p2",
+              text: "Por ejemplo, si durante un mantenimiento de 45,000 km se detecta la necesidad de cambiar las pastillas de freno, se informará al cliente, se cotizará el trabajo y se coordinará su ejecución en el área de reparaciones o mediante una nueva programación.",
+            },
+            {
+              id: "quick-service-s5-p3",
+              text: "Ningún trabajo adicional será ejecutado sin la autorización previa del cliente.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s6",
+          title: "5. ADITIVOS Y TRABAJOS ADICIONALES",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s6-p1",
+              text: "La aplicación de aditivos o la ejecución de servicios adicionales podrá incrementar el tiempo de atención. Como referencia, se considerarán 20 minutos adicionales por cada aplicación (I3000, Airlife u otros).",
+            },
+            {
+              id: "quick-service-s6-p2",
+              text: "Si el tiempo total de atención compromete el estándar establecido para Quick Service, la atención deberá reprogramarse o derivarse a una modalidad de servicio convencional.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s7",
+          title: "6. CONDICIONES DE ATENCIÓN",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s7-p1",
+              text: "La atención bajo la modalidad Quick Service estará sujeta a las sigueintes condiciones:",
+            },
+            {
+              id: "quick-service-s7-p2",
+              text: "- La atención está sujeta a reserva o disponibilidad, capacidad operativa, disponibilidad de bahías, técnicos, asesores, repuestos e insumos.",
+            },
+            {
+              id: "quick-service-s7-p3",
+              text: "- El cliente deberá informar las fallas, síntomas, modificaciones o antecedentes relevantes del vehículo.",
+            },
+            {
+              id: "quick-service-s7-p4",
+              text: "- El concesionario podrá validar la condición técnica del vehículo antes de confirmar su atención bajo la modalidad Quick Service.",
+            },
+            {
+              id: "quick-service-s7-p5",
+              text: "- Si el vehículo no cumple con el alcance definido, podrá ser derivado o reprogramado como servicio convencional.",
+            },
+            {
+              id: "quick-service-s7-p6",
+              text: "- La campaña no es acumulable con otras promociones o campañas vigentes.",
+            },
+            {
+              id: "quick-service-s7-p7",
+              text: "- Los beneficios son válidos únicamente en los talleres participantes.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s8",
+          title: "7. INICIO Y FIN DEL TIEMPO DEL SERVICIO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s8-p1",
+              text: "El timepo del servicio será calculado de la siguiente forma:",
+            },
+            {
+              id: "quick-service-s8-p2",
+              text: "**Hora de inicio**",
+            },
+            {
+              id: "quick-service-s8-p3",
+              text: "Se considera como hora de inicio el momento en que el cliente firma la Orden de Trabajo aceptando el servicio.",
+            },
+            {
+              id: "quick-service-s8-p4",
+              text: "**Hora de fin**",
+            },
+            {
+              id: "quick-service-s8-p5",
+              text: "Se considera como hora de fin el momento en que el asesor de servicio realiza la entrega del vehículo al cliente.",
+            },
+            {
+              id: "quick-service-s8-p6",
+              text: "La información correspondiente a las horas de inicio y fin deberá registrarse en la Orden de Trabajo.",
+            },
+            {
+              id: "quick-service-s8-p7",
+              text: "En caso el concesionario llegue a incumplir los 90 minutos establecidos, fuera de observaciones, el servicio será gratis para el cliente.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s9",
+          title: "8. EXCLUSIONES DEL TIEMPO DE SERVICIO",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s9-p1",
+              text: "El tiempo del servicio no incluirá demoras atribuibles al cliente, incluyendo, entre otras:",
+            },
+            {
+              id: "quick-service-s9-p2",
+              text: "- Ausencia del cliente al momento de la entrega del vehículo.",
+            },
+            {
+              id: "quick-service-s9-p3",
+              text: "- Falta de disponibilidad del cliente para recibir el vehículo.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s10",
+          title: "9. DISPOSICIÓN FINAL",
+          indentLevel: 1 as const,
+          parrafos: [
+            {
+              id: "quick-service-s10-p1",
+              text: "Las presentes condiciones podrán ser actualizadas de acuerdo con los procedimientos y lineamientos de Hyundai, las políticas del concesionario, la capacidad operativa disponible y la normativa aplicable.",
+            },
+          ],
+        },
+        {
+          id: "quick-service-s11",
+          parrafos: [
+            {
+              id: "quick-service-s11-p1",
+              text: "**T&C:** Promoción válida del 21/09 al 31/10/2026 en Trujillo, Chiclayo y Huancayo. Aplica a mantenimientos preventivos menores que cumplan con el alcance de Quick Service. Tiempo de atención de hasta 90 min., incluido lavado básico. No aplica a trabajos correctivos, reparaciones complejas, GLP, garantía especializada ni operaciones que excedan el tiempo establecido. De detectarse trabajos adicionales, se informará al cliente y el servicio será derivado a atención convencional. Sujeto a disponibilidad operativa, repuestos e insumos. Si se exceden los 90 min. fuera de observaciones o exclusiones aplicables, el servicio será gratuito. Cada cliente que realice el servicio participará automáticamente en el sorteo de 1 vale de combustible de S/ 300 y un TV de 75”. Un servicio equivale a una opción. Para más información: automotoresinka.com.pe.",
+            },
+          ],
+        },
+      ],
+    },
+    {
       id: "promo-ahorro-nunca",
       heading: "¡Ahorro o Nunca — Junio/Julio 2025!",
       sections: [

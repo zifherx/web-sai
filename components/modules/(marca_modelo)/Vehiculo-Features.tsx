@@ -23,7 +23,7 @@ export function VehiculoFeatures({ features }: VEHICULO_FEATURES_PROPS) {
                 onClick={() => setActiveTab(tab)}
                 // aria-selected={activeTab === tab}
                 className={cn(
-                  "px-10 py-3.5 font-headOffice-medium text-sm transition-all duration-200",
+                  "cursor-pointer px-10 py-3.5 font-headOffice-medium text-sm transition-all duration-200",
                   activeTab === tab
                     ? "bg-blue-custom-500 text-white"
                     : "bg-sky-custom-300 text-white/80 hover:bg-sky-custom-500"

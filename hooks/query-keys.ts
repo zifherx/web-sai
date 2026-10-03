@@ -87,3 +87,8 @@ export const mediaKeys = {
   byEntity: (entityType: string, entityId: string) =>
     ["media", "entity", entityType, entityId] as const,
 }
+
+export const siteSettingsKeys = {
+  all: () => ["site-settings"] as const,
+  maintenance: () => ["site-settings", "maintenance"] as const,
+}

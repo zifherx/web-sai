@@ -1,5 +1,9 @@
+import { MaintenanceToggleCard } from "@/components/modules/(site-settings-dashboard)/Maintenance-Toggle-Card"
 import { cn } from "@/lib/utils"
+import { hasPermission } from "@/shared/infrastructure/auth/permissions"
 import { IMarcaRef, IPriceRange } from "@/types"
+import { SettingsTab } from "@/types/site-settings.types"
+import { Wrench } from "lucide-react"
 
 export const precioFormateadoUSD = (value: number) => {
   return new Intl.NumberFormat("es-PE", {
@@ -83,7 +87,7 @@ export const getInitials = (nombre: string): string => {
     .trim()
     .split(/\s+/)
     .slice(0, 2)
-    .map((part) => part[0].toUpperCase() ?? "")
+    .map((part: any) => part[0].toUpperCase() ?? "")
     .join("")
 }
 
@@ -100,3 +104,27 @@ export const buildPath = (segments: string[], index: number): string => {
 export function toGlobalPlain<T>(value: T): T {
   return JSON.parse(JSON.stringify(value))
 }
+
+export const SETTINGS_TABS: SettingsTab[] = [
+  {
+    value: "mantenimiento",
+    label: "Mantenimiento",
+    description:
+      "Reemplaza todo el sitio público por una página de mantenimiento",
+    icon: Wrench,
+    permission: { siteSettings: ["read"] },
+    content: <MaintenanceToggleCard />,
+  },
+]
+
+export function getVisibleSettingsTabs(rol: string): SettingsTab[] {
+  return SETTINGS_TABS.filter(
+    (tab) => !tab.permission || hasPermission(rol, tab.permission)
+  )
+}
+
+export const dateFormatter = new Intl.DateTimeFormat("es-PE", {
+  dateStyle: "medium",
+  timeStyle: "short",
+  timeZone: "America/Lima",
+})
