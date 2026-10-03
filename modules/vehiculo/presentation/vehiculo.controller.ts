@@ -7,17 +7,18 @@ import {
   VehiculoMarcaSchema,
   VehiculoSlugSchema,
 } from "@/modules/vehiculo/application/dto/vehiculo.dto"
+import { VehiculoUnauthorizedError } from "@/modules/vehiculo/domain/errors/VehiculoDomainError"
 import { vehiculoFactory } from "@/modules/vehiculo/factories/vehiculo.factory"
 import {
   IdContext,
   MarcaContext,
-  resolveUserId,
   SlugContext,
-  withRateLimitHeaders,
 } from "@/modules/vehiculo/helpers/vehiculo.helper"
 import { vehiculoRateLimit } from "@/modules/vehiculo/presentation/vehiculo.ratelimit"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
+import { withRateLimitHeaders } from "@/shared/presentation/with-rate-limit.headers"
 import { NextRequest } from "next/server"
 
 /**
@@ -155,7 +156,9 @@ export function createVehiculoHandler(req: NextRequest) {
     const rl = await vehiculoRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new VehiculoUnauthorizedError()
+
     const body = CreateVehiculoSchema.parse(await req.json())
     await connectDB()
     const useCases = vehiculoFactory()
@@ -179,7 +182,9 @@ export function updateVehiculoHandler(req: NextRequest, ctx: IdContext) {
     const rl = await vehiculoRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    const userId = resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new VehiculoUnauthorizedError()
+
     const { vehiculoId } = VehiculoIdSchema.parse(await ctx.params)
     const body = UpdateVehiculoSchema.parse(await req.json())
     await connectDB()
@@ -203,7 +208,9 @@ export function deleteVehiculoHandler(req: NextRequest, ctx: IdContext) {
     const rl = await vehiculoRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    const userId = await resolveUserId(req)
+    if (!userId) throw new VehiculoUnauthorizedError()
+
     const { vehiculoId } = VehiculoIdSchema.parse(await ctx.params)
     await connectDB()
     const useCases = vehiculoFactory()

@@ -1,3 +1,4 @@
+import { resolveUserId } from "@/lib/identity.helpers"
 import { applyRateLimit } from "@/lib/rate-limit.guard"
 import { RateLimitTier } from "@/lib/rate-limit.middleware"
 import { NextRequest } from "next/server"
@@ -9,15 +10,15 @@ import { NextRequest } from "next/server"
  * - GET desde CMS (con userId):       "cms-read"      → 20 req/60s por userId
  * - GET público (frontend/ISR):       "public"        → 100 req/60s por IP
  */
-function resolveVehiculoTier(req: NextRequest): RateLimitTier {
+async function resolveVehiculoTier(req: NextRequest): Promise<RateLimitTier> {
   const method = req.method.toUpperCase()
-  const isAuthenticated = Boolean(req.headers.get("x-clerk-user-id"))
-
   if (method !== "GET") return "authenticated"
-  return isAuthenticated ? "cms-read" : "public"
+
+  const userId = await resolveUserId(req)
+  return userId ? "cms-read" : "public"
 }
 
 export async function vehiculoRateLimit(req: NextRequest) {
-  const tier = resolveVehiculoTier(req)
+  const tier = await resolveVehiculoTier(req)
   return applyRateLimit(req, tier)
 }
