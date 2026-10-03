@@ -7,8 +7,8 @@ const REPSOL_BENEFICIOS = {
   imageAlt: "Pistola de combustible en grifo Repsol",
   descuentos: [
     { tipo: "Premier y Regular", monto: "S/ 2.50" },
-    { tipo: "Diesel", monto: "S/ 0.50" },
-    { tipo: "GLP", monto: "S/ 0.20" },
+    { tipo: "Diesel", monto: "S/ 2.00" },
+    { tipo: "GLP", monto: "S/ 0.30" },
   ],
   cobertura: [
     { ciudad: "Lima" },
