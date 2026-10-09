@@ -10,7 +10,9 @@ import { useActivePortadas } from "@/hooks"
 import { HERO_SECTION_HOME_PROPS } from "@/types"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
+import Link from "next/link"
 import { useRef } from "react"
+import { PORTADA_LINKS } from "../../../constants/portada.constants"
 
 export function HeroSection({ initialPortadas }: HERO_SECTION_HOME_PROPS) {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }))
@@ -50,8 +52,10 @@ export function HeroSection({ initialPortadas }: HERO_SECTION_HOME_PROPS) {
               ))}
 
           {!isLoading &&
-            items?.map((item, index) => (
-              <CarouselItem key={item.id}>
+            items?.map((item, index) => {
+              const href: string | undefined = PORTADA_LINKS[item.id]
+
+              const banner = (
                 <div className="relative aspect-2000/780 w-full">
                   <Image
                     src={item.imageUrl}
@@ -62,8 +66,24 @@ export function HeroSection({ initialPortadas }: HERO_SECTION_HOME_PROPS) {
                     priority={index === 0}
                   />
                 </div>
-              </CarouselItem>
-            ))}
+              )
+
+              return (
+                <CarouselItem key={item.id}>
+                  {href ? (
+                    <Link
+                      href={href}
+                      aria-label={`Ver términos y condiciones: ${item.name}`}
+                      className="block cursor-pointer"
+                    >
+                      {banner}
+                    </Link>
+                  ) : (
+                    banner
+                  )}
+                </CarouselItem>
+              )
+            })}
         </CarouselContent>
       </Carousel>
     </section>

@@ -1332,6 +1332,139 @@ export const LEGAL_PROMOCIONES: ILegalPage = {
   ],
 }
 
+export const LEGAL_PREVENTA_MONJARO: ILegalPage = {
+  heading: "Preventa Monjaro EM-i 2027",
+  sections: [
+    {
+      id: "monjaro-00",
+      title: "",
+      parrafos: [
+        {
+          id: "monjaro-00-p1",
+          text: "Campaña **«PREVENTA MONJARO EM-i 2027»**. Válida para la adquisición del vehículo marca Geely modelo Monjaro SIGNATURE desde el **05/10/2026 al 05/11/2026**. Precio publicado aplica para el modelo MONJARO EM-i SIGNATURE año 2027.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-01",
+      title: "1. Precio de preventa y beneficios",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-01-p1",
+          text: "Precio de preventa: **US$ 36,990 o S/ 125,026**, incluye adicionalmente un cargador Wallbox de 7 kW, un cargador portátil de 3.5 kW y la instalación gratuita del cargador Wallbox de 7 kW, cuyo costo será asumido por Motor Mundo S.A.C. hasta por un monto máximo de USD 1,000 (mil y 00/100 dólares americanos), únicamente para instalaciones realizadas en Lima, Arequipa, Trujillo, Chiclayo y Piura, sujeto a las condiciones técnicas correspondientes.",
+        },
+        {
+          id: "monjaro-01-p2",
+          text: "El exceso del costo de instalación será asumido por el cliente.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-02",
+      title: "2. Instalación del cargador Wallbox de 7 kW",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-02-p1",
+          text: "El cliente deberá solicitar la instalación del cargador Wallbox de 7 kW dentro de los **30 días calendario** siguientes a la entrega del vehículo. Vencido este plazo, perderá el beneficio de instalación gratuita.",
+        },
+        {
+          id: "monjaro-02-p2",
+          text: "La instalación gratuita está sujeta a las siguientes condiciones técnicas:",
+        },
+        {
+          id: "monjaro-02-p3",
+          text: "- (i) visita técnica previa para evaluar la viabilidad de la instalación;",
+        },
+        {
+          id: "monjaro-02-p4",
+          text: "- (ii) que el inmueble cuente con la capacidad eléctrica suficiente para la operación del cargador; y",
+        },
+        {
+          id: "monjaro-02-p5",
+          text: "- (iii) la autorización del propietario del inmueble o, de corresponder, de la junta de propietarios.",
+        },
+        {
+          id: "monjaro-02-p6",
+          text: "De no cumplirse alguna de estas condiciones, la instalación podría no ser viable.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-03",
+      title: "3. Tipo de cambio y stock",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-03-p1",
+          text: "Tipo de Cambio Referencial S/ 3.38, pero al momento de la transacción se aplicará el tipo de cambio vigente del día.",
+        },
+        {
+          id: "monjaro-03-p2",
+          text: "Stock mínimo: 05 unidades por modelo por concesionario autorizado.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-04",
+      title: "4. Especificaciones del vehículo",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-04-p1",
+          text: "Autonomía PHEV de hasta 1,095 km y aceleración de 0 a 100 km/h en 5.83 segundos, según especificaciones del fabricante y sujetas a condiciones de uso, manejo y carga.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-05",
+      title: "5. Reserva, pago y entrega",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-05-p1",
+          text: "El monto de reserva o separación, la forma y fecha de pago del saldo, las condiciones de desistimiento y devolución, y la fecha estimada de entrega serán establecidos por cada concesionario autorizado y deberán ser confirmados por el cliente con el concesionario antes de realizar su separación.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-06",
+      title: "6. Concesionarios participantes",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-06-p1",
+          text: "Promoción válida en los concesionarios autorizados de Lima, Trujillo, Arequipa, Chiclayo y Piura, conforme a la siguiente lista: https://geely.pe/red-de-atencion/.",
+        },
+      ],
+    },
+    {
+      id: "monjaro-07",
+      title: "7. Restricciones",
+      indentLevel: 1 as const,
+      parrafos: [
+        {
+          id: "monjaro-07-p1",
+          text: "No aplica para refacturaciones.",
+        },
+        {
+          id: "monjaro-07-p2",
+          text: "Campaña no es transferible a terceros, intercambiable o monetizable, aplica exclusivamente al vehículo que se pretende adquirir, estando ya estos aplicados a los precios de las fichas técnicas.",
+        },
+        {
+          id: "monjaro-07-p3",
+          text: "No incluye gastos notariales, registrales ni de inmatriculación (SOAT, placas, TIVE y otros), cuyo monto será confirmado por cada concesionario.",
+        },
+        {
+          id: "monjaro-07-p4",
+          text: "Imágenes referenciales.",
+        },
+      ],
+    },
+  ],
+}
+
 export const INDENT_CLASS: Record<number, string> = {
   0: "",
   1: "pl-4",
