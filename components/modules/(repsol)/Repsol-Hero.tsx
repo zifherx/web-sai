@@ -18,10 +18,10 @@ export function RepsolHero({ hero }: REPSOL_HERO_PROPS) {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
         <div className="mx-auto -mt-30 text-center sm:-mt-52">
-          <p className="font-headOffice-medium text-lg text-blue-custom-500 md:text-2xl">
+          <p className="font-headOffice-medium text-lg text-white md:text-2xl">
             {eyebrow}
           </p>
-          <h1 className="mt-2 font-headOffice-bold text-2xl leading-tight text-blue-custom-500 md:text-6xl">
+          <h1 className="mt-2 font-headOffice-bold text-2xl leading-tight text-white md:text-6xl">
             {heading}
           </h1>
         </div>
