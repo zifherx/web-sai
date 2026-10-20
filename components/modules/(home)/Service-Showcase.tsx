@@ -2,7 +2,7 @@
 
 import { ServiceShowcaseCard } from "@/components/shared/Service-Showcase-Card"
 import { cn } from "@/lib/utils"
-import { SERVICE_SHOWCASE_PROPS } from "@/types"
+import { type SERVICE_SHOWCASE_PROPS } from "@/types"
 import { useState } from "react"
 
 export function ServiceShowcase({ service }: SERVICE_SHOWCASE_PROPS) {

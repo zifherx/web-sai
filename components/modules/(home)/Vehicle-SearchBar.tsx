@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useActiveMarcas, useSedesByMarca, useVehiculosByMarca } from "@/hooks"
 import { toastError } from "@/lib/toast-helpers"
 import { cn } from "@/lib/utils"
-import { IOptionSelect } from "@/types"
+import { type IOptionSelect } from "@/types"
 import { useRouter } from "next/navigation"
 import { useMemo, useState } from "react"
 

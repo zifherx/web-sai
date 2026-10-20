@@ -1,6 +1,6 @@
-import { RateLimitHeaders } from "@/lib/identity.helpers"
+import { type RateLimitHeaders } from "@/lib/identity.helpers"
 import { CotizacionUnauthorizedError } from "@/modules/cotizacion/domain/errors/CotizacionDomainError"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 export function resolveUserId(req: NextRequest): string {
   const userId = req.headers.get("x-clerk-user-id")

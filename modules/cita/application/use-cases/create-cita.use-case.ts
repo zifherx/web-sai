@@ -1,14 +1,14 @@
 import {
-  CitaResponseDTO,
-  CreateCitaDTO,
+  type CitaResponseDTO,
+  type CreateCitaDTO,
 } from "@/modules/cita/application/dto/cita.dto"
 import { CitaMapper } from "@/modules/cita/application/ports/cita.mapper"
 import { CitaEntity } from "@/modules/cita/domain/entities/Cita"
-import { ICitaRepository } from "@/modules/cita/domain/repository/ICitaRepository"
-import { IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
+import { type ICitaRepository } from "@/modules/cita/domain/repository/ICitaRepository"
+import { type IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
 import { SedeNotFoundError } from "@/modules/sede/domain/errors/SedeDomainError"
-import { ISedeRepository } from "@/modules/sede/domain/repositories/ISedeRepository"
-import { IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
+import { type ISedeRepository } from "@/modules/sede/domain/repositories/ISedeRepository"
+import { type IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
 
 /**
  * Caso de uso: Crear una cita de servicio técnico.

@@ -3,7 +3,7 @@ import {
   NothingToPublishError,
   VersionConflictError,
 } from "@/shared/domain/content-versioning/content-versioning.error"
-import { RichContent } from "@/shared/domain/rich-text/rich-content"
+import { type RichContent } from "@/shared/domain/rich-text/rich-content"
 
 export interface ContentAuthor {
   readonly userId: string
@@ -15,11 +15,9 @@ export interface SeoMeta {
   readonly description: string
 }
 
-/** Lo que el usuario edita y lo que se publica. */
 export interface ContentSnapshot {
   readonly title: string
   readonly content: RichContent
-  /** Derivado en servidor. No participa en la comparación de cambios. */
   readonly plainText: string
   readonly seo: SeoMeta | null
 }
@@ -38,14 +36,6 @@ export interface ContentPublication extends ContentSnapshot {
 
 export type PublicationStatus = "unpublished" | "published" | "pending-changes"
 
-/**
- * Value object inmutable: borrador + versión publicada + bloqueo optimista.
- *
- * Reutilizado por páginas legales, campañas y notas legales de vehículos.
- * Toda operación que escribe devuelve una NUEVA instancia con
- * `lockVersion + 1`; el repositorio persiste con el filtro
- * `{ lockVersion: <anterior> }` para detectar escrituras concurrentes.
- */
 export class VersionedContent {
   constructor(
     public readonly draft: ContentDraft,
@@ -53,7 +43,6 @@ export class VersionedContent {
     public readonly lockVersion: number
   ) {}
 
-  /** Contenido nuevo, nunca publicado. */
   static createDraft(
     snapshot: ContentSnapshot,
     author: ContentAuthor,
@@ -62,7 +51,6 @@ export class VersionedContent {
     return new VersionedContent(toDraft(snapshot, author, now), null, 0)
   }
 
-  /** Contenido ya publicado como versión 1 (migración inicial). */
   static createPublished(
     snapshot: ContentSnapshot,
     author: ContentAuthor,
@@ -80,7 +68,6 @@ export class VersionedContent {
     return this.hasPendingChanges ? "pending-changes" : "published"
   }
 
-  /** El borrador difiere de lo publicado (título, contenido o SEO). */
   get hasPendingChanges(): boolean {
     if (this.published === null) return true
     return !sameSnapshot(this.draft, this.published)
@@ -90,10 +77,6 @@ export class VersionedContent {
     return (this.published?.version ?? 0) + 1
   }
 
-  /**
-   * Falla rápido si el cliente editó sobre una versión desactualizada.
-   * (El repositorio vuelve a verificarlo de forma atómica al guardar.)
-   */
   assertLockVersion(expected: number): void {
     if (this.lockVersion !== expected) throw new VersionConflictError()
   }
@@ -110,10 +93,6 @@ export class VersionedContent {
     )
   }
 
-  /**
-   * Copia el borrador a publicado. Devuelve también la publicación creada,
-   * que el caso de uso guarda en el historial (`content_revisions`).
-   */
   publish(
     author: ContentAuthor,
     now: Date
@@ -139,10 +118,6 @@ export class VersionedContent {
     return this.withDraft(this.published, author, now)
   }
 
-  /**
-   * Carga una versión anterior como BORRADOR. No publica: el editor revisa
-   * y luego publica (queda como una versión nueva en el historial).
-   */
   restoreDraft(
     snapshot: ContentSnapshot,
     author: ContentAuthor,
@@ -151,8 +126,6 @@ export class VersionedContent {
     return this.withDraft(snapshot, author, now)
   }
 }
-
-// ── Helpers privados ──────────────────────────────────────────────────────────
 
 function pickSnapshot(s: ContentSnapshot): ContentSnapshot {
   return {
@@ -186,10 +159,6 @@ function sameSnapshot(a: ContentSnapshot, b: ContentSnapshot): boolean {
   return comparable(a) === comparable(b)
 }
 
-/**
- * JSON con claves ordenadas: el orden de claves que devuelve Mongo puede
- * diferir del que envía el cliente para el mismo documento.
- */
 export function stableStringify(value: unknown): string {
   if (value === null || typeof value !== "object") {
     return JSON.stringify(value) ?? "null"

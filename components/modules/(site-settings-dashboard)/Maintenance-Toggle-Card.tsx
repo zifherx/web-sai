@@ -1,8 +1,8 @@
 "use client"
 
+import { MaintenanceForm } from "@/components/modules/(site-settings-dashboard)/Maintenance-Form"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useMaintenanceMode } from "@/hooks/queries/use-site-settings"
-import { MaintenanceForm } from "./Maintenance-Form"
 
 export function MaintenanceToggleCard() {
   const { data, isLoading, isError } = useMaintenanceMode()

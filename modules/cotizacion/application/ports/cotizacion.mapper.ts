@@ -1,5 +1,5 @@
-import { CotizacionResponseDTO } from "@/modules/cotizacion/application/dto/cotizacion.dto"
-import { CotizacionEntity } from "@/modules/cotizacion/domain/entities/Cotizacion"
+import { type CotizacionResponseDTO } from "@/modules/cotizacion/application/dto/cotizacion.dto"
+import { type CotizacionEntity } from "@/modules/cotizacion/domain/entities/Cotizacion"
 
 export class CotizacionMapper {
   static toDTO(entity: CotizacionEntity): CotizacionResponseDTO {

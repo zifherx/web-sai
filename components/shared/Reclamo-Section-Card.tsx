@@ -1,4 +1,4 @@
-import { RECLAMO_SECTION_CARD_PROPS } from "@/types"
+import { type RECLAMO_SECTION_CARD_PROPS } from "@/types"
 
 export function ReclamoSectionCard({
   children,

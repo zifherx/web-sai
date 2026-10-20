@@ -1,5 +1,5 @@
 import { httpClient } from "@/lib/http/axios.client"
-import { APIResponse, IMediaFilters, MediaFileType } from "@/types"
+import { type APIResponse, type IMediaFilters, type MediaFileType } from "@/types"
 
 export const mediaService = {
   list: async (filters?: IMediaFilters): Promise<MediaFileType[]> => {

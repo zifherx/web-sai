@@ -1,8 +1,8 @@
 import { MaintenanceToggleCard } from "@/components/modules/(site-settings-dashboard)/Maintenance-Toggle-Card"
 import { cn } from "@/lib/utils"
 import { hasPermission } from "@/shared/infrastructure/auth/permissions"
-import { IMarcaRef, IPriceRange } from "@/types"
-import { SettingsTab } from "@/types/site-settings.types"
+import { type IMarcaRef, type IPriceRange } from "@/types"
+import { type SettingsTab } from "@/types/site-settings.types"
 import { Wrench } from "lucide-react"
 
 export const precioFormateadoUSD = (value: number) => {
@@ -83,12 +83,15 @@ export const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
 }
 
 export const getInitials = (nombre: string): string => {
-  return nombre
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part: any) => part[0].toUpperCase() ?? "")
-    .join("")
+  return (
+    nombre
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      // Antes: `part[0].toUpperCase()` lanzaba TypeError con nombre vacío ("").
+      .map((part) => (part[0] ?? "").toUpperCase())
+      .join("")
+  )
 }
 
 export const formatSegment = (segment: string): string => {

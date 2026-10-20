@@ -1,6 +1,5 @@
-import { VersionedContent } from "@/shared/domain/content-versioning/versioned-content"
+import { type VersionedContent } from "@/shared/domain/content-versioning/versioned-content"
 
-/** Las 4 páginas legales son fijas (enlazadas desde el footer). */
 export const LEGAL_SLUGS = [
   "accesibilidad",
   "copyright",
@@ -22,7 +21,6 @@ export class LegalPageEntity {
     return this.versioned.published !== null
   }
 
-  /** La página de promociones compone campañas y notas de vehículos. */
   isPromotionsPage(): boolean {
     return this.slug === "promociones"
   }

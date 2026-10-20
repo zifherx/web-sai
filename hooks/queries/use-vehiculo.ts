@@ -1,7 +1,7 @@
+import { vehiculoKeys } from "@/hooks/query-keys"
 import { vehiculoService } from "@/services/vehiculo.service"
-import { IVehiculoFilters } from "@/types/api.types"
+import { type IVehiculoFilters } from "@/types/api.types"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { vehiculoKeys } from "../query-keys"
 
 export function useVehiculos(filters?: IVehiculoFilters) {
   return useQuery({

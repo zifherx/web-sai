@@ -7,12 +7,12 @@ import {
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActivePortadas } from "@/hooks"
-import { HERO_SECTION_HOME_PROPS } from "@/types"
+import { type HERO_SECTION_HOME_PROPS } from "@/types"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
-import { PORTADA_LINKS } from "../../../constants/portada.constants"
+import { PORTADA_LINKS } from "@/constants/portada.constants"
 
 export function HeroSection({ initialPortadas }: HERO_SECTION_HOME_PROPS) {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }))

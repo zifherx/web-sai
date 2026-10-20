@@ -1,6 +1,6 @@
 import { vehiculoKeys } from "@/hooks/query-keys"
 import { vehiculoService } from "@/services/vehiculo.service"
-import { VehiculoType } from "@/types/api.types"
+import { type VehiculoType } from "@/types/api.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export function useCreateVehiculo() {
@@ -12,8 +12,8 @@ export function useCreateVehiculo() {
         "id" | "createdAt" | "updatedAt" | "createdBy"
       >
     ) => vehiculoService.create(payload),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: vehiculoKeys.all() })
+    onSuccess: async () => {
+      await qc.invalidateQueries({ queryKey: vehiculoKeys.all() })
     },
   })
 }
@@ -23,10 +23,12 @@ export function useUpdateVehiculo() {
   return useMutation({
     mutationFn: ({ id, data }: { id: string; data: Partial<VehiculoType> }) =>
       vehiculoService.update(id, data),
-    onSuccess: (updated) => {
-      qc.invalidateQueries({ queryKey: vehiculoKeys.list() })
+    onSuccess: async (updated) => {
+      await qc.invalidateQueries({ queryKey: vehiculoKeys.list() })
       // Invalida también el byMarca del vehículo actualizado
-      qc.invalidateQueries({ queryKey: vehiculoKeys.byMarca(updated.marcaId) })
+      await qc.invalidateQueries({
+        queryKey: vehiculoKeys.byMarca(updated.marcaId),
+      })
       qc.setQueryData(vehiculoKeys.detail(updated.id), updated)
     },
   })
@@ -36,8 +38,8 @@ export function useDeleteVehiculo() {
   const qc = useQueryClient()
   return useMutation({
     mutationFn: (id: string) => vehiculoService.remove(id),
-    onSuccess: (_, id) => {
-      qc.invalidateQueries({ queryKey: vehiculoKeys.all() })
+    onSuccess: async (_, id) => {
+      await qc.invalidateQueries({ queryKey: vehiculoKeys.all() })
       qc.removeQueries({ queryKey: vehiculoKeys.detail(id) })
     },
   })

@@ -1,6 +1,6 @@
-import { CATALOGO_PAGE_PROPS } from "@/types"
+import { CatalogoView } from "@/app/(routes)/(public)/(catalogo)/catalogo/components/Catalogo-View"
+import { type CATALOGO_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { CatalogoView } from "./components/Catalogo-View"
 
 export const metadata: Metadata = {
   title: "Catálogo de Vehículos — Automotores Inka",

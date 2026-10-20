@@ -11,7 +11,7 @@ import {
 } from "@/constants"
 import { useActiveMarcas, useActiveVehiculos } from "@/hooks"
 import { parsePriceRange } from "@/lib/global.functions"
-import { CATALOGO_VIEW_PROPS, SORT_OPTION_TYPE, VehiculoType } from "@/types"
+import { type CATALOGO_VIEW_PROPS, type SORT_OPTION_TYPE, type VehiculoType } from "@/types"
 import { usePathname, useRouter } from "next/navigation"
 import { useCallback, useMemo, useState } from "react"
 

@@ -17,6 +17,8 @@ export const PortadaIdSchema = z.object({
   portadaId: z.string().length(24, "ID de MongoDB inválido"),
 })
 
+export const VehiculoFiltersSchema = z.object({})
+
 export type CreatePortadaDTO = z.infer<typeof CreatePortadaSchema>
 export type UpdatePortadaDTO = z.infer<typeof UpdatePortadaSchema>
 

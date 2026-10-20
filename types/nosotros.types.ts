@@ -1,4 +1,4 @@
-import { GENERAL_ICON } from "@/types"
+import { type GENERAL_ICON } from "@/types"
 
 export interface IPilaresSAI {
   id: number

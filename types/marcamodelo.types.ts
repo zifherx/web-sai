@@ -1,10 +1,10 @@
 import {
-  IColor,
-  IFeature,
-  IFeatures,
-  IGaleriaItem,
-  VehiculoType,
-} from "./api.types"
+  type IColor,
+  type IFeature,
+  type IFeatures,
+  type IGaleriaItem,
+  type VehiculoType,
+} from "@/types/api.types"
 
 export interface IMarcaModelo {
   marca: string

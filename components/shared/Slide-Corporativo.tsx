@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { SLIDE_CARD_PROPS } from "@/types"
+import { type SLIDE_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

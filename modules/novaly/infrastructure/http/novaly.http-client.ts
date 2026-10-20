@@ -1,5 +1,5 @@
 import { NovalyApiError } from "@/modules/novaly/domain/errors/NovalyDomainError"
-import { INovalyClient } from "@/modules/novaly/domain/repository/INovalyRepository"
+import { type INovalyClient } from "@/modules/novaly/domain/repository/INovalyRepository"
 import type {
   NovalyLeadResult,
   NovalyPayload,

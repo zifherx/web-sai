@@ -1,7 +1,7 @@
-import { resolveUserId } from "@/lib/identity.helpers"
 import { applyRateLimit } from "@/lib/rate-limit.guard"
-import { RateLimitTier } from "@/lib/rate-limit.middleware"
-import { NextRequest } from "next/server"
+import { type RateLimitTier } from "@/lib/rate-limit.middleware"
+import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
+import { type NextRequest } from "next/server"
 
 /**
  * Tier de rate limit para el módulo Vehículo:

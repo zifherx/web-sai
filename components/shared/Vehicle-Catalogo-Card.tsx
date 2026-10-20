@@ -4,7 +4,7 @@ import {
   precioFormateadoUSD,
 } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
-import { CATALOGO_VEHICULO_CARD_PROPS } from "@/types"
+import { type CATALOGO_VEHICULO_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

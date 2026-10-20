@@ -1,5 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton"
-import { PORTADA_SKELETON_PROPS } from "@/types"
+import { type PORTADA_SKELETON_PROPS } from "@/types"
 
 export function PortadaSkeleton({ view }: PORTADA_SKELETON_PROPS) {
   if (view === "cards") {

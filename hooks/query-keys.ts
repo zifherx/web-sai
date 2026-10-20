@@ -1,8 +1,8 @@
 import {
-  ICarroceriaFilters,
-  IMediaFilters,
-  ISedeFilters,
-  IVehiculoFilters,
+  type ICarroceriaFilters,
+  type IMediaFilters,
+  type ISedeFilters,
+  type IVehiculoFilters,
 } from "@/types/api.types"
 
 export const portadaKeys = {

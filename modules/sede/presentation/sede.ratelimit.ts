@@ -1,6 +1,6 @@
 import { applyRateLimit } from "@/lib/rate-limit.guard"
-import { RateLimitTier } from "@/lib/rate-limit.middleware"
-import { NextRequest } from "next/server"
+import { type RateLimitTier } from "@/lib/rate-limit.middleware"
+import { type NextRequest } from "next/server"
 
 /**
  * Determina el tier de rate limit para el módulo Sede:

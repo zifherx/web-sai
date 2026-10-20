@@ -1,4 +1,4 @@
-import { ITab } from "@/types"
+import { type ITab } from "@/types"
 
 export const TAB_LABELS: Record<ITab, string> = {
   feature1: "Potencia y Motor",

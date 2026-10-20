@@ -1,13 +1,13 @@
 import { SiteSettingsEntity } from "@/modules/site-settings/domain/entities/site-settings.entity"
 import {
-  ISetMaintenanceData,
-  ISiteSettingsRepository,
+  type ISetMaintenanceData,
+  type ISiteSettingsRepository,
 } from "@/modules/site-settings/domain/repositories/site-settings.repository"
 import {
   SITE_SETTINGS_KEY,
-  SiteSettingsDocument,
+  type SiteSettingsDocument,
 } from "@/modules/site-settings/infrastructure/mongoose/site-settings.schema"
-import { Model, Types } from "mongoose"
+import { type Model, Types } from "mongoose"
 
 export class MongooseSiteSettingsRepository implements ISiteSettingsRepository {
   constructor(private readonly model: Model<SiteSettingsDocument>) {}

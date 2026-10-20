@@ -2,7 +2,7 @@ import {
   createLeadCorporativoHandler,
   getAllLeadsCorporativosHandler,
 } from "@/modules/lead-corporativo/presentation/lead-corporativo.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET  /api/lead-corporativo  → lista todas (CMS)

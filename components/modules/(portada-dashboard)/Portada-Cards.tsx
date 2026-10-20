@@ -1,10 +1,10 @@
 "use client"
 
+import { PortadaRowActions } from "@/components/modules/(portada-dashboard)/Portada-Row-Actions"
+import { PortadaStatusBadge } from "@/components/modules/(portada-dashboard)/Portada-Status-Badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { PORTADA_CARDS_PROPS } from "@/types"
+import { type PORTADA_CARDS_PROPS } from "@/types"
 import Image from "next/image"
-import { PortadaRowActions } from "./Portada-Row-Actions"
-import { PortadaStatusBadge } from "./Portada-Status-Badge"
 
 export function PortadaCards({
   onDelete,

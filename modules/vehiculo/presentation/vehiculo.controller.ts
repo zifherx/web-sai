@@ -10,16 +10,16 @@ import {
 import { VehiculoUnauthorizedError } from "@/modules/vehiculo/domain/errors/VehiculoDomainError"
 import { vehiculoFactory } from "@/modules/vehiculo/factories/vehiculo.factory"
 import {
-  IdContext,
-  MarcaContext,
-  SlugContext,
+  type IdContext,
+  type MarcaContext,
+  type SlugContext,
 } from "@/modules/vehiculo/helpers/vehiculo.helper"
 import { vehiculoRateLimit } from "@/modules/vehiculo/presentation/vehiculo.ratelimit"
 import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { withRateLimitHeaders } from "@/shared/presentation/with-rate-limit.headers"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/vehiculos

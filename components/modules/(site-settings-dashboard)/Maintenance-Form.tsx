@@ -16,7 +16,7 @@ import { useSetMaintenanceMode } from "@/hooks/mutations/use-site.settings.mutat
 import { dateFormatter } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
 import { MAINTENANCE_MESSAGE_MAX } from "@/modules/site-settings/application/dto/site-settings.dto"
-import { MAINTENANCE_FORM_PROPS } from "@/types/site-settings.types"
+import { type MAINTENANCE_FORM_PROPS } from "@/types/site-settings.types"
 import { AlertTriangle, ExternalLink } from "lucide-react"
 import { useState } from "react"
 

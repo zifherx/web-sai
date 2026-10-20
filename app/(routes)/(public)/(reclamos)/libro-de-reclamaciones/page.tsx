@@ -1,5 +1,5 @@
+import { LibroReclamacionesView } from "@/app/(routes)/(public)/(reclamos)/libro-de-reclamaciones/components/Libro-Reclamaciones-View"
 import type { Metadata } from "next"
-import { LibroReclamacionesView } from "./components/Libro-Reclamaciones-View"
 
 export const metadata: Metadata = {
   title: "Libro de Reclamaciones — Automotores Inka",

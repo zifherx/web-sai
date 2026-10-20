@@ -1,10 +1,10 @@
+import { MarcaModeloView } from "@/app/(routes)/(public)/(catalogo)/catalogo/[marca]/[modelo]/components/Marca-Modelo-View"
 import { JsonLd } from "@/components/shared/Json-Ld"
 import { marcaService, vehiculoService } from "@/services"
 import { buildVehicleSchema } from "@/shared/infrastructure/seo/schema/build-schema"
-import { MARCA_MODELO_PAGE_PROPS } from "@/types"
-import { Metadata } from "next"
+import { type MARCA_MODELO_PAGE_PROPS } from "@/types"
+import { type Metadata } from "next"
 import { cache } from "react"
-import { MarcaModeloView } from "./components/Marca-Modelo-View"
 
 const getVehiculo = cache((slug: string) => vehiculoService.getBySlug(slug))
 const getMarca = cache((slug: string) => marcaService.getBySlug(slug))

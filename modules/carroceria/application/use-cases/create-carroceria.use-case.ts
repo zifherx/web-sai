@@ -1,11 +1,11 @@
 import {
-  CarroceriaResponseDTO,
-  CreateCarroceriaDTO,
+  type CarroceriaResponseDTO,
+  type CreateCarroceriaDTO,
 } from "@/modules/carroceria/application/dto/carroceria.dto"
 import { CarroceriaMapper } from "@/modules/carroceria/application/ports/carroceria.mapper"
 import { CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
 import { CarroceriaAlreadyExistsError } from "@/modules/carroceria/domain/errors/CarroceriaDomainError"
-import { ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
+import { type ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
 
 export class CreateCarroceriaUseCase {
   constructor(private readonly repository: ICarroceriaRepository) {}

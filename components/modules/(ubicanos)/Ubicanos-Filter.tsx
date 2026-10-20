@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { UBICANOS_FILTER_PROPS } from "@/types"
+import { type UBICANOS_FILTER_PROPS } from "@/types"
 import { Search } from "lucide-react"
 
 export function UbicanosFilter({

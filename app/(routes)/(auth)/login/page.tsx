@@ -1,5 +1,5 @@
+import { LoginView } from "@/app/(routes)/(auth)/login/components/Login-View"
 import type { Metadata } from "next"
-import { LoginView } from "./components/Login-View"
 
 export const metadata: Metadata = {
   title: {

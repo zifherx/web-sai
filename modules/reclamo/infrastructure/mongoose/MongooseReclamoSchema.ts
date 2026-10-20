@@ -1,4 +1,4 @@
-import { Document, model, models, Schema } from "mongoose"
+import { type Document, model, models, Schema } from "mongoose"
 
 export interface ReclamoDocument extends Document {
   // Generales

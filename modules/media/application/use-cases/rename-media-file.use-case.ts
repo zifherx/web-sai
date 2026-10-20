@@ -1,11 +1,11 @@
 import {
-  MediaFileResponseDto,
-  RenameMediaFileDto,
+  type MediaFileResponseDto,
+  type RenameMediaFileDto,
 } from "@/modules/media/application/dtos/media.dto"
 import { MediaFileMapper } from "@/modules/media/application/ports/media-file.mapper"
 import { MediaFileNotFoundError } from "@/modules/media/domain/errors/media-domain.error"
-import { IMediaRepository } from "@/modules/media/domain/repositories/IMediaRepository"
-import { IStorageService } from "@/modules/media/domain/repositories/IStorageService"
+import { type IMediaRepository } from "@/modules/media/domain/repositories/IMediaRepository"
+import { type IStorageService } from "@/modules/media/domain/repositories/IStorageService"
 
 export class RenameMediaFileUseCase {
   constructor(

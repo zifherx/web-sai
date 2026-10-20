@@ -7,13 +7,13 @@ import {
 import { cotizacionFactory } from "@/modules/cotizacion/factories/cotizacion.factory"
 import {
   resolveUserId,
-  RouteContext,
+  type RouteContext,
   withRateLimitHeaders,
 } from "@/modules/cotizacion/helpers/cotizacion.helper"
 import { cotizacionRateLimit } from "@/modules/cotizacion/presentation/cotizacion.rate-limit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/cotizaciones

@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/select"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import {
-  PORTADA_FILTERS_PROPS,
-  PortadaStatusFilter,
-  PortadaViewMode,
+  type PORTADA_FILTERS_PROPS,
+  type PortadaStatusFilter,
+  type PortadaViewMode,
 } from "@/types"
 import { LayoutGrid, Plus, Search, Table2 } from "lucide-react"
 

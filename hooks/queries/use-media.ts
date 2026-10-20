@@ -1,6 +1,6 @@
 import { mediaKeys } from "@/hooks"
 import { mediaService } from "@/services"
-import { IMediaFilters } from "@/types"
+import { type IMediaFilters } from "@/types"
 import { useQuery } from "@tanstack/react-query"
 
 export function useMediaFiles(filters?: IMediaFilters) {

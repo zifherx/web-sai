@@ -1,5 +1,5 @@
+import { BenficiosRepsolView } from "@/app/(routes)/(public)/(comercial)/comercial/beneficios-repsol/components/Beneficios-Repsol-View"
 import type { Metadata } from "next"
-import { BenficiosRepsolView } from "./components/Beneficios-Repsol-View"
 
 export const metadata: Metadata = {
   title: "Beneficios Repsol — Automotores Inka",

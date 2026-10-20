@@ -1,4 +1,4 @@
-import { Usuario } from "@/modules/auth/domain/entities/usuario.entity"
+import { type Usuario } from "@/modules/auth/domain/entities/usuario.entity"
 
 export type IRol = "admin" | "editor" | "sede"
 export interface IUserRepository {

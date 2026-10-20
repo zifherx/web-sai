@@ -9,7 +9,7 @@ import { PortadaHeader } from "@/components/modules/(portada-dashboard)/Portada-
 import { PortadaSkeleton } from "@/components/modules/(portada-dashboard)/Portada-Skeleton"
 import { PortadaTable } from "@/components/modules/(portada-dashboard)/Portada-Table"
 import { usePortadas, useToggleActivePortada } from "@/hooks"
-import { PortadaStatusFilter, PortadaType, PortadaViewMode } from "@/types"
+import { type PortadaStatusFilter, type PortadaType, type PortadaViewMode } from "@/types"
 import { useMemo, useState } from "react"
 
 export function PortadaModule() {

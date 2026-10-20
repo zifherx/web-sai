@@ -1,7 +1,7 @@
 import { SedeUbicanosCard } from "@/components/shared/Sede-Ubicanos-Card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveMarcas } from "@/hooks"
-import { SEDE_GRID_PROPS } from "@/types"
+import { type SEDE_GRID_PROPS } from "@/types"
 import { MapPinOff } from "lucide-react"
 import { useMemo } from "react"
 

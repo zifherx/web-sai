@@ -1,5 +1,5 @@
-import { Metadata } from "next"
-import { SolucionesCoporativasGracias } from "./components/Soluciones-Coporativas-Gracias"
+import { type Metadata } from "next"
+import { SolucionesCoporativasGracias } from "@/app/(routes)/(public)/(comercial)/comercial/soluciones-corporativas/gracias/components/Soluciones-Coporativas-Gracias"
 
 export const metadata: Metadata = {
   title: "Solicitud Corporativa Enviada — Automotores Inka",

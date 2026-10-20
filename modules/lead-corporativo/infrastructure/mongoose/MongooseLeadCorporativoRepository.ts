@@ -1,11 +1,11 @@
 import { LeadCorporativoEntity } from "@/modules/lead-corporativo/domain/entities/LeadCorporativo"
 import {
-  ICreateLeadCorporativoData,
-  ILeadCorporativoRepository,
-  LeadCorporativoFilters,
+  type ICreateLeadCorporativoData,
+  type ILeadCorporativoRepository,
+  type LeadCorporativoFilters,
 } from "@/modules/lead-corporativo/domain/repositories/ILeadCorporativoRepository"
-import { LeadCorporativoDocument } from "@/modules/lead-corporativo/infrastructure/mongoose/MongooseLeadCorporativoSchema"
-import { Model } from "mongoose"
+import { type LeadCorporativoDocument } from "@/modules/lead-corporativo/infrastructure/mongoose/MongooseLeadCorporativoSchema"
+import { type Model } from "mongoose"
 
 export class MongooseLeadCorporativoRepository implements ILeadCorporativoRepository {
   constructor(private readonly model: Model<LeadCorporativoDocument>) {}

@@ -10,7 +10,7 @@ import { useLogin } from "@/hooks/mutations/use-auth.mutations"
 import { cn } from "@/lib/utils"
 import {
   loginFormSchema,
-  LoginFormValues,
+  type LoginFormValues,
 } from "@/shared/application/dto/auth.form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {

@@ -1,4 +1,4 @@
-import { ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
+import { type ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
 
 export class SiteSettingsEntity {
   constructor(

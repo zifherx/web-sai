@@ -1,5 +1,5 @@
 import { AUTOMOTORES_INKA_ORG } from "@/shared/infrastructure/seo/schema/sai.const"
-import { VehiculoSeoSchema } from "@/types"
+import { type VehiculoSeoSchema } from "@/types"
 
 export function buildVehicleSchema(
   vehiculo: VehiculoSeoSchema,

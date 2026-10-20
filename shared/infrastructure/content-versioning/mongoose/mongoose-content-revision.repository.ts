@@ -1,14 +1,14 @@
 import {
-  ContentEntityType,
+  type ContentEntityType,
   ContentRevision,
-  NewContentRevisionData,
+  type NewContentRevisionData,
 } from "@/shared/domain/content-versioning/content-revision"
-import { IContentRevisionRepository } from "@/shared/domain/ports/content-revision.repository"
-import { TransactionContext } from "@/shared/domain/ports/transaction-runner.port"
-import { RichContent } from "@/shared/domain/rich-text/rich-content"
+import { type IContentRevisionRepository } from "@/shared/domain/ports/content-revision.repository"
+import { type TransactionContext } from "@/shared/domain/ports/transaction-runner.port"
+import { type RichContent } from "@/shared/domain/rich-text/rich-content"
 import {
-  ContentRevisionFields,
-  ContentRevisionLean,
+  type ContentRevisionFields,
+  type ContentRevisionLean,
 } from "@/shared/infrastructure/content-versioning/mongoose/content-revision.schema"
 import { toSession } from "@/shared/infrastructure/mongoose/mongoose-transaction-runner"
 import { isValidObjectId, type Model } from "mongoose"
@@ -63,7 +63,6 @@ export class MongooseContentRevisionRepository implements IContentRevisionReposi
           note: data.note,
         },
       ],
-      // `create([...], { session })`: forma requerida para usar sesión.
       { session: toSession(tx) }
     )
     if (!doc) throw new Error("No se pudo crear la revisión")

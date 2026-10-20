@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
-import { SEARCH_SELECT_PROPS } from "@/types"
+import { type SEARCH_SELECT_PROPS } from "@/types"
 
 export function SearchSelect({
   id,

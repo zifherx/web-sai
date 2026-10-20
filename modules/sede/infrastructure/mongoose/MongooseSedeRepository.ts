@@ -1,13 +1,13 @@
 import { parseMarca } from "@/lib/global.functions"
 import { SedeEntity } from "@/modules/sede/domain/entities/Sede"
 import {
-  ICreateSedeData,
-  ISedeRepository,
-  IUpdateSedeData,
-  SedeFilters,
+  type ICreateSedeData,
+  type ISedeRepository,
+  type IUpdateSedeData,
+  type SedeFilters,
 } from "@/modules/sede/domain/repositories/ISedeRepository"
-import { SedeDocument } from "@/modules/sede/infrastructure/mongoose/MongooseSedeSchema"
-import { Model, Types } from "mongoose"
+import { type SedeDocument } from "@/modules/sede/infrastructure/mongoose/MongooseSedeSchema"
+import { type Model, Types } from "mongoose"
 
 const POPULATE_MARCAS_TALLER = {
   path: "marcasDisponiblesTaller",

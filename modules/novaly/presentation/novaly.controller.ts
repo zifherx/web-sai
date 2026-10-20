@@ -4,7 +4,7 @@ import { novalyFactory } from "@/modules/novaly/factories/novaly-factory"
 import { withRateLimitHeaders } from "@/modules/novaly/helpers/novaly.helper"
 import { novalyRateLimit } from "@/modules/novaly/presentation/novaly.ratelimit"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * POST /api/novaly

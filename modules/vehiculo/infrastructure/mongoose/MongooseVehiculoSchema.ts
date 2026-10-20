@@ -1,4 +1,12 @@
-import { Document, model, models, Schema, Types } from "mongoose"
+import {
+  type VersionedContentDocFields,
+  versionedContentFields,
+} from "@/shared/infrastructure/content-versioning/mongoose/versioned-content.subschema"
+import { type Document, model, models, Schema, type Types } from "mongoose"
+
+export interface VehiculoNotaLegalDoc extends VersionedContentDocFields {
+  showInLegalPage: boolean
+}
 
 export interface VehiculoDocument extends Document {
   name: string
@@ -25,6 +33,7 @@ export interface VehiculoDocument extends Document {
     feature2: { superTitle: string; mainTitle: string; subTitle: string }[]
   }
   galeria: { name: string; imageUrl: string }[]
+  notaLegal: VehiculoNotaLegalDoc | null
   createdBy: string
   createdAt: Date
   updatedAt: Date
@@ -57,6 +66,14 @@ const galeriaSubSchema = new Schema(
   { _id: false }
 )
 
+const notaLegalSubSchema = new Schema<VehiculoNotaLegalDoc>(
+  {
+    ...versionedContentFields,
+    showInLegalPage: { type: Boolean, default: true },
+  },
+  { _id: false, minimize: false }
+)
+
 const vehiculoSchema = new Schema<VehiculoDocument>(
   {
     name: { type: String, required: true, trim: true },
@@ -78,11 +95,13 @@ const vehiculoSchema = new Schema<VehiculoDocument>(
       feature2: { type: [featureSubSchema], default: [] },
     },
     galeria: { type: [galeriaSubSchema], default: [] },
+    notaLegal: { type: notaLegalSubSchema, default: null },
     createdBy: { type: String, default: "" },
   },
   {
     versionKey: false,
     timestamps: true,
+    minimize: false,
     collection: "modelos",
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
@@ -95,6 +114,7 @@ vehiculoSchema.index({ carroceria: 1 })
 vehiculoSchema.index({ isNuevo: 1 })
 vehiculoSchema.index({ isLiquidacion: 1 })
 vehiculoSchema.index({ precioBase: 1 })
+vehiculoSchema.index({ "notaLegal.showInLegalPage": 1 }, { sparse: true })
 
 export const VehiculoModel =
   models.Vehiculo || model<VehiculoDocument>("Vehiculo", vehiculoSchema)

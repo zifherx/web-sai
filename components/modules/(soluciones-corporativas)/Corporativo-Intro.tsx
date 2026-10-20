@@ -1,5 +1,5 @@
 import { parseBoldText } from "@/lib/global.functions"
-import { CORPORATIVO_INTRO_PROPS } from "@/types"
+import { type CORPORATIVO_INTRO_PROPS } from "@/types"
 
 export function CorporativoIntro({ intro }: CORPORATIVO_INTRO_PROPS) {
   const { text } = intro

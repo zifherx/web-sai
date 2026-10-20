@@ -1,5 +1,5 @@
-import { RateLimitHeaders } from "@/lib/identity.helpers"
-import { NextResponse } from "next/server"
+import { type RateLimitHeaders } from "@/lib/identity.helpers"
+import { type NextResponse } from "next/server"
 
 export type IdContext = { params: Promise<{ id: string }> }
 

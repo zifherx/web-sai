@@ -1,5 +1,5 @@
-import { SiteSettingsEntity } from "@/modules/site-settings/domain/entities/site-settings.entity"
-import { ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
+import { type SiteSettingsEntity } from "@/modules/site-settings/domain/entities/site-settings.entity"
+import { type ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
 
 export interface ISetMaintenanceData {
   enabled: boolean

@@ -1,11 +1,11 @@
 import {
-  LeadCorporativoFiltersDTO,
-  LeadCorporativoResponseDTO,
+  type LeadCorporativoFiltersDTO,
+  type LeadCorporativoResponseDTO,
 } from "@/modules/lead-corporativo/application/dto/lead-corporativo.dto"
 import { LeadCorporativoMapper } from "@/modules/lead-corporativo/application/mapper/lead-corporativo.mapper"
 import {
-  ILeadCorporativoRepository,
-  LeadCorporativoFilters,
+  type ILeadCorporativoRepository,
+  type LeadCorporativoFilters,
 } from "@/modules/lead-corporativo/domain/repositories/ILeadCorporativoRepository"
 
 export class GetAllLeadsCorporativosUseCase {

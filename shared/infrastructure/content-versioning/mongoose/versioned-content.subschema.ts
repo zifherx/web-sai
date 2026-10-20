@@ -1,7 +1,5 @@
 import { Schema } from "mongoose"
 
-// ── Tipos del documento persistido ───────────────────────────────────────────
-
 export interface ContentAuthorDoc {
   userId: string
   name: string
@@ -31,21 +29,12 @@ export interface ContentPublicationDoc {
   publishedBy: ContentAuthorDoc
 }
 
-/** Campos que cualquier documento versionado agrega a su schema. */
 export interface VersionedContentDocFields {
   draft: ContentDraftDoc
   published: ContentPublicationDoc | null
   lockVersion: number
 }
 
-// ── Sub-schemas ──────────────────────────────────────────────────────────────
-
-/**
- * `minimize: false` es OBLIGATORIO: el JSON de Tiptap contiene objetos
- * vacíos (`attrs: {}`) y Mongoose los eliminaría por defecto, lo que haría
- * que un borrador idéntico al publicado se detecte como "con cambios".
- * Aplicarlo también en el schema padre.
- */
 const subOptions = { _id: false, minimize: false } as const
 
 export const contentAuthorSubSchema = new Schema<ContentAuthorDoc>(
@@ -89,7 +78,6 @@ export const contentPublicationSubSchema = new Schema<ContentPublicationDoc>(
   subOptions
 )
 
-/** Spread en la definición del schema padre: `{ ...versionedContentFields, ... }`. */
 export const versionedContentFields = {
   draft: { type: contentDraftSubSchema, required: true },
   published: { type: contentPublicationSubSchema, default: null },

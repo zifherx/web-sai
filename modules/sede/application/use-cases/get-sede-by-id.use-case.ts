@@ -1,7 +1,7 @@
-import { SedeResponseDTO } from "@/modules/sede/application/dtos/sede.dto"
+import { type SedeResponseDTO } from "@/modules/sede/application/dtos/sede.dto"
 import { SedeMapper } from "@/modules/sede/application/ports/sede.mapper"
 import { SedeNotFoundError } from "@/modules/sede/domain/errors/SedeDomainError"
-import { ISedeRepository } from "@/modules/sede/domain/repositories/ISedeRepository"
+import { type ISedeRepository } from "@/modules/sede/domain/repositories/ISedeRepository"
 
 export class GetSedeByIdUseCase {
   constructor(private readonly repository: ISedeRepository) {}

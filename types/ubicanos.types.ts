@@ -1,6 +1,6 @@
-import { SedeType } from "@/types"
+import { type SedeType } from "@/types"
 import type { Marker as LeafletMarker } from "leaflet"
-import { RefObject } from "react"
+import { type RefObject } from "react"
 
 export type UBICANOS_VIEW_PROPS = {
   initialSedes: SedeType[]

@@ -1,11 +1,11 @@
 import { CotizacionEntity } from "@/modules/cotizacion/domain/entities/Cotizacion"
 import {
-  CotizacionFilters,
-  ICotizacionRepository,
-  ICreateCotizacionData,
+  type CotizacionFilters,
+  type ICotizacionRepository,
+  type ICreateCotizacionData,
 } from "@/modules/cotizacion/domain/repository/ICotizacionRepository"
-import { CotizacionDocument } from "@/modules/cotizacion/infrastructure/mongoose/MongooseCotizacionSchema"
-import { Model } from "mongoose"
+import { type CotizacionDocument } from "@/modules/cotizacion/infrastructure/mongoose/MongooseCotizacionSchema"
+import { type Model } from "mongoose"
 
 const POPULATE_COTIZACION_OPTIONS = [
   {

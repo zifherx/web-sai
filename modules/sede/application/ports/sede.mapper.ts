@@ -1,5 +1,5 @@
-import { SedeResponseDTO } from "@/modules/sede/application/dtos/sede.dto"
-import { SedeEntity } from "@/modules/sede/domain/entities/Sede"
+import { type SedeResponseDTO } from "@/modules/sede/application/dtos/sede.dto"
+import { type SedeEntity } from "@/modules/sede/domain/entities/Sede"
 
 export class SedeMapper {
   static toDTO(entity: SedeEntity): SedeResponseDTO {

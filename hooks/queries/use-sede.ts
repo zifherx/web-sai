@@ -1,6 +1,6 @@
 import { sedeKeys } from "@/hooks/query-keys"
 import { sedeService } from "@/services"
-import { ISedeFilters, SedeType } from "@/types"
+import { type ISedeFilters, type SedeType } from "@/types"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
 
 export function useSedes(filters?: ISedeFilters) {

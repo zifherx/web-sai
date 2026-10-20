@@ -1,4 +1,4 @@
-import { Document, model, models, Schema, Types } from "mongoose"
+import { type Document, model, models, Schema, Types } from "mongoose"
 
 export interface CotizacionDocument extends Document {
   clienteId: Types.ObjectId

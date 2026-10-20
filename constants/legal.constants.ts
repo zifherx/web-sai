@@ -1,4 +1,4 @@
-import { ILegalPage } from "@/types"
+import { type ILegalPage } from "@/types"
 
 export const LEGAL_ACCESIBILIDAD: ILegalPage = {
   heading: "Accesibilidad",

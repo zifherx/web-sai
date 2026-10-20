@@ -11,8 +11,8 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { Sidebar_Menu } from "@/constants/menu.constants"
-import { AuthUsuario } from "@/types/auth.types"
-import { ComponentProps } from "react"
+import { type AuthUsuario } from "@/types/auth.types"
+import { type ComponentProps } from "react"
 
 interface SidebarAppProps extends ComponentProps<typeof Sidebar> {
   usuario: AuthUsuario

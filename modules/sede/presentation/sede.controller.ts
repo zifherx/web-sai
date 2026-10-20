@@ -8,16 +8,16 @@ import {
 } from "@/modules/sede/application/dtos/sede.dto"
 import { sedeFactory } from "@/modules/sede/factories/sede.factory"
 import {
-  IdContext,
-  MarcaContext,
+  type IdContext,
+  type MarcaContext,
   resolveUserId,
-  SlugContext,
+  type SlugContext,
   withRateLimitHeaders,
 } from "@/modules/sede/helpers/sede.helper"
 import { sedeRateLimit } from "@/modules/sede/presentation/sede.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/sedes

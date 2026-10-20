@@ -1,4 +1,4 @@
-import { IOptionSelect, SORT_OPTION_TYPE } from "@/types"
+import { type IOptionSelect, type SORT_OPTION_TYPE } from "@/types"
 
 export const ALL_BRANDS = "todos"
 

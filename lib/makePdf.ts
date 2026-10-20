@@ -1,6 +1,9 @@
-import { ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
+import {
+  precioFormateadoPEN,
+  precioFormateadoUSD,
+} from "@/lib/global.functions"
+import { type ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
 import { jsPDF } from "jspdf"
-import { precioFormateadoPEN, precioFormateadoUSD } from "./global.functions"
 
 export const makePDFCorreoReclamo = (
   params: ReclamoResponseDTO
