@@ -8,7 +8,7 @@ import {
   InputGroupTextarea,
 } from "@/components/ui/input-group"
 import {
-  SeparaCitaData,
+  type SeparaCitaData,
   SeparaCitaSchema,
   TIPO_DOCUMENTO_POSVENTA_OPTIONS,
   TIPO_SERVICIO_POSVENTA_OPTIONS,
@@ -19,10 +19,10 @@ import { toastError, toastSuccess } from "@/lib/toast-helpers"
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import {
-  IMarcaRef,
-  ITrackingData,
-  SedeType,
-  SEPARA_CITA_FORM_PROPS,
+  type IMarcaRef,
+  type ITrackingData,
+  type SedeType,
+  type SEPARA_CITA_FORM_PROPS,
 } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {

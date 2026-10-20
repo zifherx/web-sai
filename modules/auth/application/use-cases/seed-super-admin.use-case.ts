@@ -1,5 +1,5 @@
-import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
-import { IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
+import { type IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
+import { type IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
 import { SeedYaEjecutadoError } from "@/modules/auth/domain/errors/auth-errors"
 
 interface SeedInput {

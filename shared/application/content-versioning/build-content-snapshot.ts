@@ -1,9 +1,9 @@
 import {
-  ContentSnapshot,
-  SeoMeta,
+  type ContentSnapshot,
+  type SeoMeta,
 } from "@/shared/domain/content-versioning/versioned-content"
-import { IRichContentProcessor } from "@/shared/domain/ports/rich-content-processor.port"
-import { RichContentProfile } from "@/shared/domain/rich-text/rich-content"
+import { type IRichContentProcessor } from "@/shared/domain/ports/rich-content-processor.port"
+import { type RichContentProfile } from "@/shared/domain/rich-text/rich-content"
 
 export interface ContentSnapshotInput {
   title: string
@@ -11,10 +11,6 @@ export interface ContentSnapshotInput {
   seo: SeoMeta | null
 }
 
-/**
- * Valida el JSON enriquecido con el perfil indicado y arma el snapshot
- * (con `plainText` derivado). Lanza `InvalidRichContentError` si no es válido.
- */
 export function buildContentSnapshot(
   processor: IRichContentProcessor,
   input: ContentSnapshotInput,

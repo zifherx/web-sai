@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { ReactNode } from "react"
+import { type ReactNode } from "react"
 
 type NAV_LINK_PROPS = {
   href: string

@@ -7,13 +7,13 @@ import {
 import { citaFactory } from "@/modules/cita/factories/cita.factory"
 import {
   resolveUserId,
-  RouteContext,
+  type RouteContext,
   withRateLimitHeaders,
 } from "@/modules/cita/helpers/cita.helper"
 import { citaRateLimit } from "@/modules/cita/presentation/cita.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/citas

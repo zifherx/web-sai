@@ -7,7 +7,7 @@ import { TalleresAutorizados } from "@/components/modules/(home)/Talleres-Autori
 import { VehicleSearchBar } from "@/components/modules/(home)/Vehicle-SearchBar"
 import { VehicleShowcase } from "@/components/modules/(home)/Vehicle-Showcase"
 import { MIATA_MX5_SHOWCASE, SERVICE_SHOWCASE } from "@/constants"
-import { HOME_VIEW_PROPS } from "@/types"
+import { type HOME_VIEW_PROPS } from "@/types"
 
 export function HomeView({ initialPortadas }: HOME_VIEW_PROPS) {
   return (

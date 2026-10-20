@@ -1,4 +1,4 @@
-import { PortadaEntity } from "@/modules/portada/domain/entities/Portada"
+import { type PortadaEntity } from "@/modules/portada/domain/entities/Portada"
 
 type PortadaData = Omit<
   PortadaEntity,

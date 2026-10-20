@@ -1,7 +1,7 @@
 import { applyRateLimit } from "@/lib/rate-limit.guard"
-import { RateLimitTier } from "@/lib/rate-limit.middleware"
+import { type RateLimitTier } from "@/lib/rate-limit.middleware"
 import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 async function resolvePortadaTier(req: NextRequest): Promise<RateLimitTier> {
   const method = req.method.toUpperCase()

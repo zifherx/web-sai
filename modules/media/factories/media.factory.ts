@@ -7,9 +7,9 @@ import {
   ListMediaFilesUseCase,
   RegisterUploadedFileUseCase,
 } from "@/modules/media/application/use-cases"
+import { RenameMediaFileUseCase } from "@/modules/media/application/use-cases/rename-media-file.use-case"
 import { MongooseMediaRepository } from "@/modules/media/infrastructure/mongoose/mongoose-media.repository"
 import { UploadThingStorageService } from "@/modules/media/infrastructure/uploadthing/uploadthing-storage.service"
-import { RenameMediaFileUseCase } from "../application/use-cases/rename-media-file.use-case"
 
 export function mediaFactory() {
   const repository = new MongooseMediaRepository()

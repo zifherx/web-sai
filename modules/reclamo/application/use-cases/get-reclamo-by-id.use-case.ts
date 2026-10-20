@@ -1,7 +1,7 @@
-import { ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
+import { type ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
 import { ReclamoMapper } from "@/modules/reclamo/application/ports/reclamo.mapper"
 import { ReclamoNotFoundError } from "@/modules/reclamo/domain/errors/ReclamoDomainError"
-import { IReclamoRepository } from "@/modules/reclamo/domain/repositories/IReclamoRepository"
+import { type IReclamoRepository } from "@/modules/reclamo/domain/repositories/IReclamoRepository"
 
 export class GetReclamoByIdUseCase {
   constructor(private readonly repository: IReclamoRepository) {}

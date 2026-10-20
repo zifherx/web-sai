@@ -1,6 +1,6 @@
 import {
-  AnalyticsEvent,
-  IAnalyticsEventPort,
+  type AnalyticsEvent,
+  type IAnalyticsEventPort,
 } from "@/shared/domain/ports/analytics-event.port"
 
 declare global {

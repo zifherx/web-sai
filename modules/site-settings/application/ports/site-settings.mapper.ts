@@ -1,5 +1,5 @@
-import { SiteSettingsResponseDTO } from "@/modules/site-settings/application/dto/site-settings.dto"
-import { SiteSettingsEntity } from "@/modules/site-settings/domain/entities/site-settings.entity"
+import { type SiteSettingsResponseDTO } from "@/modules/site-settings/application/dto/site-settings.dto"
+import { type SiteSettingsEntity } from "@/modules/site-settings/domain/entities/site-settings.entity"
 
 export const SiteSettingsMapper = {
   toDTO(entity: SiteSettingsEntity): SiteSettingsResponseDTO {

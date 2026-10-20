@@ -1,9 +1,9 @@
 import {
-  IRepsolCTA,
-  IRepsolHero,
-  IRepsolInfo,
-  IRepsolVentaja,
-  IRepsolVideo,
+  type IRepsolCTA,
+  type IRepsolHero,
+  type IRepsolInfo,
+  type IRepsolVentaja,
+  type IRepsolVideo,
 } from "@/types"
 
 export const REPSOL_HERO: IRepsolHero = {

@@ -1,4 +1,4 @@
-import { Document, model, Model, models, Schema, Types } from "mongoose"
+import { type Document, model, type Model, models, Schema, Types } from "mongoose"
 
 /** Clave del documento único. Se usa `key` en vez de depender de un _id fijo. */
 export const SITE_SETTINGS_KEY = "global"

@@ -1,9 +1,9 @@
 import {
-  CreateLeadCorporativoDTO,
-  LeadCorporativoResponseDTO,
+  type CreateLeadCorporativoDTO,
+  type LeadCorporativoResponseDTO,
 } from "@/modules/lead-corporativo/application/dto/lead-corporativo.dto"
 import { LeadCorporativoMapper } from "@/modules/lead-corporativo/application/mapper/lead-corporativo.mapper"
-import { ILeadCorporativoRepository } from "@/modules/lead-corporativo/domain/repositories/ILeadCorporativoRepository"
+import { type ILeadCorporativoRepository } from "@/modules/lead-corporativo/domain/repositories/ILeadCorporativoRepository"
 
 /**
  * Caso de uso: Registrar un nuevo lead corporativo.

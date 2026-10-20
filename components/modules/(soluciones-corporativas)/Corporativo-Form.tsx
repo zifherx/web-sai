@@ -10,7 +10,7 @@ import {
 import {
   CORPORATIVO_PERIODO_OPTIONS,
   CORPORATIVO_SECTOR_OPTIONS,
-  CorporativoData,
+  type CorporativoData,
   CorporativoSchema,
 } from "@/constants"
 import { useActiveMarcas, useCrearLeadCorporativo } from "@/hooks"
@@ -18,7 +18,10 @@ import { groupCn } from "@/lib/global.functions"
 import { toastError, toastSuccess } from "@/lib/toast-helpers"
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
-import { CORPORATIVO_FORM_PROPS, ITrackingDataCorporatativo } from "@/types"
+import {
+  type CORPORATIVO_FORM_PROPS,
+  type ITrackingDataCorporatativo,
+} from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Barcode,

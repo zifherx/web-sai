@@ -1,4 +1,4 @@
-import { IUsuario } from "@/modules/auth/application/dto/usuario.dto"
+import { type IUsuario } from "@/modules/auth/application/dto/usuario.dto"
 import { z } from "zod"
 
 export const loginSchema = z.object({

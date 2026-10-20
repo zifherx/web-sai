@@ -1,4 +1,4 @@
-import { LeadCorporativoEntity } from "@/modules/lead-corporativo/domain/entities/LeadCorporativo"
+import { type LeadCorporativoEntity } from "@/modules/lead-corporativo/domain/entities/LeadCorporativo"
 
 export interface LeadCorporativoFilters {
   marcaId?: string

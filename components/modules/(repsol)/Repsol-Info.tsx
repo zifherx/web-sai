@@ -1,4 +1,4 @@
-import { REPSOL_INFO_PROPS } from "@/types"
+import { type REPSOL_INFO_PROPS } from "@/types"
 
 export function RepsolInfo({ info }: REPSOL_INFO_PROPS) {
   const { description, headingAccent, headingNeutral } = info

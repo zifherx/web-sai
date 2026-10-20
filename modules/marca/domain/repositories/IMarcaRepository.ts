@@ -1,4 +1,4 @@
-import { MarcaEntity } from "@/modules/marca/domain/entities/Marca"
+import { type MarcaEntity } from "@/modules/marca/domain/entities/Marca"
 
 type MarcaData = Omit<
   MarcaEntity,

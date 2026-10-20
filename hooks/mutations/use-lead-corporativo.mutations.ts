@@ -1,8 +1,8 @@
 import { leadCorporativoService } from "@/services"
 import {
-  ICreateLeadCorporativoOption,
-  LeadCorporativoResponseType,
-  LeadCorporativoType,
+  type ICreateLeadCorporativoOption,
+  type LeadCorporativoResponseType,
+  type LeadCorporativoType,
 } from "@/types"
 import { useMutation } from "@tanstack/react-query"
 

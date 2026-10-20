@@ -1,7 +1,7 @@
 import {
-  ContentAuthor,
-  ContentPublication,
-  ContentSnapshot,
+  type ContentAuthor,
+  type ContentPublication,
+  type ContentSnapshot,
 } from "@/shared/domain/content-versioning/versioned-content"
 
 export const CONTENT_ENTITY_TYPES = [
@@ -11,7 +11,6 @@ export const CONTENT_ENTITY_TYPES = [
 ] as const
 export type ContentEntityType = (typeof CONTENT_ENTITY_TYPES)[number]
 
-/** Campos operativos de una campaña al momento de publicar (auditoría). */
 export interface OperationalSnapshot {
   readonly validFrom: Date | null
   readonly validTo: Date | null
@@ -29,10 +28,6 @@ export interface NewContentRevisionData {
   readonly operational: OperationalSnapshot | null
 }
 
-/**
- * Snapshot INMUTABLE de una publicación. Colección `content_revisions`.
- * No existen operaciones de edición ni borrado.
- */
 export class ContentRevision {
   constructor(
     public readonly id: string,

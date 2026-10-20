@@ -3,7 +3,7 @@ import {
   getPortadaByIdHandler,
   updatePortadaHandler,
 } from "@/modules/portada/presentation/portada.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 type RouteContext = { params: Promise<{ id: string }> }
 

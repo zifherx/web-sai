@@ -1,7 +1,7 @@
-import { ReclamoData } from "@/constants"
-import { ReclamoResponseType, SedeType } from "@/types"
+import { type ReclamoData } from "@/constants"
+import { type ReclamoResponseType, type SedeType } from "@/types"
 import type { ReactNode } from "react"
-import { UseFormReturn } from "react-hook-form"
+import { type UseFormReturn } from "react-hook-form"
 
 export interface ITipoBien {
   label: string

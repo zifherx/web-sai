@@ -1,4 +1,4 @@
-import { LOGO_FOOTER_PROPS } from "@/types"
+import { type LOGO_FOOTER_PROPS } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
 

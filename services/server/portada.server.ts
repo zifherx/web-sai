@@ -1,6 +1,6 @@
 import { portadaFactory } from "@/modules/portada/factories/portada.factory"
 import { connectDB } from "@/shared/infrastructure/connection"
-import { PortadaType } from "@/types"
+import { type PortadaType } from "@/types"
 import "server-only"
 
 export const portadaServerService = {

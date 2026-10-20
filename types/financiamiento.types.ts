@@ -1,6 +1,6 @@
-import { Step1Data, Step2Data, Step3Data, Step4Data } from "@/constants"
-import { GENERAL_ICON } from "@/types"
-import { ReactNode } from "react"
+import { type Step1Data, type Step2Data, type Step3Data, type Step4Data } from "@/constants"
+import { type GENERAL_ICON } from "@/types"
+import { type ReactNode } from "react"
 
 export interface IWizardStepForm {
   number: number

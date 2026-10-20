@@ -1,11 +1,11 @@
 import {
-  CreateMarcaDTO,
-  MarcaResponseDTO,
+  type CreateMarcaDTO,
+  type MarcaResponseDTO,
 } from "@/modules/marca/application/dtos/marca.dto"
 import { MarcaMapper } from "@/modules/marca/application/ports/marca.mapper"
 import { MarcaEntity } from "@/modules/marca/domain/entities/Marca"
 import { MarcaAlreadyExistsError } from "@/modules/marca/domain/errors/MarcaDomainError"
-import { IMarcaRepository } from "@/modules/marca/domain/repositories/IMarcaRepository"
+import { type IMarcaRepository } from "@/modules/marca/domain/repositories/IMarcaRepository"
 
 export class CreateMarcaUseCase {
   constructor(private readonly repository: IMarcaRepository) {}

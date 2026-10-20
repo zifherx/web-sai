@@ -1,4 +1,4 @@
-import { PortadaType } from "./api.types"
+import { type PortadaType } from "@/types/api.types"
 
 export type PortadaStatusFilter = "all" | "active" | "inactive"
 export type PortadaViewMode = "table" | "cards"

@@ -1,8 +1,8 @@
 import {
-  SendCitaEmailParams,
-  SendEmailResult,
-  SendLeadCorporativoEmailParams,
-  SendReclamoEmailParams,
+  type SendCitaEmailParams,
+  type SendEmailResult,
+  type SendLeadCorporativoEmailParams,
+  type SendReclamoEmailParams,
 } from "@/modules/email/domain/types/EmailTypes"
 
 /**

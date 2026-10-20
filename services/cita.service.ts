@@ -1,5 +1,5 @@
 import { httpClient } from "@/lib/http/axios.client"
-import { APIResponse, CitaResponseType, CitaType } from "@/types"
+import { type APIResponse, type CitaResponseType, type CitaType } from "@/types"
 
 export const citaService = {
   create: async (payload: CitaType): Promise<CitaResponseType> => {

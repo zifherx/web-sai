@@ -3,7 +3,7 @@
 import { SpecItem } from "@/components/shared/Spec-Item"
 import { TAB_LABELS } from "@/constants"
 import { cn } from "@/lib/utils"
-import { ITab, VEHICULO_FEATURES_PROPS } from "@/types"
+import { type ITab, type VEHICULO_FEATURES_PROPS } from "@/types"
 import { useState } from "react"
 
 export function VehiculoFeatures({ features }: VEHICULO_FEATURES_PROPS) {

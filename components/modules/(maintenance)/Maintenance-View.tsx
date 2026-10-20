@@ -1,6 +1,6 @@
-import { MAINTENANCE_VIEW_PROPS } from "@/types/site-settings.types"
+import { MaintenanceGameToggle } from "@/components/modules/(maintenance)/Maintenance-Game-Toggle"
+import { type MAINTENANCE_VIEW_PROPS } from "@/types/site-settings.types"
 import { Wrench } from "lucide-react"
-import { MaintenanceGameToggle } from "./Maintenance-Game-Toggle"
 
 const DEFAULT_MESSAGE =
   "Estamos realizando trabajos de mantenimiento en nuestra plataforma. Volveremos a estar en línea muy pronto."

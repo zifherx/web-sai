@@ -1,10 +1,10 @@
 "use client"
 
 import { UbicanosMarker } from "@/components/shared/Ubicanos-Marker"
-import { UBICANOS_MAP_PROPS } from "@/types"
+import { type UBICANOS_MAP_PROPS } from "@/types"
 import type { Marker } from "leaflet"
 import "leaflet/dist/leaflet.css"
-import { RefObject, useEffect, useRef } from "react"
+import { type RefObject, useEffect, useRef } from "react"
 import { MapContainer, TileLayer, useMap } from "react-leaflet"
 
 function MapController({

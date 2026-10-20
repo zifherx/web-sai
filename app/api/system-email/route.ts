@@ -2,7 +2,7 @@ import {
   createSystemEmailHandler,
   getAllSystemEmailsHandler,
 } from "@/modules/system-email/presentation/system-email.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/system-emails - Lista todos (CMS).

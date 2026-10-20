@@ -1,10 +1,10 @@
 import {
-  MarcaResponseDTO,
-  UpdateMarcaDTO,
+  type MarcaResponseDTO,
+  type UpdateMarcaDTO,
 } from "@/modules/marca/application/dtos/marca.dto"
 import { MarcaMapper } from "@/modules/marca/application/ports/marca.mapper"
 import { MarcaNotFoundError } from "@/modules/marca/domain/errors/MarcaDomainError"
-import { IMarcaRepository } from "@/modules/marca/domain/repositories/IMarcaRepository"
+import { type IMarcaRepository } from "@/modules/marca/domain/repositories/IMarcaRepository"
 
 export class UpdateMarcaUseCase {
   constructor(private readonly repository: IMarcaRepository) {}

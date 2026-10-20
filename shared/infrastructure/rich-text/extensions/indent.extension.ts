@@ -11,9 +11,7 @@ export const INDENTABLE_NODE_TYPES = [
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     indent: {
-      /** Aumenta la sangría del bloque (o bloques) seleccionado. */
       indent: () => ReturnType
-      /** Disminuye la sangría del bloque (o bloques) seleccionado. */
       outdent: () => ReturnType
     }
   }
@@ -39,7 +37,6 @@ function changeIndent(delta: 1 | -1) {
         tr.setNodeMarkup(pos, undefined, { ...node.attrs, indent: next })
         changed = true
       }
-      // Una lista se sangra completa: no descender a sus párrafos internos.
       return false
     })
 
@@ -48,15 +45,6 @@ function changeIndent(delta: 1 | -1) {
   }
 }
 
-/**
- * Sangría de bloques (0 a MAX_INDENT) — no existe extensión oficial gratuita.
- *
- * Se serializa como `data-indent="n"`; el estilo lo define `.legal-content`
- * en `globals.css`, igual en el editor y en el sitio público.
- *
- * Atajos: Mod-] / Mod-[ (Tab queda reservado para anidar listas).
- * Isomórfica: sin node views, se usa en servidor (validación) y cliente.
- */
 export const Indent = Extension.create({
   name: "indent",
 

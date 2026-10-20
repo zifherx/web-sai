@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/sidebar"
 import { useLogout } from "@/hooks/mutations/use-auth.mutations"
 import { getInitials, getVisibleSettingsTabs } from "@/lib/global.functions"
-import { AuthUsuario } from "@/types"
+import { type AuthUsuario } from "@/types"
 import {
   Bell,
   ChevronsUpDown,

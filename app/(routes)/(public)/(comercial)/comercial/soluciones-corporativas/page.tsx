@@ -1,5 +1,5 @@
+import { SolucionesCorporativasView } from "@/app/(routes)/(public)/(comercial)/comercial/soluciones-corporativas/components/Soluciones-Corporativas-View"
 import type { Metadata } from "next"
-import { SolucionesCorporativasView } from "./components/Soluciones-Corporativas-View"
 
 export const metadata: Metadata = {
   title: "Soluciones Corporativas — Automotores Inka",

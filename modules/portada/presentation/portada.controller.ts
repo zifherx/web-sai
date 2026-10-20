@@ -3,18 +3,17 @@ import {
   CreatePortadaSchema,
   PortadaIdSchema,
   UpdatePortadaSchema,
+  VehiculoFiltersSchema,
 } from "@/modules/portada/application/dtos/portada.dto"
 import { PortadaUnauthorizedError } from "@/modules/portada/domain/errors/PortadaDomainError"
 import { portadaFactory } from "@/modules/portada/factories/portada.factory"
-import {
-  RouteContext,
-  withRateLimitHeaders,
-} from "@/modules/portada/helpers/portada.helper"
+import { type RouteContext } from "@/modules/portada/helpers/portada.helper"
 import { portadaRateLimit } from "@/modules/portada/presentation/portada.ratelimit"
 import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { withRateLimitHeaders } from "@/shared/presentation/with-rate-limit.headers"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/portadas
@@ -30,9 +29,11 @@ export function getAllPortadasHandler(req: NextRequest) {
     if (!rl.allowed) return rl.response!
 
     await connectDB()
-    const filter = Object.fromEntries(req.nextUrl.searchParams)
+    const filterDTO = VehiculoFiltersSchema.parse(
+      Object.fromEntries(req.nextUrl.searchParams)
+    )
     const useCases = portadaFactory()
-    const data = await useCases.getAll.execute(filter)
+    const data = await useCases.getAll.execute(filterDTO)
 
     return withRateLimitHeaders(
       ResponseFactory.success(data, "Portadas obtenidas"),

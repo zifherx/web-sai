@@ -1,6 +1,6 @@
-import { PortadaResponseDTO } from "@/modules/portada/application/dtos/portada.dto"
+import { type PortadaResponseDTO } from "@/modules/portada/application/dtos/portada.dto"
 import { PortadaMapper } from "@/modules/portada/application/ports/portada.mapper"
-import { IPortadaRepository } from "@/modules/portada/domain/repositories/IPortadaRepository"
+import { type IPortadaRepository } from "@/modules/portada/domain/repositories/IPortadaRepository"
 
 export class GetActivePortadasUseCase {
   constructor(private readonly repository: IPortadaRepository) {}

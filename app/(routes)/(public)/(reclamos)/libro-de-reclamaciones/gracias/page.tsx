@@ -1,6 +1,6 @@
-import { GRACIAS_PAGE_RECLAMO_PROPS } from "@/types"
+import { ReclamoGraciasView } from "@/app/(routes)/(public)/(reclamos)/libro-de-reclamaciones/gracias/components/Reclamo-Gracias-View"
+import { type GRACIAS_PAGE_RECLAMO_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { ReclamoGraciasView } from "./components/Reclamo-Gracias-View"
 
 export const metadata: Metadata = {
   title: "Reclamo Registrado — Automotores Inka",

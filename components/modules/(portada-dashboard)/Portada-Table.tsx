@@ -1,5 +1,7 @@
 "use client"
 
+import { PortadaRowActions } from "@/components/modules/(portada-dashboard)/Portada-Row-Actions"
+import { PortadaStatusBadge } from "@/components/modules/(portada-dashboard)/Portada-Status-Badge"
 import {
   Table,
   TableBody,
@@ -8,10 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { PORTADA_TABLE_PROPS } from "@/types"
+import { type PORTADA_TABLE_PROPS } from "@/types"
 import Image from "next/image"
-import { PortadaRowActions } from "./Portada-Row-Actions"
-import { PortadaStatusBadge } from "./Portada-Status-Badge"
 
 export function PortadaTable({
   onDelete,

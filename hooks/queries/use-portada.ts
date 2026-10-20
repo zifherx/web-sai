@@ -1,6 +1,6 @@
 import { portadaKeys } from "@/hooks/query-keys"
 import { portadaService } from "@/services/portada.service"
-import { PortadaType } from "@/types"
+import { type PortadaType } from "@/types"
 import { useQuery } from "@tanstack/react-query"
 
 export function usePortadas() {

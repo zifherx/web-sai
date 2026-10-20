@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useDeletePortada } from "@/hooks/mutations/use-portada.mutations"
-import { PORTADA_DELETE_DIALOG_PROPS } from "@/types"
+import { type PORTADA_DELETE_DIALOG_PROPS } from "@/types"
 import { AlertTriangle } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -25,7 +25,10 @@ export function PortadaDeleteDialog({
   const deleteMutation = useDeletePortada()
 
   useEffect(() => {
-    if (open) setConfirmText("")
+    if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setConfirmText("")
+    }
   }, [open])
 
   if (!portada) return null

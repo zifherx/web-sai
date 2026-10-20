@@ -1,10 +1,10 @@
 import {
-  ICharLimit,
-  IDepartamento,
-  IMonedaOption,
-  IReclamoTipoSolicitud,
-  ITipoBien,
-  ITipoDocumentoReclamoOption,
+  type ICharLimit,
+  type IDepartamento,
+  type IMonedaOption,
+  type IReclamoTipoSolicitud,
+  type ITipoBien,
+  type ITipoDocumentoReclamoOption,
 } from "@/types"
 import z from "zod/v3"
 

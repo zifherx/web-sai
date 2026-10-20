@@ -1,4 +1,4 @@
-import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
+import { type IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
 
 export class LogoutUseCase {
   constructor(private readonly authPort: IAuthPort) {}

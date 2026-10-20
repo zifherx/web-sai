@@ -1,7 +1,7 @@
 import { BottomBar } from "@/components/modules/(footer)/Bootom-Bar"
 import { ContentFooter } from "@/components/modules/(footer)/Content-Footer"
 import { LogoFooter } from "@/components/modules/(footer)/Logo-Footer"
-import { FOOTER_PROPS } from "@/types"
+import { type FOOTER_PROPS } from "@/types"
 
 export function Footer({
   bottomBar,

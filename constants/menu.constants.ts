@@ -1,4 +1,4 @@
-import { NavMenuItem } from "@/types/auth.types"
+import { type NavMenuItem } from "@/types/auth.types"
 import {
   Building2,
   Car,

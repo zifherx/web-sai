@@ -8,7 +8,7 @@ import { withRateLimitHeaders } from "@/modules/email/helpers/email.helper"
 import { emailRateLimit } from "@/modules/email/presentation/email.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * POST /api/email/lead-corporativo

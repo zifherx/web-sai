@@ -1,10 +1,10 @@
-import { IBitacoraLogPort } from "@/modules/bitacora/domain/repositories/IBitacoraRepository"
+import { type IBitacoraLogPort } from "@/modules/bitacora/domain/repositories/IBitacoraRepository"
 import {
-  NovalyRequestDTO,
-  NovalyResponseDTO,
+  type NovalyRequestDTO,
+  type NovalyResponseDTO,
 } from "@/modules/novaly/application/dto/novaly.dto"
 import { NovalyMapper } from "@/modules/novaly/application/ports/novaly.mapper"
-import { INovalyClient } from "@/modules/novaly/domain/repository/INovalyRepository"
+import { type INovalyClient } from "@/modules/novaly/domain/repository/INovalyRepository"
 
 /**
  * Caso de uso: Enviar un lead de cotización a la API externa de Novaly.

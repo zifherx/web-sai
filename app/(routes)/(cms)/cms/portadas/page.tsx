@@ -1,5 +1,5 @@
-import { Metadata } from "next"
-import { PortadaModule } from "./components/Portada-Module"
+import { PortadaModule } from "@/app/(routes)/(cms)/cms/portadas/components/Portada-Module"
+import { type Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Portadas | CMS",

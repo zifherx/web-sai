@@ -7,13 +7,13 @@ import {
 import { reclamoFactory } from "@/modules/reclamo/factories/reclamo.factory"
 import {
   resolveUserId,
-  RouteContext,
+  type RouteContext,
   withRateLimitHeaders,
 } from "@/modules/reclamo/helpers/reclamo.helper"
 import { reclamoRateLimit } from "@/modules/reclamo/presentation/reclamo.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/reclamos

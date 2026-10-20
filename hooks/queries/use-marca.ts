@@ -1,6 +1,6 @@
+import { marcaKeys } from "@/hooks/query-keys"
 import { marcaService } from "@/services/marca.service"
 import { useQuery } from "@tanstack/react-query"
-import { marcaKeys } from "../query-keys"
 
 export function useMarcas() {
   return useQuery({

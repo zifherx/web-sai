@@ -6,14 +6,14 @@ import { siteSettingsRateLimit } from "@/modules/site-settings/presentation/site
 import { ForbiddenError } from "@/shared/domain/auth-error"
 import {
   requirePermission,
-  SesionAutorizada,
+  type SesionAutorizada,
   toContentAuthor,
 } from "@/shared/infrastructure/auth/require-permission"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
 import { withRateLimitHeaders } from "@/shared/presentation/with-rate-limit.headers"
 import { revalidatePath, revalidateTag } from "next/cache"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * Doble candado:

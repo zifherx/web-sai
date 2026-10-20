@@ -1,12 +1,10 @@
 import {
-  ContentAuthor,
-  PublicationStatus,
-  SeoMeta,
+  type ContentAuthor,
+  type PublicationStatus,
+  type SeoMeta,
 } from "@/shared/domain/content-versioning/versioned-content"
-import { RichContent } from "@/shared/domain/rich-text/rich-content"
+import { type RichContent } from "@/shared/domain/rich-text/rich-content"
 import { z } from "zod"
-
-// ── Esquemas de entrada (compartidos con los formularios del CMS) ────────────
 
 export const ObjectIdSchema = z
   .string()
@@ -19,10 +17,6 @@ export const SeoMetaSchema = z.object({
   description: z.string().trim().min(1).max(170),
 })
 
-/**
- * Cuerpo de "Guardar borrador". `content` llega como `unknown`: su
- * validación real la hace `IRichContentProcessor` contra el esquema Tiptap.
- */
 export const SaveDraftSchema = z.object({
   title: z.string().trim().min(1).max(200),
   content: z.unknown(),
@@ -41,8 +35,6 @@ export const LockOnlySchema = z.object({ lockVersion: LockVersionSchema })
 export type LockOnlyDTO = z.infer<typeof LockOnlySchema>
 
 export const RevisionIdParamSchema = z.object({ revisionId: ObjectIdSchema })
-
-// ── DTOs de respuesta ────────────────────────────────────────────────────────
 
 export interface ContentDraftDTO {
   title: string

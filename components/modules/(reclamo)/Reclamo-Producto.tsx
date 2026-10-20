@@ -33,7 +33,7 @@ import {
 import { useActiveSedes } from "@/hooks"
 import { groupCn } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
-import { RECLAMO_PRODUCTO_PROPS, SedeType } from "@/types"
+import { type RECLAMO_PRODUCTO_PROPS, type SedeType } from "@/types"
 import {
   Barcode,
   ChevronsUpDown,

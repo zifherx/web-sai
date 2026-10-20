@@ -1,11 +1,11 @@
 import {
-  ReclamoFiltersDTO,
-  ReclamoResponseDTO,
+  type ReclamoFiltersDTO,
+  type ReclamoResponseDTO,
 } from "@/modules/reclamo/application/dtos/reclamo.dto"
 import { ReclamoMapper } from "@/modules/reclamo/application/ports/reclamo.mapper"
 import {
-  IReclamoRepository,
-  ReclamoFilters,
+  type IReclamoRepository,
+  type ReclamoFilters,
 } from "@/modules/reclamo/domain/repositories/IReclamoRepository"
 
 export class GetAllReclamosUseCase {

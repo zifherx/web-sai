@@ -1,7 +1,7 @@
 import { siteSettingsKeys } from "@/hooks/query-keys"
 import { toastError, toastSuccess } from "@/lib/toast-helpers"
 import { siteSettingsService } from "@/services/site-settings.service"
-import { SetMaintenancePayload } from "@/types/site-settings.types"
+import { type SetMaintenancePayload } from "@/types/site-settings.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export function useSetMaintenanceMode() {

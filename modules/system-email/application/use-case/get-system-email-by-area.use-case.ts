@@ -1,8 +1,8 @@
-import { SystemEmailByAreaResponseDTO } from "@/modules/system-email/application/dto/system-email.dto"
+import { type SystemEmailByAreaResponseDTO } from "@/modules/system-email/application/dto/system-email.dto"
 import { SystemEmailMapper } from "@/modules/system-email/application/ports/system-email.mapper"
-import { SystemEmailArea } from "@/modules/system-email/domain/entities/System-Email"
+import { type SystemEmailArea } from "@/modules/system-email/domain/entities/System-Email"
 import { SystemEmailNotFoundError } from "@/modules/system-email/domain/errors/SystemEmailDomainError"
-import { ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
+import { type ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
 
 /**
  * Caso de uso para obtener el email activo de un área del sistema.

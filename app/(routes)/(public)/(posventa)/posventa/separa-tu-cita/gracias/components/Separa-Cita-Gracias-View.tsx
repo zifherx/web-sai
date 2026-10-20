@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { IProximosPasosCita } from "@/types"
+import { type IProximosPasosCita } from "@/types"
 import {
   ArrowLeft,
   CheckCircle2,

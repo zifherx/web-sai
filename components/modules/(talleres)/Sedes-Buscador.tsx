@@ -2,7 +2,7 @@ import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
 import { ALL_CITIES } from "@/constants"
 import { cn } from "@/lib/utils"
-import { IOptionSelect, SEDE_BUSCADOR_PROPS } from "@/types"
+import { type IOptionSelect, type SEDE_BUSCADOR_PROPS } from "@/types"
 
 export function SedesBuscador({
   ciudadValue,

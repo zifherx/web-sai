@@ -1,5 +1,5 @@
 import { buildOpeningHoursSpecification } from "@/shared/infrastructure/seo/schema/build-autodealer-schema"
-import { SedeTallerSeoSchema } from "@/types"
+import { type SedeTallerSeoSchema } from "@/types"
 
 export function buildAutoRepairSchema(sede: SedeTallerSeoSchema) {
   return {

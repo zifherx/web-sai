@@ -1,5 +1,5 @@
+import { HomeView } from "@/app/(routes)/(public)/(home)/components/Home-View"
 import { portadaServerService } from "@/services/server/portada.server"
-import { HomeView } from "./components/Home-View"
 
 export default async function HomePage() {
   const portadas = await portadaServerService.getActive().catch((err) => {
