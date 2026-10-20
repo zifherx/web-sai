@@ -8,7 +8,7 @@ import {
   precioFormateadoUSD,
 } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
-import { VEHICULO_HERO_PROPS } from "@/types"
+import { type VEHICULO_HERO_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -29,9 +29,9 @@ export function VehiculoHero({
   const marcaNombre = marca?.name ?? marcaSlug.toUpperCase()
   const cotizarParams = new URLSearchParams({
     marcaId: marca?.id ?? "",
-    marcaSlug: marcaSlug,
+    marcaSlug,
     marcaIdNovaly: marca?.idNovaly.toString() ?? "",
-    marcaNombre: marcaNombre,
+    marcaNombre,
     vehiculoId: vehiculo.id,
     vehiculoSlug: vehiculo.slug,
     vehiculoNombre: vehiculo.name,

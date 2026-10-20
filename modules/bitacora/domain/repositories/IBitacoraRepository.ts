@@ -1,7 +1,7 @@
 import {
-  BitacoraEntity,
-  IBitacoraRequest,
-  IBitacoraResponse,
+  type BitacoraEntity,
+  type IBitacoraRequest,
+  type IBitacoraResponse,
 } from "@/modules/bitacora/domain/entitites/Bitacora"
 
 export interface ICreateBitacoraData {

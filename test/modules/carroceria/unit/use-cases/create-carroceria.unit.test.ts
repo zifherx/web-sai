@@ -1,6 +1,6 @@
 import { CreateCarroceriaUseCase } from "@/modules/carroceria/application/use-cases/create-carroceria.use-case"
 import { CarroceriaAlreadyExistsError } from "@/modules/carroceria/domain/errors/CarroceriaDomainError"
-import { ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
+import { type ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
 import { makeCarroceria } from "@/test/helpers/entity.factory"
 import { beforeEach, describe, expect, it, vi } from "vitest"
 

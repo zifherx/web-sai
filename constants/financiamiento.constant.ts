@@ -1,7 +1,7 @@
 import {
-  IBooleanLabel,
-  ILabelValue,
-  IWizardStepForm,
+  type IBooleanLabel,
+  type ILabelValue,
+  type IWizardStepForm,
 } from "@/types/financiamiento.types"
 import z from "zod/v3"
 

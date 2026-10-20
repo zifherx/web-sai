@@ -30,9 +30,9 @@ import { UploadButton } from "@/lib/uploadthing"
 import { cn } from "@/lib/utils"
 import {
   portadaFormSchema,
-  PortadaFormValues,
+  type PortadaFormValues,
 } from "@/lib/validations/portada.schema"
-import { PORTADA_FORM_DIALOG_PROPS } from "@/types"
+import { type PORTADA_FORM_DIALOG_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Barcode, ImageIcon, Tag, X } from "lucide-react"
 import Image from "next/image"

@@ -1,8 +1,8 @@
 import {
-  SystemEmailByAreaResponseDTO,
-  SystemEmailResponseDTO,
+  type SystemEmailByAreaResponseDTO,
+  type SystemEmailResponseDTO,
 } from "@/modules/system-email/application/dto/system-email.dto"
-import { SystemEmailEntity } from "@/modules/system-email/domain/entities/System-Email"
+import { type SystemEmailEntity } from "@/modules/system-email/domain/entities/System-Email"
 
 export class SystemEmailMapper {
   /** DTO completo para el CMS */

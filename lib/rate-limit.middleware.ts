@@ -42,7 +42,7 @@ export const TIER_CONFIG: Record<RateLimitTier, TierConfig> = {
   "cms-read": {
     limit: 20,
     windowSeconds: 60,
-    prefix: "rl:cmd-read",
+    prefix: "rl:cms-read", // antes "rl:cmd-read" (typo)
     algorithm: "sliding",
   },
   "public-write": {
@@ -53,7 +53,6 @@ export const TIER_CONFIG: Record<RateLimitTier, TierConfig> = {
   },
 }
 
-// Cache de instancias Ratelimit por tier
 const limiterCache = new Map<RateLimitTier, Ratelimit>()
 
 export function getLimiter(tier: RateLimitTier): Ratelimit {
@@ -67,12 +66,9 @@ export function getLimiter(tier: RateLimitTier): Ratelimit {
         algorithm === "sliding"
           ? Ratelimit.slidingWindow(limit, window)
           : Ratelimit.fixedWindow(limit, window),
-      /**
-       * Ephemeral cache: si Redis no responde, permite el request
-       * durante 5 segundos usando caché local. Fail-open intencional
-       * para evitar que una caída de Redis rompa el frontend.
-       */
+
       ephemeralCache: new Map(),
+      timeout: 1000,
       prefix,
       analytics: true,
     })

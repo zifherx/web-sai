@@ -14,7 +14,7 @@ import {
 } from "@/constants"
 import { groupCn } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
-import { IDepartamento, RECLAMO_CONSUMER_PROPS } from "@/types"
+import { type IDepartamento, type RECLAMO_CONSUMER_PROPS } from "@/types"
 import {
   AlertCircle,
   Barcode,

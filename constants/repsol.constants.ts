@@ -1,15 +1,15 @@
 import {
-  IRepsolCTA,
-  IRepsolHero,
-  IRepsolInfo,
-  IRepsolVentaja,
-  IRepsolVideo,
+  type IRepsolCTA,
+  type IRepsolHero,
+  type IRepsolInfo,
+  type IRepsolVentaja,
+  type IRepsolVideo,
 } from "@/types"
 
 export const REPSOL_HERO: IRepsolHero = {
   eyebrow: "Con Automotores Inka",
   heading: "Ahorra en cada viaje",
-  imageSrc: "/images/repsol/banner-repsol.png",
+  imageSrc: "/images/repsol/banner-repsol-2.png",
   imageAlt: "Grifo Repsol — Ahorra en cada viaje con Automotores Inka",
 }
 
@@ -22,7 +22,7 @@ export const REPSOL_INFO: IRepsolInfo = {
 
 export const REPSOL_VENTAJAS: IRepsolVentaja = {
   heading: "Ventajas",
-  imageSrc: "/images/repsol/person-station.jpg",
+  imageSrc: "/images/repsol/gasoil-station.jpg",
   imageAlt: "Persona en grifo con su smartphone — ventajas Repsol",
   items: [
     { id: "ahorro", label: "Ahorro en combustible" },
@@ -47,7 +47,7 @@ export const REPSOL_VIDEO: IRepsolVideo = {
   headingAccent: "correctamente?",
   videoYoutube: {
     id: "video-01",
-    src: "https://www.youtube.com/embed/Ki7mwbj0li0?si=2p8twtnYNMYygW9s",
+    src: "https://www.youtube.com/embed/TeOQkZHOoxw",
     title: "Primera Solicitud Repsol Más",
   },
 }

@@ -1,6 +1,6 @@
 import { GetActiveCarroceriasUseCase } from "@/modules/carroceria/application/use-cases/get-active-carrocerias.use-case"
 import { GetAllCarroceriasUseCase } from "@/modules/carroceria/application/use-cases/get-all-carrocerias.use-case"
-import { ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
+import { type ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
 import { makeCarroceria } from "@/test/helpers/entity.factory"
 import { beforeEach, describe, expect, it, vi } from "vitest"
 

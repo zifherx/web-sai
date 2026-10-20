@@ -1,13 +1,13 @@
 import {
-  ContentAuthor,
-  SeoMeta,
+  type ContentAuthor,
+  type SeoMeta,
   VersionedContent,
 } from "@/shared/domain/content-versioning/versioned-content"
-import { RichContent } from "@/shared/domain/rich-text/rich-content"
+import { type RichContent } from "@/shared/domain/rich-text/rich-content"
 import {
-  ContentAuthorDoc,
-  SeoMetaDoc,
-  VersionedContentDocFields,
+  type ContentAuthorDoc,
+  type SeoMetaDoc,
+  type VersionedContentDocFields,
 } from "@/shared/infrastructure/content-versioning/mongoose/versioned-content.subschema"
 
 const toAuthor = (a: ContentAuthorDoc): ContentAuthor => ({
@@ -18,7 +18,6 @@ const toAuthor = (a: ContentAuthorDoc): ContentAuthor => ({
 const toSeo = (s: SeoMetaDoc | null | undefined): SeoMeta | null =>
   s ? { title: s.title, description: s.description } : null
 
-/** Documento (lean) → value object. Siempre con constructor, nunca literal. */
 export function toVersionedContent(
   doc: VersionedContentDocFields
 ): VersionedContent {
@@ -47,7 +46,6 @@ export function toVersionedContent(
   )
 }
 
-/** Value object → campos a persistir (`$set` o `create`). */
 export function fromVersionedContent(
   v: VersionedContent
 ): VersionedContentDocFields {

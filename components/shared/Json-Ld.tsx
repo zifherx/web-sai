@@ -1,4 +1,4 @@
-import { JSONLD_PROPS } from "@/types"
+import { type JSONLD_PROPS } from "@/types"
 
 export function JsonLd({ data }: JSONLD_PROPS) {
   return (

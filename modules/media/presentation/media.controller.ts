@@ -6,10 +6,10 @@ import {
   EntityQuerySchema,
   RenameSchema,
 } from "@/modules/media/application/dtos/media.dto"
-import { EntityType } from "@/modules/media/domain/entities/MediaFile"
+import { type EntityType } from "@/modules/media/domain/entities/MediaFile"
 import { mediaFactory } from "@/modules/media/factories/media.factory"
 import {
-  IdContext,
+  type IdContext,
   withRateLimitHeaders,
 } from "@/modules/media/helpers/media.helper"
 import { parseMediaQueryParams } from "@/modules/media/helpers/parse-media-query-params.helper"
@@ -17,7 +17,7 @@ import { mediaRateLimit } from "@/modules/media/presentation/media.ratelimit"
 import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/media
@@ -28,7 +28,7 @@ export function listMediaFilesHandler(req: NextRequest) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     await connectDB()
     const dto = parseMediaQueryParams(req.nextUrl.searchParams)
     const useCases = mediaFactory()
@@ -51,7 +51,7 @@ export function getMediaByEntityHandler(req: NextRequest) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const { entityType, entityId } = EntityQuerySchema.parse(
       Object.fromEntries(req.nextUrl.searchParams)
     )
@@ -78,7 +78,7 @@ export function assignMediaFileHandler(req: NextRequest) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const body = AssignSchema.parse(await req.json())
     await connectDB()
     const useCases = mediaFactory()
@@ -104,7 +104,7 @@ export function assignManyMediaFilesHandler(req: NextRequest) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const body = AssignManySchema.parse(await req.json())
     await connectDB()
     const useCases = mediaFactory()
@@ -130,7 +130,7 @@ export function deleteMediaFileHandler(req: NextRequest, ctx: IdContext) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const { id } = await ctx.params
     await connectDB()
     const useCases = mediaFactory()
@@ -152,7 +152,7 @@ export function deleteManyMediaFilesHandler(req: NextRequest) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const body = DeleteManySchema.parse(await req.json())
     await connectDB()
     const useCases = mediaFactory()
@@ -174,7 +174,7 @@ export function renameMediaFileHandler(req: NextRequest, ctx: IdContext) {
     const rl = await mediaRateLimit(req)
     if (!rl.allowed) return rl.response!
 
-    resolveUserId(req)
+    await resolveUserId(req)
     const { id } = await ctx.params
     const body = RenameSchema.parse(await req.json())
     await connectDB()

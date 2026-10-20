@@ -1,5 +1,5 @@
-import { CitaResponseDTO } from "@/modules/cita/application/dto/cita.dto"
-import { CitaEntity } from "@/modules/cita/domain/entities/Cita"
+import { type CitaResponseDTO } from "@/modules/cita/application/dto/cita.dto"
+import { type CitaEntity } from "@/modules/cita/domain/entities/Cita"
 
 export class CitaMapper {
   static toDTO(entity: CitaEntity): CitaResponseDTO {

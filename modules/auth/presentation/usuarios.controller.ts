@@ -6,7 +6,7 @@ import { usuariosRateLimit } from "@/modules/auth/presentation/usuarios.ratelimi
 import { resolveSesion } from "@/shared/infrastructure/auth/resolve-sesion"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 async function requireAdmin(req: NextRequest) {
   const sesion = await resolveSesion(req)

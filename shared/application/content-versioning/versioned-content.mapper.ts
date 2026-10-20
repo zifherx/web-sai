@@ -1,10 +1,10 @@
 import {
-  ContentRevisionDTO,
-  ContentRevisionSummaryDTO,
-  VersionedContentDTO,
+  type ContentRevisionDTO,
+  type ContentRevisionSummaryDTO,
+  type VersionedContentDTO,
 } from "@/shared/application/content-versioning/versioned-content.dto"
-import { ContentRevision } from "@/shared/domain/content-versioning/content-revision"
-import { VersionedContent } from "@/shared/domain/content-versioning/versioned-content"
+import { type ContentRevision } from "@/shared/domain/content-versioning/content-revision"
+import { type VersionedContent } from "@/shared/domain/content-versioning/versioned-content"
 
 const iso = (d: Date | null): string | null => (d ? d.toISOString() : null)
 

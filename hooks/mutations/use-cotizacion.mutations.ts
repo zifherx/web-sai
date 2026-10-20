@@ -1,9 +1,9 @@
 import { cotizacionService } from "@/services"
 import {
-  CotizacionEnrichedMeta,
-  CotizacionResponseType,
-  CotizacionType,
-  ICreateCotizacionOption,
+  type CotizacionEnrichedMeta,
+  type CotizacionResponseType,
+  type CotizacionType,
+  type ICreateCotizacionOption,
 } from "@/types"
 import { useMutation } from "@tanstack/react-query"
 

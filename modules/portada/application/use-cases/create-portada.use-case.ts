@@ -1,11 +1,11 @@
 import {
-  CreatePortadaDTO,
-  PortadaResponseDTO,
+  type CreatePortadaDTO,
+  type PortadaResponseDTO,
 } from "@/modules/portada/application/dtos/portada.dto"
 import { PortadaMapper } from "@/modules/portada/application/ports/portada.mapper"
 import { PortadaEntity } from "@/modules/portada/domain/entities/Portada"
 import { PortadaAlreadyExistsError } from "@/modules/portada/domain/errors/PortadaDomainError"
-import { IPortadaRepository } from "@/modules/portada/domain/repositories/IPortadaRepository"
+import { type IPortadaRepository } from "@/modules/portada/domain/repositories/IPortadaRepository"
 
 export class CreatePortadaUseCase {
   constructor(private readonly repository: IPortadaRepository) {}

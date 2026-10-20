@@ -1,4 +1,4 @@
-import { OurFileRouter } from "@/modules/media/infrastructure/uploadthing/core"
+import { type OurFileRouter } from "@/modules/media/infrastructure/uploadthing/core"
 import {
   generateUploadButton,
   generateUploadDropzone,

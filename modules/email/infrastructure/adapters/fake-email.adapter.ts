@@ -1,9 +1,9 @@
-import { IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
+import { type IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
 import {
-  SendCitaEmailParams,
-  SendEmailResult,
-  SendLeadCorporativoEmailParams,
-  SendReclamoEmailParams,
+  type SendCitaEmailParams,
+  type SendEmailResult,
+  type SendLeadCorporativoEmailParams,
+  type SendReclamoEmailParams,
 } from "@/modules/email/domain/types/EmailTypes"
 
 export class FakeEmailAdapter implements IEmailPort {

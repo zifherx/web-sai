@@ -2,7 +2,7 @@ import type {
   EntityType,
   FieldName,
 } from "@/modules/media/domain/entities/MediaFile"
-import { Document, model, models, Schema } from "mongoose"
+import { type Document, model, models, Schema } from "mongoose"
 
 export interface MediaRecordDocument extends Document {
   fileKey: string

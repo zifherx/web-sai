@@ -1,6 +1,6 @@
 import {
-  SystemEmailArea,
-  SystemEmailEntity,
+  type SystemEmailArea,
+  type SystemEmailEntity,
 } from "@/modules/system-email/domain/entities/System-Email"
 
 export interface ICreateSystemEmailData {

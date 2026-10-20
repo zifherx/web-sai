@@ -2,7 +2,7 @@ import {
   createPortadaHandler,
   getAllPortadasHandler,
 } from "@/modules/portada/presentation/portada.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET  /api/portada  → lista todas (público + CMS)

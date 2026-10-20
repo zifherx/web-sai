@@ -1,8 +1,8 @@
 "use client"
 
-import { SOCIAL_BUTTON_PROPS } from "@/types"
+import { type SOCIAL_BUTTON_PROPS } from "@/types"
 import Link from "next/link"
-import { ComponentType } from "react"
+import { type ComponentType } from "react"
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
 

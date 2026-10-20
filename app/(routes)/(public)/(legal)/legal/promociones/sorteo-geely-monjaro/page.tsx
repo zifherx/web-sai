@@ -1,5 +1,5 @@
+import { PreventaMonjaroView } from "@/app/(routes)/(public)/(legal)/legal/promociones/sorteo-geely-monjaro/components/Preventa-Monjaro-View"
 import type { Metadata } from "next"
-import { PreventaMonjaroView } from "./components/Preventa-Monjaro-View"
 
 export const metadata: Metadata = {
   title: "Preventa Geely Monjaro EM-i 2027 — Automotores Inka",

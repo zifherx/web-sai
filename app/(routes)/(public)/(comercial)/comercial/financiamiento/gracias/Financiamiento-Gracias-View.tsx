@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
 import {
-  FINANCIAMIENTO_GRACIAS_VIEW_PROPS,
-  PROXIMOS_PASOS_GRACIAS_FINANCIAMIENTO,
+  type FINANCIAMIENTO_GRACIAS_VIEW_PROPS,
+  type PROXIMOS_PASOS_GRACIAS_FINANCIAMIENTO,
 } from "@/types"
 import {
   ArrowLeft,

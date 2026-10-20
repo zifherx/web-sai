@@ -1,8 +1,8 @@
 import {
-  IColorVehicle,
-  IFeatures,
-  IGalleryVehicle,
-  VehiculoEntity,
+  type IColorVehicle,
+  type IFeatures,
+  type IGalleryVehicle,
+  type VehiculoEntity,
 } from "@/modules/vehiculo/domain/entities/Vehiculo"
 
 export interface VehiculoFilters {

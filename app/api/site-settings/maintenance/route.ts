@@ -2,7 +2,7 @@ import {
   getMaintenanceHandler,
   setMaintenanceHandler,
 } from "@/modules/site-settings/presentation/site-settings.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET   /api/site-settings/maintenance → estado actual (CMS)

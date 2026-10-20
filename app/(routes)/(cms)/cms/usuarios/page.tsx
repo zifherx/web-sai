@@ -1,7 +1,7 @@
+import { UsuariosView } from "@/app/(routes)/(cms)/cms/usuarios/components/UsuariosView"
 import { requireUsuarioSesion } from "@/lib/auth/get-usuario-sesion"
 import { type Metadata } from "next"
 import { redirect } from "next/navigation"
-import { UsuariosView } from "./components/UsuariosView"
 
 export const metadata: Metadata = {
   title: "Usuarios",

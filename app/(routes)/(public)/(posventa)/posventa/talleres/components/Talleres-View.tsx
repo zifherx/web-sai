@@ -5,7 +5,7 @@ import { SedesBuscador } from "@/components/modules/(talleres)/Sedes-Buscador"
 import { SedesGrid } from "@/components/modules/(talleres)/Sedes-Grid"
 import { ALL_CITIES } from "@/constants"
 import { useTalleres } from "@/hooks"
-import { TALLERES_VIEW_PROPS } from "@/types/talleres.types"
+import { type TALLERES_VIEW_PROPS } from "@/types/talleres.types"
 import { useMemo, useState } from "react"
 
 export function TalleresView({ initialSedes }: TALLERES_VIEW_PROPS) {

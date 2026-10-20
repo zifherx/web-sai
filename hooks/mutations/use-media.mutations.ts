@@ -7,8 +7,8 @@ export function useAssignMediaFile() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: mediaService.assign,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
       toast.success(`Imagen asignada correctamente`)
     },
     onError: (error) => {
@@ -23,8 +23,8 @@ export function useDeleteMediaFile() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: mediaService.remove,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
       toast.success("Archivo eliminado")
     },
     onError: (error) => {
@@ -40,8 +40,8 @@ export function useRenameMediaFile() {
   return useMutation({
     mutationFn: ({ id, fileName }: { id: string; fileName: string }) =>
       mediaService.rename(id, fileName),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: mediaKeys.all() })
       toast.success("Archivo renombrado")
     },
     onError: (error) => {

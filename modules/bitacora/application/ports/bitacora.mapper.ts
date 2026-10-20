@@ -1,5 +1,5 @@
-import { BitacoraResponseItemDTO } from "@/modules/bitacora/application/dto/bitacora.dto"
-import { BitacoraEntity } from "@/modules/bitacora/domain/entitites/Bitacora"
+import { type BitacoraResponseItemDTO } from "@/modules/bitacora/application/dto/bitacora.dto"
+import { type BitacoraEntity } from "@/modules/bitacora/domain/entitites/Bitacora"
 
 export class BitacoraMapper {
   static toDTO(entity: BitacoraEntity): BitacoraResponseItemDTO {

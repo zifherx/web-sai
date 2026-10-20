@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getVisibleSettingsTabs } from "@/lib/global.functions"
-import { SETTINGS_DIALOG_PROPS } from "@/types/site-settings.types"
+import { type SETTINGS_DIALOG_PROPS } from "@/types/site-settings.types"
 
 export function SettingsDialog({
   onOpenChange,

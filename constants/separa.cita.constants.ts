@@ -1,4 +1,4 @@
-import { ITipoDocumentoPersona, ITipoServicioTaller } from "@/types"
+import { type ITipoDocumentoPersona, type ITipoServicioTaller } from "@/types"
 import z from "zod/v3"
 
 export const SeparaCitaSchema = z.object({

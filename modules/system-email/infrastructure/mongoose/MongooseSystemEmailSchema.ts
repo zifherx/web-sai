@@ -1,4 +1,4 @@
-import { Document, model, models, Schema } from "mongoose"
+import { type Document, model, models, Schema } from "mongoose"
 
 export interface SystemEmailDocument extends Document {
   area: string

@@ -13,14 +13,14 @@ import {
 } from "@/components/ui/input-group"
 import {
   INTENCION_COMPRA_OPTIONS,
-  Step4Data,
+  type Step4Data,
   Step4Schema,
   TIPO_DOCUMENTO_OPTIONS,
   TRATAMIENTO_DATOS_OFERTAS_COMERCIALES,
 } from "@/constants"
 import { groupCn } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
-import { STEP4_CONTACTO_PROPS } from "@/types"
+import { type STEP4_CONTACTO_PROPS } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   ChevronLeft,

@@ -1,6 +1,6 @@
 import { DomainError } from "@/shared/domain/domain.error"
 import { NextResponse } from "next/server"
-import { ZodError } from "zod"
+import { z, ZodError } from "zod"
 
 export interface SuccessResponse<T> {
   success: boolean
@@ -35,7 +35,6 @@ export class ResponseFactory {
   // ---- 4XX | 5xx ------------------------
 
   static error(err: unknown): NextResponse<ErrorResponse> {
-    // Errores de dominio tipados - statusCode definido por el error
     if (err instanceof DomainError) {
       return NextResponse.json(
         { success: false, message: err.message, error: err.name },
@@ -43,14 +42,13 @@ export class ResponseFactory {
       )
     }
 
-    // Errores de validación de Zod - siempre 422
     if (err instanceof ZodError) {
       return NextResponse.json(
         {
           success: false,
           message: "Datos inválidos",
           error: "ValidationError",
-          issues: err.flatten().fieldErrors as Record<
+          issues: z.flattenError(err).fieldErrors as Record<
             string,
             string[] | undefined
           >,
@@ -59,7 +57,6 @@ export class ResponseFactory {
       )
     }
 
-    // Error inesperado - loguear SVGAnimatedPreserveAspectRatio, no exponer en producción
     console.error("[API] Unhandled error:", err)
 
     const message =

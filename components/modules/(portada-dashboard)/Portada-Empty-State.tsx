@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { PORTADA_EMPTY_STATE_PROPS } from "@/types"
+import { type PORTADA_EMPTY_STATE_PROPS } from "@/types"
 import { ImageOff, Plus } from "lucide-react"
 
 export function PortadaEmptyState({

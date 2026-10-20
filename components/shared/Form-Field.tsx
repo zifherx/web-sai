@@ -1,4 +1,4 @@
-import { FORM_FIELD_CONTACTO } from "@/types"
+import { type FORM_FIELD_CONTACTO } from "@/types"
 
 export function FormField({
   children,

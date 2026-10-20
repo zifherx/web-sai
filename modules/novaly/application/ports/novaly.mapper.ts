@@ -1,5 +1,5 @@
-import { NovalyRequestDTO } from "@/modules/novaly/application/dto/novaly.dto"
-import { NovalyPayload } from "@/modules/novaly/domain/types/NovalyTypes"
+import { type NovalyRequestDTO } from "@/modules/novaly/application/dto/novaly.dto"
+import { type NovalyPayload } from "@/modules/novaly/domain/types/NovalyTypes"
 
 interface INombreSeparado {
   nombres: string

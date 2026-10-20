@@ -4,7 +4,7 @@ import { SearchSelect } from "@/components/shared/Search-Select"
 import { Button } from "@/components/ui/button"
 import { ALL_BRANDS, PRICE_RANGES } from "@/constants"
 import { cn } from "@/lib/utils"
-import { CATALOGO_BUSCAR_PROPS, IOptionSelect } from "@/types"
+import { type CATALOGO_BUSCAR_PROPS, type IOptionSelect } from "@/types"
 
 export function CatalogoBuscador({
   loadingMarcas,

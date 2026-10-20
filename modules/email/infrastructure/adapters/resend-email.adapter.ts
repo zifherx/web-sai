@@ -1,12 +1,12 @@
-import { IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
+import { type IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
 import {
-  SendCitaEmailParams,
-  SendEmailResult,
-  SendLeadCorporativoEmailParams,
-  SendReclamoEmailParams,
+  type SendCitaEmailParams,
+  type SendEmailResult,
+  type SendLeadCorporativoEmailParams,
+  type SendReclamoEmailParams,
 } from "@/modules/email/domain/types/EmailTypes"
+import { CitaEmailTemplate } from "@/modules/email/infrastructure/templates/cita-email-template"
 import { type CreateEmailOptions, Resend } from "resend"
-import { CitaEmailTemplate } from "../templates/cita-email-template"
 
 const FROM = "Automotores Inka 🤖 <bot@ziphonex.com>"
 const BCC_DEFAULT = "automotores.inka@ziphonex.com"

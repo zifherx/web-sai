@@ -1,4 +1,4 @@
-import { PortadaType } from "@/types/api.types"
+import { type PortadaType } from "@/types/api.types"
 
 export interface ICarouselCorporativoSlide {
   id: string

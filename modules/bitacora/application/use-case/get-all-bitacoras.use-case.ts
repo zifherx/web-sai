@@ -1,11 +1,11 @@
 import {
-  BitacoraFiltersDTO,
-  BitacoraResponseItemDTO,
+  type BitacoraFiltersDTO,
+  type BitacoraResponseItemDTO,
 } from "@/modules/bitacora/application/dto/bitacora.dto"
 import { BitacoraMapper } from "@/modules/bitacora/application/ports/bitacora.mapper"
 import {
-  BitacoraFilters,
-  IBitacoraRepository,
+  type BitacoraFilters,
+  type IBitacoraRepository,
 } from "@/modules/bitacora/domain/repositories/IBitacoraRepository"
 
 /**

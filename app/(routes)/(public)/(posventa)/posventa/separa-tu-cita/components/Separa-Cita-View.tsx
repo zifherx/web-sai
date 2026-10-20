@@ -2,7 +2,7 @@
 
 import { SeparaCitaForm } from "@/components/modules/(separa-cita)/Separa-Cita-Form"
 import { SeparaCitaMarcas } from "@/components/modules/(separa-cita)/Separa-Cita-Marcas"
-import { SEPARA_CITA_VIEW_PROPS } from "@/types"
+import { type SEPARA_CITA_VIEW_PROPS } from "@/types"
 
 export function SeparaCitaView({ initialCiudad = "" }: SEPARA_CITA_VIEW_PROPS) {
   return (

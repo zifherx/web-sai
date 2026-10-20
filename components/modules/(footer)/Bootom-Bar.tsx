@@ -1,4 +1,4 @@
-import { BOTTOM_BAR_PROPS } from "@/types"
+import { type BOTTOM_BAR_PROPS } from "@/types"
 import Link from "next/link"
 
 export function BottomBar({ bottom }: BOTTOM_BAR_PROPS) {

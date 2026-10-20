@@ -1,5 +1,5 @@
-import { CarroceriaResponseDTO } from "@/modules/carroceria/application/dto/carroceria.dto"
-import { CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
+import { type CarroceriaResponseDTO } from "@/modules/carroceria/application/dto/carroceria.dto"
+import { type CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
 
 export class CarroceriaMapper {
   static toDTO(entity: CarroceriaEntity): CarroceriaResponseDTO {

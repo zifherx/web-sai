@@ -1,7 +1,7 @@
 import {
-  ICarouselCorporativo,
-  IServiceShowcase,
-  IVehicleShowcase,
+  type ICarouselCorporativo,
+  type IServiceShowcase,
+  type IVehicleShowcase,
 } from "@/types"
 
 export const CARRUSEL_CORPORATIVO: ICarouselCorporativo = {

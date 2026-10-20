@@ -1,8 +1,8 @@
 import { ClienteEntity } from "@/modules/cliente/domain/entities/Cliente"
-import { IClienteRepository } from "@/modules/cliente/domain/repository/IClienteRepository"
-import { ClienteDocument } from "@/modules/cliente/infrastructure/mongoose/MongooseClienteSchema"
-import { IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
-import { Model } from "mongoose"
+import { type IClienteRepository } from "@/modules/cliente/domain/repository/IClienteRepository"
+import { type ClienteDocument } from "@/modules/cliente/infrastructure/mongoose/MongooseClienteSchema"
+import { type IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
+import { type Model } from "mongoose"
 
 export class MongooseClienteRepository
   implements IClienteRepository, IClienteUpsertPort

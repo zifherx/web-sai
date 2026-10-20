@@ -1,4 +1,4 @@
-import { DashboardView } from "./components/Dashboard-View"
+import { DashboardView } from "@/app/(routes)/(cms)/cms/dashboard/components/Dashboard-View"
 
 export default function DashboardPage() {
   return (

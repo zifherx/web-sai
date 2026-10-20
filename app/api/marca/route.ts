@@ -2,7 +2,7 @@ import {
   createMarcaHandler,
   getAllMarcasHandler,
 } from "@/modules/marca/presentation/marca.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET  /api/marca  → lista todas (público + CMS)

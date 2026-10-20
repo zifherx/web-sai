@@ -1,11 +1,11 @@
 import {
-  CotizacionFiltersDTO,
-  CotizacionResponseDTO,
+  type CotizacionFiltersDTO,
+  type CotizacionResponseDTO,
 } from "@/modules/cotizacion/application/dto/cotizacion.dto"
 import { CotizacionMapper } from "@/modules/cotizacion/application/ports/cotizacion.mapper"
 import {
-  CotizacionFilters,
-  ICotizacionRepository,
+  type CotizacionFilters,
+  type ICotizacionRepository,
 } from "@/modules/cotizacion/domain/repository/ICotizacionRepository"
 
 export class GetAllCotizacionesUseCase {

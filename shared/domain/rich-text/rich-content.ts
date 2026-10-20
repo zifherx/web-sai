@@ -5,9 +5,9 @@ export type RichContent = { readonly type: "doc" } & Readonly<
 >
 
 export const RICH_CONTENT_PROFILES = [
-  "legal-page",
-  "legal-promotion",
-  "vehicle-legal-note",
+  "rich",
+  "rich-with-tables",
+  "minimal",
 ] as const
 export type RichContentProfile = (typeof RICH_CONTENT_PROFILES)[number]
 

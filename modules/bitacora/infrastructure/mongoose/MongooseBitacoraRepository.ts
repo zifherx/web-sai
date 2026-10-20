@@ -1,11 +1,11 @@
 import { BitacoraEntity } from "@/modules/bitacora/domain/entitites/Bitacora"
 import {
-  BitacoraFilters,
-  IBitacoraRepository,
-  ICreateBitacoraData,
+  type BitacoraFilters,
+  type IBitacoraRepository,
+  type ICreateBitacoraData,
 } from "@/modules/bitacora/domain/repositories/IBitacoraRepository"
-import { BitacoraDocument } from "@/modules/bitacora/infrastructure/mongoose/MongooseBitacoraSchema"
-import { Model } from "mongoose"
+import { type BitacoraDocument } from "@/modules/bitacora/infrastructure/mongoose/MongooseBitacoraSchema"
+import { type Model } from "mongoose"
 
 export class MongooseBitacoraRepository implements IBitacoraRepository {
   constructor(private readonly model: Model<BitacoraDocument>) {}

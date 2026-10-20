@@ -1,8 +1,8 @@
 import { httpClient } from "@/lib/http/axios.client"
-import { APIResponse } from "@/types/api.types"
+import { type APIResponse } from "@/types/api.types"
 import {
-  SetMaintenancePayload,
-  SiteSettingsType,
+  type SetMaintenancePayload,
+  type SiteSettingsType,
 } from "@/types/site-settings.types"
 
 export const siteSettingsService = {

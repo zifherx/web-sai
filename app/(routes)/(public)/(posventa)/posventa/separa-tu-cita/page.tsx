@@ -1,6 +1,6 @@
-import { SEPARA_CITA_PAGE_PROPS } from "@/types"
+import { SeparaCitaView } from "@/app/(routes)/(public)/(posventa)/posventa/separa-tu-cita/components/Separa-Cita-View"
+import { type SEPARA_CITA_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { SeparaCitaView } from "./components/Separa-Cita-View"
 
 export const metadata: Metadata = {
   title: "Separa tu Cita — Automotores Inka",

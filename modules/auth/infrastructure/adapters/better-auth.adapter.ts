@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  IAuthPort,
-  SignUpInput,
+  type IAuthPort,
+  type SignUpInput,
 } from "@/modules/auth/application/ports/i-auth.port"
 import {
   CredencialesInvalidasError,

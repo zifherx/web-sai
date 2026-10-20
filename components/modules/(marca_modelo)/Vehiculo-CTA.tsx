@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { VEHICULO_CTA_PROPS } from "@/types"
+import { type VEHICULO_CTA_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,8 +15,8 @@ export function VehiculoCTA({
   const marcaNombre = marca?.name ?? marcaSlug.toUpperCase()
   const cotizarParams = new URLSearchParams({
     marcaId: marca?.id ?? "",
-    marcaSlug: marcaSlug,
-    marcaNombre: marcaNombre,
+    marcaSlug,
+    marcaNombre,
     vehiculoId: vehiculo.id,
     vehiculoSlug: vehiculo.slug,
     vehiculoNombre: vehiculo.name,

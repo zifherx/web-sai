@@ -1,4 +1,4 @@
-import { VehiculoType } from "@/types"
+import { type VehiculoType } from "@/types"
 
 export type VEHICLE_HOME_CARD_PROPS = {
   vehiculo: VehiculoType

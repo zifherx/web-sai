@@ -8,7 +8,7 @@ import {
 import { bitacoraRateLimit } from "@/modules/bitacora/presentation/bitacora.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/bitacoras

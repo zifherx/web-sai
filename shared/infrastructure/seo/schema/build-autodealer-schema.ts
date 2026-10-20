@@ -1,4 +1,4 @@
-import { HorarioIndividual, SedeSeoSchema } from "@/types"
+import { type HorarioIndividual, type SedeSeoSchema } from "@/types"
 
 function parseHorario(horario: string): HorarioIndividual | null {
   const match = horario.match(/(\d{1,2}:\d{2})\s*a\s*(\d{1,2}:\d{2})/)

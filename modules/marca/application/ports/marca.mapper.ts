@@ -1,5 +1,5 @@
-import { MarcaResponseDTO } from "@/modules/marca/application/dtos/marca.dto"
-import { MarcaEntity } from "@/modules/marca/domain/entities/Marca"
+import { type MarcaResponseDTO } from "@/modules/marca/application/dtos/marca.dto"
+import { type MarcaEntity } from "@/modules/marca/domain/entities/Marca"
 
 export class MarcaMapper {
   static toDTO(entity: MarcaEntity): MarcaResponseDTO {

@@ -1,13 +1,13 @@
 import {
-  EmailResponseDTO,
-  SendReclamoEmailDTO,
+  type EmailResponseDTO,
+  type SendReclamoEmailDTO,
 } from "@/modules/email/application/dto/email.dto"
 import {
   EmailAreaNotConfiguredError,
   EmailSendError,
 } from "@/modules/email/domain/errors/EmailDomainError"
-import { IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
-import { ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
+import { type IEmailPort } from "@/modules/email/domain/repository/IEmailRepository"
+import { type ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
 
 /**
  * Caso de uso: Enviar email de reclamo con PDF adjunto.

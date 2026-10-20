@@ -17,8 +17,8 @@ export function useCreateUsuario() {
 
   return useMutation({
     mutationFn: usuariosService.create,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: usuarioKeys.all() })
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: usuarioKeys.all() })
       toastSuccess.usuario()
     },
     onError: (error) => {

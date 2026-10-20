@@ -2,7 +2,7 @@
 
 import { FooterNavSection } from "@/components/shared/Footer-NavSection"
 import { SocialButton } from "@/components/shared/Social-Button"
-import { CONTENT_FOOTER_PROPS } from "@/types"
+import { type CONTENT_FOOTER_PROPS } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
 

@@ -1,5 +1,5 @@
 import { httpClient } from "@/lib/http/axios.client"
-import { APIResponse, AuthUsuario, LoginPayload } from "@/types"
+import { type APIResponse, type AuthUsuario, type LoginPayload } from "@/types"
 
 export const authService = {
   login: async (payload: LoginPayload): Promise<AuthUsuario> => {

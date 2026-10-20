@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { PORTADA_ROW_ACTIONS_PROPS } from "@/types"
+import { type PORTADA_ROW_ACTIONS_PROPS } from "@/types"
 import { MoreHorizontal, Pencil, Power, PowerOff, Trash2 } from "lucide-react"
 
 export function PortadaRowActions({
