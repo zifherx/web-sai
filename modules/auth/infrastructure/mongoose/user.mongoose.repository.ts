@@ -1,8 +1,8 @@
 import {
-  IRol,
-  IUserRepository,
+  type IRol,
+  type IUserRepository,
 } from "@/modules/auth/application/ports/i-user-repository.port"
-import { Usuario } from "@/modules/auth/domain/entities/usuario.entity"
+import { type Usuario } from "@/modules/auth/domain/entities/usuario.entity"
 import { toUsuarioEntity } from "@/modules/auth/infrastructure/mongoose/user.mapper"
 import { UserModel } from "@/modules/auth/infrastructure/mongoose/user.mongoose.schema"
 

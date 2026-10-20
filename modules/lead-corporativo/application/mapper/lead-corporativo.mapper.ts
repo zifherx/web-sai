@@ -1,5 +1,5 @@
-import { LeadCorporativoEntity } from "@/modules/lead-corporativo/domain/entities/LeadCorporativo"
-import { LeadCorporativoResponseDTO } from "@/modules/lead-corporativo/application/dto/lead-corporativo.dto"
+import { type LeadCorporativoEntity } from "@/modules/lead-corporativo/domain/entities/LeadCorporativo"
+import { type LeadCorporativoResponseDTO } from "@/modules/lead-corporativo/application/dto/lead-corporativo.dto"
 
 export class LeadCorporativoMapper {
   static toDTO(e: LeadCorporativoEntity): LeadCorporativoResponseDTO {

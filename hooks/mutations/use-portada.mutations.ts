@@ -1,6 +1,6 @@
 import { portadaKeys } from "@/hooks/query-keys"
 import { portadaService } from "@/services/portada.service"
-import { PortadaType } from "@/types"
+import { type PortadaType } from "@/types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 
@@ -10,9 +10,9 @@ export function useCreatePortada() {
   return useMutation({
     mutationFn: (payload: Partial<PortadaType>) =>
       portadaService.create(payload),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
-      queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
       toast.success("Portada creada correctamente")
     },
     onError: (error) => {
@@ -34,10 +34,10 @@ export function useUpdatePortada() {
       id: string
       payload: Partial<PortadaType>
     }) => portadaService.update(id, payload),
-    onSuccess: (updated) => {
-      queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
-      queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
-      queryClient.invalidateQueries({
+    onSuccess: async (updated) => {
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
+      await queryClient.invalidateQueries({
         queryKey: portadaKeys.detail(updated.id),
       })
       toast.success("Portada actualizada correctamente")
@@ -56,10 +56,10 @@ export function useToggleActivePortada() {
   return useMutation({
     mutationFn: ({ id, isActive }: { id: string; isActive: boolean }) =>
       portadaService.update(id, { isActive }),
-    onSuccess: (updated) => {
-      queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
-      queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
-      queryClient.invalidateQueries({
+    onSuccess: async (updated) => {
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
+      await queryClient.invalidateQueries({
         queryKey: portadaKeys.detail(updated.id),
       })
       toast.success(
@@ -79,10 +79,10 @@ export function useDeletePortada() {
 
   return useMutation({
     mutationFn: (id: string) => portadaService.remove(id),
-    onSuccess: (_data, id) => {
-      queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
-      queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
-      queryClient.invalidateQueries({ queryKey: portadaKeys.detail(id) })
+    onSuccess: async (_data, id) => {
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.all() })
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.active() })
+      await queryClient.invalidateQueries({ queryKey: portadaKeys.detail(id) })
       toast.success("Portada eliminada permanentemente")
     },
     onError: (error) => {

@@ -1,5 +1,5 @@
-import { IUsuario } from "../dto/usuario.dto"
-import { IUserRepository } from "../ports/i-user-repository.port"
+import { type IUsuario } from "@/modules/auth/application/dto/usuario.dto"
+import { type IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
 
 export class ListUsuariosUseCase {
   constructor(private readonly userRepository: IUserRepository) {}

@@ -1,6 +1,6 @@
 import {
-  IBitacoraLogPort,
-  IBitacoraRepository,
+  type IBitacoraLogPort,
+  type IBitacoraRepository,
 } from "@/modules/bitacora/domain/repositories/IBitacoraRepository"
 
 /**

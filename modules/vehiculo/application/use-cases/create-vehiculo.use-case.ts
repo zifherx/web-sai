@@ -1,10 +1,10 @@
 import {
-  CreateVehiculoDTO,
-  VehiculoResponseDTO,
+  type CreateVehiculoDTO,
+  type VehiculoResponseDTO,
 } from "@/modules/vehiculo/application/dto/vehiculo.dto"
 import { VehiculoMapper } from "@/modules/vehiculo/application/ports/vehiculo.mapper"
 import { VehiculoAlreadyExistsError } from "@/modules/vehiculo/domain/errors/VehiculoDomainError"
-import { IVehiculoRepository } from "@/modules/vehiculo/domain/repositories/IVehiculoRepository"
+import { type IVehiculoRepository } from "@/modules/vehiculo/domain/repositories/IVehiculoRepository"
 
 export class CreateVehiculoUseCase {
   constructor(private readonly repository: IVehiculoRepository) {}

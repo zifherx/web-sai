@@ -1,11 +1,11 @@
 import {
-  IRichContentProcessor,
-  ProcessedRichContent,
+  type IRichContentProcessor,
+  type ProcessedRichContent,
 } from "@/shared/domain/ports/rich-content-processor.port"
 import {
   InvalidRichContentError,
-  RichContent,
-  RichContentProfile,
+  type RichContent,
+  type RichContentProfile,
 } from "@/shared/domain/rich-text/rich-content"
 import { MAX_INDENT } from "@/shared/infrastructure/rich-text/extensions/indent.extension"
 import {
@@ -16,13 +16,10 @@ import {
 import { getSchema } from "@tiptap/core"
 import type { Node as PMNode, Schema } from "@tiptap/pm/model"
 
-/** Límite de tamaño del JSON serializado (≈ 300 KB). */
 export const MAX_RICH_CONTENT_BYTES = 300_000
 
-/** https://, mailto:, tel:, ruta interna "/..." (no "//") o ancla "#...". */
 const ALLOWED_HREF = /^(https:\/\/|mailto:|tel:|\/(?!\/)|#)/i
 
-/** Los esquemas se construyen una vez por perfil (instancia serverless). */
 const schemaCache = new Map<RichContentProfile, Schema>()
 
 function schemaFor(profile: RichContentProfile): Schema {
@@ -43,17 +40,6 @@ function isDocLike(input: unknown): input is { type: "doc" } {
   )
 }
 
-/**
- * Adaptador Tiptap del puerto `IRichContentProcessor`.
- *
- * 1. Tamaño máximo.
- * 2. Esquema ProseMirror del perfil: rechaza nodos/marcas no permitidos
- *    y descarta atributos desconocidos (`nodeFromJSON` + `check`).
- * 3. Reglas adicionales que el esquema no expresa: protocolos de enlace,
- *    niveles de título, rango de sangría y tipo de lista.
- *
- * No requiere DOM ni instancia de editor: corre en el runtime Node de Vercel.
- */
 export class TiptapRichContentProcessor implements IRichContentProcessor {
   process(input: unknown, profile: RichContentProfile): ProcessedRichContent {
     if (!isDocLike(input)) {

@@ -1,4 +1,4 @@
-import { IFooter } from "@/types"
+import { type IFooter } from "@/types"
 
 export const FOOTER_CONSTANTS: IFooter = {
   brand: {

@@ -1,5 +1,5 @@
 import { getSedeBySlugHandler } from "@/modules/sede/presentation/sede.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 type RouteContext = { params: Promise<{ slug: string }> }
 

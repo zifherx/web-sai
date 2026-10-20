@@ -1,8 +1,8 @@
 import { httpClient } from "@/lib/http/axios.client"
 import {
-  APIResponse,
-  LeadCorporativoResponseType,
-  LeadCorporativoType,
+  type APIResponse,
+  type LeadCorporativoResponseType,
+  type LeadCorporativoType,
 } from "@/types"
 
 export const leadCorporativoService = {

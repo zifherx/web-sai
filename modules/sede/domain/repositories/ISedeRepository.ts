@@ -1,4 +1,4 @@
-import { ISchedule, SedeEntity } from "@/modules/sede/domain/entities/Sede"
+import { type ISchedule, type SedeEntity } from "@/modules/sede/domain/entities/Sede"
 
 export interface SedeFilters {
   ciudad?: string

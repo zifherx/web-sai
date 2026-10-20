@@ -1,8 +1,8 @@
 import {
-  ICorporativoValueLabel,
-  IFormCorporativo,
-  IHeroCorporativo,
-  IIntroCorporativo,
+  type ICorporativoValueLabel,
+  type IFormCorporativo,
+  type IHeroCorporativo,
+  type IIntroCorporativo,
 } from "@/types"
 import z from "zod/v3"
 

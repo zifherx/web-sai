@@ -1,11 +1,11 @@
 import { CitaEntity } from "@/modules/cita/domain/entities/Cita"
 import {
-  CitaFilters,
-  ICitaRepository,
-  ICreateCitaData,
+  type CitaFilters,
+  type ICitaRepository,
+  type ICreateCitaData,
 } from "@/modules/cita/domain/repository/ICitaRepository"
-import { CitaDocument } from "@/modules/cita/infrastructure/mongoose/MongooseCitaSchema"
-import { Model } from "mongoose"
+import { type CitaDocument } from "@/modules/cita/infrastructure/mongoose/MongooseCitaSchema"
+import { type Model } from "mongoose"
 
 const POPULATE_OPTIONS = [
   {

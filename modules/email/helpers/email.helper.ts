@@ -1,4 +1,4 @@
-import { RateLimitHeaders } from "@/lib/identity.helpers"
+import { type RateLimitHeaders } from "@/lib/identity.helpers"
 
 export function withRateLimitHeaders(
   response: Response,

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { SEDE_UBICANOS_CARD_PROPS } from "@/types"
+import { type SEDE_UBICANOS_CARD_PROPS } from "@/types"
 import { Car, Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

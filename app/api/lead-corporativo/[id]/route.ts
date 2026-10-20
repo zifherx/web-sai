@@ -1,5 +1,5 @@
 import { getLeadCorporativoByIdHandler } from "@/modules/lead-corporativo/presentation/lead-corporativo.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 type RouteContext = { params: Promise<{ id: string }> }
 

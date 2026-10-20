@@ -1,9 +1,9 @@
 import {
-  LoginInput,
-  LoginOutput,
+  type LoginInput,
+  type LoginOutput,
 } from "@/modules/auth/application/dto/login.dto"
-import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
-import { IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
+import { type IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
+import { type IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
 import { CredencialesInvalidasError } from "@/modules/auth/domain/errors/auth-errors"
 
 export class LoginUseCase {

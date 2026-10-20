@@ -1,5 +1,5 @@
 import { getCitaByIdHandler } from "@/modules/cita/presentation/cita.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 type RouteContext = { params: Promise<{ id: string }> }
 

@@ -1,11 +1,13 @@
-import { RateLimitHeaders } from "@/lib/identity.helpers"
+import { type RateLimitHeaders } from "@/lib/identity.helpers"
 import { NextResponse } from "next/server"
 
 export function withRateLimitHeaders(
-  response: NextResponse,
+  response: Response,
   rlHeaders: RateLimitHeaders
 ): NextResponse {
   const next = new NextResponse(response.body, response)
-  Object.entries(rlHeaders).forEach(([k, v]) => next.headers.set(k, v))
+  for (const [key, value] of Object.entries(rlHeaders)) {
+    next.headers.set(key, value)
+  }
   return next
 }

@@ -2,7 +2,7 @@ import {
   createReclamoHandler,
   getAllReclamosHandler,
 } from "@/modules/reclamo/presentation/reclamo.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET  /api/reclamo  → obtener reclamo por id (CMS)

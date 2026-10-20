@@ -1,9 +1,9 @@
 import { httpClient } from "@/lib/http/axios.client"
 import {
-  APIResponse,
-  CotizacionResponseType,
-  CotizacionType,
-  SendToNovalyParams,
+  type APIResponse,
+  type CotizacionResponseType,
+  type CotizacionType,
+  type SendToNovalyParams,
 } from "@/types"
 
 export const cotizacionService = {

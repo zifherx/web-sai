@@ -2,7 +2,11 @@ import { EMPRESA_RAZON_SOCIAL, EMPRESA_RUC } from "@/constants"
 import { arrayBufferToBase64 } from "@/lib/global.functions"
 import { makePDFCorreoReclamo } from "@/lib/makePdf"
 import { reclamoService } from "@/services"
-import { ICreateReclamoOption, ReclamoResponseType, ReclamoType } from "@/types"
+import {
+  type ICreateReclamoOption,
+  type ReclamoResponseType,
+  type ReclamoType,
+} from "@/types"
 import { useMutation } from "@tanstack/react-query"
 
 export function useCrearReclamo(options?: ICreateReclamoOption) {
@@ -64,6 +68,7 @@ export function useCrearReclamo(options?: ICreateReclamoOption) {
         })
 
         pdfBase64 = arrayBufferToBase64(pdfArrayBuffer)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (pdfErr: any) {
         console.error("[useCrearReclamo] Error generando PDF:", pdfErr.message)
       }

@@ -1,7 +1,7 @@
+import { carroceriaKeys } from "@/hooks/query-keys"
 import { carroceriaService } from "@/services/carroceria.service"
-import { ICarroceriaFilters } from "@/types/api.types"
+import { type ICarroceriaFilters } from "@/types/api.types"
 import { keepPreviousData, useQuery } from "@tanstack/react-query"
-import { carroceriaKeys } from "../query-keys"
 
 export function useCarrocerias(filters?: ICarroceriaFilters) {
   return useQuery({

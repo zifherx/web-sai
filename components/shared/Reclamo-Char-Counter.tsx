@@ -1,6 +1,6 @@
 "use client"
 
-import { RECLAMO_CHAR_COUNTER_PROPS } from "@/types"
+import { type RECLAMO_CHAR_COUNTER_PROPS } from "@/types"
 
 export function ReclamoCharCounter({
   current,

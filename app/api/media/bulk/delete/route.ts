@@ -1,5 +1,5 @@
 import { deleteManyMediaFilesHandler } from "@/modules/media/presentation/media.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * DELETE /api/media/bulk/delete

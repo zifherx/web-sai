@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
-import { IProximosPasosGracias } from "@/types"
+import { type IProximosPasosGracias } from "@/types"
 import {
   ArrowLeft,
   CheckCircle2,

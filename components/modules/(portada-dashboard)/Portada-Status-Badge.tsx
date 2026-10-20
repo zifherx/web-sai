@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import { PORTADA_STATUS_BADGE_PROPS } from "@/types"
+import { type PORTADA_STATUS_BADGE_PROPS } from "@/types"
 
 export function PortadaStatusBadge({ isActive }: PORTADA_STATUS_BADGE_PROPS) {
   return (

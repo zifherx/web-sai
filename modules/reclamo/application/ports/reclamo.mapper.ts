@@ -1,5 +1,5 @@
-import { ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
-import { ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
+import { type ReclamoResponseDTO } from "@/modules/reclamo/application/dtos/reclamo.dto"
+import { type ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
 
 export class ReclamoMapper {
   static toDTO(entity: ReclamoEntity): ReclamoResponseDTO {

@@ -1,7 +1,7 @@
-import { CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
-import { ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
-import { CarroceriaDocument } from "@/modules/carroceria/infrastructure/mongoose/MongooseCarroceriaSchema"
-import { Model } from "mongoose"
+import { type CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
+import { type ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
+import { type CarroceriaDocument } from "@/modules/carroceria/infrastructure/mongoose/MongooseCarroceriaSchema"
+import { type Model } from "mongoose"
 
 export class MongooseCarroceriaRepository implements ICarroceriaRepository {
   constructor(private readonly model: Model<CarroceriaDocument>) {}

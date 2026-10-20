@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
-import { GRACIAS_VIEW_RECLAMO_PROPS } from "@/types"
+import { type GRACIAS_VIEW_RECLAMO_PROPS } from "@/types"
 import { CheckCircle2, Clock, FileText, Home, Mail, Scale } from "lucide-react"
 import Link from "next/link"
 import { useEffect } from "react"

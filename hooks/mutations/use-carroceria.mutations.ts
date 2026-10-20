@@ -1,6 +1,6 @@
 import { carroceriaKeys } from "@/hooks/query-keys"
 import { carroceriaService } from "@/services/carroceria.service"
-import { CarroceriaType } from "@/types/api.types"
+import { type CarroceriaType } from "@/types/api.types"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export function useCreateCarroceria() {
@@ -12,9 +12,9 @@ export function useCreateCarroceria() {
         "id" | "createdAt" | "updatedAt" | "createdBy"
       >
     ) => carroceriaService.create(payload),
-    onSuccess: () => {
+    onSuccess: async () => {
       // Invalida raíz → todas las queries del módulo se refetch
-      qc.invalidateQueries({ queryKey: carroceriaKeys.all() })
+      await qc.invalidateQueries({ queryKey: carroceriaKeys.all() })
     },
   })
 }
@@ -24,9 +24,9 @@ export function useUpdateCarroceria() {
   return useMutation({
     mutationFn: ({ id, data }: { id: string; data: Partial<CarroceriaType> }) =>
       carroceriaService.update(id, data),
-    onSuccess: (updated) => {
+    onSuccess: async (updated) => {
       // Invalida lista + actualiza el detalle en caché sin refetch
-      qc.invalidateQueries({ queryKey: carroceriaKeys.list() })
+      await qc.invalidateQueries({ queryKey: carroceriaKeys.list() })
       qc.setQueryData(carroceriaKeys.detail(updated.id), updated)
     },
   })
@@ -36,8 +36,8 @@ export function useDeleteCarroceria() {
   const qc = useQueryClient()
   return useMutation({
     mutationFn: (id: string) => carroceriaService.remove(id),
-    onSuccess: (_, id) => {
-      qc.invalidateQueries({ queryKey: carroceriaKeys.all() })
+    onSuccess: async (_, id) => {
+      await qc.invalidateQueries({ queryKey: carroceriaKeys.all() })
       // Elimina el detalle del caché inmediatamente
       qc.removeQueries({ queryKey: carroceriaKeys.detail(id) })
     },

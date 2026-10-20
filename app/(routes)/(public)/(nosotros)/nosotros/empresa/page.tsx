@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { EmpresaView } from "./components/Empresa-View"
+import { EmpresaView } from "@/app/(routes)/(public)/(nosotros)/nosotros/empresa/components/Empresa-View"
 
 export const metadata: Metadata = {
   title: "Nosotros - Automotores Inka",

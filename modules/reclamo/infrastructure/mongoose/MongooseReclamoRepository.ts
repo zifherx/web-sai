@@ -1,11 +1,11 @@
 import { ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
 import {
-  ICreateReclamoData,
-  IReclamoRepository,
-  ReclamoFilters,
+  type ICreateReclamoData,
+  type IReclamoRepository,
+  type ReclamoFilters,
 } from "@/modules/reclamo/domain/repositories/IReclamoRepository"
-import { ReclamoDocument } from "@/modules/reclamo/infrastructure/mongoose/MongooseReclamoSchema"
-import { Model } from "mongoose"
+import { type ReclamoDocument } from "@/modules/reclamo/infrastructure/mongoose/MongooseReclamoSchema"
+import { type Model } from "mongoose"
 
 export class MongooseReclamoRepository implements IReclamoRepository {
   constructor(private readonly model: Model<ReclamoDocument>) {}

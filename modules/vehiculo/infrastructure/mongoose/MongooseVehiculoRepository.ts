@@ -1,12 +1,12 @@
 import { VehiculoEntity } from "@/modules/vehiculo/domain/entities/Vehiculo"
 import {
-  ICreateVehiculoData,
-  IUpdateVehiculoData,
-  IVehiculoRepository,
-  VehiculoFilters,
+  type ICreateVehiculoData,
+  type IUpdateVehiculoData,
+  type IVehiculoRepository,
+  type VehiculoFilters,
 } from "@/modules/vehiculo/domain/repositories/IVehiculoRepository"
-import { VehiculoDocument } from "@/modules/vehiculo/infrastructure/mongoose/MongooseVehiculoSchema"
-import { Model } from "mongoose"
+import { type VehiculoDocument } from "@/modules/vehiculo/infrastructure/mongoose/MongooseVehiculoSchema"
+import { type Model } from "mongoose"
 
 export class MongooseVehiculoRepository implements IVehiculoRepository {
   constructor(private readonly model: Model<VehiculoDocument>) {}

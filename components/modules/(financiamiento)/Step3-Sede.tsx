@@ -3,7 +3,7 @@
 import { Skeleton } from "@/components/ui/skeleton"
 import { useActiveSedes, useSedesByMarca } from "@/hooks"
 import { cn } from "@/lib/utils"
-import { ISedeParam, STEP3_SEDE_PROPS } from "@/types"
+import { type ISedeParam, type STEP3_SEDE_PROPS } from "@/types"
 import { ChevronLeft, Clock, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useMemo, useState } from "react"

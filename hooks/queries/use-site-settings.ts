@@ -1,6 +1,6 @@
 import { siteSettingsKeys } from "@/hooks/query-keys"
 import { siteSettingsService } from "@/services/site-settings.service"
-import { SiteSettingsType } from "@/types/site-settings.types"
+import { type SiteSettingsType } from "@/types/site-settings.types"
 import { useQuery } from "@tanstack/react-query"
 import { isAxiosError } from "axios"
 

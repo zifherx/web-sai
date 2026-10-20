@@ -1,6 +1,6 @@
-import { PermissionRequest } from "@/shared/infrastructure/auth/permissions"
-import { GENERAL_ICON } from "@/types/corporativo.types"
-import { ReactNode } from "react"
+import { type PermissionRequest } from "@/shared/infrastructure/auth/permissions"
+import { type GENERAL_ICON } from "@/types/corporativo.types"
+import { type ReactNode } from "react"
 
 export interface SiteSettingsType {
   maintenanceMode: boolean

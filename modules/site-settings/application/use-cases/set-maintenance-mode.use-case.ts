@@ -1,10 +1,10 @@
 import {
-  SetMaintenanceModeDto,
-  SiteSettingsResponseDTO,
+  type SetMaintenanceModeDto,
+  type SiteSettingsResponseDTO,
 } from "@/modules/site-settings/application/dto/site-settings.dto"
 import { SiteSettingsMapper } from "@/modules/site-settings/application/ports/site-settings.mapper"
-import { ISiteSettingsRepository } from "@/modules/site-settings/domain/repositories/site-settings.repository"
-import { ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
+import { type ISiteSettingsRepository } from "@/modules/site-settings/domain/repositories/site-settings.repository"
+import { type ContentAuthor } from "@/shared/domain/content-versioning/versioned-content"
 
 export class SetMaintenanceModeUseCase {
   constructor(private readonly repository: ISiteSettingsRepository) {}

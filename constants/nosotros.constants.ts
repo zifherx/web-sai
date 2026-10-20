@@ -1,4 +1,4 @@
-import { ICodigoConducta, IPilaresSAI, IValoresSection } from "@/types"
+import { type ICodigoConducta, type IPilaresSAI, type IValoresSection } from "@/types"
 import { Award, Handshake, Heart, ShieldCheck, Users } from "lucide-react"
 
 export const PILARES_SAI: IPilaresSAI[] = [

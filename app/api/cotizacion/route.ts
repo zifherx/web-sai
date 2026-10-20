@@ -2,7 +2,7 @@ import {
   createCotizacionHandler,
   getAllCotizacionesHandler,
 } from "@/modules/cotizacion/presentation/cotizacion.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET  /api/cotizacion  → lista todas (CMS)

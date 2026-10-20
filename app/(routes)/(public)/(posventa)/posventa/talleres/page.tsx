@@ -1,8 +1,8 @@
+import { TalleresView } from "@/app/(routes)/(public)/(posventa)/posventa/talleres/components/Talleres-View"
 import { JsonLd } from "@/components/shared/Json-Ld"
 import { sedeServerService } from "@/services/server/sede.server"
 import { buildAutoRepairListSchema } from "@/shared/infrastructure/seo/schema/build-autorepair-schema"
 import type { Metadata } from "next"
-import { TalleresView } from "./components/Talleres-View"
 
 export const metadata: Metadata = {
   title: "Nuestros Talleres — Automotores Inka",

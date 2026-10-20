@@ -1,8 +1,8 @@
+import { UbicanosView } from "@/app/(routes)/(public)/(nosotros)/nosotros/ubicanos/components/Ubicanos-View"
 import { JsonLd } from "@/components/shared/Json-Ld"
 import { sedeServerService } from "@/services/server/sede.server"
 import { buildAutoDealerListSchema } from "@/shared/infrastructure/seo/schema/build-autodealer-schema"
 import type { Metadata } from "next"
-import { UbicanosView } from "./components/Ubicanos-View"
 
 export const metadata: Metadata = {
   title: "Red de Atención — Automotores Inka",

@@ -1,6 +1,6 @@
 import {
-  NovalyLeadResult,
-  NovalyPayload,
+  type NovalyLeadResult,
+  type NovalyPayload,
 } from "@/modules/novaly/domain/types/NovalyTypes"
 
 /**

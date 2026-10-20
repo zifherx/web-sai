@@ -6,7 +6,7 @@ import { VehiculoGaleria } from "@/components/modules/(marca_modelo)/Vehiculo-Ga
 import { VehiculoHero } from "@/components/modules/(marca_modelo)/Vehiculo-Hero"
 import { MarcaModeloSkeleton } from "@/components/shared/Marca-Modelo-Skeleton"
 import { useMarcaBySlug, useVehiculoBySlug } from "@/hooks"
-import { IColor, MARCA_MODELO_VIEW_PROPS } from "@/types"
+import { type IColor, type MARCA_MODELO_VIEW_PROPS } from "@/types"
 import { notFound } from "next/navigation"
 import { useState } from "react"
 

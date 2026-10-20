@@ -1,13 +1,12 @@
 import { CONTENT_ENTITY_TYPES } from "@/shared/domain/content-versioning/content-revision"
 import {
-  ContentAuthorDoc,
+  type ContentAuthorDoc,
   contentAuthorSubSchema,
-  SeoMetaDoc,
+  type SeoMetaDoc,
   seoMetaSubSchema,
 } from "@/shared/infrastructure/content-versioning/mongoose/versioned-content.subschema"
-import { model, models, Schema, Types, type Model } from "mongoose"
+import { model, models, Schema, type Types, type Model } from "mongoose"
 
-/** Forma persistida (Mongoose 9: interfaz plana, sin extender `Document`). */
 export interface ContentRevisionFields {
   entityType: (typeof CONTENT_ENTITY_TYPES)[number]
   entityId: Types.ObjectId
@@ -53,7 +52,6 @@ const contentRevisionSchema = new Schema<ContentRevisionFields>(
     versionKey: false,
     minimize: false,
     collection: "content_revisions",
-    // Inmutable: solo `createdAt`.
     timestamps: { createdAt: true, updatedAt: false },
   }
 )

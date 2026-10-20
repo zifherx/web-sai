@@ -20,7 +20,7 @@ import {
   NOTAS_LEGALES_RECLAMOS,
 } from "@/constants"
 import { cn } from "@/lib/utils"
-import { RECLAMO_DETALLE_PROPS } from "@/types"
+import { type RECLAMO_DETALLE_PROPS } from "@/types"
 import { CheckCircle, FileText, Loader2, MessageCircle } from "lucide-react"
 import Link from "next/link"
 import { Controller } from "react-hook-form"

@@ -1,5 +1,5 @@
-import { FooterSection } from "@/types"
-import { FooterNavLink } from "./Footer-NavLink"
+import { FooterNavLink } from "@/components/shared/Footer-NavLink"
+import { type FooterSection } from "@/types"
 
 export function FooterNavSection({ heading, links }: FooterSection) {
   return (

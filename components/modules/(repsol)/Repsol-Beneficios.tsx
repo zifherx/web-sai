@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils"
 import { BadgeCheck, MapPin } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const REPSOL_BENEFICIOS = {
-  imageSrc: "/images/repsol/gas-station.jpg",
+  imageSrc: "/images/repsol/person-station-2.png",
   imageAlt: "Pistola de combustible en grifo Repsol",
   descuentos: [
     { tipo: "Premier y Regular", monto: "S/ 2.50" },
@@ -11,10 +12,22 @@ const REPSOL_BENEFICIOS = {
     { tipo: "GLP", monto: "S/ 0.30" },
   ],
   cobertura: [
-    { ciudad: "Lima" },
-    { ciudad: "Chimbote" },
-    { ciudad: "Trujillo" },
-    { ciudad: "Chiclayo" },
+    {
+      ciudad: "Lima",
+      href: "https://www.google.com/maps/d/viewer?hl=es&mid=1spw8dDqp1UFmOcpRywoKlfyirOf8D27z&ll=-12.026733806103568%2C-76.98777915&z=11",
+    },
+    {
+      ciudad: "Chimbote",
+      href: "https://www.google.com/maps/d/viewer?hl=es&mid=1spw8dDqp1UFmOcpRywoKlfyirOf8D27z&ll=-9.123185002624318%2C-78.53208106402542&z=15",
+    },
+    {
+      ciudad: "Trujillo",
+      href: "https://www.google.com/maps/d/viewer?hl=es&mid=1spw8dDqp1UFmOcpRywoKlfyirOf8D27z&ll=-8.109279783098136%2C-79.0166398907854&z=13",
+    },
+    {
+      ciudad: "Chiclayo",
+      href: "https://www.google.com/maps/d/viewer?hl=es&mid=1spw8dDqp1UFmOcpRywoKlfyirOf8D27z&ll=-6.781865019237438%2C-79.8490405&z=13",
+    },
   ],
   beneficiosAdicionales: {
     label: "Beneficios Adicionales",
@@ -24,6 +37,7 @@ const REPSOL_BENEFICIOS = {
 
 export function RepsolBeneficios() {
   const BeneficioIcon = REPSOL_BENEFICIOS.beneficiosAdicionales.icon
+
   return (
     <section className="w-full bg-sky-custom-50 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -75,17 +89,18 @@ export function RepsolBeneficios() {
               </h3>
               <div className="flex flex-wrap gap-4">
                 {REPSOL_BENEFICIOS.cobertura.map((c) => (
-                  <span
-                    key={c.ciudad}
-                    className={cn(
-                      "flex items-center gap-1.5 rounded-lg",
-                      "bg-sky-custom-300 px-4 py-2",
-                      "font-headOffice-medium text-base text-white"
-                    )}
-                  >
-                    <MapPin size={18} aria-hidden="true" />
-                    {c.ciudad}
-                  </span>
+                  <Link key={c.ciudad} href={c.href} target="_blank">
+                    <span
+                      className={cn(
+                        "flex items-center gap-1.5 rounded-lg",
+                        "bg-sky-custom-300 px-4 py-2",
+                        "font-headOffice-medium text-base text-white"
+                      )}
+                    >
+                      <MapPin size={18} aria-hidden="true" />
+                      {c.ciudad}
+                    </span>
+                  </Link>
                 ))}
               </div>
             </div>

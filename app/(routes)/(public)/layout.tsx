@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { MaintenanceView } from "@/components/modules/(maintenance)/Maintenance-View"
 import { FOOTER_CONSTANTS } from "@/constants"
 import { siteSettingsServerService } from "@/services/server/site-settings.server"
-import { ReactNode } from "react"
+import { type ReactNode } from "react"
 
 export default async function PublicLayout({
   children,

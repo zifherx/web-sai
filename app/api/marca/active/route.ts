@@ -1,5 +1,5 @@
 import { getActiveMarcasHandler } from "@/modules/marca/presentation/marca.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/marca/active → solo marcas activas (público + CMS)

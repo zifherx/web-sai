@@ -1,6 +1,6 @@
-import { FINANCIAMIENTO_GRACIAS_PAGE_PROPS } from "@/types"
+import { FinanciamientoGraciasView } from "@/app/(routes)/(public)/(comercial)/comercial/financiamiento/gracias/Financiamiento-Gracias-View"
+import { type FINANCIAMIENTO_GRACIAS_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { FinanciamientoGraciasView } from "./Financiamiento-Gracias-View"
 
 export const metadata: Metadata = {
   title: "Cotización Registrada — Automotores Inka",

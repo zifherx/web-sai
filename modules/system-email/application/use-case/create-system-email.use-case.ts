@@ -1,9 +1,9 @@
 import {
-  CreateSystemEmailDTO,
-  SystemEmailResponseDTO,
+  type CreateSystemEmailDTO,
+  type SystemEmailResponseDTO,
 } from "@/modules/system-email/application/dto/system-email.dto"
 import { SystemEmailMapper } from "@/modules/system-email/application/ports/system-email.mapper"
-import { ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
+import { type ISystemEmailRepository } from "@/modules/system-email/domain/repositories/ISystemEmailRepository"
 
 export class CreateSystemEmailUseCase {
   constructor(private readonly repository: ISystemEmailRepository) {}

@@ -1,11 +1,11 @@
 import {
-  VehiculoFiltersDTO,
-  VehiculoResponseDTO,
+  type VehiculoFiltersDTO,
+  type VehiculoResponseDTO,
 } from "@/modules/vehiculo/application/dto/vehiculo.dto"
 import { VehiculoMapper } from "@/modules/vehiculo/application/ports/vehiculo.mapper"
 import {
-  IVehiculoRepository,
-  VehiculoFilters,
+  type IVehiculoRepository,
+  type VehiculoFilters,
 } from "@/modules/vehiculo/domain/repositories/IVehiculoRepository"
 
 type ActiveFiltersDTO = Omit<VehiculoFiltersDTO, "isActive">

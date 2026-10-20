@@ -1,6 +1,6 @@
-import { FINANCIA_TU_AUTO_PAGE_PROPS } from "@/types"
+import { FinanciamientoView } from "@/app/(routes)/(public)/(comercial)/comercial/financiamiento/components/Financia-View"
+import { type FINANCIA_TU_AUTO_PAGE_PROPS } from "@/types"
 import type { Metadata } from "next"
-import { FinanciamientoView } from "./components/Financia-View"
 
 export const metadata: Metadata = {
   title: "Financia tu Auto — Automotores Inka",

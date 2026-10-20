@@ -1,4 +1,4 @@
-import { ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
+import { type ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
 
 export interface ReclamoFilters {
   tipoSolicitud?: string // "reclamo" | "queja"

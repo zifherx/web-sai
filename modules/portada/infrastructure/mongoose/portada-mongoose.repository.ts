@@ -1,7 +1,7 @@
 import { PortadaEntity } from "@/modules/portada/domain/entities/Portada"
 import type { IPortadaRepository } from "@/modules/portada/domain/repositories/IPortadaRepository"
-import { Model, Types } from "mongoose"
-import { PortadaDocument } from "./portada-mongoose.schema"
+import { type PortadaDocument } from "@/modules/portada/infrastructure/mongoose/portada-mongoose.schema"
+import { type Model, type Types } from "mongoose"
 
 type PopulatedCreatedBy =
   | {

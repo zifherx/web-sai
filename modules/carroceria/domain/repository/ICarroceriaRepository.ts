@@ -1,4 +1,4 @@
-import { CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
+import { type CarroceriaEntity } from "@/modules/carroceria/domain/entities/Carroceria"
 
 export interface ICarroceriaRepository {
   findAll(filter?: Record<string, unknown>): Promise<CarroceriaEntity[]>

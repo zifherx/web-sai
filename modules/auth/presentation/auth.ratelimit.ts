@@ -1,8 +1,8 @@
-import { RateLimitHeaders } from "@/lib/identity.helpers"
+import { type RateLimitHeaders } from "@/lib/identity.helpers"
 import { applyRateLimit } from "@/lib/rate-limit.guard"
-import { RateLimitTier } from "@/lib/rate-limit.middleware"
+import { type RateLimitTier } from "@/lib/rate-limit.middleware"
 import { resolveUserId } from "@/shared/infrastructure/auth/resolve-user-id"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 async function resolverAuthTier(req: NextRequest): Promise<RateLimitTier> {
   const path = req.nextUrl.pathname

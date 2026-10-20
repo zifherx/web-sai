@@ -1,13 +1,11 @@
-import { RateLimitTier, TIER_CONFIG } from "@/lib/rate-limit.middleware"
-import { NextRequest } from "next/server"
+import { type RateLimitTier, TIER_CONFIG } from "@/lib/rate-limit.middleware"
+import { type NextRequest } from "next/server"
 
-/**
- * Extrae el userId de Clerk del header inyectado por el middleware.
- * Retorna null si el request no está autenticado.
+/*
+ * ELIMINADO: `resolveUserId(req)` leía el header `x-clerk-user-id` (Clerk).
+ * Con better-auth ese header ya no existe → siempre devolvía `null`.
+ * Usar `resolveUserId` de `@/shared/infrastructure/auth/resolve-user-id`.
  */
-export function resolveUserId(req: NextRequest): string | null {
-  return req.headers.get("x-clerk-user-id")
-}
 
 /**
  * Extrae la IP del request, considerando proxies (Vercel, Cloudflare).
@@ -48,7 +46,7 @@ export function tooManyRequests(
   reset: number
 ): Response {
   const headers = buildHeaders(tier, remaining, reset)
-  const retryAfter = Math.ceil((reset - Date.now()) / 1000)
+  const retryAfter = Math.max(0, Math.ceil((reset - Date.now()) / 1000))
 
   return Response.json(
     {
@@ -58,11 +56,7 @@ export function tooManyRequests(
     },
     {
       status: 429,
-      headers: {
-        ...headers,
-        "Retry-After": String(retryAfter),
-        "Content-Type": "application/json",
-      },
+      headers: { ...headers, "Retry-After": String(retryAfter) },
     }
   )
 }

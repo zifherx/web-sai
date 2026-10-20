@@ -3,7 +3,7 @@ import {
   getVehiculoByIdHandler,
   updateVehiculoHandler,
 } from "@/modules/vehiculo/presentation/vehiculo.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 type RouteContext = { params: Promise<{ id: string }> }
 

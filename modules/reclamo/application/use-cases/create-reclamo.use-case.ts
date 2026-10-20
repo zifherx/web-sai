@@ -1,7 +1,10 @@
-import { ReclamoEntity } from "../../domain/entities/Reclamo"
-import { IReclamoRepository } from "../../domain/repositories/IReclamoRepository"
-import { CreateReclamoDTO, ReclamoResponseDTO } from "../dtos/reclamo.dto"
-import { ReclamoMapper } from "../ports/reclamo.mapper"
+import {
+  type CreateReclamoDTO,
+  type ReclamoResponseDTO,
+} from "@/modules/reclamo/application/dtos/reclamo.dto"
+import { ReclamoMapper } from "@/modules/reclamo/application/ports/reclamo.mapper"
+import { ReclamoEntity } from "@/modules/reclamo/domain/entities/Reclamo"
+import { type IReclamoRepository } from "@/modules/reclamo/domain/repositories/IReclamoRepository"
 
 /**
  * Caso de uso: Crear un reclamo en el Libro de Reclamaciones.

@@ -1,10 +1,10 @@
 import {
-  CotizacionResponseDTO,
-  CreateCotizacionDTO,
+  type CotizacionResponseDTO,
+  type CreateCotizacionDTO,
 } from "@/modules/cotizacion/application/dto/cotizacion.dto"
 import { CotizacionMapper } from "@/modules/cotizacion/application/ports/cotizacion.mapper"
-import { ICotizacionRepository } from "@/modules/cotizacion/domain/repository/ICotizacionRepository"
-import { IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
+import { type ICotizacionRepository } from "@/modules/cotizacion/domain/repository/ICotizacionRepository"
+import { type IClienteUpsertPort } from "@/shared/domain/IClienteUpsertRepository"
 
 /**
  * Caso de uso: Crear una cotización de vehículo.

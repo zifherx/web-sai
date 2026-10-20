@@ -3,7 +3,7 @@
 import { precioFormateadoUSD } from "@/lib/global.functions"
 import { cn } from "@/lib/utils"
 import { analytics } from "@/shared/infrastructure/analytics/analytics.factory"
-import { VEHICLE_HOME_CARD_PROPS } from "@/types"
+import { type VEHICLE_HOME_CARD_PROPS } from "@/types"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"

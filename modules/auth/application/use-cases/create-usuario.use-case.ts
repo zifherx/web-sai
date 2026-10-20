@@ -1,9 +1,9 @@
 import {
-  CreateUsuarioInput,
-  CreateUsuarioOutput,
+  type CreateUsuarioInput,
+  type CreateUsuarioOutput,
 } from "@/modules/auth/application/dto/create-usuario.dto"
-import { IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
-import { IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
+import { type IAuthPort } from "@/modules/auth/application/ports/i-auth.port"
+import { type IUserRepository } from "@/modules/auth/application/ports/i-user-repository.port"
 import {
   UsuarioNoEncontradoError,
   UsuarioYaExisteError,

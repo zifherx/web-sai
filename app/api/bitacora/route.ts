@@ -1,5 +1,5 @@
 import { getAllBitacorasHandler } from "@/modules/bitacora/presentation/bitacora.controller"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/bitacoras

@@ -2,7 +2,7 @@ import { DeleteCarroceriaUseCase } from "@/modules/carroceria/application/use-ca
 import { UpdateCarroceriaUseCase } from "@/modules/carroceria/application/use-cases/update-carroceria.use-case"
 
 import { CarroceriaNotFoundError } from "@/modules/carroceria/domain/errors/CarroceriaDomainError"
-import { ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
+import { type ICarroceriaRepository } from "@/modules/carroceria/domain/repository/ICarroceriaRepository"
 import { makeCarroceria } from "@/test/helpers/entity.factory"
 import { beforeEach, describe, expect, it, vi } from "vitest"
 

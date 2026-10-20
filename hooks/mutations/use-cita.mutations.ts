@@ -1,5 +1,5 @@
 import { citaService } from "@/services"
-import { CitaResponseType, CitaType, ICreateCitaOption } from "@/types"
+import { type CitaResponseType, type CitaType, type ICreateCitaOption } from "@/types"
 import { useMutation } from "@tanstack/react-query"
 
 export function useCrearCita(options?: ICreateCitaOption) {

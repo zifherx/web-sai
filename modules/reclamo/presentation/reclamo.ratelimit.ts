@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server"
-import { RateLimitTier } from "@/lib/rate-limit.middleware"
+import { type NextRequest } from "next/server"
+import { type RateLimitTier } from "@/lib/rate-limit.middleware"
 import { applyRateLimit } from "@/lib/rate-limit.guard"
 
 /**

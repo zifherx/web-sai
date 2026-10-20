@@ -1,4 +1,4 @@
-import { ClienteEntity } from "@/modules/cliente/domain/entities/Cliente"
+import { type ClienteEntity } from "@/modules/cliente/domain/entities/Cliente"
 
 type ClienteData = Omit<ClienteEntity, "id" | "createdAt" | "updatedAt">
 type ClienteUpdateData = Partial<

@@ -7,13 +7,13 @@ import {
 import { leadCorporativoFactory } from "@/modules/lead-corporativo/factories/lead-corporativo.factory"
 import {
   resolveUserId,
-  RouteContext,
+  type RouteContext,
   withRateLimitHeaders,
 } from "@/modules/lead-corporativo/helpers/lead-corporativo.helpers"
 import { leadCorporativoRateLimit } from "@/modules/lead-corporativo/presentation/lead-corporativo.ratelimit"
 import { connectDB } from "@/shared/infrastructure/connection"
 import { withHandler } from "@/shared/presentation/with-handler"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 
 /**
  * GET /api/leads-corporativos

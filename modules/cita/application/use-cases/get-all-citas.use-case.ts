@@ -1,11 +1,11 @@
 import {
-  CitaFiltersDTO,
-  CitaResponseDTO,
+  type CitaFiltersDTO,
+  type CitaResponseDTO,
 } from "@/modules/cita/application/dto/cita.dto"
 import { CitaMapper } from "@/modules/cita/application/ports/cita.mapper"
 import {
-  CitaFilters,
-  ICitaRepository,
+  type CitaFilters,
+  type ICitaRepository,
 } from "@/modules/cita/domain/repository/ICitaRepository"
 
 export class GetAllCitasUseCase {

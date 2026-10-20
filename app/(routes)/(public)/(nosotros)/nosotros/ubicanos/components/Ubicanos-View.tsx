@@ -6,7 +6,7 @@ import { UbicanosSidebar } from "@/components/modules/(ubicanos)/Ubicanos-Sideba
 import { Skeleton } from "@/components/ui/skeleton"
 import { DEFAULT_UBICATION_CENTER } from "@/constants"
 import { useActiveSedes } from "@/hooks"
-import { SedeType, UBICANOS_VIEW_PROPS } from "@/types"
+import { type SedeType, type UBICANOS_VIEW_PROPS } from "@/types"
 import type { Marker } from "leaflet"
 import dynamic from "next/dynamic"
 import { useCallback, useMemo, useRef, useState } from "react"
