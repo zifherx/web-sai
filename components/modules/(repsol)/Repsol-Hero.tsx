@@ -16,12 +16,12 @@ export function RepsolHero({ hero }: REPSOL_HERO_PROPS) {
 
       <div className="absolute inset-0 bg-white/10" aria-hidden="true" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-        <div className="mx-auto -mt-30 text-center sm:-mt-52">
-          <p className="font-headOffice-medium text-lg text-white md:text-2xl">
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="mt-65 w-full bg-black/60 px-10 py-5 text-center sm:mt-120">
+          <p className="font-headOffice-medium text-xl text-white md:text-3xl">
             {eyebrow}
           </p>
-          <h1 className="mt-2 font-headOffice-bold text-2xl leading-tight text-white md:text-6xl">
+          <h1 className="mt-2 font-headOffice-bold text-3xl leading-tight text-white md:text-6xl">
             {heading}
           </h1>
         </div>

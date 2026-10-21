@@ -26,7 +26,7 @@ export const CARRUSEL_CORPORATIVO: ICarouselCorporativo = {
         "Ahorra más en cada carga de combustible con nuestros descuentos exclusivos, además de acceder a beneficios adicionales pensados para ti, que hacen cada recarga más conveniente y rentable.",
       ctaLabel: "Únete",
       ctaHref: "/comercial/beneficios-repsol",
-      imageSrc: "/images/banner-repsol2.png",
+      imageSrc: "/images/repsol/beneficio-repsol-4.jpeg",
       imageAlt:
         "Grifo Repsol - beneficios exclusivos para clientes Automotores Inka",
     },
